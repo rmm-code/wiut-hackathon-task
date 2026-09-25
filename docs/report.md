@@ -51,3 +51,13 @@ The first C3902 run decoded successfully but failed camera recognition, disablin
 ## Final source sample — 25 September 2026
 
 C3896 was found in Downloads, verified, moved into `samples/`, and fully processed on Apple M5 / MPS. All 10,200 frames decoded; the 340.34-second clip produced 56 candidate events, 10,200 risk points and 1,050 tracked identities in 225.51 seconds. Camera matching passed with 703 inliers. Both annotated and clean H.264 exports contain 10,200 frames and the full source duration. The combined four-video predictions contain 151 candidate events and pass official format validation with zero errors or warnings. These are unreviewed model candidates; completing all samples does not establish accuracy or satisfy the remaining public-release requirements.
+
+## Expanded-rule revision
+
+The current sample outputs supersede the earlier six-category candidate lists. C3896 has 114 candidates (255.23 s web runtime), C3897 99 (208.91 s), C3902 98 (218.22 s), and C3905 42 (93.30 s). All full-length frame and risk counts remain intact. The revised combined file contains 353 candidates and passes the unchanged format validator.
+
+Twelve categories are active; illegal turn and illegal U-turn remain conditional on missing prohibition facts. This increase in count is not a demonstrated accuracy improvement. The new near-miss/direction/congestion/signal/finite-line paths have controlled positive and negative tests, and the visible lamp thresholds have actual-frame regression crops.
+
+Sample results are now served from the permanent organizer archive rather than expiring upload jobs. The report page includes source images showing a former alignment failure, a dim signal and an unconfirmed collision candidate. Detailed team contributions and external profiles await confirmation; no roles or links were invented.
+
+The unchanged official C3905 harness was rerun after the expanded-rule revision: 132.3 seconds combined against 382.9 allowed. Its 42 events and 3,825 risk points exactly equal the independent web run. This is a Mac measurement; target NVIDIA and all-four-video repeated harness checks remain outstanding. Current checks: 45 Python tests and 6 frontend tests pass.

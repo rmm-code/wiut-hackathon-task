@@ -70,3 +70,12 @@ def test_green_crossing_is_not_a_red_light_violation():
     rules = SignalRules(Scene())
     for t, y in [(0, 0.4), (0.2, 0.55), (0.4, 0.8)]:
         assert rules.step([track(y, t)], t, frame((0, 255, 0))) == []
+
+
+def test_real_camera_lamps_use_measured_region_thresholds():
+    import cv2
+    from vision.rules.signals import signal_color
+
+    for color in ["red", "green"]:
+        image = cv2.imread(f"tests/fixtures/signal-{color}.png")
+        assert signal_color(image, min_saturation=100, min_value=50) == color

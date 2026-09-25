@@ -13,3 +13,5 @@ design/qa
 !.env.example
 weights/candidates
 research/model-checks
+
+release

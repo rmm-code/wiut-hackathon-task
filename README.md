@@ -87,7 +87,7 @@ This creates `annotated.mp4`, clean `source.mp4`, three traffic-map JPEGs, `anal
 
 Default provisional rules: pedestrian on road, stopped vehicle, failure to yield, and limited animal-on-road obstacle detection. The camera is matched against the supplied reference before applying those rules. Unknown camera views still get object detection and tracking, but scene-specific events/risk are disabled.
 
-Wrong-way, congestion, signal violations, illegal turns, and solid-line crossings require verified camera facts. Accident and fire/smoke specialist checkpoints are enabled with temporal confirmation but unvalidated accuracy. Near-miss heuristics remain disabled; generic debris is unsupported. The website reports these limits for every analysis. Do not enable unsupported classes merely to advertise full coverage.
+Current camera coverage includes near-miss, wrong-way, congestion, red-light, stop-line and one finite solid-line rule in addition to the original six categories. Verified here means the visible camera feature was inspected; rule accuracy remains provisional. Illegal turns and U-turns still require authoritative prohibition facts. Accident and fire/smoke specialist checkpoints are enabled with temporal confirmation but unvalidated accuracy. Near-miss candidates require approach, evasive action and separation; generic debris remains limited to supported object classes. The website reports these limits for every analysis. Do not enable unsupported classes merely to advertise full coverage.
 
 There are no independent dev labels yet, so precision, recall, temporal F1, and anticipation accuracy are **not established**. A long predicted interval may be a false positive or a union of concurrent same-class events; review footage before treating it as correct. Mac runtime is not proof of runtime on the organizers' Linux/NVIDIA machine.
 
@@ -142,3 +142,34 @@ Python `random`, NumPy and Torch use seed 42; OpenCV alignment resets its RNG to
 ## Public website
 
 Pushing this repository does not deploy the application. A public installation needs the frontend plus the Python API/worker, ffmpeg, local model weights, and writable storage. Serve the frontend and `/api` under the same HTTPS origin through a reverse proxy, configure `CROSSING_ORIGINS`, and provision persistent sample artifacts. GitHub Pages or another static-only host cannot run the Python inference service. The local two-minute / 250 MB upload limit also applies to the demo unless deliberately changed.
+
+## Models, datasets and licences
+
+No training or fine-tuning was performed by this team. The following datasets were used by the upstream pretrained models; they are not redistributed here. The learned components detect appearance. ByteTrack association, signal reading, lane/turn geometry, temporal rules, merging, and closest-approach risk are rule-based.
+
+| Component and author | Upstream data | Dataset terms | Checkpoint terms |
+| --- | --- | --- | --- |
+| YOLO11s — Ultralytics | COCO 2017 | [COCO Consortium](https://cocodataset.org/#termsofuse): annotations CC BY 4.0; images retain individual Flickr rights/terms | Ultralytics AGPL-3.0 open-source terms |
+| Fire/smoke YOLO26n — seawsurf | [FASDD CV](https://huggingface.co/datasets/seawsurf/fire_smoke_dataset_fasdd_cv), as identified in the source model card | Publisher declares CC BY 4.0 | Publisher declares CC BY 4.0; Ultralytics base/runtime terms also apply |
+| Accident YOLO11x — Uppada Enos | [Traffic Accident Detection, hilmantm](https://universe.roboflow.com/hilmantm/traffic-accident-detection), as identified in the source model card | Publisher declares CC BY 4.0 | Publisher declares MIT; Ultralytics base/runtime terms also apply |
+| WIUT organizer footage | C3896, C3897, C3902, C3905 | Provided for this competition; no independent open-data licence was supplied | Used for camera geometry, sample inference and regression fixtures, not training |
+
+Source model cards: [fire/smoke](https://huggingface.co/seawsurf/fire_smoke_detection_box), [accident](https://huggingface.co/Enos-123/traffic-accident-detection-yolo11x). Attribution and source declarations were checked on 25 September 2026. These declarations are not a claim to have audited every upstream image's rights. All model revisions and hashes are pinned in `weights/manifest.json`. No additional target-camera footage or hosted inference API is used.
+
+## Team and confirmed contributions
+
+| Member | Confirmed role/contribution | Supplied profiles |
+| --- | --- | --- |
+| Mardonjon Rasulov | Captain; detailed technical contributions awaiting confirmation | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmmcode) |
+| Saidxon Xaydarov | Team member; contribution awaiting confirmation | [Portfolio](https://xaydarov.uz) |
+| Miraziz Mirvaliyev | Team member; contribution and profile URLs awaiting confirmation | Not yet provided |
+
+Missing LinkedIn/GitHub URLs and individual implementation claims are deliberately not invented. `config/team.json` is the website's editable source of truth for confirmed details.
+
+## Permanent sample gallery
+
+After generating each sample under `output/<sample>/`, run `python -m scripts.archive`. This copies only organizer-sample outputs into `artifacts/`, including complete annotated video, analysis, maps and a checksum record. These artifacts never enter the private job cleanup path. Mount/preserve this directory on a public server; private visitor uploads still expire after 24 hours.
+
+Anonymous routes serve `/api/samples/<id>/results`, `/video`, `/eda/<kind>` and `/api/downloads/predictions.json`. They never expose arbitrary upload jobs. `GET /api/downloads/weights.json` provides the hash manifest; checkpoint links point directly to pinned public upstream downloads. Public internet access still requires deploying the backend. Repository visibility and hosting are separate from these anonymous routes.
+
+Create release archives with `python -m scripts.package` after archiving all samples. It verifies the stored files before producing `release/weights.tar`, `release/samples.tar` and `release/checksums.json`. Extract these trusted archives into the repository root on the deployment machine; keep `artifacts/` on durable storage. Publishing an archive requires a public hosting/release destination; generating it does not change repository visibility. See [class evidence](docs/classes.md) for the two remaining camera-fact prerequisites.

@@ -63,6 +63,15 @@ class TurnRules:
             for line in self.scene.config.get("solid_lines", []):
                 if not line.get("verified"):
                     continue
+                a, b = line["points"]
+                delta = (b[0] - a[0], b[1] - a[1])
+                norm = delta[0] ** 2 + delta[1] ** 2
+                fraction = (
+                    (point[0] - a[0]) * delta[0] + (point[1] - a[1]) * delta[1]
+                ) / max(norm, 1e-9)
+                if not -0.05 <= fraction <= 1.05:
+                    self.lines.pop((obs.id, line["id"]), None)
+                    continue
                 key = (obs.id, line["id"])
                 if key in self.done:
                     continue

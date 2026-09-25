@@ -23,7 +23,7 @@ def sample_id(store, root, job):
     return None
 
 
-def register_samples(app, store, root, owner):
+def register_samples(app, store, root, owner, gallery=None):
     lock = asyncio.Lock()
 
     def existing(owner_id, name, source, force=False):
@@ -59,13 +59,15 @@ def register_samples(app, store, root, owner):
             available = (
                 source.is_file() and (root / "samples" / (name + ".ready")).is_file()
             )
+            archived = bool(gallery and gallery.available(identity))
             job = existing(owner(request), name, source) if available else None
             result.append(
                 {
                     "id": identity,
                     "name": name,
-                    "available": available,
-                    "state": job["state"] if job else None,
+                    "available": available or archived,
+                    "archived": archived,
+                    "state": "complete" if archived else job["state"] if job else None,
                 }
             )
         return result
@@ -75,6 +77,9 @@ def register_samples(app, store, root, owner):
         identity: str, request: Request, response: Response, force: bool = False
     ):
         name = SAMPLE_IDS.get(identity)
+        if name and not force and gallery and gallery.available(identity):
+            response.status_code = 200
+            return {"id": "sample-" + identity, "state": "complete", "reused": True}
         source = root / "samples" / (name or "")
         if (
             not name

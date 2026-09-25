@@ -1,3 +1,5 @@
+import { useProject } from "../hooks/useProject";
+import { ReportEvidence } from "../components/ReportEvidence";
 import { CardHead } from "../components/Card";
 import { Icon } from "../components/Icon";
 import type { IconName } from "../components/Icon";
@@ -13,6 +15,7 @@ const pipeline: [IconName, string, string][] = [
 ];
 
 export function Report() {
+  const { data, error } = useProject();
   return (
     <>
       <section className="card approach-intro">
@@ -66,7 +69,9 @@ export function Report() {
             </li>
             <li>Navigate the timeline, filter, review, and export results.</li>
             <li>Inspect measured occupancy, movement, and trajectory maps.</li>
-            <li>Label a clean video and export reviewed evaluation intervals.</li>
+            <li>
+              Label a clean video and export reviewed evaluation intervals.
+            </li>
           </ul>
           <span className="badge badge-green">Local pipeline implemented</span>
         </section>
@@ -110,6 +115,8 @@ export function Report() {
           ))}
         </div>
       </section>
+      {error && <p role="alert">{error}</p>}
+      {data && <ReportEvidence data={data} />}
       <section className="card limitations">
         <CardHead icon="info" title="Built around honest evidence" />
         <div>

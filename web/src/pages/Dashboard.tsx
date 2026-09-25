@@ -29,7 +29,11 @@ export function Dashboard({ workspace: w }: { workspace: Workspace }) {
 
   return (
     <>
-      <JobStatus job={w.job} onCancel={w.cancelJob} onReanalyze={w.video.source === "sample" ? w.reanalyze : undefined} />
+      <JobStatus
+        job={w.job}
+        onCancel={w.cancelJob}
+        onReanalyze={w.video.source === "sample" && w.analysis.canReanalyze !== false ? w.reanalyze : undefined}
+      />
       {w.analysis.origin !== "preview" && !w.job && (
         <div className="notice-bar">
           <Icon name="info" size={16} />
@@ -54,7 +58,9 @@ export function Dashboard({ workspace: w }: { workspace: Workspace }) {
         }
       />
       <AnalysisInfo report={w.analysis.report} />
-      {w.job?.state === "complete" && w.analysis.report?.eda && <Study jobId={w.job.id} />}
+      {w.job?.state === "complete" && w.analysis.report?.eda && (
+        <Study jobId={w.job.id} />
+      )}
       <Timeline
         events={w.analysis.events}
         duration={w.video.duration}
@@ -100,7 +106,16 @@ export function Dashboard({ workspace: w }: { workspace: Workspace }) {
           </div>
         )}
       </details>
-      {w.job?.state === "complete" && w.analysis.report?.eda && <Labels key={w.job.id} jobId={w.job.id} fps={w.analysis.report.meta.fps} duration={w.video.duration} />}
+      {w.job?.state === "complete" &&
+        !w.job.id.startsWith("sample-") &&
+        w.analysis.report?.eda && (
+          <Labels
+            key={w.job.id}
+            jobId={w.job.id}
+            fps={w.analysis.report.meta.fps}
+            duration={w.video.duration}
+          />
+        )}
     </>
   );
 }

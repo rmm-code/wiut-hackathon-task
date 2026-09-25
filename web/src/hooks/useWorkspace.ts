@@ -43,6 +43,7 @@ export function useWorkspace() {
       ...parsed,
       events,
       origin: "model",
+      canReanalyze: result.can_reanalyze !== false,
       report: result.analysis,
     });
     const sample = samples.find(item => item.id === result.sample_id);

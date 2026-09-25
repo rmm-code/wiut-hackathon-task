@@ -55,3 +55,9 @@ Authored source files remain below 700 lines. Review files at 500 lines, split b
 `vision/specialists.py` handles Part A incident appearance evidence independently of `vision/risk.py`. The latter never imports incident results. `vision/eda.py` accumulates measured counts/maps/trajectories; `vision/media.py` writes annotated and clean review copies. `api/review.py` owns manual review validation and private artifacts; `api/limits.py` enforces body sizes before parsers consume chunked uploads. Frontend `Study` and `Labels` components are directly expandable sections, preserving the compact dashboard hierarchy.
 
 A tab remembers its latest job ID and restores it after refresh. Authentication stays in the HttpOnly owner cookie; no owner secret is exposed to browser JavaScript. Labels are explicit, separate from predictions, draft until finalized, and retained only for the job's lifetime. Export is required for permanent storage.
+
+## Permanent gallery and provenance
+
+`api/gallery.py` exposes only the four organizer sample IDs from a separate durable `artifacts/` root (override with `CROSSING_ARCHIVE`). `scripts/archive.py` promotes completed analysis artifacts; `scripts/package.py` verifies checksums and bundles only explicit files. Private job ownership, queueing and cleanup remain in `api/store.py` and `api/worker.py`. The permanent sample route is read-only and unaffected by owner-cookie expiry. A reanalysis is a private job until explicitly promoted.
+
+`api/about.py` reads `config/team.json`, `config/models.json`, weight provenance and archived measurements. Report and team components consume this data instead of embedding fabricated profiles or stale counts. Downloads are served through the same origin as the API when deployed.

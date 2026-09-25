@@ -18,7 +18,12 @@ def coverage(scene, detector_names, specialist_labels=()):
     enabled = {"stopped_vehicle", "jaywalking", "failure_to_yield", "road_obstacle"}
     enabled.update(specialist_labels)
     if any(lane.get("verified") for lane in cfg["lanes"]):
-        enabled.update(["wrong_way", "congestion"])
+        enabled.add("wrong_way")
+    if any(
+        group.get("verified") and group.get("all_lanes_visible")
+        for group in cfg.get("directions", [])
+    ):
+        enabled.add("congestion")
     if any(signal.get("verified") for signal in cfg.get("signals", [])):
         enabled.update(["red_light", "stop_line"])
     for key, label in [
@@ -28,8 +33,8 @@ def coverage(scene, detector_names, specialist_labels=()):
     ]:
         if any(item.get("verified") for item in cfg.get(key, [])):
             enabled.add(label)
-    if cfg.get("experimental_conflicts"):
-        enabled.update(["accident", "near_miss"])
+    if cfg.get("near_miss", {}).get("enabled"):
+        enabled.add("near_miss")
     if {"fire", "smoke"} & set(detector_names):
         enabled.add("fire_smoke")
     return [

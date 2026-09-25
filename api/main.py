@@ -18,6 +18,8 @@ from .worker import Worker
 from .review import register_review
 from .limits import BodyLimit
 from .samples import register_samples, sample_id
+from .gallery import Gallery, register_gallery
+from .about import register_about
 
 
 def create_app(storage=None, start_worker=True):
@@ -203,7 +205,10 @@ def create_app(storage=None, start_worker=True):
             store.update(identity, "cancelled")
         return {"state": store.get(identity)["state"]}
 
-    register_samples(app, store, ROOT, owner)
+    gallery = Gallery(ROOT)
+    register_gallery(app, ROOT, gallery)
+    register_about(app, ROOT, gallery)
+    register_samples(app, store, ROOT, owner, gallery)
 
     app.add_middleware(BodyLimit, max_bytes=settings.max_bytes)
     return app

@@ -2,7 +2,7 @@
   "id": "wiut-intersection",
   "status": "provisional",
   "reference": "web/public/images/camera.webp",
-  "description": "Initial geometry from the organizer camera reference. Legal directions and signal mappings await organizer confirmation.",
+  "description": "Geometry from supplied camera imagery. Visible directions, one governing signal and one continuous marking inspected in C3896. Prohibited turn/no-U-turn signs are not visible; those rules await authoritative facts.",
   "road": [
     [
       0.075,
@@ -226,64 +226,170 @@
   ],
   "lanes": [
     {
-      "id": "Near carriageway",
+      "id": "near-1",
       "direction": "southeast",
       "vector": [
         0.85,
         0.53
       ],
-      "verified": false,
+      "verified": true,
+      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
       "polygon": [
         [
-          0.02,
-          0.18
+          0.055,
+          0.215
         ],
         [
-          0.08,
-          0.18
+          0.071,
+          0.204
         ],
         [
-          0.59,
-          0.46
+          0.2623,
+          0.4623
         ],
         [
-          0.38,
-          0.56
-        ],
-        [
-          0.02,
-          0.32
+          0.155,
+          0.485
         ]
       ]
     },
     {
-      "id": "Far carriageway",
+      "id": "near-2",
+      "direction": "southeast",
+      "vector": [
+        0.85,
+        0.53
+      ],
+      "verified": true,
+      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
+      "polygon": [
+        [
+          0.071,
+          0.204
+        ],
+        [
+          0.087,
+          0.193
+        ],
+        [
+          0.3697,
+          0.4397
+        ],
+        [
+          0.2623,
+          0.4623
+        ]
+      ]
+    },
+    {
+      "id": "near-3",
+      "direction": "southeast",
+      "vector": [
+        0.85,
+        0.53
+      ],
+      "verified": true,
+      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
+      "polygon": [
+        [
+          0.087,
+          0.193
+        ],
+        [
+          0.103,
+          0.182
+        ],
+        [
+          0.477,
+          0.417
+        ],
+        [
+          0.3697,
+          0.4397
+        ]
+      ]
+    },
+    {
+      "id": "far-1",
       "direction": "northwest",
       "vector": [
         -0.9,
         -0.44
       ],
-      "verified": false,
+      "verified": true,
+      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
       "polygon": [
         [
-          0.09,
-          0.12
+          0.14,
+          0.165
         ],
         [
-          0.25,
-          0.1
+          0.1683,
+          0.154
         ],
         [
-          0.92,
-          0.39
+          0.6867,
+          0.3933
         ],
         [
-          0.75,
-          0.45
+          0.6,
+          0.407
+        ]
+      ]
+    },
+    {
+      "id": "far-2",
+      "direction": "northwest",
+      "vector": [
+        -0.9,
+        -0.44
+      ],
+      "verified": true,
+      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
+      "polygon": [
+        [
+          0.1683,
+          0.154
         ],
         [
-          0.36,
-          0.28
+          0.1967,
+          0.143
+        ],
+        [
+          0.7733,
+          0.3797
+        ],
+        [
+          0.6867,
+          0.3933
+        ]
+      ]
+    },
+    {
+      "id": "far-3",
+      "direction": "northwest",
+      "vector": [
+        -0.9,
+        -0.44
+      ],
+      "verified": true,
+      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
+      "polygon": [
+        [
+          0.1967,
+          0.143
+        ],
+        [
+          0.225,
+          0.132
+        ],
+        [
+          0.86,
+          0.366
+        ],
+        [
+          0.7733,
+          0.3797
         ]
       ]
     }
@@ -308,8 +414,107 @@
       ]
     ]
   ],
-  "signals": [],
-  "solid_lines": [],
+  "signals": [
+    {
+      "id": "Far approach signal",
+      "verified": true,
+      "roi": [
+        0.601,
+        0.325,
+        0.615,
+        0.39
+      ],
+      "min_saturation": 100,
+      "min_value": 50,
+      "entry_side": -1,
+      "front": [
+        0.15,
+        0.65
+      ],
+      "stop_line": [
+        [
+          0.765,
+          0.558
+        ],
+        [
+          1,
+          0.47
+        ]
+      ],
+      "approach": [
+        [
+          0.765,
+          0.558
+        ],
+        [
+          1,
+          0.47
+        ],
+        [
+          1,
+          0.77
+        ],
+        [
+          0.9,
+          0.73
+        ]
+      ],
+      "beyond_line": [
+        [
+          0.765,
+          0.558
+        ],
+        [
+          1,
+          0.47
+        ],
+        [
+          0.9,
+          0.435
+        ],
+        [
+          0.7,
+          0.53
+        ]
+      ],
+      "intersection": [
+        [
+          0.7,
+          0.53
+        ],
+        [
+          0.9,
+          0.435
+        ],
+        [
+          0.79,
+          0.35
+        ],
+        [
+          0.53,
+          0.435
+        ]
+      ],
+      "evidence": "C3896 at 0/10/20 seconds: median vehicle head red; at 30/40/50/60 seconds green; at 70/80/90 seconds red. Visible head faces the northwest-bound approach; no mapping is claimed for the opposite head hidden from camera."
+    }
+  ],
+  "solid_lines": [
+    {
+      "id": "Near approach lane separator",
+      "verified": true,
+      "points": [
+        [
+          0.205,
+          0.326
+        ],
+        [
+          0.29,
+          0.453
+        ]
+      ],
+      "evidence": "Continuous white lane separator visible approaching the stop line in C3896 frame at 10 seconds; only this finite marked segment is covered."
+    }
+  ],
   "turn_rules": [],
   "prohibited_u_turns": [],
   "experimental_conflicts": false,
@@ -331,5 +536,34 @@
       },
       "confidence": 0.65
     }
-  ]
+  ],
+  "directions": [
+    {
+      "id": "near",
+      "lanes": [
+        "near-1",
+        "near-2",
+        "near-3"
+      ],
+      "verified": true,
+      "all_lanes_visible": true,
+      "evidence": "Three lanes mapped separately in the visible approach segment of C3896."
+    },
+    {
+      "id": "far",
+      "lanes": [
+        "far-1",
+        "far-2",
+        "far-3"
+      ],
+      "verified": true,
+      "all_lanes_visible": true,
+      "evidence": "Three lanes mapped separately in the visible approach segment of C3896."
+    }
+  ],
+  "near_miss": {
+    "enabled": true,
+    "status": "provisional",
+    "evidence": "Approach, evasive trajectory change, no overlap evidence and observed separation required."
+  }
 }

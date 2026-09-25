@@ -3,7 +3,7 @@ from ..geometry import crossed, inside, line_side
 from ..types import Flag, VEHICLES
 
 
-def signal_color(frame, roi=None):
+def signal_color(frame, roi=None, min_saturation=130, min_value=120):
     if roi is not None:
         h, w = frame.shape[:2]
         x1, y1, x2, y2 = roi
@@ -14,7 +14,7 @@ def signal_color(frame, roi=None):
     if frame.size < 9:
         return "unknown"
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    valid = (hsv[:, :, 1] > 130) & (hsv[:, :, 2] > 120)
+    valid = (hsv[:, :, 1] > min_saturation) & (hsv[:, :, 2] > min_value)
     hue = hsv[:, :, 0]
     red = int((((hue < 12) | (hue > 165)) & valid).sum())
     green = int(((hue > 35) & (hue < 95) & valid).sum())
@@ -40,7 +40,11 @@ class SignalRules:
             if not signal.get("verified"):
                 continue
             sid = signal["id"]
-            color = signal_color(self.scene.crop(frame, signal["roi"]))
+            color = signal_color(
+                self.scene.crop(frame, signal["roi"]),
+                min_saturation=signal.get("min_saturation", 130),
+                min_value=signal.get("min_value", 120),
+            )
             before, since = self.colors.get(sid, (color, t))
             if color != before:
                 since = t

@@ -1,0 +1,14 @@
+{
+  "harness": {
+    "C3905.MP4": {
+      "duration": 127.63,
+      "budget_sec": 382.9,
+      "errors": [],
+      "part_a_sec": 71.3,
+      "part_b_sec": 61.0,
+      "total_sec": 132.3
+    }
+  },
+  "events_match": true,
+  "risk_match": true
+}

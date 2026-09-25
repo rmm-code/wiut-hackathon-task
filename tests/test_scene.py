@@ -26,7 +26,9 @@ def test_unsupported_classes_are_explicitly_disabled():
     scene.matched = True
     result = {item["label"]: item for item in coverage(scene, ["car", "person", "dog"])}
     assert result["jaywalking"]["enabled"]
-    assert not result["red_light"]["enabled"]
+    assert result["red_light"]["enabled"]
+    assert not result["illegal_turn"]["enabled"]
+    assert not result["illegal_u_turn"]["enabled"]
     assert not result["accident"]["enabled"]
     assert not result["fire_smoke"]["enabled"]
 

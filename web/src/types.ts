@@ -42,6 +42,7 @@ export interface Video {
 }
 
 export interface Analysis {
+  canReanalyze?: boolean;
   origin: "preview" | "imported" | "model" | "none";
   events: TrafficEvent[];
   risk: RiskPoint[];
@@ -56,7 +57,10 @@ export interface Activity {
 }
 
 export interface EngineReport {
-  eda?: { counts: { time: number; objects: Record<string, number>; total: number }[]; units: Record<string, string> };
+  eda?: {
+    counts: { time: number; objects: Record<string, number>; total: number }[];
+    units: Record<string, string>;
+  };
   meta: {
     duration: number;
     fps: number;
@@ -99,7 +103,13 @@ export interface EngineReport {
 export interface Job {
   id: string;
   state:
-    "loading" | "uploading" | "queued" | "running" | "complete" | "failed" | "cancelled";
+    | "loading"
+    | "uploading"
+    | "queued"
+    | "running"
+    | "complete"
+    | "failed"
+    | "cancelled";
   progress: number;
   stage: string;
   processed_frames?: number;
@@ -109,6 +119,7 @@ export interface Job {
 }
 
 export interface JobResult extends PredictionFile {
+  can_reanalyze?: boolean;
   sample_id?: string | null;
   analysis: EngineReport;
   video_url: string;
@@ -135,4 +146,40 @@ export interface Review {
   notes: string;
   complete: boolean;
   reviewed_entire_video: boolean;
+}
+
+export interface ProjectInfo {
+  team: {
+    name: string;
+    role: string;
+    contribution: string;
+    links: Record<string, string>;
+  }[];
+  models: {
+    name: string;
+    purpose: string;
+    method: string;
+    dataset: string;
+    dataset_url: string;
+    dataset_license: string;
+    model_license: string;
+    source: string;
+    download: string;
+    sha256: string;
+  }[];
+  samples: {
+    id: string;
+    name: string;
+    frames: number;
+    duration: number;
+    fps: number;
+    events: number;
+    road_users: number;
+    runtime: number;
+    brightness: number;
+  }[];
+  coverage: EngineReport["coverage"];
+  repository: string;
+  predictions: string;
+  manifest: string;
 }

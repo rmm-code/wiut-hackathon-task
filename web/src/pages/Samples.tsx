@@ -16,14 +16,22 @@ export function Samples({
   report?: EngineReport;
   filename?: string;
 }) {
+  const [archived, setArchived] = useState<string[]>([]);
   const [states, setStates] = useState<Record<string, string | null>>({});
   const [available, setAvailable] = useState<string[]>([]);
   useEffect(() => {
     api
       .samples()
       .then((items) => {
-        setAvailable(items.filter(item => item.available).map(item => item.id));
-        setStates(Object.fromEntries(items.map(item => [item.id, item.state])));
+        setArchived(
+          items.filter((item) => item.archived).map((item) => item.id),
+        );
+        setAvailable(
+          items.filter((item) => item.available).map((item) => item.id),
+        );
+        setStates(
+          Object.fromEntries(items.map((item) => [item.id, item.state])),
+        );
       })
       .catch(() => {});
   }, []);
@@ -63,13 +71,23 @@ export function Samples({
           <article className="card sample-card" key={sample.id}>
             <div className="sample-image">
               <img
-                src="/images/camera.webp"
-                alt="Shared reference view of the supplied intersection"
+                src={
+                  archived.includes(sample.id)
+                    ? `/api/samples/${sample.id}/eda/poster`
+                    : "/images/camera.webp"
+                }
+                alt={
+                  archived.includes(sample.id)
+                    ? `Annotated first frame of ${sample.name}`
+                    : "Shared reference view of the supplied intersection"
+                }
               />
               <span className="sample-number">0{i + 1}</span>
               <span className="sample-length">{time(sample.duration)}</span>
               <span className="sample-image-label">
-                Shared camera reference
+                {archived.includes(sample.id)
+                  ? "Saved sample · no expiry"
+                  : "Shared camera reference"}
               </span>
             </div>
             <div className="sample-card-body">
@@ -79,7 +97,12 @@ export function Samples({
                   className={`badge ${available.includes(sample.id) ? "badge-green" : "badge-neutral"}`}
                 >
                   {available.includes(sample.id)
-                    ? states[sample.id] === "complete" ? "Analysis complete" : states[sample.id] === "running" || states[sample.id] === "queued" ? "Analysis in progress" : "Ready to analyze"
+                    ? states[sample.id] === "complete"
+                      ? "Analysis complete"
+                      : states[sample.id] === "running" ||
+                          states[sample.id] === "queued"
+                        ? "Analysis in progress"
+                        : "Ready to analyze"
                     : "Original link"}
                 </span>
               </div>

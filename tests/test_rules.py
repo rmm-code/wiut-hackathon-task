@@ -58,3 +58,14 @@ def test_geometry_includes_boundary_but_excludes_outside():
     polygon = [(0, 0), (1, 0), (1, 1), (0, 1)]
     assert inside((0, 0.5), polygon)
     assert not inside((1.1, 0.5), polygon)
+
+
+def test_supported_animal_on_road_is_an_obstacle_but_person_is_not():
+    rules = RoadRules(Scene())
+    tracks = Tracks()
+    flags = rules.step(tracks.update([observation(kind="dog", x=0.8)], 1), 1)
+    assert any(flag.label == "road_obstacle" for flag in flags)
+    flags = rules.step(
+        tracks.update([observation(identity=2, kind="person", x=0.5)], 2), 2
+    )
+    assert not any(flag.label == "road_obstacle" for flag in flags)

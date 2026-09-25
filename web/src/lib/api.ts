@@ -1,4 +1,4 @@
-import type { Job, JobResult, Review } from "../types";
+import type { Job, JobResult, Review, ProjectInfo } from "../types";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   let response: Response;
@@ -28,32 +28,65 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export const api = {
-  labels(id: string, signal?: AbortSignal) { return request<Review>(`/jobs/${id}/labels`, { signal }); },
-  saveLabels(id: string, body: Review) { return request<Review>(`/jobs/${id}/labels`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }); },
-  exportLabels(id: string) { return request<Record<string, unknown>>(`/jobs/${id}/labels/export`); },
+  about() {
+    return request<ProjectInfo>("/about");
+  },
+  labels(id: string, signal?: AbortSignal) {
+    return request<Review>(`/jobs/${id}/labels`, { signal });
+  },
+  saveLabels(id: string, body: Review) {
+    return request<Review>(`/jobs/${id}/labels`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+  },
+  exportLabels(id: string) {
+    return request<Record<string, unknown>>(`/jobs/${id}/labels/export`);
+  },
   submit(file: File, signal?: AbortSignal) {
     const body = new FormData();
     body.append("file", file);
     return request<{ id: string }>("/jobs", { method: "POST", body, signal });
   },
   sample(id: string, signal?: AbortSignal, force = false) {
-    return request<{ id: string }>(`/samples/${encodeURIComponent(id)}/jobs${force ? "?force=true" : ""}`, {
-      method: "POST",
-      signal,
-    });
+    return request<{ id: string }>(
+      `/samples/${encodeURIComponent(id)}/jobs${force ? "?force=true" : ""}`,
+      {
+        method: "POST",
+        signal,
+      },
+    );
   },
   status(id: string, signal?: AbortSignal) {
-    return request<Job>(`/jobs/${id}`, { signal });
+    return request<Job>(
+      id.startsWith("sample-")
+        ? `/samples/${id.slice(7)}/status`
+        : `/jobs/${id}`,
+      { signal },
+    );
   },
   result(id: string, signal?: AbortSignal) {
-    return request<JobResult>(`/jobs/${id}/results`, { signal });
+    return request<JobResult>(
+      id.startsWith("sample-")
+        ? `/samples/${id.slice(7)}/results`
+        : `/jobs/${id}/results`,
+      { signal },
+    );
   },
   cancel(id: string) {
+    if (id.startsWith("sample-")) return Promise.resolve({ state: "complete" });
     return request(`/jobs/${id}`, { method: "DELETE" });
   },
-  samples() {
-    return request<{ id: string; name: string; available: boolean; state: Job["state"] | null }[]>(
-      "/samples",
-    );
+  samples(signal?: AbortSignal) {
+    return request<
+      {
+        id: string;
+        name: string;
+        available: boolean;
+        archived?: boolean;
+        state: Job["state"] | null;
+      }[]
+    >("/samples", { signal });
   },
 };

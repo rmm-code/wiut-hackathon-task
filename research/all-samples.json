@@ -1,34 +1,77 @@
 {
   "C3896": {
     "frames": 10200,
-    "events": 56,
+    "events": 114,
     "risk_points": 10200,
     "tracked_ids": 1050,
-    "runtime_sec": 225.51,
-    "scene_matched": true
+    "runtime_sec": 255.23,
+    "scene_matched": true,
+    "classes": {
+      "jaywalking": 32,
+      "wrong_way": 10,
+      "stopped_vehicle": 9,
+      "stop_line": 4,
+      "red_light": 20,
+      "near_miss": 17,
+      "failure_to_yield": 15,
+      "congestion": 7
+    }
   },
   "C3897": {
     "frames": 9525,
-    "events": 44,
+    "events": 99,
     "risk_points": 9525,
     "tracked_ids": 1087,
-    "runtime_sec": 183.29,
-    "scene_matched": true
+    "runtime_sec": 208.91,
+    "scene_matched": true,
+    "classes": {
+      "stopped_vehicle": 7,
+      "jaywalking": 19,
+      "red_light": 20,
+      "near_miss": 13,
+      "congestion": 4,
+      "stop_line": 5,
+      "solid_line_crossing": 8,
+      "failure_to_yield": 18,
+      "wrong_way": 5
+    }
   },
   "C3902": {
     "frames": 9525,
-    "events": 34,
+    "events": 98,
     "risk_points": 9525,
     "tracked_ids": 1192,
-    "runtime_sec": 210.98,
-    "scene_matched": true
+    "runtime_sec": 218.22,
+    "scene_matched": true,
+    "classes": {
+      "accident": 1,
+      "near_miss": 15,
+      "red_light": 16,
+      "jaywalking": 10,
+      "wrong_way": 2,
+      "failure_to_yield": 14,
+      "stopped_vehicle": 9,
+      "stop_line": 4,
+      "congestion": 14,
+      "solid_line_crossing": 13
+    }
   },
   "C3905": {
     "frames": 3825,
-    "events": 17,
+    "events": 42,
     "risk_points": 3825,
     "tracked_ids": 493,
-    "runtime_sec": 79.46,
-    "scene_matched": true
+    "runtime_sec": 93.3,
+    "scene_matched": true,
+    "classes": {
+      "jaywalking": 7,
+      "failure_to_yield": 8,
+      "stopped_vehicle": 2,
+      "near_miss": 9,
+      "red_light": 9,
+      "stop_line": 2,
+      "wrong_way": 2,
+      "solid_line_crossing": 3
+    }
   }
 }

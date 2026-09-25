@@ -1,76 +1,66 @@
 import { Icon } from "../components/Icon";
-import type { IconName } from "../components/Icon";
-
-const roles: [IconName, string, string, string][] = [
-  [
-    "target",
-    "Computer vision",
-    "Detection, tracking, and anticipation.",
-    "slate",
-  ],
-  [
-    "bars",
-    "Data & evaluation",
-    "Scene calibration, labels, and honest metrics.",
-    "blue",
-  ],
-  [
-    "grid",
-    "Product & engineering",
-    "The review experience and reliable delivery.",
-    "green",
-  ],
-];
+import { useProject } from "../hooks/useProject";
 
 export function Team() {
+  const { data, error } = useProject();
   return (
     <>
       <section className="card team-intro">
         <span className="eyebrow">WIUT HACKATHON 2026</span>
-        <h2>Team overview</h2>
+        <h2>Our team</h2>
         <p>
-          A computer vision project connecting road-camera footage with an
-          understandable, reviewable picture of traffic.
+          Three people building a reviewable picture of traffic from one fixed
+          camera.
         </p>
-        <a
-          className="button"
-          href="https://github.com/rmm-code/wiut-hackathon-task"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Icon name="github" size={18} />
-          Project repository
-          <Icon name="external" size={16} />
-        </a>
       </section>
-      <div className="section-heading">
-        <div>
-          <h2>Responsibilities</h2>
-          <p>Proposed responsibilities for a three-person team.</p>
-        </div>
-      </div>
+      {error && <p role="alert">{error}</p>}
+      {!data && !error && <p role="status">Loading team details…</p>}
       <div className="team-grid">
-        {roles.map(([icon, title, description, color]) => (
-          <section className="card role-card" key={title}>
-            <span className={`role-icon tone-${color}`}>
-              <Icon name={icon} size={31} />
+        {data?.team.map((member) => (
+          <section className="card role-card" key={member.name}>
+            <span className="role-icon tone-slate">
+              <Icon name="person" size={28} />
             </span>
-            <h3>{title}</h3>
-            <p>{description}</p>
-            <span className="badge badge-neutral">Member to be confirmed</span>
+            <h3>{member.name}</h3>
+            <span className="badge badge-neutral">{member.role}</span>
+            <p>{member.contribution}</p>
+            <div className="study-tabs">
+              {Object.entries(member.links).map(([label, url]) => (
+                <a
+                  className="button small"
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={label}
+                >
+                  {label}
+                  <Icon name="external" size={14} />
+                </a>
+              ))}
+            </div>
           </section>
         ))}
       </div>
-      <div className="team-note">
-        <Icon name="team" size={24} />
-        <div>
-          <h3>Team details pending</h3>
+      <section className="card report-copy">
+        <div className="analysis-body">
           <p>
-            Member names, contributions, and portfolio links will be added after
-            the team confirms its details.
+            Names and the listed profiles were supplied by the team. Missing
+            contributions and profile URLs are left unclaimed until confirmed.
           </p>
+          <a
+            className="button"
+            href={
+              data?.repository ??
+              "https://github.com/rmm-code/wiut-hackathon-task"
+            }
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Icon name="github" size={17} />
+            Project repository
+          </a>
         </div>
-      </div>
+      </section>
     </>
   );
 }
