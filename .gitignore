@@ -1,0 +1,27 @@
+node_modules/
+dist/
+.DS_Store
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.log
+tmp/
+storage/
+samples/*.mp4
+samples/*.MP4
+weights/*.pt
+.cache/
+output/
+web/.sites-runtime/
+
+weights/candidates/
+research/model-checks/
+
+# Local reference images and document renderings are not runtime assets.
+design/
+research/pdf-previews/
+*.download

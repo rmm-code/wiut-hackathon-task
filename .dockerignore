@@ -1,0 +1,15 @@
+.venv
+web/node_modules
+.cache
+.git
+storage
+samples
+tmp
+output
+design/qa
+
+.env
+.env.*
+!.env.example
+weights/candidates
+research/model-checks

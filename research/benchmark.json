@@ -1,0 +1,34 @@
+{
+  "sample": "C3905.MP4",
+  "same_events": true,
+  "same_risk": true,
+  "harness": {
+    "duration": 127.63,
+    "budget_sec": 382.9,
+    "errors": [],
+    "part_a_sec": 71.4,
+    "part_b_sec": 68.6,
+    "total_sec": 140.0
+  },
+  "web_runtime_sec": 79.46,
+  "active_classes": [
+    "accident",
+    "stopped_vehicle",
+    "jaywalking",
+    "failure_to_yield",
+    "road_obstacle",
+    "fire_smoke"
+  ],
+  "tests": {
+    "python_macos": 30,
+    "python_linux_offline": 30,
+    "frontend": 6
+  },
+  "offline_models": [
+    "yolo11s.pt",
+    "accident.pt",
+    "fire.pt"
+  ],
+  "device": "Apple M5 / MPS",
+  "accuracy_measured": false
+}
