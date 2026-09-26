@@ -21,14 +21,15 @@ def test_islands_are_excluded_from_roadway():
     assert not scene.on_road((0.43, 0.80))
 
 
-def test_unsupported_classes_are_explicitly_disabled():
+def test_class_coverage_follows_verified_scene_facts():
     scene = Scene(Settings.load().camera())
     scene.matched = True
     result = {item["label"]: item for item in coverage(scene, ["car", "person", "dog"])}
     assert result["jaywalking"]["enabled"]
     assert result["red_light"]["enabled"]
-    assert not result["illegal_turn"]["enabled"]
-    assert not result["illegal_u_turn"]["enabled"]
+    # Enabled only through verified camera facts (clause 56 lanes, clause 62 crossings).
+    assert result["illegal_turn"]["enabled"]
+    assert result["illegal_u_turn"]["enabled"]
     assert not result["accident"]["enabled"]
     assert not result["fire_smoke"]["enabled"]
 

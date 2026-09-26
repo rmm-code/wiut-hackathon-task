@@ -15,14 +15,15 @@ class Incident:
     hits: int = 1
     confirmed: bool = False
     stopped_since: float | None = None
+    settled: bool = False
 
 
 class Specialists:
     """Part A appearance evidence with temporal confirmation; never used by Part B."""
 
-    def __init__(self, settings, scene):
+    def __init__(self, settings, scene, load=True):
         self.scene = scene
-        self.device = device_name(settings.device)
+        self.device = device_name(settings.device) if load else "cpu"
         self.models = []
         self.active = []
         self.completed = []
@@ -30,12 +31,39 @@ class Specialists:
         self.next_time = 0.0
         for item in scene.config.get("specialists", []):
             if item.get("enabled"):
-                model = load_model(ROOT / item["weights"])
+                model = load_model(ROOT / item["weights"]) if load else None
                 self.models.append((item, model))
 
     @property
     def labels(self):
         return {label for item, _ in self.models for label in item["classes"].values()}
+
+    def detect(self, frame, floor=None):
+        """Road-gated specialist detections; `floor` lowers thresholds for caching."""
+        found = []
+        h, w = frame.shape[:2]
+        for item, model in self.models:
+            result = model.predict(
+                frame,
+                device=self.device,
+                imgsz=640,
+                conf=item["confidence"] if floor is None else floor,
+                verbose=False,
+            )[0]
+            for detection in result.boxes.cpu().numpy():
+                label = item["classes"].get(
+                    str(model.names[int(detection.cls[0])]).lower()
+                )
+                if not label:
+                    continue
+                x1, y1, x2, y2 = map(float, detection.xyxy[0])
+                box = (x1 / w, y1 / h, x2 / w, y2 / h)
+                if self._on_road(box):
+                    found.append((label, box, float(detection.conf[0])))
+        return found
+
+    def due(self, t):
+        return self.scene.matched and t + 1e-6 >= self.next_time
 
     def _on_road(self, box):
         x1, y1, x2, y2 = box
@@ -50,29 +78,11 @@ class Specialists:
         )
 
     def step(self, frame, tracks, t):
-        if not self.scene.matched or t + 1e-6 < self.next_time:
-            return
+        if self.due(t):
+            self.update(self.detect(frame), tracks, t)
+
+    def update(self, found, tracks, t):
         self.next_time = t + 1.0
-        found = []
-        h, w = frame.shape[:2]
-        for item, model in self.models:
-            result = model.predict(
-                frame,
-                device=self.device,
-                imgsz=640,
-                conf=item["confidence"],
-                verbose=False,
-            )[0]
-            for detection in result.boxes.cpu().numpy():
-                label = item["classes"].get(
-                    str(model.names[int(detection.cls[0])]).lower()
-                )
-                if not label:
-                    continue
-                x1, y1, x2, y2 = map(float, detection.xyxy[0])
-                box = (x1 / w, y1 / h, x2 / w, y2 / h)
-                if self._on_road(box):
-                    found.append((label, box, float(detection.conf[0])))
         updated = set()
         for label, box, score in found:
             previous = next(
@@ -124,6 +134,7 @@ class Specialists:
                         else t
                     )
                     if t - incident.stopped_since >= 1:
+                        incident.settled = True
                         end = incident.stopped_since
                 else:
                     incident.stopped_since = None
@@ -139,7 +150,10 @@ class Specialists:
         self.resolved = [item for item in self.resolved if t - item.last < 3]
 
     def _close(self, incident, end):
-        if incident.confirmed and end > incident.start:
+        # A collision ends with its participants at rest; overlapping vehicles that
+        # drive on (perspective overlap, dense traffic) are not accidents.
+        settled = incident.label != "accident" or incident.settled
+        if incident.confirmed and settled and end > incident.start:
             self.completed.append(
                 Event(
                     incident.label,

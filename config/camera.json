@@ -2,7 +2,7 @@
   "id": "wiut-intersection",
   "status": "provisional",
   "reference": "web/public/images/camera.webp",
-  "description": "Geometry from supplied camera imagery. Visible directions, one governing signal and one continuous marking inspected in C3896. Prohibited turn/no-U-turn signs are not visible; those rules await authoritative facts.",
+  "description": "Geometry from supplied camera imagery, checked against a temporal-median empty-road background of C3896 and tracked movements in all four samples. One visible vehicle head sets the main-road phase for both approaches; the left-pole pedestrian head governs crossing C.",
   "road": [
     [
       0.075,
@@ -21,16 +21,24 @@
       0.3
     ],
     [
-      0.82,
-      0.405
+      0.75,
+      0.365
     ],
     [
-      0.96,
-      0.43
+      0.86,
+      0.42
     ],
     [
-      1,
-      0.43
+      0.935,
+      0.434
+    ],
+    [
+      0.958,
+      0.458
+    ],
+    [
+      1.0,
+      0.476
     ],
     [
       1,
@@ -134,28 +142,70 @@
     ],
     [
       [
-        0.589,
-        0.483
+        0.612,
+        0.508
       ],
       [
-        0.635,
-        0.47
+        0.64,
+        0.499
       ],
       [
-        0.677,
-        0.481
+        0.672,
+        0.503
       ],
       [
-        0.692,
-        0.513
+        0.678,
+        0.518
       ],
       [
-        0.685,
-        0.538
-      ],
-      [
-        0.644,
+        0.655,
         0.527
+      ],
+      [
+        0.617,
+        0.523
+      ]
+    ],
+    [
+      [
+        0.055,
+        0.105
+      ],
+      [
+        0.3,
+        0.262
+      ],
+      [
+        0.5,
+        0.388
+      ],
+      [
+        0.6,
+        0.443
+      ],
+      [
+        0.622,
+        0.458
+      ],
+      [
+        0.618,
+        0.476
+      ],
+      [
+        0.58,
+        0.474
+      ],
+      [
+        0.5,
+        0.428
+      ],
+      [
+        0.3,
+        0.288
+      ],
+      [
+        0.06,
+        0.128
       ]
     ]
   ],
@@ -164,19 +214,19 @@
       "id": "Crossing A",
       "polygon": [
         [
-          0.177,
-          0.548
+          0.178,
+          0.556
         ],
         [
-          0.57,
-          0.467
+          0.6,
+          0.486
         ],
         [
-          0.626,
-          0.497
+          0.618,
+          0.514
         ],
         [
-          0.215,
+          0.195,
           0.604
         ]
       ]
@@ -185,20 +235,20 @@
       "id": "Crossing B",
       "polygon": [
         [
-          0.665,
-          0.505
+          0.622,
+          0.479
         ],
         [
-          0.855,
-          0.42
+          0.935,
+          0.432
         ],
         [
-          0.872,
-          0.444
+          0.958,
+          0.456
         ],
         [
-          0.69,
-          0.539
+          0.64,
+          0.508
         ]
       ]
     },
@@ -206,192 +256,143 @@
       "id": "Crossing C",
       "polygon": [
         [
-          0.166,
-          0.746
+          0.085,
+          0.705
         ],
         [
-          0.238,
-          0.725
+          0.19,
+          0.673
         ],
         [
-          0.477,
-          1
+          0.48,
+          1.0
         ],
         [
-          0.329,
-          1
+          0.33,
+          1.0
         ]
       ]
     }
   ],
   "lanes": [
     {
-      "id": "near-1",
-      "direction": "southeast",
+      "id": "se-approach",
+      "direction": "south-east",
       "vector": [
-        0.85,
-        0.53
+        0.74,
+        0.67
       ],
       "verified": true,
-      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
       "polygon": [
         [
           0.055,
-          0.215
+          0.128
         ],
         [
-          0.071,
-          0.204
+          0.49,
+          0.42
         ],
         [
-          0.2623,
-          0.4623
+          0.4812,
+          0.4243
         ],
         [
-          0.155,
-          0.485
+          0.1506,
+          0.4867
+        ],
+        [
+          0.09,
+          0.33
+        ],
+        [
+          0.035,
+          0.175
         ]
-      ]
+      ],
+      "evidence": "Five lanes approach the stop line; 97% of tracked stop-line crossings move this way.",
+      "wrong_way": true
     },
     {
-      "id": "near-2",
-      "direction": "southeast",
+      "id": "nw-departure",
+      "direction": "north-west",
       "vector": [
-        0.85,
-        0.53
+        -0.83,
+        -0.56
       ],
       "verified": true,
-      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
       "polygon": [
         [
-          0.071,
-          0.204
+          0.075,
+          0.06
         ],
         [
-          0.087,
-          0.193
+          0.18,
+          0.07
         ],
         [
-          0.3697,
-          0.4397
+          0.37,
+          0.17
         ],
         [
-          0.2623,
-          0.4623
-        ]
-      ]
-    },
-    {
-      "id": "near-3",
-      "direction": "southeast",
-      "vector": [
-        0.85,
-        0.53
-      ],
-      "verified": true,
-      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
-      "polygon": [
-        [
-          0.087,
-          0.193
+          0.63,
+          0.3
         ],
         [
-          0.103,
-          0.182
+          0.82,
+          0.405
         ],
         [
-          0.477,
-          0.417
+          0.935,
+          0.432
         ],
         [
-          0.3697,
-          0.4397
-        ]
-      ]
-    },
-    {
-      "id": "far-1",
-      "direction": "northwest",
-      "vector": [
-        -0.9,
-        -0.44
-      ],
-      "verified": true,
-      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
-      "polygon": [
-        [
-          0.14,
-          0.165
-        ],
-        [
-          0.1683,
-          0.154
-        ],
-        [
-          0.6867,
-          0.3933
+          0.622,
+          0.479
         ],
         [
           0.6,
-          0.407
+          0.445
+        ],
+        [
+          0.3,
+          0.262
+        ],
+        [
+          0.055,
+          0.105
         ]
-      ]
+      ],
+      "evidence": "Carriageway above the raised median; all through tracks move north-west.",
+      "wrong_way": true
     },
     {
-      "id": "far-2",
-      "direction": "northwest",
+      "id": "nw-approach",
+      "direction": "north-west",
       "vector": [
-        -0.9,
-        -0.44
+        -0.95,
+        -0.3
       ],
       "verified": true,
-      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
       "polygon": [
         [
-          0.1683,
-          0.154
+          0.64,
+          0.508
         ],
         [
-          0.1967,
-          0.143
+          1.0,
+          0.449
         ],
         [
-          0.7733,
-          0.3797
+          1.0,
+          0.66
         ],
         [
-          0.6867,
-          0.3933
+          0.75,
+          0.6
         ]
-      ]
-    },
-    {
-      "id": "far-3",
-      "direction": "northwest",
-      "vector": [
-        -0.9,
-        -0.44
       ],
-      "verified": true,
-      "evidence": "C3896 supplied footage: visible opposing carriageways separated by raised median; repeated directional vehicle motion and three lane divisions. Geometry remains provisional.",
-      "polygon": [
-        [
-          0.1967,
-          0.143
-        ],
-        [
-          0.225,
-          0.132
-        ],
-        [
-          0.86,
-          0.366
-        ],
-        [
-          0.7733,
-          0.3797
-        ]
-      ]
+      "evidence": "North-west-bound traffic enters from the right edge and crosses crossing B. Junction mouth: U-turning vehicles legitimately swing through it, so it is excluded from wrong-way checks.",
+      "wrong_way": false
     }
   ],
   "queue_zones": [
@@ -416,8 +417,6 @@
   ],
   "signals": [
     {
-      "id": "Far approach signal",
-      "verified": true,
       "roi": [
         0.601,
         0.325,
@@ -426,97 +425,302 @@
       ],
       "min_saturation": 100,
       "min_value": 50,
-      "entry_side": -1,
+      "id": "South-east approach signal (median head)",
+      "verified": true,
+      "entry_side": 1,
       "front": [
-        0.15,
-        0.65
+        0.5,
+        1.0
       ],
       "stop_line": [
         [
-          0.765,
-          0.558
+          0.1506,
+          0.4867
         ],
         [
-          1,
-          0.47
+          0.4812,
+          0.4243
         ]
       ],
       "approach": [
         [
-          0.765,
-          0.558
+          0.055,
+          0.128
         ],
         [
-          1,
-          0.47
+          0.49,
+          0.42
         ],
         [
-          1,
-          0.77
+          0.4812,
+          0.4243
         ],
         [
-          0.9,
-          0.73
+          0.1506,
+          0.4867
+        ],
+        [
+          0.09,
+          0.33
+        ],
+        [
+          0.035,
+          0.175
         ]
       ],
       "beyond_line": [
         [
-          0.765,
-          0.558
+          0.1506,
+          0.4867
         ],
         [
-          1,
-          0.47
+          0.4812,
+          0.4243
         ],
         [
-          0.9,
-          0.435
+          0.5,
+          0.43
         ],
         [
-          0.7,
-          0.53
+          0.6,
+          0.486
+        ],
+        [
+          0.618,
+          0.514
+        ],
+        [
+          0.195,
+          0.604
         ]
       ],
       "intersection": [
         [
-          0.7,
-          0.53
+          0.195,
+          0.604
         ],
         [
-          0.9,
-          0.435
+          0.618,
+          0.514
         ],
         [
-          0.79,
-          0.35
+          0.678,
+          0.52
         ],
         [
-          0.53,
-          0.435
+          0.85,
+          0.6
+        ],
+        [
+          0.75,
+          0.75
+        ],
+        [
+          0.507,
+          0.811
+        ],
+        [
+          0.4,
+          0.72
+        ],
+        [
+          0.25,
+          0.68
         ]
       ],
-      "evidence": "C3896 at 0/10/20 seconds: median vehicle head red; at 30/40/50/60 seconds green; at 70/80/90 seconds red. Visible head faces the northwest-bound approach; no mapping is claimed for the opposite head hidden from camera."
+      "evidence": "Median vehicle head. Across C3896/C3897, 97% of south-east-bound stop-line crossings happen while it is green and the approach discharges exactly when it turns green, so it is treated as this approach's signal. North-west-bound traffic crosses crossing B in both of its states, so no visible head governs that approach and no red-light rule is applied there. Stop line located from the temporal-median road background and five lane clusters of stop-line crossings."
     }
   ],
   "solid_lines": [
     {
-      "id": "Near approach lane separator",
+      "id": "South-east lane line 1",
       "verified": true,
       "points": [
         [
-          0.205,
-          0.326
+          0.064,
+          0.31
         ],
         [
-          0.29,
-          0.453
+          0.212,
+          0.471
         ]
       ],
-      "evidence": "Continuous white lane separator visible approaching the stop line in C3896 frame at 10 seconds; only this finite marked segment is covered."
+      "evidence": "Continuous divider from the gantry to the stop line in the temporal-median background of C3896; position from painted-line detection and lane clusters of stop-line crossings."
+    },
+    {
+      "id": "South-east lane line 2",
+      "verified": true,
+      "points": [
+        [
+          0.1128,
+          0.3
+        ],
+        [
+          0.2785,
+          0.4626
+        ]
+      ],
+      "evidence": "Continuous divider from the gantry to the stop line in the temporal-median background of C3896; position from painted-line detection and lane clusters of stop-line crossings."
+    },
+    {
+      "id": "South-east lane line 3",
+      "verified": true,
+      "points": [
+        [
+          0.1781,
+          0.3
+        ],
+        [
+          0.3442,
+          0.4502
+        ]
+      ],
+      "evidence": "Continuous divider from the gantry to the stop line in the temporal-median background of C3896; position from painted-line detection and lane clusters of stop-line crossings."
+    },
+    {
+      "id": "South-east lane line 4",
+      "verified": true,
+      "points": [
+        [
+          0.2412,
+          0.3
+        ],
+        [
+          0.411,
+          0.4375
+        ]
+      ],
+      "evidence": "Continuous divider from the gantry to the stop line in the temporal-median background of C3896; position from painted-line detection and lane clusters of stop-line crossings."
     }
   ],
-  "turn_rules": [],
-  "prohibited_u_turns": [],
+  "turn_rules": [
+    {
+      "id": "South-east right turn from a non-kerb lane",
+      "verified": true,
+      "summary": "Right turn into the side road from a lane other than the kerb lane",
+      "from": [
+        [
+          0.1008,
+          0.35
+        ],
+        [
+          0.212,
+          0.4751
+        ],
+        [
+          0.4812,
+          0.4243
+        ],
+        [
+          0.402,
+          0.33
+        ]
+      ],
+      "from_vector": [
+        0.74,
+        0.67
+      ],
+      "start_line": [
+        [
+          0.1506,
+          0.4867
+        ],
+        [
+          0.4812,
+          0.4243
+        ]
+      ],
+      "prohibited_exit": [
+        [
+          0.0,
+          0.72
+        ],
+        [
+          0.19,
+          0.673
+        ],
+        [
+          0.3,
+          0.8
+        ],
+        [
+          0.33,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "exit_vector": [
+        -0.85,
+        0.53
+      ],
+      "exit_cosine": 0.75,
+      "evidence": "Uzbekistan traffic rules, clause 56: before turning right the driver must take the extreme right position (https://uzpdd.uz/pddtext.php?id=9). No lane arrows or turn signs allow other lanes (temporal-median background of C3896). `from` covers lanes 2-5 between solid lane line 1 and the median over the last part of the solid section. In the samples 12 of 17 right turns use the kerb lane; the other 5 cut across it."
+    }
+  ],
+  "prohibited_u_turns": [
+    {
+      "id": "U-turn from a lane other than the median lane",
+      "verified": true,
+      "progressive": true,
+      "summary": "U-turn around the median nose started from lanes 1-3 instead of the median lane",
+      "from": [
+        [
+          0.095,
+          0.35
+        ],
+        [
+          0.1506,
+          0.4867
+        ],
+        [
+          0.3442,
+          0.4502
+        ],
+        [
+          0.2334,
+          0.35
+        ]
+      ],
+      "from_vector": [
+        0.74,
+        0.67
+      ],
+      "prohibited_exit": [
+        [
+          0.6,
+          0.445
+        ],
+        [
+          0.622,
+          0.479
+        ],
+        [
+          0.935,
+          0.432
+        ],
+        [
+          0.82,
+          0.405
+        ],
+        [
+          0.63,
+          0.3
+        ],
+        [
+          0.5,
+          0.388
+        ]
+      ],
+      "exit_vector": [
+        -0.83,
+        -0.56
+      ],
+      "evidence": "Uzbekistan traffic rules, clause 56: before a U-turn the driver must take the extreme left position (https://uzpdd.uz/pddtext.php?id=9); four solid lane lines fix the lanes before the stop line. U-turns around the median nose from the median lane are frequent (11 tracked in the samples, all from the median lane) and no sign or marking prohibits them, so only U-turns started from lanes 1-3 are flagged. No no-U-turn sign is visible in the view."
+    }
+  ],
   "experimental_conflicts": false,
   "specialists": [
     {
@@ -539,31 +743,28 @@
   ],
   "directions": [
     {
-      "id": "near",
+      "id": "south-east approach",
       "lanes": [
-        "near-1",
-        "near-2",
-        "near-3"
+        "se-approach"
       ],
+      "signal": "South-east approach signal (median head)",
       "verified": true,
       "all_lanes_visible": true,
-      "evidence": "Three lanes mapped separately in the visible approach segment of C3896."
+      "evidence": "All five approach lanes are inside the mapped carriageway; red-phase queues are excluded through the governing lamp."
     },
     {
-      "id": "far",
+      "id": "north-west carriageway",
       "lanes": [
-        "far-1",
-        "far-2",
-        "far-3"
+        "nw-departure"
       ],
       "verified": true,
       "all_lanes_visible": true,
-      "evidence": "Three lanes mapped separately in the visible approach segment of C3896."
+      "evidence": "Whole carriageway above the raised median is mapped; no signal governs it inside the view."
     }
   ],
   "near_miss": {
-    "enabled": true,
-    "status": "provisional",
-    "evidence": "Approach, evasive trajectory change, no overlap evidence and observed separation required."
+    "enabled": false,
+    "status": "disabled",
+    "evidence": "Reviewed on the four samples: 58 candidates from the original rule and 49 loose candidates contained no real near miss; the hardened rule still produced 9 false detections. Kept implemented and tested; enable only with positive evidence."
   }
 }

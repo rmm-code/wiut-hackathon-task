@@ -65,7 +65,7 @@ def create_app(storage=None, start_worker=True):
                 from fastapi.responses import JSONResponse
 
                 return JSONResponse(
-                    {"detail": "The upload exceeds 250 MB."}, status_code=413
+                    {"detail": f"The upload exceeds {settings.max_bytes // 2**20} MB."}, status_code=413
                 )
         response = await call_next(request)
         if request.url.path.startswith("/api/"):
@@ -128,7 +128,9 @@ def create_app(storage=None, start_worker=True):
                 while chunk := await file.read(1024 * 1024):
                     total += len(chunk)
                     if total > settings.max_bytes:
-                        raise HTTPException(413, "The upload exceeds 250 MB.")
+                        raise HTTPException(
+                            413, f"The upload exceeds {settings.max_bytes // 2**20} MB."
+                        )
                     dest.write(chunk)
             meta = await run_in_threadpool(validate_upload, folder / "input.mp4")
             store.create(identity, owner(request, response), filename, meta)

@@ -4,6 +4,11 @@ from vision.coverage import coverage
 from types import SimpleNamespace
 
 
+def devset(root):
+    path = root / "devset" / "report.json"
+    return json.loads(path.read_text()) if path.is_file() else None
+
+
 def register_about(app, root, gallery):
     @app.get("/api/about")
     def about():
@@ -49,5 +54,5 @@ def register_about(app, root, gallery):
             "repository": "https://github.com/rmm-code/wiut-hackathon-task",
             "predictions": "/api/downloads/predictions.json",
             "manifest": "/api/downloads/weights.json",
-            "accuracy_measured": False,
+            "devset": devset(root),
         }

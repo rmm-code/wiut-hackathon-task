@@ -1,0 +1,29 @@
+[Unit]
+Description=Crossing traffic-event API and analysis worker
+After=network.target
+
+[Service]
+Type=simple
+User=wiut
+Group=wiut
+WorkingDirectory=/opt/wiut
+Environment=CROSSING_DEVICE=cpu
+Environment=CROSSING_ORIGINS=https://wiut.mardonjon.me
+Environment=CROSSING_STORAGE=/var/lib/wiut/storage
+Environment=CROSSING_MAX_MB=95
+Environment=OMP_NUM_THREADS=3
+ExecStart=/opt/wiut/.venv/bin/python -m uvicorn api.main:app --host 127.0.0.1 --port 8130 --proxy-headers --forwarded-allow-ips=127.0.0.1
+Restart=on-failure
+RestartSec=5
+# Shared host: keep analysis jobs from starving other services.
+Nice=10
+CPUQuota=300%
+MemoryMax=3G
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/wiut /opt/wiut/.cache
+
+[Install]
+WantedBy=multi-user.target

@@ -182,4 +182,23 @@ export interface ProjectInfo {
   repository: string;
   predictions: string;
   manifest: string;
+  devset: DevsetReport | null;
+}
+
+export interface DevsetReport {
+  score_a: number;
+  videos: string[];
+  labelled_events: number;
+  note: string;
+  classes: {
+    label: Label;
+    labelled: number;
+    predicted: number;
+    precision: number;
+    recall: number;
+    "f1_0.3": number;
+    "f1_0.5": number;
+    "f1_0.7": number;
+    f1_mean: number;
+  }[];
 }

@@ -5,10 +5,10 @@ def coverage(scene, detector_names, specialist_labels=()):
     cfg = scene.config
     reasons = {
         "accident": "Requires a validated contact classifier; experimental heuristics are disabled.",
-        "near_miss": "Requires validated evasive-action detection; experimental heuristics are disabled.",
+        "near_miss": "Off: the reviewed samples contained no near miss and every detection was a false alarm.",
         "red_light": "Governing signal and stop-line mapping are not verified.",
         "wrong_way": "Legal lane directions are not verified.",
-        "illegal_u_turn": "No verified no-U-turn zone is configured.",
+        "illegal_u_turn": "No verified prohibited U-turn movement is configured.",
         "illegal_turn": "No verified prohibited lane-to-exit movement is configured.",
         "solid_line_crossing": "No verified solid marking is configured.",
         "stop_line": "Governing signal and stop-line mapping are not verified.",

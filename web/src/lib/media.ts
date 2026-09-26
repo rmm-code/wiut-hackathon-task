@@ -1,10 +1,15 @@
+// Matches the server limit; Cloudflare-proxied hosts reject bodies above 100 MB.
+export const MAX_UPLOAD_MB = 95;
+
 export async function openVideo(
   file: File,
 ): Promise<{ url: string; duration: number }> {
   if (!/\.mp4$/i.test(file.name))
     throw new Error("Please choose an MP4 video.");
-  if (file.size > 250 * 1024 * 1024)
-    throw new Error("This video exceeds the 250 MB limit.");
+  if (file.size > MAX_UPLOAD_MB * 1024 * 1024)
+    throw new Error(
+      `This video exceeds the ${MAX_UPLOAD_MB} MB limit. Export a shorter or 1080p H.264 copy.`,
+    );
   if (!file.size)
     throw new Error("This file is empty. Please choose another video.");
   const url = URL.createObjectURL(file);

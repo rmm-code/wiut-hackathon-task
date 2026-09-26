@@ -72,7 +72,9 @@ class Detector:
         )
         self.tracker = LocalTracker(args)
 
-    def step(self, frame):
+    def step(self, frame, floor=None):
+        """Tracked observations; `floor` overrides the confidence cut for caching."""
+        floor = self.settings.confidence if floor is None else floor
         result = self.model.predict(
             frame,
             device=self.device,
@@ -88,7 +90,7 @@ class Detector:
         observations = []
         for row in tracked:
             x1, y1, x2, y2, identity, score, category = row[:7]
-            if score < self.settings.confidence:
+            if score < floor:
                 continue
             box = tuple(
                 float(np.clip(v, 0, 1)) for v in (x1 / w, y1 / h, x2 / w, y2 / h)

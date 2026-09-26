@@ -51,19 +51,35 @@ def test_stop_line_closes_exactly_on_green_even_if_vehicle_disappears():
     assert result == [[0, 1.0, "stop_line"]]
 
 
-def test_red_light_starts_at_crossing_and_ends_at_intersection_exit():
+def run(path, lamp):
     rules, segments = SignalRules(Scene()), Segments()
-    for t, y in [
-        (0, 0.3),
-        (0.2, 0.4),
-        (0.4, 0.55),
-        (0.6, 0.7),
-        (0.8, 0.8),
-        (1.0, 0.99),
-    ]:
-        segments.update(rules.step([track(y, t)], t, frame((0, 0, 255))), t)
-    result = [e.tuple() for e in segments.finish(2)]
-    assert result == [[0.2, 1.0, "red_light"]]
+    for t, y in path:
+        segments.update(rules.step([track(y, t)] if y else [], t, frame(lamp(t))), t)
+    return [e.tuple() for e in segments.finish(6)]
+
+
+RED, GREEN = (0, 0, 255), (0, 255, 0)
+CROSSING = [(0.0, None), (1.0, 0.3), (1.2, 0.4), (1.4, 0.55), (1.8, 0.7), (2.4, 0.8), (3.0, 0.9), (3.6, 0.99)]
+
+
+def test_red_light_starts_at_crossing_and_ends_at_intersection_exit():
+    assert run(CROSSING, lambda t: RED) == [[1.2, 3.6, "red_light"]]
+
+
+def test_amber_clearance_and_anticipatory_starts_are_not_violations():
+    # Crossing 0.3 s after the lamp turned red: amber clearance.
+    assert run(CROSSING, lambda t: GREEN if t < 1.1 else RED) == []
+    # Lamp turns green within the confirmation window: anticipatory start.
+    assert run(CROSSING, lambda t: GREEN if t >= 2.4 else RED) == []
+
+
+def test_vehicle_stopped_at_the_paint_is_not_a_stop_line_violation():
+    rules, segments = SignalRules(Scene()), Segments()
+    for t in [0, 0.2, 0.4]:
+        # Front 0.02 past the line with a 0.1-high box: 0.2 box heights.
+        segments.update(rules.step([track(0.52, t, 0)], t, frame(RED)), t)
+    segments.update(rules.step([], 1.0, frame(GREEN)), 1.0)
+    assert segments.finish(2) == []
 
 
 def test_green_crossing_is_not_a_red_light_violation():

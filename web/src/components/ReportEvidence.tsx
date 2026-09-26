@@ -1,7 +1,7 @@
 import { CardHead } from "./Card";
 import { classes } from "../data/classes";
 import { time } from "../lib/format";
-import type { ProjectInfo } from "../types";
+import type { DevsetReport, ProjectInfo } from "../types";
 
 const failures = [
   {
@@ -20,13 +20,65 @@ const failures = [
     image: "collision",
     title: "An appearance box does not prove a crash",
     source: "C3902 · 00:02",
-    text: "The earlier specialist run proposed a collision at 1.07–3.20 seconds. Visible contact is not established by this still. It remains a candidate for full-clip review, not a confirmed accident or a validated positive example.",
+    text: "The accident specialist proposed a collision at 1.07–3.20 seconds. Review showed two cars overlapping in perspective and driving on. Accident candidates now also require the vehicles to come to rest, which removes this false alarm.",
   },
 ];
+
+function Devset({ report }: { report: DevsetReport }) {
+  return (
+    <section className="card">
+      <CardHead
+        icon="check"
+        title="Accuracy on our sample labels"
+        subtitle={`Official metric · ${report.labelled_events} labelled events in ${report.videos.length} sample videos`}
+      />
+      <div className="report-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Labelled</th>
+              <th>Predicted</th>
+              <th>Precision</th>
+              <th>Recall</th>
+              <th>F1 @0.3</th>
+              <th>F1 @0.5</th>
+              <th>F1 @0.7</th>
+            </tr>
+          </thead>
+          <tbody>
+            {report.classes.map((row) => (
+              <tr key={row.label}>
+                <td>{classes[row.label].name}</td>
+                <td>{row.labelled}</td>
+                <td>{row.predicted}</td>
+                <td>{row.precision.toFixed(2)}</td>
+                <td>{row.recall.toFixed(2)}</td>
+                <td>{row["f1_0.3"].toFixed(2)}</td>
+                <td>{row["f1_0.5"].toFixed(2)}</td>
+                <td>{row["f1_0.7"].toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="analysis-body">
+        <p>
+          Score A on these labels: <strong>{report.score_a.toFixed(3)}</strong>.
+          Precision and recall are at temporal IoU 0.5. The labels are our own
+          model-assisted review of the organizer samples, not the hidden test
+          set, and the same samples were used to tune the rules, so treat these
+          numbers as an upper bound.
+        </p>
+      </div>
+    </section>
+  );
+}
 
 export function ReportEvidence({ data }: { data: ProjectInfo }) {
   return (
     <>
+      {data.devset && <Devset report={data.devset} />}
       <section className="card">
         <CardHead
           icon="chart"
@@ -113,8 +165,8 @@ export function ReportEvidence({ data }: { data: ProjectInfo }) {
         <div className="analysis-body">
           <p>
             All 14 labels have implementation paths. A rule is applied only when
-            its required observations and scene facts are available. No measured
-            precision, recall, temporal F1 or anticipation accuracy is claimed.
+            its required observations and scene facts are available, and a class
+            stays off when review found no reliable detections.
           </p>
         </div>
       </section>

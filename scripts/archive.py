@@ -32,6 +32,8 @@ def publish(identity, source, destination):
             raise ValueError(f"Missing artifact: {name}")
     destination.mkdir(parents=True, exist_ok=True)
     staging = Path(tempfile.mkdtemp(prefix=identity + "-", dir=destination))
+    # mkdtemp is owner-only; the public gallery must be readable by the web service.
+    staging.chmod(0o755)
     try:
         checksums = {}
         for name in FILES:

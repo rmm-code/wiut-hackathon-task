@@ -190,6 +190,7 @@ def analyze(
                     "confidence": event.confidence,
                     "lane": event.lane,
                     "evidence": event.evidence,
+                    "key": event.key,
                 }
                 for event in events
             ],

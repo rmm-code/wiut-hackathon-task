@@ -63,3 +63,13 @@ def test_accident_is_not_repeated_while_wreck_is_visible():
             participant.stopped_since = 2
         detector.step(frame, [participant], t)
     assert [event.tuple() for event in detector.finish(6)] == [[0, 2, "accident"]]
+
+
+def test_accident_candidate_whose_vehicles_drive_on_is_dropped():
+    detector, model, frame = system("accident")
+    participant = Track(Observation(1, "car", 0.9, (0.1, 0.2, 0.4, 0.5)), 0, 0)
+    for t in range(4):
+        detector.step(frame, [participant], t)
+    model.present = False
+    detector.step(frame, [participant], 7)
+    assert detector.finish(8) == []

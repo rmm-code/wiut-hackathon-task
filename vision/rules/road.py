@@ -1,10 +1,13 @@
 from ..geometry import distance
 from ..types import Flag, VEHICLES
-from .crossing import CrossingRules, is_rider
+from .crossing import CrossingRules, is_rider, occluded
 from .direction import DirectionRules
 
 
 class RoadRules:
+    # Ground-point clearance from carriageway edges and crossings, in pedestrian heights.
+    margin = 0.12
+
     def __init__(self, scene):
         self.scene = scene
         self.crossing_rules = CrossingRules(scene)
@@ -21,10 +24,12 @@ class RoadRules:
         people = [
             tr
             for tr in tracks
-            if tr.observation.kind == "person" and not is_rider(tr, tracks)
+            if tr.observation.kind == "person"
+            and not is_rider(tr, tracks)
+            and not occluded(tr, tracks)
         ]
         flags.extend(self.crossing_rules.step(tracks, people, t))
-        flags.extend(self.direction_rules.step(vehicles, t))
+        flags.extend(self.direction_rules.step(vehicles, t, frame))
         for track in vehicles:
             observation = track.observation
             if track.stopped_since is not None and t - track.stopped_since >= 10:
@@ -48,7 +53,7 @@ class RoadRules:
                     )
         for track in people:
             obs = track.observation
-            margin = max(0.006, obs.height * 0.12)
+            margin = max(0.006, obs.height * self.margin)
             if self.scene.on_road(obs.foot, margin) and not self.scene.near_crossing(
                 obs.foot, margin
             ):

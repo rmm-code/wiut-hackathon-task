@@ -10,6 +10,10 @@ class Pending:
 
 
 class Segments:
+    # Shortest observed interval kept per class, in seconds; stopped_vehicle has its own 10 s rule.
+    minimum = {"jaywalking": 0.5, "wrong_way": 0.5, "road_obstacle": 0.5, "congestion": 0.5}
+    default_minimum = 0.12
+
     def __init__(self):
         self.pending = {}
         self.completed = []
@@ -36,11 +40,7 @@ class Segments:
     def _close(self, key, end):
         pending = self.pending.pop(key)
         flag = pending.flag
-        minimum = (
-            0.5
-            if flag.label in {"jaywalking", "wrong_way", "road_obstacle", "congestion"}
-            else 0.12
-        )
+        minimum = self.minimum.get(flag.label, self.default_minimum)
         observed = end - (flag.start if flag.end is not None else pending.first)
         if observed < minimum and flag.label != "stopped_vehicle":
             return
@@ -53,6 +53,7 @@ class Segments:
                     flag.confidence,
                     flag.lane,
                     flag.evidence,
+                    flag.key,
                 )
             )
 
@@ -75,6 +76,7 @@ class Segments:
             ):
                 output[-1].end = max(output[-1].end, event.end)
                 output[-1].confidence = max(output[-1].confidence, event.confidence)
+                output[-1].key = "|".join(filter(None, [output[-1].key, event.key]))
             else:
                 output.append(event)
         return sorted(output, key=lambda e: (e.start, e.label))

@@ -21,7 +21,8 @@ class Settings:
     sample_fps: float = 8.0
     confidence: float = 0.2
     max_seconds: float = 120.1
-    max_bytes: int = 250 * 1024 * 1024
+    # Cloudflare-proxied hosts reject request bodies above 100 MB.
+    max_bytes: int = 95 * 1024 * 1024
 
     @classmethod
     def load(cls):
@@ -30,6 +31,7 @@ class Settings:
             scene=Path(os.getenv("CROSSING_SCENE", str(cls.scene))).resolve(),
             device=os.getenv("CROSSING_DEVICE", "auto"),
             sample_fps=float(os.getenv("CROSSING_FPS", "8")),
+            max_bytes=int(float(os.getenv("CROSSING_MAX_MB", "95")) * 1024 * 1024),
         )
 
     def camera(self):

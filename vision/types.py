@@ -69,6 +69,7 @@ class Event:
     confidence: float
     lane: str | None
     evidence: str
+    key: str = ""
 
     def tuple(self):
         return [round(self.start, 3), round(self.end, 3), self.label]
