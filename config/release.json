@@ -1,9 +1,10 @@
 {
-  "website": null,
-  "repository": null,
-  "tag": null,
-  "weights_url": null,
-  "predictions_url": null,
+  "website": "https://wiut.mardonjon.me",
+  "repository": "https://github.com/rmm-code/wiut-hackathon-task",
+  "tag": "v1.0.0",
+  "weights_url": "https://github.com/rmm-code/wiut-hackathon-task/releases/download/v1.0.0/weights.tar",
+  "samples_url": "https://github.com/rmm-code/wiut-hackathon-task/releases/download/v1.0.0/samples.tar",
+  "predictions_url": "https://github.com/rmm-code/wiut-hackathon-task/blob/v1.0.0/predictions_samples.json",
   "team": [],
   "nvidia_benchmark_verified": false
 }

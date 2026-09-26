@@ -1,12 +1,13 @@
 from ..geometry import distance
 from ..types import Flag, VEHICLES
+from .conflicts import clipped
 from .crossing import CrossingRules, is_rider, occluded
 from .direction import DirectionRules
 
 
 class RoadRules:
-    # Ground-point clearance from carriageway edges and crossings, in pedestrian heights.
-    margin = 0.12
+    # Ground-point clearance, in pedestrian heights: inside the kerb, and away from crossings.
+    edge_margin, crossing_margin = 0.12, 0.12
 
     def __init__(self, scene):
         self.scene = scene
@@ -40,7 +41,11 @@ class RoadRules:
                     < 2.8 * observation.height
                     for other in vehicles
                 )
-                if not self.scene.queue_zone(observation.foot) and nearby < 2:
+                if (
+                    not self.scene.queue_zone(observation.foot)
+                    and not clipped(observation.box)
+                    and nearby == 0
+                ):
                     flags.append(
                         Flag(
                             "stopped_vehicle",
@@ -48,14 +53,15 @@ class RoadRules:
                             track.stopped_since,
                             observation.score,
                             track.lane,
-                            "Stationary for at least 10 seconds outside the mapped signal queue.",
+                            "Stationary for at least 10 seconds with no stationary vehicle beside it, outside signal queues, turn-waiting areas and kerb parking.",
                         )
                     )
         for track in people:
             obs = track.observation
-            margin = max(0.006, obs.height * self.margin)
-            if self.scene.on_road(obs.foot, margin) and not self.scene.near_crossing(
-                obs.foot, margin
+            edge = max(0.006, obs.height * self.edge_margin)
+            gap = max(0.006, obs.height * self.crossing_margin)
+            if self.scene.on_road(obs.foot, edge) and not self.scene.near_crossing(
+                obs.foot, gap
             ):
                 flags.append(
                     Flag(

@@ -38,13 +38,25 @@ The subprocess loads local YOLO weights, decodes the video, detects objects, upd
 - UI job generations prevent an older result from overwriting a newly selected source. Cancelling a known job terminates its subprocess.
 - Review state is browser-session-local and does not change model labels. Server job artifacts expire after 24 hours.
 
-## Local operation and future deployment
+## Local operation and deployment
 
-`npm run dev` starts FastAPI on 127.0.0.1:8000 and Vite on 127.0.0.1:5173. The API currently binds to loopback. Cookie ownership, origin checks, filename isolation, size/duration checks, bounded concurrency, and retention are implemented. A production deployment still needs environment-specific TLS, origin/cookie settings, upload-body limits at the proxy, storage quotas, rate limiting, monitoring, and final deployment testing.
+`npm run dev` starts FastAPI on 127.0.0.1:8000 and Vite on 127.0.0.1:5173.
 
-The static web build is in `web/dist/client`; the retained template Worker is only a static-serving option. Deploy the real model on a Python-capable host, with the frontend and API under one origin or a carefully configured proxy. No deployment has been performed.
+The public site at https://wiut.mardonjon.me runs on a shared Ubuntu 24.04 VPS (4 CPU cores, 8 GB RAM,
+no GPU). Its configuration is versioned in `deploy/`:
 
-Mac/MPS development and the local benchmark do not verify Linux/CUDA behavior. The organizer environment must be tested separately before submission. Model correctness also requires independent labels, specialist class coverage, and event-boundary validation; engineering checks do not establish accuracy.
+- `wiut-api.service`: systemd unit. Uvicorn on 127.0.0.1:8130 as an unprivileged `wiut` user, CPU-only
+  PyTorch wheels, `CROSSING_DEVICE=cpu`, one analysis worker, `CPUQuota=300%`, `MemoryMax=3G`,
+  read-only code with writable storage only under `/var/lib/wiut`.
+- `wiut.mardonjon.me.conf`: nginx vhost. Serves `web/dist/client` and proxies `/api/` with request
+  buffering off. Certbot adds TLS. Cloudflare proxies the domain and rejects request bodies above
+  100 MB, so uploads are capped at 95 MB (`CROSSING_MAX_MB`).
+
+The permanent sample gallery (`artifacts/`) is copied to the server separately from the code.
+Visitor uploads expire after 24 hours. CPU analysis of a two-minute 4K clip takes several minutes; the
+page shows real progress.
+
+Mac/MPS development and the local benchmark do not verify Linux/CUDA behaviour on the judging machine.
 
 ## Maintainability
 

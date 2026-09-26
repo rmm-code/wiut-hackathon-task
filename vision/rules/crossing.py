@@ -44,12 +44,17 @@ def ground_ends(track):
 
 
 def axis(polygon):
-    """Walking axis of a four-sided crossing: between the midpoints of its short sides."""
-    sides = [(polygon[i], polygon[(i + 1) % 4]) for i in range(4)]
-    lengths = [math.dist(a, b) for a, b in sides]
-    short = (0, 2) if lengths[0] + lengths[2] < lengths[1] + lengths[3] else (1, 3)
-    ends = [((a[0] + b[0]) / 2, (a[1] + b[1]) / 2) for a, b in (sides[i] for i in short)]
-    return ends
+    """Walking axis of a crossing: its principal direction, between the extreme vertices."""
+    cx = sum(x for x, _ in polygon) / len(polygon)
+    cy = sum(y for _, y in polygon) / len(polygon)
+    sxx = sum((x - cx) ** 2 for x, _ in polygon)
+    syy = sum((y - cy) ** 2 for _, y in polygon)
+    sxy = sum((x - cx) * (y - cy) for x, y in polygon)
+    angle = 0.5 * math.atan2(2 * sxy, sxx - syy)
+    dx, dy = math.cos(angle), math.sin(angle)
+    spans = [(x - cx) * dx + (y - cy) * dy for x, y in polygon]
+    low, high = min(spans), max(spans)
+    return (cx + dx * low, cy + dy * low), (cx + dx * high, cy + dy * high)
 
 
 def along(point, ends):
@@ -65,15 +70,13 @@ class CrossingRules:
     standing in a queue are excluded. The interval covers the vehicle's traversal.
     """
 
-    end_margin, reach = 0.06, 1.0
+    end_margin, reach, walking = 0.06, 1.0, 0.3
 
     def __init__(self, scene):
         self.scene = scene
         self.entries = {}
         self.axes = {
-            item["id"]: axis(item["polygon"])
-            for item in scene.config.get("crossings", [])
-            if len(item["polygon"]) == 4
+            item["id"]: axis(item["polygon"]) for item in scene.config.get("crossings", [])
         }
 
     def walkers(self, people, t):
@@ -84,7 +87,7 @@ class CrossingRules:
             if crossing not in self.axes or t - person.first < 0.5:
                 continue
             position = along(self.scene.point(obs.foot), self.axes[crossing])
-            walking = person.speed / obs.height > 0.3
+            walking = person.speed / obs.height > self.walking
             if walking and self.end_margin < position < 1 - self.end_margin:
                 found.setdefault(crossing, []).append(obs)
         return found

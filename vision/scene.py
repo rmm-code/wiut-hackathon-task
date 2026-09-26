@@ -118,9 +118,10 @@ class Scene:
         )
 
     def queue_zone(self, point):
+        """Where stationary vehicles are queueing, yielding or parked, not stopped vehicles."""
         return any(
-            inside(self.point(point), poly)
-            for poly in self.config.get("queue_zones", [])
+            inside(self.point(point), zone["polygon"] if isinstance(zone, dict) else zone)
+            for zone in self.config.get("queue_zones", [])
         )
 
     def summary(self):

@@ -20,13 +20,14 @@ export function Report() {
     <>
       <section className="card approach-intro">
         <div>
-          <span className="eyebrow">LOCAL BASELINE</span>
+          <span className="eyebrow">MEASURED ON SAMPLE LABELS</span>
           <h2>System overview</h2>
           <p>
-            YOLO detects road users. Tracking and scene rules turn their
-            movement into events and risk estimates. The local inference engine
-            is connected. Event accuracy and camera calibration remain
-            provisional.
+            YOLO detects road users. Tracking and camera-specific scene rules
+            turn their movement into events and risk estimates. The rules were
+            reviewed and tuned against our own labels of the four sample videos,
+            and the accuracy table below reports the official metric on those
+            labels.
           </p>
         </div>
       </section>
@@ -82,16 +83,19 @@ export function Report() {
             subtitle="Validation and class coverage"
           />
           <ul>
-            <li>Calibrate lanes, crossings, stop lines, and signals.</li>
             <li>
-              Review tracking failures and tune the detector on labeled frames.
+              Have a person re-check our model-assisted sample labels, and label
+              held-out footage.
             </li>
-            <li>Validate event boundaries and calibrate accident risk.</li>
-            <li>Evaluate on reviewed labels and report failures.</li>
-            <li>Validate the installed accident and smoke/fire specialists.</li>
+            <li>Calibrate the anticipation score on real collision clips.</li>
+            <li>
+              Find positive examples for near misses, accidents, fire and
+              obstacles, none of which occur in the samples.
+            </li>
+            <li>Measure runtime on the judging GPU.</li>
           </ul>
           <span className="badge badge-amber">
-            Accuracy not yet established
+            Tuned on the samples it is measured on
           </span>
         </section>
       </div>

@@ -1,52 +1,62 @@
 # Development labels
 
-`labels.json` holds our own event labels for the four organizer sample videos, in the
-official `ground_truth.json` format, so that
+`labels.json` holds our own event labels for the four organizer sample videos, in the official
+`ground_truth.json` format. `notes.json` records the evidence for every accepted label and every
+rejected or uncertain candidate: time, track identities and a short reason. `report.json` is the
+official Part A metric of the submitted `predictions_samples.json` against these labels, and the
+website renders it.
 
 ```sh
 python evaluate.py --pred predictions_samples.json --gt devset/labels.json --per-video
-python -m scripts.devset score          # same metric on a fast rule replay
+python -m scripts.devset cache            # detector + tracker output of every sample, once (~5 min on M5)
+python -m scripts.devset score            # same metric on a fast rule replay (~10 s)
+python -m scripts.devset score --pred predictions_samples.json --json devset/report.json
+python -m scripts.sheets C3896.MP4 40 70 --ids 503 --out sheet.jpg   # review contact sheet
 ```
-
-measure the submitted pipeline. `notes.json` records the evidence for every label
-(time-stamped observation, involved track identities, uncertainty).
 
 ## How the labels were made
 
-Labels are **model-assisted reviews, not independent human annotation**:
+These labels are **model-assisted reviews, not independent human annotation**.
 
-1. Candidate intervals came from two sources: the rules at deliberately loose settings
-   (for example every pedestrian ground point on the carriageway, every vehicle
-   stationary for eight seconds, every stop-line crossing in either lamp state), and a
-   full-frame scan of each video at fixed intervals for visually obvious events.
-2. Every candidate was reviewed on contact sheets rendered from the original 4K frames
-   (`python -m scripts.sheets`), with the involved tracks highlighted, scene zones
-   overlaid and the governing lamp visible.
-3. Accepted events were given boundaries from the reviewed frames by the class conventions
-   below. Anything that could not be decided from the frames is listed in `notes.json` as
-   `uncertain` and left out of `labels.json`.
+1. **Candidates.** Deliberately loose versions of the rules proposed candidates from the cached tracks.
+   For example: every pedestrian ground point on the carriageway outside a crossing, every vehicle in
+   a crossing while any pedestrian track was on it, every vehicle stationary for 8 s, every stop-line
+   crossing whatever the lamp state, every close approach with braking, every motion against a
+   carriageway, and every lane change in the solid-line section. Overlapping candidates were grouped
+   into 437 review episodes.
+2. **Review.** Each episode was rendered as a contact sheet from the original 4K frames with the
+   involved tracks highlighted, zones overlaid and, for signal classes, the lamp enlarged in every
+   tile. Reviewers (AI assistants, Claude, working under a written rubric that quotes the official
+   class definitions) returned yes / no / uncertain with a reason and boundaries. Only `yes` enters
+   `labels.json`.
+3. **Zoom checks.** Small tiles misled early verdicts on stop-line and turn cases. The first pass
+   called several cars "at the line" that were in fact a car length past it. Every signal, turn and
+   U-turn candidate was therefore re-checked at high zoom, together with the geometry measurements
+   used for the decision: front overshoot past the stop line in box heights, lane at the stop-line
+   crossing, and debounced lamp state.
 
-The reviewer was an AI assistant (Claude) working from extracted frames, directed by the
-team. Treat these labels as a development set, not ground truth: they share blind spots
-with the detector that proposed most candidates, and a human pass would improve them.
+Same-class events that overlap in time are merged into one segment, as the organizers' annotations do.
 
-## Class conventions used on this camera
+## Conventions on this camera
 
-Definitions follow the task statement; the notes below make them concrete for this view.
+Definitions follow the task statement. Where the view needed a decision, we used the following.
 
 | Label | Accepted when | Start → end |
 | --- | --- | --- |
-| jaywalking | A pedestrian's feet are on the carriageway outside the painted crossings (between queued cars, beside a crossing, across the side road). Standing on islands, kerbs or the crossing itself is excluded. | First frame on the carriageway → back on a kerb, island or crossing |
-| failure_to_yield | A vehicle drives across a crossing while a pedestrian is on that crossing's carriageway section, or stepping onto it, near the vehicle's path | Vehicle front enters the crossing → vehicle rear leaves it |
-| stopped_vehicle | A vehicle is stationary 10 s or longer on the carriageway and is not queueing at the signal (drop-offs, breakdowns, waiting on the carriageway) | Vehicle stops → vehicle moves again (video end if never) |
-| red_light | A vehicle's front crosses a stop line while its governing signal is red and it continues into the intersection | Front crosses the stop line → leaves the intersection or frame |
-| stop_line | A vehicle stops beyond the stop line during red without entering the intersection | Vehicle stops → governing signal turns green |
-| wrong_way | A vehicle travels against its lane's direction | Enters the opposing lane → returns or leaves the frame |
-| congestion | Every lane of a direction at a standstill or crawling beyond a normal signal queue (the queue does not clear on green) | Queue stops → queue clears |
-| near_miss | Visible sharp braking or swerving between two road users to avoid contact | Evasive action begins → users clear of each other |
-| solid_line_crossing | A vehicle changes lane across a solid marking | Wheel crosses the line → vehicle fully in the new lane |
-| illegal_turn / illegal_u_turn | See `docs/classes.md` for the camera facts used | Vehicle starts turning → turn completed |
-| accident, road_obstacle, fire_smoke | Only when clearly visible | Class definitions |
+| jaywalking | Feet clearly on the asphalt outside a zebra: the slip-lane shortcut between zebras A and C, walking or standing beside zebra B, crossing the junction box. Excluded: zebra paint and its edge, islands, the median refuge, kerbs | Steps onto the asphalt → back on a kerb, island or zebra |
+| failure_to_yield | Vehicle moves across a zebra while a pedestrian walks on the same zebra near its path. Excluded: pedestrians waiting at a kerb, pedestrians on the other half of the split A/B crossing | Vehicle front enters → rear leaves |
+| stopped_vehicle | Stationary 10 s or more on the carriageway for a non-traffic reason | Stops → moves again or video end |
+| red_light | Front crosses the stop line after the lamp has been red for about a second and the vehicle continues through the junction while the lamp stays red. Amber clearance and starts in the last second of red are not labelled | Crossing → leaves the junction |
+| stop_line | Front clearly past the stop line (typically half a car length or more) while stationary on red | First such stop in the phase → green |
+| illegal_turn | Right turn into the side road from lanes 2–5 (clause 56: turns start from the extreme lane) | Stop-line crossing → turn completed |
+| illegal_u_turn | None found: all 11 observed U-turns start from the median lane, and no sign or marking prohibits them | — |
+| solid_line_crossing | Lane change across one of the four solid lane lines before the stop line | Wheel on the line → fully in the new lane |
+| near_miss, wrong_way, congestion, accident, fire_smoke, road_obstacle | None occurred in the samples | — |
 
-A normal red-phase queue at the stop line is neither `congestion` nor `stopped_vehicle`.
-Two simultaneous same-class events are one segment, as in the organizer annotations.
+## Limits
+
+- The reviewers were AI assistants. They share blind spots with the detector that proposed most
+  candidates. An event no loose rule proposed can only enter through a reviewer's `extra` note.
+- The rules were tuned on these same four videos, so the measured scores are optimistic. They are a
+  development measurement, not an estimate of the hidden test score.
+- Six classes have no positive examples here. Their precision on real events is unmeasured.
