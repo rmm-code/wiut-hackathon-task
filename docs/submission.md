@@ -53,7 +53,7 @@ Every requirement in the task PDF, [research/WIUT Hackathon _ CV Track Eliminati
 
 | Section | Status | Where on https://wiut.mardonjon.me |
 | --- | --- | --- |
-| 1. Team: roles, who did what, GitHub, LinkedIn, portfolios, previous projects | Partial | "Our team": photos, roles, contributions, links and previous projects. Missing: Mardonjon's LinkedIn and Miraziz's portfolio |
+| 1. Team: roles, who did what, GitHub, LinkedIn, portfolios, previous projects | Partial | "Our team": photos, roles, contributions, links and previous projects. Missing: a portfolio for Miraziz |
 | 2. Problem and approach: pipeline diagram, models and data, learned vs rule-based | Done | "Approach & report": the problem, a nine-step pipeline with each step marked learned or rule-based, and the models, data and licences |
 | 3. EDA: resolution, fps, duration, lighting; counts by class; heatmaps; trajectories; lane directions; density over time | Done | "Samples & insights": a measured table (resolution, fps, duration, brightness, road users by class), a lanes-and-directions map, occupancy, motion and trajectory maps for every sample, and findings that shaped the rules. Counts over time are charted for the open video |
 | 4. Results: every sample annotated, timelines, risk curves, class examples, failure cases | Done | Dashboard (each sample), class examples on "Samples & insights", failures on "Approach & report" |
@@ -95,5 +95,5 @@ Every requirement in the task PDF, [research/WIUT Hackathon _ CV Track Eliminati
   were tuned on the same videos.
 - **Unmeasured classes.** Accident, fire and smoke, road obstacle, congestion, wrong way and illegal
   U-turn never occur in the samples, so their behaviour on real events is unknown.
-- **Team page.** Mardonjon's LinkedIn and Miraziz's portfolio.
+- **Team page.** Miraziz has no portfolio site to link.
 - **Live stream or webcam demo.** Not built.

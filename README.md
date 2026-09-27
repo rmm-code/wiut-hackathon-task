@@ -209,7 +209,7 @@ and no hidden test data was accessed.
 
 | Member | Role | Who did what | Previous projects | Links |
 | --- | --- | --- | --- | --- |
-| Mardonjon Rasulov | Captain | Made the design and most of the logic: the detection pipeline, the traffic rules, the risk score and the website | [Sifatly](https://sifatly.com) (food and product scanner, about 10,000 users and $250 MRR), [Tarjimonchi](https://tarjimonchi.uz) (AI translation of Word documents) | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmm-code) |
+| Mardonjon Rasulov | Captain | Made the design and most of the logic: the detection pipeline, the traffic rules, the risk score and the website | [Sifatly](https://sifatly.com) (food and product scanner, about 10,000 users and $250 MRR), [Tarjimonchi](https://tarjimonchi.uz) (AI translation of Word documents) | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmm-code), [LinkedIn](https://www.linkedin.com/in/mardonjon-rasulov-6012762b7) |
 | Saidxon Xaydarov | Team member | Tested the system and helped with the website's UX | [Fikrly](https://fikrly.uz) (a review platform for businesses in Uzbekistan) | [Portfolio](https://xaydarov.uz), [GitHub](https://github.com/khdrvss), [LinkedIn](https://www.linkedin.com/in/saidxon-xaydarov) |
 | Miraziz Mirvaliyev | Team member | Built parts of the logic and tested it | [Driver Management](https://github.com/MMiraziz013/Driver_Management_Frontend) (C# and TypeScript), [HR Service](https://github.com/MMiraziz013/HR_Service) | [GitHub](https://github.com/MMiraziz013), [LinkedIn](https://www.linkedin.com/in/miraziz-mirvaliyev-75a685236/) |
 
