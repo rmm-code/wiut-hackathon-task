@@ -27,6 +27,9 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return body as T;
 }
 
+// The server's single-request limit is 95 MB; larger videos are sent in pieces.
+const SINGLE_UPLOAD_BYTES = 90 * 1024 * 1024;
+
 export const api = {
   about() {
     return request<ProjectInfo>("/about");
@@ -48,6 +51,55 @@ export const api = {
     const body = new FormData();
     body.append("file", file);
     return request<{ id: string }>("/jobs", { method: "POST", body, signal });
+  },
+  async upload(
+    file: File,
+    signal?: AbortSignal,
+    events: {
+      onStart?: (id: string) => void;
+      onProgress?: (sent: number) => void;
+    } = {},
+  ) {
+    if (file.size <= SINGLE_UPLOAD_BYTES) return api.submit(file, signal);
+    const { id, chunk_bytes } = await request<{ id: string; chunk_bytes: number }>(
+      "/uploads",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ filename: file.name, size: file.size }),
+        signal,
+      },
+    );
+    events.onStart?.(id);
+    let sent = 0;
+    while (sent < file.size) {
+      const piece = file.slice(sent, Math.min(sent + chunk_bytes, file.size));
+      for (let attempt = 1; ; attempt++) {
+        try {
+          const result = await request<{ received: number }>(
+            `/uploads/${id}?offset=${sent}`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/octet-stream" },
+              body: piece,
+              signal,
+            },
+          );
+          sent = result.received;
+          break;
+        } catch (error) {
+          // The server acknowledges a repeated piece, so retrying after a dropped
+          // connection is safe.
+          if (signal?.aborted || attempt >= 4) throw error;
+          await new Promise((resolve) => setTimeout(resolve, 1500 * attempt));
+        }
+      }
+      events.onProgress?.(sent);
+    }
+    return request<{ id: string }>(`/uploads/${id}/complete`, {
+      method: "POST",
+      signal,
+    });
   },
   sample(id: string, signal?: AbortSignal, force = false) {
     return request<{ id: string }>(

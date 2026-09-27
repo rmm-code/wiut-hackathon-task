@@ -46,8 +46,9 @@ frames one by one ─► own YOLO11s + ByteTrack ─► closest-approach conflic
    bicycles, people and animals in every fourth frame (about 7.5 frames/s at 29.97 fps). ByteTrack
    links the detections into tracks.
 2. **Camera alignment (rule-based).** The first frame is matched to the organizer reference view with
-   SIFT and RANSAC. If the match fails, the video is treated as a different camera and every scene rule
-   is switched off.
+   SIFT and RANSAC. Traffic can hide the landmarks in a single frame, so when the first frame fails,
+   one frame per second of the first 20 seconds is tried. If none matches, the video is treated as a
+   different camera and every scene rule is switched off.
 3. **Scene rules (rule-based).** The geometry is mapped once on an empty-road background of the samples
    ([calibration](docs/calibration.md)). Each class has a small rule over tracks and that geometry
    ([classes](docs/classes.md)).
@@ -139,8 +140,10 @@ The public website analyses uploads on four CPU cores: a 20-second 1080p clip to
 ## Website
 
 https://wiut.mardonjon.me runs the same Python engine behind a FastAPI job queue. Visitors can upload a
-clip (MP4, up to 2 minutes and 95 MB) and get annotated playback, an event timeline, a risk curve and a
-JSON export. The site also has:
+clip (MP4, up to 2 minutes and 2.5 GB, enough for two minutes of this camera's 4K footage) and get
+annotated playback, an event timeline, a risk curve and a JSON export. Cloudflare limits each request
+to 100 MB, so files above 90 MB are sent in 16 MB pieces and joined on the server. The original video
+is deleted once its analysis finishes. The site also has:
 
 - every sample video annotated in full, with event timelines, EDA maps and the accuracy table;
 - the report, the team and downloads.

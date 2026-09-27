@@ -5,7 +5,10 @@ The frontend uses relative `/api` URLs. Vite proxies them to the local FastAPI s
 | Method and path | Behavior |
 | --- | --- |
 | `GET /api/health` | Weight/encoder readiness and baseline status |
-| `POST /api/jobs` | Multipart MP4 upload; returns `202 { id, state, meta }` |
+| `POST /api/jobs` | Multipart MP4 upload up to 95 MB; returns `202 { id, state, meta }` |
+| `POST /api/uploads` | JSON `{ filename, size }` for a larger MP4 (up to 2.5 GB); returns `201 { id, chunk_bytes }` |
+| `POST /api/uploads/{id}?offset=N` | One raw piece of at most `chunk_bytes`; returns `{ received }`. A repeated piece is acknowledged; a gap returns 409 |
+| `POST /api/uploads/{id}/complete` | Checks the size, validates the video and queues it; returns `202 { id, state, meta }` |
 | `GET /api/jobs/{id}` | Actual state, measured frame progress, stage, elapsed time, and error |
 | `GET /api/jobs/{id}/results` | Official-format predictions plus separate analysis/coverage details and video URL |
 | `GET /api/jobs/{id}/video` | Annotated H.264 MP4 with byte-range support |
@@ -13,11 +16,11 @@ The frontend uses relative `/api` URLs. Vite proxies them to the local FastAPI s
 | `GET /api/samples` | Supplied sample catalogue with verified local availability |
 | `POST /api/samples/{id}/jobs` | Analyze a ready server-side organizer sample |
 
-States: queued → running → complete or failed/cancelled. The UI additionally shows the file-upload/preparation stage. Progress is processed frames / expected frames, followed by a final encoding stage; no simulated analysis timer is used. A job interrupted by a server restart is marked failed with a resubmission message. The worker is single-concurrency with at most three queued/running jobs and a 30-minute local processing cap.
+States: (uploading →) queued → running → complete or failed/cancelled. The UI additionally shows the file-upload/preparation stage. Progress is processed frames / expected frames, followed by a final encoding stage; no simulated analysis timer is used. A job interrupted by a server restart is marked failed with a resubmission message. The worker is single-concurrency with at most three uploading/queued/running jobs and a 45-minute processing cap. An upload that receives nothing for an hour expires.
 
 Jobs belong to an HttpOnly SameSite=Strict cookie, whose hash is stored with the job. A different session receives 404 for job status, results, and video. Unknown IDs and path-like IDs are rejected. The cookie is not marked Secure, so local development over plain HTTP keeps working. The public site is HTTPS-only: nginx redirects HTTP and Cloudflare terminates TLS.
 
-Uploads have an extension, byte-size, actual-decoding, duration, and resolution check. Stored paths are server-generated UUIDs with fixed filenames. Original names are only metadata and official JSON keys. The upload limit is two minutes and 95 MB (`CROSSING_MAX_MB`; Cloudflare rejects request bodies above 100 MB); trusted server-side samples bypass that public-demo limit. Job metadata and generated artifacts are retained for 24 hours, with periodic cleanup and startup recovery.
+Uploads have an extension, byte-size, actual-decoding, duration, and resolution check. Stored paths are server-generated UUIDs with fixed filenames. Original names are only metadata and official JSON keys. The upload limit is two minutes and 2.5 GB (`CROSSING_MAX_UPLOAD_MB`). Cloudflare rejects request bodies above 100 MB, so a single request is capped at 95 MB (`CROSSING_MAX_MB`) and larger videos arrive in pieces; the server checks free disk space before accepting one. The original video is deleted when its analysis ends; trusted server-side samples are hard links and are kept. Job metadata and generated artifacts are retained for 24 hours, with periodic cleanup and startup recovery.
 
 `results` contains `team`, `videos`, `analysis`, and `video_url`. Each entry in `videos` contains only `events` and `risk`. Copy the `team` and `videos` fields when creating competition predictions. Each event is `[start_sec, end_sec, label]`; risk is `[t_sec, score]`. The separate `analysis` object contains model/device, source metadata, candidate evidence, calibration status, enabled/disabled classes, measured counts, and limitations.
 

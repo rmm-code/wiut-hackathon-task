@@ -37,6 +37,40 @@ class Store:
                 (identity, owner, filename, now, now, json.dumps(meta)),
             )
 
+    def reserve(self, identity, owner, filename, size):
+        """Open a chunked upload. Uploads count toward the queue limit, so a full queue
+        is reported before the pieces are sent, not after."""
+        now = time.time()
+        with self.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            count = db.execute(
+                "SELECT COUNT(*) FROM jobs WHERE state IN ('uploading','queued','running')"
+            ).fetchone()[0]
+            if count >= 3:
+                raise ValueError(
+                    "The analysis queue is full. Please try again after a job finishes."
+                )
+            db.execute(
+                "INSERT INTO jobs (id,owner,filename,state,created,updated,meta) VALUES (?,?,?,'uploading',?,?,?)",
+                (identity, owner, filename, now, now, json.dumps({"size": size})),
+            )
+
+    def reserved_bytes(self):
+        with self.connect() as db:
+            rows = db.execute("SELECT meta FROM jobs WHERE state='uploading'").fetchall()
+        return sum(json.loads(row["meta"]).get("size", 0) for row in rows)
+
+    def touch(self, identity):
+        with self.connect() as db:
+            db.execute("UPDATE jobs SET updated=? WHERE id=?", (time.time(), identity))
+
+    def queue(self, identity, meta):
+        with self.connect() as db:
+            db.execute(
+                "UPDATE jobs SET state='queued',meta=?,updated=? WHERE id=? AND state='uploading'",
+                (json.dumps(meta), time.time(), identity),
+            )
+
     def get(self, identity):
         with self.connect() as db:
             row = db.execute("SELECT * FROM jobs WHERE id=?", (identity,)).fetchone()
@@ -71,10 +105,13 @@ class Store:
             )
 
     def expire(self):
+        """Jobs older than a day, and uploads that received nothing for an hour."""
+        now = time.time()
         with self.connect() as db:
             rows = db.execute(
-                "SELECT id FROM jobs WHERE created<? AND state NOT IN ('queued','running')",
-                (time.time() - 86400,),
+                "SELECT id FROM jobs WHERE (created<? AND state NOT IN ('uploading','queued','running')) "
+                "OR (state='uploading' AND updated<?)",
+                (now - 86400, now - 3600),
             ).fetchall()
             db.executemany("DELETE FROM jobs WHERE id=?", [(r["id"],) for r in rows])
         return [row["id"] for row in rows]

@@ -2,6 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { api } from "../lib/api";
 import type { Job, JobResult } from "../types";
 
+function megabytes(bytes: number) {
+  return bytes >= 1024 ** 3
+    ? `${(bytes / 1024 ** 3).toFixed(2)} GB`
+    : `${Math.round(bytes / 1024 ** 2)} MB`;
+}
+
 export function useJob(onResult: (result: JobResult) => void) {
   const [job, setJob] = useState<Job | null>(null);
   const callback = useRef(onResult);
@@ -122,7 +128,22 @@ export function useJob(onResult: (result: JobResult) => void) {
     try {
       const result = sample
         ? await api.sample(fileOrSample, controller.signal, force)
-        : await api.submit(fileOrSample, controller.signal);
+        : await api.upload(fileOrSample, controller.signal, {
+            onStart(id) {
+              if (current.current.version === version) current.current.id = id;
+            },
+            onProgress(sent) {
+              if (current.current.version !== version) return;
+              const size = fileOrSample.size;
+              setJob({
+                id: current.current.id ?? "",
+                state: "uploading",
+                progress: sent / size,
+                stage: "Uploading video",
+                detail: `${megabytes(sent)} of ${megabytes(size)} sent`,
+              });
+            },
+          });
       if (current.current.version !== version) return;
       current.current.id = result.id;
       remember(result.id);

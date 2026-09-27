@@ -50,11 +50,12 @@ no GPU). Its configuration is versioned in `deploy/`:
   read-only code with writable storage only under `/var/lib/wiut`.
 - `wiut.mardonjon.me.conf`: nginx vhost. Serves `web/dist/client` and proxies `/api/` with request
   buffering off. Certbot adds TLS. Cloudflare proxies the domain and rejects request bodies above
-  100 MB, so uploads are capped at 95 MB (`CROSSING_MAX_MB`).
+  100 MB, so a single upload request is capped at 95 MB (`CROSSING_MAX_MB`). Larger videos, up to
+  2.5 GB (`CROSSING_MAX_UPLOAD_MB`), arrive in 16 MB pieces.
 
 The permanent sample gallery (`artifacts/`) is copied to the server separately from the code.
-Visitor uploads expire after 24 hours. CPU analysis of a two-minute 4K clip takes several minutes; the
-page shows real progress.
+Visitor uploads expire after 24 hours, and the original video is deleted as soon as its analysis
+finishes. CPU analysis of a two-minute 4K clip takes several minutes; the page shows real progress.
 
 Mac/MPS development and the local benchmark do not verify Linux/CUDA behaviour on the judging machine.
 

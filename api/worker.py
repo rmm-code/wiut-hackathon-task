@@ -59,7 +59,7 @@ class Worker:
                         if (
                             self.stop.is_set()
                             or current["state"] == "cancelled"
-                            or time.monotonic() - started > 1800
+                            or time.monotonic() - started > 2700
                         ):
                             self.process.terminate()
                             try:
@@ -71,7 +71,7 @@ class Worker:
                                 self.store.update(
                                     job["id"],
                                     "failed",
-                                    "Analysis stopped or exceeded the 30-minute local limit.",
+                                    "Analysis stopped or exceeded the 45-minute limit.",
                                 )
                             break
                         self.stop.wait(0.4)
@@ -97,3 +97,8 @@ class Worker:
                 )
             finally:
                 self.process = None
+                # An uploaded original can be gigabytes; the results and the review copy
+                # stay. Sample jobs hard-link the organizer video and reuse it, so they keep it.
+                source = folder / "input.mp4"
+                if source.is_file() and source.stat().st_nlink == 1:
+                    source.unlink()

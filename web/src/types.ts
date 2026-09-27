@@ -115,6 +115,7 @@ export interface Job {
   processed_frames?: number;
   total_frames?: number;
   error?: string;
+  detail?: string;
   elapsed_sec?: number;
 }
 

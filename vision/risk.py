@@ -113,6 +113,13 @@ class RiskEstimator:
             self.detector = Detector(
                 self.settings, float(self.meta["fps"]) / self.stride
             )
+        elif (
+            not self.scene.matched
+            and index % (8 * self.stride) == 0
+            and t_sec <= 20
+        ):
+            # Traffic can hide the landmarks in the first frame: retry about once a second.
+            self.scene.align(frame)
         observations = self.detector.step(frame)
         tracks = self.tracks.update(observations, t_sec)
         self.last_score = self.model.step(tracks, t_sec, self.scene)

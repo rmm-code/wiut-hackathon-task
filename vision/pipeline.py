@@ -25,6 +25,26 @@ def write_json(path, data):
     temp.replace(path)
 
 
+def align(scene, first, path, fps, seconds=20):
+    """Match the view to the camera reference. One frame can fail when traffic hides the
+    landmarks, so if the first frame does, try one frame per second of the opening
+    seconds. The camera is fixed, so any matched frame gives the same geometry."""
+    if scene.align(first):
+        return
+    capture = cv2.VideoCapture(str(path))
+    try:
+        step = max(1, round(fps))
+        for position in range(int(seconds * fps)):
+            if not capture.grab():
+                break
+            if position and position % step == 0:
+                ok, frame = capture.retrieve()
+                if ok and scene.align(frame):
+                    return
+    finally:
+        capture.release()
+
+
 def analyze(
     path, settings=None, output=None, progress=None, cancelled=None, time_limit=None
 ):
@@ -63,7 +83,12 @@ def analyze(
     brightness = []
     success = False
     # Rendering needs every frame; analysis only every stride-th one.
-    reader = FrameReader(path, (lambda i: True) if output else (lambda i: i % stride == 0))
+    # The website decodes every frame for its annotated copy; a short queue keeps 4K frames
+    # (25 MB each) from filling the server's memory.
+    if output:
+        reader = FrameReader(path, lambda i: True, depth=4)
+    else:
+        reader = FrameReader(path, lambda i: i % stride == 0)
     try:
         for position, frame in reader:
             if cancelled():
@@ -73,7 +98,7 @@ def analyze(
             assert position == index
             t = index / meta["fps"]
             if index == 0:
-                scene.align(frame)
+                align(scene, frame, path, meta["fps"])
                 eda.background = scene.reference if scene.matched else frame.copy()
             if index % stride == 0:
                 observations = detector.step(frame)
@@ -113,8 +138,9 @@ def analyze(
             index += 1
         if index == 0:
             raise ValueError("No video frames could be decoded.")
-        if index < meta["n_frames"] * 0.98:
-            raise ValueError("Video decoding stopped early; the file may be truncated.")
+        # The container's frame count can exceed what decodes: a clip cut without
+        # re-encoding keeps frames before its first keyframe that are never shown.
+        # Analyse the frames that decode.
         duration = min(meta["duration"], index / meta["fps"])
         segments.completed.extend(specialists.finish(duration))
         events = segments.finish(duration)

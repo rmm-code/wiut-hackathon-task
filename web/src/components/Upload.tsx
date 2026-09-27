@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "./Icon";
-import { MAX_UPLOAD_MB } from "../lib/media";
+import { MAX_UPLOAD_LABEL } from "../lib/media";
 
 export function Upload({
   kind,
@@ -102,7 +102,7 @@ export function Upload({
         </strong>
         <span>
           {isVideo
-            ? `MP4 · up to 2 minutes · ${MAX_UPLOAD_MB} MB maximum`
+            ? `MP4 · up to 2 minutes · ${MAX_UPLOAD_LABEL} maximum`
             : "predictions.json · 20 MB maximum"}
         </span>
       </button>

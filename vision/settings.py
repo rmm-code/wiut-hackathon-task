@@ -23,6 +23,8 @@ class Settings:
     max_seconds: float = 120.1
     # Cloudflare-proxied hosts reject request bodies above 100 MB.
     max_bytes: int = 95 * 1024 * 1024
+    # Larger videos arrive in pieces; 2.5 GB covers two minutes of this camera's 4K footage.
+    max_upload_bytes: int = 2560 * 1024 * 1024
 
     @classmethod
     def load(cls):
@@ -32,6 +34,9 @@ class Settings:
             device=os.getenv("CROSSING_DEVICE", "auto"),
             sample_fps=float(os.getenv("CROSSING_FPS", "8")),
             max_bytes=int(float(os.getenv("CROSSING_MAX_MB", "95")) * 1024 * 1024),
+            max_upload_bytes=int(
+                float(os.getenv("CROSSING_MAX_UPLOAD_MB", "2560")) * 1024 * 1024
+            ),
         )
 
     def camera(self):

@@ -18,6 +18,8 @@ def test_wrapper_is_causal_resettable_and_never_opens_video(monkeypatch):
             ]
 
     class Scene:
+        matched = True
+
         def __init__(self, *args):
             pass
 

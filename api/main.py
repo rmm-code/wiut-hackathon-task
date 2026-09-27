@@ -147,6 +147,83 @@ def create_app(storage=None, start_worker=True):
         finally:
             await file.close()
 
+    # Cloudflare rejects request bodies above 100 MB, so larger videos arrive in pieces.
+    chunk_bytes = 16 * 1024 * 1024
+
+    @app.post("/api/uploads", status_code=201)
+    async def begin_upload(request: Request, response: Response):
+        try:
+            body = await request.json()
+            filename = str(body["filename"]).replace("\\", "/").split("/")[-1][:180]
+            size = int(body["size"])
+        except (ValueError, KeyError, TypeError):
+            raise HTTPException(400, "Send the file name and size.") from None
+        if not filename.lower().endswith(".mp4"):
+            raise HTTPException(400, "Please upload an MP4 video.")
+        if not 0 < size <= settings.max_upload_bytes:
+            raise HTTPException(
+                413, f"The upload exceeds {settings.max_upload_bytes / 2**30:.1f} GB."
+            )
+        if not settings.weights.is_file() or not shutil.which("ffmpeg"):
+            raise HTTPException(
+                503,
+                "Model weights or ffmpeg are missing. Complete backend setup first.",
+            )
+        free = shutil.disk_usage(store.root).free
+        if free < store.reserved_bytes() + size + 5 * 2**30:
+            raise HTTPException(
+                503, "The server is short of disk space. Please try again later."
+            )
+        identity = uuid.uuid4().hex
+        folder = store.root / identity
+        folder.mkdir()
+        (folder / "input.part").touch()
+        try:
+            store.reserve(identity, owner(request, response), filename, size)
+        except ValueError as error:
+            shutil.rmtree(folder, ignore_errors=True)
+            raise HTTPException(429, str(error)) from error
+        return {"id": identity, "chunk_bytes": chunk_bytes}
+
+    @app.post("/api/uploads/{identity}")
+    async def upload_piece(identity: str, offset: int, request: Request):
+        job = authorized(identity, request)
+        part = store.root / identity / "input.part"
+        if job["state"] != "uploading" or not part.is_file():
+            raise HTTPException(409, "This upload is no longer open.")
+        data = await request.body()
+        size = json.loads(job["meta"])["size"]
+        received = part.stat().st_size
+        if not data or len(data) > chunk_bytes or offset < 0 or offset + len(data) > size:
+            raise HTTPException(400, "Invalid upload piece.")
+        if offset + len(data) <= received:
+            return {"received": received}  # a retried piece that already arrived
+        if offset != received:
+            raise HTTPException(409, f"Expected the piece at byte {received}.")
+        with part.open("ab") as dest:
+            dest.write(data)
+        store.touch(identity)
+        return {"received": received + len(data)}
+
+    @app.post("/api/uploads/{identity}/complete", status_code=202)
+    async def finish_upload(identity: str, request: Request):
+        job = authorized(identity, request)
+        folder = store.root / identity
+        part = folder / "input.part"
+        if job["state"] != "uploading" or not part.is_file():
+            raise HTTPException(409, "This upload is no longer open.")
+        if part.stat().st_size != json.loads(job["meta"])["size"]:
+            raise HTTPException(409, "The upload is incomplete.")
+        part.rename(folder / "input.mp4")
+        try:
+            meta = await run_in_threadpool(validate_upload, folder / "input.mp4")
+        except (ValueError, TimeoutError, subprocess.TimeoutExpired) as error:
+            (folder / "input.mp4").unlink(missing_ok=True)
+            store.update(identity, "failed", str(error))
+            raise HTTPException(400, str(error)) from error
+        store.queue(identity, meta)
+        return {"id": identity, "state": "queued", "meta": meta}
+
     @app.get("/api/jobs/{identity}")
     def status(identity: str, request: Request):
         job = authorized(identity, request)
@@ -166,6 +243,8 @@ def create_app(storage=None, start_worker=True):
             result.update(progress=1, stage="Analysis complete")
         elif job["state"] in {"failed", "cancelled"}:
             result["stage"] = job["state"].capitalize()
+        elif job["state"] == "uploading":
+            result["stage"] = "Uploading"
         return result
 
     @app.get("/api/jobs/{identity}/results")
@@ -203,8 +282,14 @@ def create_app(storage=None, start_worker=True):
     @app.delete("/api/jobs/{identity}")
     def cancel(identity: str, request: Request):
         job = authorized(identity, request)
-        if job["state"] in {"queued", "running"}:
+        if job["state"] in {"uploading", "queued", "running"}:
             store.update(identity, "cancelled")
+            folder = store.root / identity
+            (folder / "input.part").unlink(missing_ok=True)
+            source = folder / "input.mp4"
+            # A running job's original is removed by the worker when the analysis stops.
+            if job["state"] == "queued" and source.is_file() and source.stat().st_nlink == 1:
+                source.unlink()
         return {"state": store.get(identity)["state"]}
 
     gallery = Gallery(ROOT)
