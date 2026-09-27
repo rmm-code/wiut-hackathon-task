@@ -15,5 +15,7 @@ scripts from the repository root after `python -m scripts.devset cache`.
 | `solid_line/`, `lane_shift.py`, `render_solid.py`, `evidence/` | Solid-line candidates, the lane-coordinate measurement and 4K zoom evidence |
 | `stopped_vehicle/` | Review of every stopped-vehicle detection (all rejected, with reasons) |
 | `manual_final.json`, `stopline_phases.json`, `uturners.json` | Zoom-checked red-light, stop-line and illegal-turn labels, the per-phase stop-line measurement and the tracked U-turns |
+
+An earlier first-pass `results/manual.json` was deleted: small tiles misled it on two red-light cases and on the stop-line overshoot. `manual_final.json` holds the zoom-checked replacements.
 | `assemble.py` | Builds `../labels.json` and `../notes.json` from all of the above |
 | `tune.py`, `tune_*.log` | Parameter grids scored with the official metric, and their output |
