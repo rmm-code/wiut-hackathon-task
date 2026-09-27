@@ -9,54 +9,52 @@ export const classes: Record<
     level: "critical",
     color: "red",
     description:
-      "Visible contact between road users or a road user and a fixed object.",
+      "Contact between two or more road users, or a road user and a fixed object.",
   },
   near_miss: {
     name: "Near miss",
     level: "warning",
     color: "amber",
-    description:
-      "Sharp braking or swerving to avoid a collision, with no contact.",
+    description: "Sharp braking or swerving to avoid a collision; no contact.",
   },
   red_light: {
     name: "Red-light running",
     level: "critical",
     color: "red",
-    description:
-      "A vehicle crosses its stop line on red and enters the intersection. The interval ends when it clears the intersection.",
+    description: "A vehicle crosses the stop line while its signal is red.",
   },
   wrong_way: {
     name: "Wrong-way driving",
     level: "critical",
     color: "red",
-    description: "A vehicle moves against the permitted direction of its lane.",
+    description:
+      "A vehicle moves against the traffic direction of its lane, including driving in the oncoming lane.",
   },
   illegal_u_turn: {
     name: "Illegal U-turn",
     level: "warning",
     color: "amber",
-    description: "A U-turn where markings or signs prohibit the manoeuvre.",
+    description: "A U-turn where the road markings or signs prohibit it.",
   },
   stopped_vehicle: {
     name: "Stopped vehicle",
     level: "notice",
     color: "green",
     description:
-      "Stationary on the carriageway for at least 10 seconds, outside a signal queue.",
+      "A vehicle stationary on the carriageway for 10 s or more, not in a queue at a signal.",
   },
   jaywalking: {
-    name: "Pedestrian on road",
+    name: "Pedestrian on roadway",
     level: "warning",
     color: "amber",
-    description:
-      "A pedestrian enters the carriageway outside a marked crossing.",
+    description: "A pedestrian on the carriageway outside a crossing.",
   },
   failure_to_yield: {
-    name: "Failure to yield",
+    name: "Not yielding to a pedestrian",
     level: "warning",
     color: "amber",
     description:
-      "A vehicle enters a crossing while a pedestrian is on or entering it.",
+      "A vehicle drives through a crossing while a pedestrian is on it or stepping onto it.",
   },
   illegal_turn: {
     name: "Illegal turn",
@@ -65,36 +63,35 @@ export const classes: Record<
     description: "A turn from the wrong lane or in a prohibited direction.",
   },
   solid_line_crossing: {
-    name: "Solid-line crossing",
+    name: "Solid line crossing",
     level: "warning",
     color: "amber",
-    description: "A vehicle manoeuvres across a solid road marking.",
+    description: "A lane change or manoeuvre across a solid marking.",
   },
   stop_line: {
     name: "Stop-line violation",
     level: "notice",
     color: "green",
     description:
-      "A vehicle stops beyond the stop line on red without entering the intersection.",
+      "A vehicle stops past the stop line on red without entering the intersection.",
   },
   congestion: {
     name: "Congestion",
     level: "notice",
     color: "green",
     description:
-      "Traffic is stationary or crawling across all lanes of one direction.",
+      "Traffic at a standstill or crawling across all lanes of a direction.",
   },
   road_obstacle: {
-    name: "Road obstacle",
+    name: "Obstacle on road",
     level: "warning",
     color: "amber",
-    description:
-      "Debris, an animal, or a fallen object occupies the carriageway.",
+    description: "Debris, animal, or fallen object on the carriageway.",
   },
   fire_smoke: {
     name: "Fire or smoke",
     level: "critical",
     color: "red",
-    description: "Visible fire or smoke from a vehicle or the road.",
+    description: "Visible fire or smoke from a vehicle or on the road.",
   },
 };

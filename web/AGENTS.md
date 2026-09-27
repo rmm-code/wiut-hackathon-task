@@ -14,10 +14,13 @@ The public site at https://wiut.mardonjon.me: React + Vite in `src/`, served by 
   bar shows only the page title.
 - Dashboard order: summary cards (event overview, traffic activity), then the Video & risk panel,
   open, then the timeline, the event log, the operator summary and the analysis details.
+- Class names and definitions are the task's exact wording (docs/task.md, "Event classes").
 - The event timeline has one row for each of the 14 official classes, in the task's order, with its
-  count; classes with no events stay as grey rows. On phones each class name sits above its track.
+  count. An empty row says "None found in this video", or "Switched off in our model" for a class
+  the engine has off (near miss). On phones each class name sits above its track.
 - Event colour means severity everywhere: red critical, amber warning, green notice, as in the
-  event overview. Every chart with more than one colour has a legend.
+  event overview. The severity levels are ours, not the task's; the Report page says so. Every
+  chart with more than one colour has a legend.
 - The live demo has its own tab. It holds the drop area and the three steps in one card, stacked
   on phones. An upload shows its progress and then its results on that page.
 - Only real results are shown: no illustrative or example data, no import of results files, no

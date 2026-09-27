@@ -3,7 +3,7 @@ import { Icon } from "./Icon";
 import { time } from "../lib/format";
 import { classes } from "../data/classes";
 import { labels } from "../types";
-import type { TrafficEvent } from "../types";
+import type { EngineReport, TrafficEvent } from "../types";
 
 function lanes(events: TrafficEvent[]): TrafficEvent[][] {
   const result: TrafficEvent[][] = [];
@@ -17,6 +17,7 @@ function lanes(events: TrafficEvent[]): TrafficEvent[][] {
 
 export function Timeline({
   events,
+  coverage,
   duration,
   position,
   selected,
@@ -24,6 +25,7 @@ export function Timeline({
   onSeek,
 }: {
   events: TrafficEvent[];
+  coverage?: EngineReport["coverage"];
   duration: number;
   position: number;
   selected: string | null;
@@ -69,6 +71,8 @@ export function Timeline({
           <div className="timeline-rows">
             {labels.map((label) => {
               const found = events.filter((e) => e.label === label);
+              const status = coverage?.find((item) => item.label === label);
+              const off = status?.enabled === false;
               return (
                 <div
                   className={`timeline-row ${found.length ? "" : "is-empty"}`}
@@ -79,6 +83,16 @@ export function Timeline({
                     <b>{found.length}</b>
                   </div>
                   <div className="timeline-tracks">
+                    {!found.length && (
+                      <span
+                        className="timeline-none"
+                        title={off ? status?.reason : undefined}
+                      >
+                        {off
+                          ? "Switched off in our model"
+                          : "None found in this video"}
+                      </span>
+                    )}
                     {lanes(found).map((lane, i) => (
                       <div className="timeline-lane" key={i}>
                         {lane.map((event) => (

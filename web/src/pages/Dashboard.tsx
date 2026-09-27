@@ -68,15 +68,13 @@ export function Dashboard({ workspace: w }: { workspace: Workspace }) {
         {showReview && (
           <div className="monitor-grid">
             <Camera workspace={w} />
-            <RiskChart
-              risk={w.analysis.risk}
-              position={w.position}
-            />
+            <RiskChart risk={w.analysis.risk} position={w.position} />
           </div>
         )}
       </details>
       <Timeline
         events={w.analysis.events}
+        coverage={w.analysis.report?.coverage}
         duration={w.video.duration}
         position={w.position}
         selected={w.selected}

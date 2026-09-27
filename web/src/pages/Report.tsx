@@ -157,6 +157,14 @@ export function Report() {
             </details>
           ))}
         </div>
+        <div className="analysis-body">
+          <p>
+            Names and definitions are the task's own. The dot colour is our
+            severity grouping for the dashboard (red critical, amber warning,
+            green notice); the task itself defines no severity, and it does not
+            affect the predictions or the score.
+          </p>
+        </div>
       </section>
       {error && (
         <p className="card page-status" role="alert">

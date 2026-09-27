@@ -301,9 +301,7 @@ export function ReportEvidence({ data }: { data: ProjectInfo }) {
               <span
                 className={`badge ${item.enabled ? "badge-green" : "badge-amber"}`}
               >
-                {item.enabled
-                  ? "Candidate detection active"
-                  : "Needs camera facts"}
+                {item.enabled ? "Candidate detection active" : "Switched off"}
               </span>
               <p>{item.reason}</p>
             </div>

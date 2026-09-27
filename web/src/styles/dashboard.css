@@ -461,14 +461,12 @@
 }
 .operator-bars li {
   display: grid;
-  grid-template-columns: minmax(0, 9em) 1fr 2.5em;
+  grid-template-columns: minmax(0, 11em) 1fr 2.5em;
   align-items: center;
   gap: 8px;
 }
 .operator-bars span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.35;
 }
 .operator-bars i {
   display: block;
