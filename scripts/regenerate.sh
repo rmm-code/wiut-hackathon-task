@@ -22,7 +22,8 @@ first = json.load(open("predictions_samples.json"))["videos"]["C3905.MP4"]
 second = json.load(open("output/determinism/predictions.json"))["videos"]["C3905.MP4"]
 web = json.load(open("output/C3905/analysis.json"))
 print("C3905 events identical:", first["events"] == second["events"], "| risk identical:", first["risk"] == second["risk"])
-print("web pipeline events identical to harness:", web["events"] == first["events"])
+# The harness sorts events, so compare as sorted lists.
+print("web pipeline events identical to harness:", sorted(web["events"]) == sorted(first["events"]))
 EOF
 
 echo "== format check and dev-set score =="

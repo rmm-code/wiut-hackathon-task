@@ -46,19 +46,20 @@ examples are listed in the development notes.
 
 | Label | Rule | State |
 | --- | --- | --- |
-| red_light | Front crosses the stop line after the lamp has been red for 1 s, enters the junction, and the lamp is still red 1.5 s later (excludes amber clearance and starts on red+amber) | Active |
-| stop_line | Stationary with the front at least 0.35 box heights past the stop line during red; ends on green. Several cars in one red phase merge into one segment | Active |
-| solid_line_crossing | Footprint straddles and then clears one of the four solid lane lines | Active |
-| wrong_way | Travels at least 1.5 box heights against the carriageway within 2 s, staying inside one carriageway | Active; no occurrences in the samples |
-| congestion | Four or more vehicles, 85% stationary, for 15 s, on green (or on the unsignalled carriageway) | Active; no occurrences in the samples |
-| failure_to_yield | Vehicle moving across a crossing within one vehicle size of a pedestrian walking on the crossing's carriageway part | Active |
-| jaywalking | Pedestrian ground point on the carriageway outside crossings and islands; riders and pedestrians hidden behind vehicles excluded | Active |
-| stopped_vehicle | Stationary 10 s on the carriageway outside the signal queue | Active |
-| near_miss | Collision course, hard brake or swerve, no overlap, then separation | **Off**: the reviewed samples contained no near miss and every detection was a false alarm |
-| accident | Specialist detector, confirmed across frames, participants must come to rest | Active; the only sample candidate was two cars overlapping in perspective and is now suppressed |
+| red_light | Front crosses the stop line after the lamp has been red for 1 s, enters the junction, and the lamp is still red 1.5 s later. This excludes amber clearance and starts on red+amber | Active; 3 of 3 sample events found, no false alarms |
+| stop_line | Stationary with the front at least 0.35 box heights past the stop line during red; ends at the green onset. Several cars in one red phase form one segment | Active; 10 of 10 red phases found |
+| illegal_turn | Clause 56 right turn from lanes 2–5 (above) | Active; 4 of 4 segments found |
+| solid_line_crossing | The footprint straddles and then clears one of the four solid lane lines. Crossings less than 3 s apart form one event | Active; 2 of 2 found, 1 false alarm |
+| failure_to_yield | Vehicle moving across a crossing within one vehicle height of a pedestrian walking on it, away from the crossing's kerb ends (12% of its length) | Active; tuned on the labels |
+| jaywalking | Pedestrian foot point on the carriageway at least 0.06 pedestrian heights inside the kerb and 0.12 away from any crossing or island, for at least 3 s. Riders and pedestrians whose feet are hidden behind a vehicle are excluded | Active; tuned on the labels |
+| stopped_vehicle | Stationary 10 s on the carriageway with no stationary vehicle next to it. Excluded: the signal queue (unless the vehicle stopped on green), past the stop line, the junction box where vehicles wait to turn, the far-kerb parking and bus-stop strip, the north-east driveway corner, and boxes cut by the frame edge | Active; every sample candidate was normal traffic, so there are no detections and no measured positives |
+| wrong_way | Travels at least 1.5 box heights against the carriageway within 2 s while staying inside one carriageway. The junction mouth is excluded, because U-turners pass through it | Active; none in the samples |
+| congestion | Four or more vehicles, 85% stationary, for 15 s, while the governing lamp is green (or on the unsignalled carriageway) | Active; none in the samples |
+| near_miss | Collision course, hard braking or swerving, no box overlap, then separation | **Off**: the reviewed samples contained no near miss, and every detection was a false alarm |
+| accident | Specialist detector confirmed across frames; the participants must come to rest | Active; the only sample candidate was two cars overlapping in perspective, now suppressed |
 | road_obstacle | Supported animal classes on the carriageway | Active; arbitrary debris is not covered |
-| fire_smoke | Specialist detector with temporal confirmation and road gating | Active; no occurrences in the samples |
+| fire_smoke | Specialist detector with temporal confirmation and road gating | Active; none in the samples |
 
-Classes that are active but never occur in the samples have unmeasured precision. Every predicted class
-enters the macro average, so a class that fires on normal traffic costs more than it earns. That is why
-near_miss stays off.
+Every predicted class enters the macro average. A class that fires on normal traffic but never
+occurs in the test set costs a full class's worth of score, which is why near_miss stays off and why
+the rules are tuned toward precision.

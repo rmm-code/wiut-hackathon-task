@@ -1,29 +1,30 @@
-# Submission readiness — 25 September 2026
+# Submission checklist
 
-Source specifications: [full task](task.md), [submission package](package.md). This is an evidence checklist, not a claim of complete accuracy.
+Requirements from [the task](task.md) and [package instructions](package.md), with where each is met.
 
-## Implemented and verified locally
+| Requirement | Status |
+| --- | --- |
+| Public repository, tagged commit | https://github.com/rmm-code/wiut-hackathon-task, tag `v1.0.0` |
+| `solution.py` with `CLASSES`, `detect_events`, `RiskEstimator` | Root; `tests/test_contract.py` |
+| `run_submission.py`, `evaluate.py` unchanged | Hash-checked against the starter kit in `tests/` |
+| One-command run, offline | `pip install -r requirements.txt` then `python run_submission.py --videos /data/test --out predictions.json`; no network use at inference |
+| Weights ≤ 5 GB, obtainable before the run | 139.1 MB; `weights/download.sh` verifies SHA-256; also `weights.tar` in the release |
+| `predictions_samples.json` | Produced by the harness from the tagged code; passes `evaluate.py --validate-only` |
+| Time budget (3 × duration) | Harness time 0.86–0.93 × duration on Apple M5 (about 30% of the budget); the judging GPU has not been measured |
+| Determinism | Seeds fixed; a repeated harness run on C3905 was identical |
+| README: install and run, approach, datasets and licences, learned vs rule-based, seeds, team | [README](../README.md) |
+| Website: team, approach, EDA, annotated samples, live demo, report, links | https://wiut.mardonjon.me |
+| Technical report | [docs/report.md](report.md) and the website's Report page |
+| Own dev labels and error analysis | [devset/](../devset/README.md); per-class table on the website |
+| Open weights only; no hosted models | Three pinned open checkpoints; no API calls |
 
-- Exact root interface; unchanged organizer harness and evaluator.
-- Three local hash-pinned checkpoints, 139.1 MB; atomic verified download via `weights/download.sh`, with an offline `--check` option.
-- Twelve active category paths on the inspected camera. All fourteen labels have implementation paths and configurable scene requirements; illegal turns and U-turns remain inactive pending prohibition facts. See [class evidence](classes.md).
-- All four original samples processed again with expanded rules: C3896 114, C3897 99, C3902 98, C3905 42 candidate events. Combined predictions pass format validation: 353 events, zero errors/warnings.
-- Full annotated playback, risk curves, timelines and measured maps in a permanent archive. Anonymous read endpoints are separate from expiring private upload jobs. Cookie loss and upload cleanup do not delete the sample gallery.
-- Website report with measured findings, concrete failure evidence, learned-versus-rule-based explanation, dataset/checkpoint sources and licences, direct pinned model downloads and anonymous sample-prediction downloads.
-- Team names and the supplied profiles are displayed. Unconfirmed contributions/URLs remain explicitly unclaimed.
-- Explicit seeds and platform nondeterminism documented in README.
-- Reproducible release packaging: `python -m scripts.package` produces `weights.tar`, `samples.tar` and checksums, excluding private uploads and raw source footage.
+## Known gaps
 
-## Still unresolved
-
-1. **Two real-camera category mappings:** authoritative prohibited lane-to-exit turns and no-U-turn zones. Controlled positive/negative tests verify the code, but do not establish these legal facts.
-2. **Accuracy:** independent reviewed labels, temporal F1, false-negative analysis and calibrated anticipation remain outstanding. More candidate events does not prove better performance. Generic debris, hidden signal heads, wheel/contact geometry and occlusion remain limitations.
-3. **Team attribution:** captain and names are confirmed; exact individual technical contributions, remaining GitHub/LinkedIn URLs and prior-project attribution still need the team's input.
-4. **Public release and host:** a private repository does not provide anonymous GitHub downloads. Public visibility/release is an explicit pending decision. The website backend still needs an actual public hosting target; localhost links alone are not publicly reachable.
-5. **Judging environment:** final all-sample repeated A+B harness checks and intended NVIDIA runtime/driver verification remain outstanding. Earlier Linux offline smoke tests do not establish target GPU performance.
-
-## Validation distinction
-
-Engineering tests exercise state, boundaries, negative cases, private/public data separation, caching, causal state and package integrity. `evaluate.py --validate-only` checks the output schema; neither establishes traffic-event accuracy. Part B is optional and its current conflict score remains uncalibrated.
-
-The earlier six-category sample outputs and historical timing tables have been superseded by the expanded-rule run for website demonstrations. Keep the earlier benchmark logs as historical evidence, not measurements of a different revision.
+- **Team contributions.** The Team page lists names, roles and profile links. Individual
+  contributions are not described.
+- **Judging-GPU runtime.** Measured on an Apple M5 (MPS) and on CPU for the website, not on a T4-class
+  NVIDIA GPU.
+- **Dev labels.** They are model-assisted AI reviews, not independent human annotation, and the rules
+  were tuned on the same videos.
+- **Unmeasured classes.** Accident, fire and smoke, road obstacle, congestion, wrong way and illegal
+  U-turn never occur in the samples. Their behaviour on real events is unmeasured.

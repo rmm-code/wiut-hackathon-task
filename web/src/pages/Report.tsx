@@ -35,7 +35,7 @@ export function Report() {
         <CardHead
           icon="stack"
           title="Analysis pipeline"
-          subtitle="Local YOLO inference · no hosted AI calls"
+          subtitle="Open-weights YOLO on our own server · no hosted AI calls"
         />
         <div className="pipeline">
           {pipeline.map(([icon, title, text], i) => (
@@ -60,11 +60,11 @@ export function Report() {
           <CardHead
             icon="check"
             title="What works today"
-            subtitle="Phase 2 · connected local analysis"
+            subtitle="Live on this site"
           />
           <ul>
             <li>Explore an explicitly labeled event preview.</li>
-            <li>Upload an MP4 to the local YOLO analysis server.</li>
+            <li>Upload an MP4 and have it analysed by the submission engine.</li>
             <li>
               Get tracked road users, event intervals, and an annotated video.
             </li>
@@ -74,7 +74,7 @@ export function Report() {
               Label a clean video and export reviewed evaluation intervals.
             </li>
           </ul>
-          <span className="badge badge-green">Local pipeline implemented</span>
+          <span className="badge badge-green">13 of 14 classes active</span>
         </section>
         <section className="card report-copy">
           <CardHead

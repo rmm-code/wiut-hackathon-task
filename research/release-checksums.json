@@ -1,12 +1,12 @@
 [
   {
     "file": "weights.tar",
-    "bytes": 139100160,
-    "sha256": "4dc4d97d769029133b743a3d7bb62020a0621dcfc543892a4d0544d99d2a6569"
+    "bytes": 139089920,
+    "sha256": "dad3acb28bbda01d81b10b366afbdb0ad880949259933d377793804a96933084"
   },
   {
     "file": "samples.tar",
-    "bytes": 942868480,
-    "sha256": "dbc8bbd3e5ec86f1f67b27e1bcec41d1bc11f1c950cd3ab9d462c09af920f27e"
+    "bytes": 943400960,
+    "sha256": "fc96b9e5f65a002a20384fe7b3a8e24bb342d806abcdce6c74f34154c007612e"
   }
 ]

@@ -17,6 +17,18 @@ const failures = [
     text: "The original brightness threshold returned unknown for this visibly red lamp. A tightly mapped signal region and measured brightness threshold recover red/green phases. Hidden signal heads remain unmapped.",
   },
   {
+    image: "uturn",
+    title: "A U-turn looks like wrong-way driving",
+    source: "C3896 · 00:44–00:58",
+    text: "All 38 wrong-way candidates were U-turns around the median nose or tracker jitter. The rule now needs sustained travel against one carriageway's direction, and a separate rule reads the U-turn by its starting lane under clause 56.",
+  },
+  {
+    image: "stationary",
+    title: "Most stationary vehicles are not incidents",
+    source: "C3896 · 01:18–01:45",
+    text: "Every stopped-vehicle candidate was a signal queue, a car waiting to turn, or parking at the far kerb. Mapped zones and a no-stationary-neighbour test remove them; a lone vehicle stopping on green would still be reported.",
+  },
+  {
     image: "collision",
     title: "An appearance box does not prove a crash",
     source: "C3902 · 00:02",
@@ -227,6 +239,28 @@ export function ReportEvidence({ data }: { data: ProjectInfo }) {
               Weight checksums
             </a>
           </div>
+          {data.release.tag && (
+            <div className="study-tabs">
+              <a
+                className="button"
+                href={`${data.repository}/releases/tag/${data.release.tag}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Release {data.release.tag}
+              </a>
+              {data.release.weights_url && (
+                <a className="button" href={data.release.weights_url}>
+                  weights.tar
+                </a>
+              )}
+              {data.release.samples_url && (
+                <a className="button" href={data.release.samples_url}>
+                  samples.tar
+                </a>
+              )}
+            </div>
+          )}
           <div className="study-tabs">
             {data.models.map((model) => (
               <a
@@ -240,10 +274,10 @@ export function ReportEvidence({ data }: { data: ProjectInfo }) {
           </div>
           <p>
             Python, NumPy, Torch and OpenCV seeds are fixed at 42. CPU, MPS and
-            CUDA can differ numerically. The sample archive has no automatic
-            expiry; private uploads are removed after 24 hours. Downloads on
-            this server become internet-accessible when the backend is publicly
-            deployed.
+            CUDA can differ numerically. The release holds the three checkpoints
+            (weights.tar) and every annotated sample video with its analysis
+            (samples.tar). Sample results here are permanent; uploaded videos
+            are deleted after 24 hours.
           </p>
         </div>
       </section>

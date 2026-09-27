@@ -127,12 +127,12 @@ export function Upload({
         <Icon name="shield" size={19} />
         <p>
           {isVideo
-            ? "Your video is sent to the local Crossing server. Results include detected road users, provisional event rules, and an annotated video. No hosted AI service is used."
+            ? "Your video is analysed on our server by the same engine as the submission, on CPU, so a two-minute clip takes several minutes. You get events, a risk curve and an annotated video. No hosted AI service is used, and uploads are deleted after 24 hours."
             : "Results must match the selected filename. We check classes, timestamps, same-class overlaps, and risk scores before importing."}
         </p>
       </div>
       <div className="dialog-footer">
-        <span>Local analysis · automatic cleanup after 24 hours</span>
+        <span>Open-weights models only · uploads deleted after 24 hours</span>
         <button className="button" onClick={onClose} disabled={busy}>
           Cancel
         </button>

@@ -76,7 +76,19 @@ The labels are in the official ground-truth format:
 python evaluate.py --pred predictions_samples.json --gt devset/labels.json --per-video
 ```
 
-DEV_TABLE
+| Class | Labelled | Predicted | Precision | Recall | F1 @ tIoU 0.3 / 0.5 / 0.7 |
+| --- | ---: | ---: | ---: | ---: | --- |
+| stop_line | 10 | 10 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
+| red_light | 3 | 3 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
+| illegal_turn | 4 | 4 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
+| solid_line_crossing | 2 | 3 | 0.67 | 1.00 | 0.80 / 0.80 / 0.40 |
+| failure_to_yield | 22 | 33 | 0.52 | 0.77 | 0.62 / 0.62 / 0.58 |
+| jaywalking | 36 | 36 | 0.61 | 0.61 | 0.72 / 0.61 / 0.39 |
+
+Precision and recall are at tIoU 0.5. **Score A on these labels is 0.808**; no other class is
+labelled or predicted. The predictions this work replaced (353 events in 10 classes) scored **0.085**
+on the same labels. Most of the gap comes from false events in classes the samples do not contain:
+125 of them, in near_miss, congestion, wrong_way and stopped_vehicle.
 
 The rules were tuned on these same four videos, so the scores are optimistic. Six classes never occur
 in the samples, so their accuracy is unmeasured.
@@ -86,7 +98,7 @@ in the samples, so their accuracy is unmeasured.
 - Seeds: Python, NumPy and Torch use 42, and the OpenCV alignment resets its RNG to 42. cuDNN
   benchmarking is off and deterministic cuDNN is requested.
 - `predictions_samples.json` was produced by the unchanged harness from the tagged commit.
-  DETERMINISM
+  A second harness run on C3905 produced identical events and an identical risk curve, and the web pipeline's events equal the harness's.
 - CPU, MPS and CUDA can differ in floating point, so exact equality across platforms is not guaranteed.
 - Dev tooling:
   - `python -m scripts.devset cache` stores detector and tracker output for every sample once.
@@ -96,7 +108,20 @@ in the samples, so their accuracy is unmeasured.
 - Tests: `python -m pytest -q tests` covers the rules, causality, the API, scene matching, segments,
   the organizer file hashes and the submission contract.
 
-RUNTIME
+## Runtime
+
+Official harness, Part A and Part B together, on an Apple M5 with MPS:
+
+| Video | Duration | Harness time | Share of the 3 × budget |
+| --- | ---: | ---: | ---: |
+| C3896 | 340.3 s | 315.7 s | 31% |
+| C3897 | 317.8 s | 290.1 s | 30% |
+| C3902 | 317.8 s | 293.3 s | 31% |
+| C3905 | 127.6 s | 110.1 s | 29% |
+
+The harness runs the detector twice, once for Part A and once in Part B, both at about 7.5 frames/s.
+The judging GPU has not been measured. The public website analyses uploads on four CPU cores: a
+20-second 1080p clip took 84 s.
 
 ## Website
 

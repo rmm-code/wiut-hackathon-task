@@ -1,0 +1,79 @@
+{
+ "score_a": 0.8078,
+ "videos": [
+  "C3896.MP4",
+  "C3897.MP4",
+  "C3902.MP4",
+  "C3905.MP4"
+ ],
+ "labelled_events": 77,
+ "classes": [
+  {
+   "label": "failure_to_yield",
+   "labelled": 22,
+   "predicted": 33,
+   "f1_0.3": 0.618,
+   "f1_0.5": 0.618,
+   "f1_0.7": 0.582,
+   "precision": 0.515,
+   "recall": 0.773,
+   "f1_mean": 0.606
+  },
+  {
+   "label": "illegal_turn",
+   "labelled": 4,
+   "predicted": 4,
+   "f1_0.3": 1.0,
+   "f1_0.5": 1.0,
+   "f1_0.7": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1_mean": 1.0
+  },
+  {
+   "label": "jaywalking",
+   "labelled": 36,
+   "predicted": 36,
+   "f1_0.3": 0.722,
+   "f1_0.5": 0.611,
+   "f1_0.7": 0.389,
+   "precision": 0.611,
+   "recall": 0.611,
+   "f1_mean": 0.574
+  },
+  {
+   "label": "red_light",
+   "labelled": 3,
+   "predicted": 3,
+   "f1_0.3": 1.0,
+   "f1_0.5": 1.0,
+   "f1_0.7": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1_mean": 1.0
+  },
+  {
+   "label": "solid_line_crossing",
+   "labelled": 2,
+   "predicted": 3,
+   "f1_0.3": 0.8,
+   "f1_0.5": 0.8,
+   "f1_0.7": 0.4,
+   "precision": 0.667,
+   "recall": 1.0,
+   "f1_mean": 0.667
+  },
+  {
+   "label": "stop_line",
+   "labelled": 10,
+   "predicted": 10,
+   "f1_0.3": 1.0,
+   "f1_0.5": 1.0,
+   "f1_0.7": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1_mean": 1.0
+  }
+ ],
+ "note": "Our own model-assisted labels of the four organizer samples; see devset/README.md."
+}

@@ -55,4 +55,5 @@ def register_about(app, root, gallery):
             "predictions": "/api/downloads/predictions.json",
             "manifest": "/api/downloads/weights.json",
             "devset": devset(root),
+            "release": json.loads((root / "config/release.json").read_text()),
         }

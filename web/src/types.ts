@@ -183,6 +183,11 @@ export interface ProjectInfo {
   predictions: string;
   manifest: string;
   devset: DevsetReport | null;
+  release: {
+    tag: string | null;
+    weights_url: string | null;
+    samples_url: string | null;
+  };
 }
 
 export interface DevsetReport {
