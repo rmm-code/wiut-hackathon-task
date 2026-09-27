@@ -3,6 +3,7 @@ import { Sidebar, nav } from "./components/Sidebar";
 import { Icon } from "./components/Icon";
 import { Upload } from "./components/Upload";
 import { Dashboard } from "./pages/Dashboard";
+import { LiveDemo } from "./pages/LiveDemo";
 import { Samples } from "./pages/Samples";
 import { Report } from "./pages/Report";
 import { Team } from "./pages/Team";
@@ -88,6 +89,9 @@ export function App() {
         <main id="main" tabIndex={-1}>
           {w.page === "dashboard" && (
             <Dashboard workspace={w} onUpload={() => setDialog("video")} />
+          )}
+          {w.page === "demo" && (
+            <LiveDemo workspace={w} onUpload={() => setDialog("video")} />
           )}
           {w.page === "samples" && (
             <Samples

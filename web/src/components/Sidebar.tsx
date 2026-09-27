@@ -7,6 +7,7 @@ import { samples } from "../data/samples";
 
 export const nav: { id: Page; label: string; icon: IconName }[] = [
   { id: "dashboard", label: "Dashboard", icon: "home" },
+  { id: "demo", label: "Live demo", icon: "upload" },
   { id: "samples", label: "Samples & insights", icon: "film" },
   { id: "report", label: "Approach & report", icon: "book" },
   { id: "team", label: "Our team", icon: "team" },

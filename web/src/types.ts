@@ -16,7 +16,7 @@ export const labels = [
 ] as const;
 
 export type Label = (typeof labels)[number];
-export type Page = "dashboard" | "samples" | "report" | "team";
+export type Page = "dashboard" | "demo" | "samples" | "report" | "team";
 export type Level = "critical" | "warning" | "notice";
 export type EventTuple = [number, number, Label];
 export type RiskPoint = [number, number];

@@ -9,7 +9,7 @@ import type { Analysis, Page, TrafficEvent, Video } from "../types";
 
 function currentPage(): Page {
   const route = window.location.hash.replace("#/", "");
-  return ["dashboard", "samples", "report", "team"].includes(route)
+  return ["dashboard", "demo", "samples", "report", "team"].includes(route)
     ? (route as Page)
     : "dashboard";
 }
@@ -109,12 +109,12 @@ export function useWorkspace() {
   function navigate(next: Page) {
     window.location.hash = `/${next}`;
     setPage(next);
-    if (next !== "dashboard") setPlaying(false);
+    if (next !== "dashboard" && next !== "demo") setPlaying(false);
   }
 
-  function choose(next: Video) {
+  function choose(next: Video, page: Page = "dashboard") {
     if (video.id === next.id && jobs.job && jobs.job.state !== "failed" && jobs.job.state !== "cancelled") {
-      navigate("dashboard");
+      navigate(page);
       return;
     }
     jobs.reset();
@@ -128,7 +128,7 @@ export function useWorkspace() {
     setPosition(0);
     setSelected(null);
     setPlaying(false);
-    navigate("dashboard");
+    navigate(page);
     if (next.source === "sample")
       void jobs
         .start(next.id)
@@ -154,7 +154,7 @@ export function useWorkspace() {
       ...media,
       source: "local",
       condition: "Local video",
-    });
+    }, "demo");
     await jobs.start(file);
     setToast("Video sent to the local analysis server.");
   }

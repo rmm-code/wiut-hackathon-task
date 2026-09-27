@@ -5,7 +5,10 @@
 - Phase 2 is now authorized: connect real local Python inference and job processing while preserving the approved frontend design.
 - Adapt the supplied references in `../design/` to traffic review; keep the neutral shell, compact cards, timeline, and table.
 - Use black/charcoal for branding, primary actions, navigation, focus, and the risk chart. Keep surfaces and secondary text neutral grey, with no violet/lavender accents. Reserve restrained color for semantic traffic data.
-- Match the compact reference hierarchy: thin page bar, summary cards, timeline, then table. Keep video/risk in a directly expandable review panel. Avoid large page heroes and promotional copy.
+- Dashboard order: thin page bar, summary cards, then the Video & risk panel open at the top, then the timeline, the event log and the details. Avoid large page heroes and promotional copy.
+- The live demo has its own "Live demo" tab. Uploads from anywhere land there, with progress and results on that page.
+- No manual-review workflow in the UI (no "To review" column or review card), no page footer and no page notes.
+- The team name is Pitstop; there is no logo mark.
 - Do not restore the sidebar promotional block or the W / WIUT Hackathon / Traffic intelligence workspace card; the user explicitly removed both.
 - Use English throughout. Keep comments short and source filenames concise.
 - Keep authored source files at or below 700 lines; review executable files at 500 lines.

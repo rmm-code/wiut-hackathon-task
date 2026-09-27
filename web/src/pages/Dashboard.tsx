@@ -22,7 +22,7 @@ export function Dashboard({
   onUpload: () => void;
 }) {
   const review = useRef<HTMLDetailsElement>(null);
-  const [showReview, setShowReview] = useState(false);
+  const [showReview, setShowReview] = useState(true);
   useEffect(() => {
     if (
       review.current &&
@@ -37,7 +37,7 @@ export function Dashboard({
 
   function jump(event: TrafficEvent) {
     w.pick(event);
-    // The video sits below the event log: bring it into view so the jump is visible.
+    // The video sits above the timeline and the log: bring it into view so the jump is visible.
     requestAnimationFrame(() =>
       review.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }),
     );
@@ -74,30 +74,9 @@ export function Dashboard({
             ?.scrollIntoView({ behavior: "smooth", block: "center" })
         }
       />
-      <AnalysisInfo report={w.analysis.report} />
-      {w.job?.state === "complete" && w.analysis.report?.eda && (
-        <Study jobId={w.job.id} />
-      )}
-      <Timeline
-        events={w.analysis.events}
-        duration={w.video.duration}
-        position={w.position}
-        selected={w.selected}
-        onSelect={jump}
-        onSeek={w.seek}
-      />
-      {w.analysis.origin !== "preview" && (
-        <OperatorSummary events={w.analysis.events} duration={w.video.duration} />
-      )}
-      <Events
-        key={w.video.id}
-        analysis={w.analysis}
-        selected={w.selected}
-        onSelect={jump}
-        onExport={w.exportResults}
-      />
       <details
         ref={review}
+        open
         className="review-panel"
         onToggle={(event) => {
           setShowReview(event.currentTarget.open);
@@ -125,6 +104,28 @@ export function Dashboard({
           </div>
         )}
       </details>
+      <Timeline
+        events={w.analysis.events}
+        duration={w.video.duration}
+        position={w.position}
+        selected={w.selected}
+        onSelect={jump}
+        onSeek={w.seek}
+      />
+      <Events
+        key={w.video.id}
+        analysis={w.analysis}
+        selected={w.selected}
+        onSelect={jump}
+        onExport={w.exportResults}
+      />
+      {w.analysis.origin !== "preview" && (
+        <OperatorSummary events={w.analysis.events} duration={w.video.duration} />
+      )}
+      <AnalysisInfo report={w.analysis.report} />
+      {w.job?.state === "complete" && w.analysis.report?.eda && (
+        <Study jobId={w.job.id} />
+      )}
       {w.job?.state === "complete" &&
         !w.job.id.startsWith("sample-") &&
         w.analysis.report?.eda && (
