@@ -1,11 +1,10 @@
 """Build explicit release archives without uploads, secrets, or development caches."""
 
 import argparse
-import hashlib
 import json
 import tarfile
 from pathlib import Path
-from .setup import ensure_model
+from .setup import digest, ensure_model
 from vision.settings import ROOT
 from api.samples import SAMPLE_IDS
 
@@ -15,9 +14,7 @@ def pack(destination, name, files):
     with tarfile.open(target, "w") as archive:
         for path, relative in files:
             archive.add(path, arcname=relative, recursive=False)
-    with target.open("rb") as stream:
-        digest = hashlib.file_digest(stream, "sha256").hexdigest()
-    return {"file": name, "bytes": target.stat().st_size, "sha256": digest}
+    return {"file": name, "bytes": target.stat().st_size, "sha256": digest(target)}
 
 
 def main():
@@ -45,9 +42,8 @@ def main():
         record = json.loads((folder / "record.json").read_text())
         for name, expected in record["files"].items():
             path = folder / name
-            with path.open("rb") as source:
-                if hashlib.file_digest(source, "sha256").hexdigest() != expected:
-                    raise ValueError(f"Archive checksum mismatch: {identity}/{name}")
+            if digest(path) != expected:
+                raise ValueError(f"Archive checksum mismatch: {identity}/{name}")
         for name in [*record["files"], "record.json", "poster.jpg"]:
             samples.append((folder / name, f"artifacts/{identity}/{name}"))
     samples.append((ROOT / "predictions_samples.json", "predictions_samples.json"))

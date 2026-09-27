@@ -10,8 +10,9 @@ Hackathon CV Track.
 
 ## Run the submission
 
-Python 3.10+ (tested on 3.12), ffmpeg/ffprobe and the OpenCV system libraries. Download the weights
-once, with internet, before the offline run:
+Python 3.10–3.13 (tested on 3.10 and 3.12), ffmpeg/ffprobe and the OpenCV system libraries (`libgl1`,
+`libglib2.0-0`). On Linux, pip installs the CUDA 12.6 build of PyTorch, which runs on any NVIDIA driver
+from 525 up, T4 included. Download the weights once, with internet, before the offline run:
 
 ```sh
 pip install -r requirements.txt
@@ -27,8 +28,7 @@ disabled, and a missing checkpoint raises an error. The weights are also attache
 
 Docker: `docker build -t crossing .`, then
 `docker run --rm --network none -v /data/test:/data/test:ro -v "$PWD/output:/results" crossing python run_submission.py --videos /data/test --out /results/predictions.json`.
-Run the weight download before building. The image installs the default PyTorch wheels, which include
-CUDA.
+Run the weight download before building. The image installs the same CUDA 12.6 PyTorch build.
 
 `CROSSING_DEVICE` selects `auto` (CUDA, then MPS, then CPU), `cuda:0`, `mps` or `cpu`. `CROSSING_FPS`
 sets the analysis sampling rate (default 8 frames/s).
@@ -138,7 +138,7 @@ Its deployment (systemd unit and nginx vhost) is in [`deploy/`](deploy/). See
 Run it locally with Python 3.12, Node 22.18+ and ffmpeg:
 
 ```sh
-uv venv --python 3.12 .venv && uv pip install --python .venv/bin/python -r requirements.txt
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 PYTHON=.venv/bin/python sh weights/download.sh
 npm --prefix web ci && npm run dev          # http://127.0.0.1:5173
 ```

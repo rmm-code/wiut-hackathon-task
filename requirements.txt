@@ -1,7 +1,13 @@
+# On Linux, pip takes torch/torchvision from the CUDA 12.6 index: works with any NVIDIA driver
+# >= 525 (T4 included). PyPI's default Linux wheels need CUDA 13 and a driver >= 580.
+# Other platforms fall back to the PyPI wheels.
+--extra-index-url https://download.pytorch.org/whl/cu126
 ultralytics==8.4.120
 torch==2.13.0
 torchvision==0.28.0
-numpy==2.5.2
+# numpy 2.5 needs Python >= 3.12; the brief allows Python 3.10+.
+numpy==2.5.2; python_version >= "3.12"
+numpy==2.2.6; python_version < "3.12"
 opencv-python==5.0.0.93
 fastapi==0.141.1
 uvicorn==0.52.3

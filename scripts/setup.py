@@ -12,8 +12,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def digest(path):
-    with path.open("rb") as source:
-        return hashlib.file_digest(source, "sha256").hexdigest()
+    # Chunked on purpose: hashlib.file_digest needs Python 3.11, the brief allows 3.10.
+    sha = hashlib.sha256()
+    with Path(path).open("rb") as source:
+        for block in iter(lambda: source.read(1024 * 1024), b""):
+            sha.update(block)
+    return sha.hexdigest()
 
 
 def ensure_model(item, root, check_only=False):

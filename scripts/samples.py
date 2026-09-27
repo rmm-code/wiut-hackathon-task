@@ -1,11 +1,11 @@
 """Download only the four organizer-supplied sample videos."""
 
 import argparse
-import hashlib
 import json
 import gdown
 from vision.media import metadata
 from vision.settings import ROOT
+from .setup import digest
 
 FILES = {
     "C3896.MP4": "1kR9jODA2Wotw4gwkvpRKdqFADNJNc1nS",
@@ -29,9 +29,8 @@ def main():
             gdown.download(id=FILES[name], output=str(temporary), resume=True)
             temporary.replace(path)
         info = metadata(path)
-        digest = hashlib.file_digest(path.open("rb"), "sha256").hexdigest()
         info.update(
-            sha256=digest, source=f"https://drive.google.com/file/d/{FILES[name]}/view"
+            sha256=digest(path), source=f"https://drive.google.com/file/d/{FILES[name]}/view"
         )
         path.with_suffix(path.suffix + ".ready").write_text(json.dumps(info, indent=2))
         print(

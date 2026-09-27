@@ -1,7 +1,6 @@
 """Publish completed organizer outputs to durable, read-only sample storage."""
 
 import argparse
-import hashlib
 import json
 import shutil
 import tempfile
@@ -9,6 +8,7 @@ from pathlib import Path
 import cv2
 from vision.settings import ROOT
 from api.samples import SAMPLE_IDS
+from .setup import digest
 
 FILES = [
     "analysis.json",
@@ -38,8 +38,7 @@ def publish(identity, source, destination):
         checksums = {}
         for name in FILES:
             shutil.copy2(source / name, staging / name)
-            with (staging / name).open("rb") as stream:
-                checksums[name] = hashlib.file_digest(stream, "sha256").hexdigest()
+            checksums[name] = digest(staging / name)
         cap = cv2.VideoCapture(str(staging / "annotated.mp4"))
         ok, image = cap.read()
         cap.release()
