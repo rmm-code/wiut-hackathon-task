@@ -132776,33 +132776,33 @@
    "duration": 340.34,
    "budget_sec": 1021.0,
    "errors": [],
-   "part_a_sec": 167.0,
-   "part_b_sec": 148.8,
-   "total_sec": 315.7
+   "part_a_sec": 138.3,
+   "part_b_sec": 157.3,
+   "total_sec": 295.6
   },
   "C3897.MP4": {
    "duration": 317.82,
    "budget_sec": 953.5,
    "errors": [],
-   "part_a_sec": 151.7,
-   "part_b_sec": 138.4,
-   "total_sec": 290.1
+   "part_a_sec": 119.0,
+   "part_b_sec": 143.7,
+   "total_sec": 262.7
   },
   "C3902.MP4": {
    "duration": 317.82,
    "budget_sec": 953.5,
    "errors": [],
-   "part_a_sec": 154.1,
-   "part_b_sec": 139.2,
-   "total_sec": 293.3
+   "part_a_sec": 116.1,
+   "part_b_sec": 154.1,
+   "total_sec": 270.2
   },
   "C3905.MP4": {
    "duration": 127.63,
    "budget_sec": 382.9,
    "errors": [],
-   "part_a_sec": 58.7,
-   "part_b_sec": 51.4,
-   "total_sec": 110.1
+   "part_a_sec": 43.3,
+   "part_b_sec": 53.4,
+   "total_sec": 96.7
   }
  }
 }

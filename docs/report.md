@@ -89,18 +89,31 @@ measurement, not a test-set estimate.
 
 ## Runtime
 
-Official harness, Part A and Part B together, on an Apple M5 with MPS:
+The harness gives each video 3 × its duration for Part A and Part B together, and scores a video that
+runs over as empty. Official harness on an Apple M5 with MPS:
 
 | Video | Duration | Harness time | Share of the 3 × budget |
 | --- | ---: | ---: | ---: |
-| C3896 | 340.3 s | 315.7 s | 31% |
-| C3897 | 317.8 s | 290.1 s | 30% |
-| C3902 | 317.8 s | 293.3 s | 31% |
-| C3905 | 127.6 s | 110.1 s | 29% |
+| C3896 | 340.3 s | 295.6 s | 29% |
+| C3897 | 317.8 s | 262.7 s | 28% |
+| C3902 | 317.8 s | 270.2 s | 28% |
+| C3905 | 127.6 s | 96.7 s | 25% |
 
-The harness runs the detector twice, once for Part A and once in Part B, both at about 7.5 frames/s.
-The judging GPU has not been measured. The public website analyses uploads on four CPU cores: a
-20-second 1080p clip took 84 s.
+On an NVIDIA RTX 4060 with an Intel Core i5-12400 (Windows 11), C3905 took 134.9 s, 35% of its
+budget. Pinned to two of the CPU's cores (four threads), a harsher stand-in for the organizers' 8-vCPU
+machine, it took 235.2 s (61%). The T4 itself has not been measured.
+
+Decoding the 4K video costs more than the models: the GPU was only about a quarter busy. The harness
+decodes every video twice, once in Part A and once in its own Part B loop, and runs the detector
+in both, at about 7.5 frames/s. Two measures protect the budget:
+
+- Part A decodes on a background thread while the main thread analyses. It skips the colour
+  conversion for the three frames in four it does not analyse. The output is unchanged.
+- If a slow machine would push a video over its budget, Part B stops early
+  ([vision/budget.py](../vision/budget.py)). The harness then keeps that video's events and drops only
+  its risk curve.
+
+The public website analyses uploads on four CPU cores: a 20-second 1080p clip took 84 s.
 
 ## Next steps
 
