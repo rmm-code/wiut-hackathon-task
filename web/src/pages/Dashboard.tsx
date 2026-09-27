@@ -6,6 +6,7 @@ import { Camera } from "../components/Camera";
 import { RiskChart } from "../components/Charts";
 import { Timeline } from "../components/Timeline";
 import { Events } from "../components/Events";
+import { OperatorSummary } from "../components/OperatorSummary";
 import { JobStatus } from "../components/JobStatus";
 import { AnalysisInfo } from "../components/AnalysisInfo";
 import { Icon } from "../components/Icon";
@@ -78,6 +79,9 @@ export function Dashboard({ workspace: w }: { workspace: Workspace }) {
         onSelect={jump}
         onSeek={w.seek}
       />
+      {w.analysis.origin !== "preview" && (
+        <OperatorSummary events={w.analysis.events} duration={w.video.duration} />
+      )}
       <Events
         key={w.video.id}
         analysis={w.analysis}
