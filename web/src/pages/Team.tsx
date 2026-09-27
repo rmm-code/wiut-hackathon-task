@@ -18,9 +18,20 @@ export function Team() {
       <div className="team-grid">
         {data?.team.map((member) => (
           <section className="card role-card" key={member.name}>
-            <span className="role-icon tone-slate">
-              <Icon name="person" size={28} />
-            </span>
+            {member.photo ? (
+              <img
+                className="member-photo"
+                src={member.photo}
+                alt={member.name}
+                width={88}
+                height={88}
+                loading="lazy"
+              />
+            ) : (
+              <span className="role-icon tone-slate">
+                <Icon name="person" size={28} />
+              </span>
+            )}
             <h3>{member.name}</h3>
             <span className="badge badge-neutral">{member.role}</span>
             {member.contribution && <p>{member.contribution}</p>}

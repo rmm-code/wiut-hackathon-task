@@ -154,6 +154,7 @@ export interface ProjectInfo {
     role: string;
     contribution: string;
     links: Record<string, string>;
+    photo?: string;
   }[];
   models: {
     name: string;
