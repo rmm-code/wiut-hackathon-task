@@ -14,10 +14,10 @@ Every requirement in the task PDF, [research/WIUT Hackathon _ CV Track Eliminati
 | Weights ≤ 5 GB, or `download.sh` | Done | 139.1 MB; `weights/download.sh` checks SHA-256; also `weights.tar` in the release |
 | `predictions_samples.json` | Done | The harness on the tagged code reproduces its events and risk curves exactly on all four samples |
 | Both commands work on a clean machine | Done | Clean Linux Python 3.10 container (CPU); Windows with an RTX 4060 (GPU) |
-| README: install and run, including the weights | Done | [README](../README.md) "Run the submission" |
+| README: install and run, including the weights | Done | [README](../README.md) "Run" |
 | README: architecture, models, datasets and licences, learned vs rule-based | Done | README "How it works" and "Models, datasets and licences" |
 | README: fixed seeds and anything non-deterministic | Done | README "Reproducibility", including the budget guard's wall-clock dependence |
-| README: team members and who did what | Done | README "Team" |
+| README: team members and who did what | Done | README "Team Pitstop" |
 
 ## Hardware and limits (page 7)
 

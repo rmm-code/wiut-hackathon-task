@@ -11,11 +11,11 @@ for v in C3896 C3897 C3902 C3905; do
 done
 
 echo "== official harness, Part A + Part B =="
-$PY run_submission.py --videos samples --out predictions_samples.json --team crossing
+$PY run_submission.py --videos samples --out predictions_samples.json --team pitstop
 
 echo "== determinism: second harness run on C3905 =="
 mkdir -p output/determinism
-$PY run_submission.py --videos samples/C3905.MP4 --out output/determinism/predictions.json --team crossing
+$PY run_submission.py --videos samples/C3905.MP4 --out output/determinism/predictions.json --team pitstop
 $PY - <<'EOF'
 import json
 first = json.load(open("predictions_samples.json"))["videos"]["C3905.MP4"]

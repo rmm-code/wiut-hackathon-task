@@ -97,7 +97,7 @@ export function App() {
           {w.page === "report" && <Report />}
           {w.page === "team" && <Team />}
           <footer className="page-footer">
-            <span>Crossing © 2026</span>
+            <span>Team Pitstop © 2026</span>
             <span>WIUT Hackathon · CV Track</span>
           </footer>
         </main>

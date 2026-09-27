@@ -46,7 +46,7 @@ def register_gallery(app, root, gallery):
     def results(identity: str):
         analysis = gallery.analysis(identity)
         return {
-            "team": "crossing",
+            "team": "pitstop",
             "sample_id": identity,
             "permanent": True,
             "can_reanalyze": (root / "samples" / SAMPLE_IDS[identity]).is_file(),
@@ -90,7 +90,7 @@ def register_gallery(app, root, gallery):
         from fastapi.responses import JSONResponse
 
         return JSONResponse(
-            {"team": "crossing", "videos": videos},
+            {"team": "pitstop", "videos": videos},
             headers={
                 "Content-Disposition": 'attachment; filename="predictions_samples.json"'
             },

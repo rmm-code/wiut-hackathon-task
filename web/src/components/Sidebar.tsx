@@ -88,10 +88,7 @@ export function Sidebar({
           </button>
         )}
         <a className="brand" href="#/dashboard" onClick={onClose}>
-          <span className="brand-icon">
-            <Icon name="road" weight="bold" size={24} />
-          </span>
-          Crossing<span className="brand-dot">.</span>
+          Pitstop
         </a>
         <p className="nav-label">Main menu</p>
         <nav aria-label="Main navigation">
@@ -151,7 +148,7 @@ export function Sidebar({
             </span>
             <Icon name="external" size={15} />
           </a>
-          <div className="sidebar-footnote">© 2026 Crossing</div>
+          <div className="sidebar-footnote">© 2026 Team Pitstop</div>
         </div>
       </aside>
     </>

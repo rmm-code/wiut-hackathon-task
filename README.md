@@ -1,84 +1,59 @@
-# Crossing
+# Pitstop: WIUT Hackathon CV Track
 
-Traffic-event detection and accident anticipation for one fixed CCTV camera, built for the WIUT
-Hackathon CV Track.
+Finds traffic violations in video from one fixed road camera (Part A), and gives, for every frame,
+a score for how likely an accident is to start within 5 seconds (Part B).
 
-- **Website and live demo:** https://wiut.mardonjon.me
-- **Release (weights, sample results):** [v1.0.0](https://github.com/rmm-code/wiut-hackathon-task/releases/tag/v1.0.0)
-- **Technical report:** [docs/report.md](docs/report.md) (also on the website's Report page)
-- **Sample predictions:** [predictions_samples.json](predictions_samples.json)
+- Website and live demo: https://wiut.mardonjon.me
+- Release with weights and sample results: [v1.0.0](https://github.com/rmm-code/wiut-hackathon-task/releases/tag/v1.0.0)
+- One-page report: [docs/report.md](docs/report.md)
 
-## Run the submission
+## Run
 
-Python 3.10–3.13 (tested on 3.10 and 3.12), ffmpeg/ffprobe and the OpenCV system libraries (`libgl1`,
-`libglib2.0-0`). On Linux, pip installs the CUDA 12.6 build of PyTorch, which runs on any NVIDIA driver
-from 525 up, T4 included. Download the weights once, with internet, before the offline run:
+Needs Python 3.10–3.13 (on Linux, OpenCV also needs `libgl1` and `libglib2.0-0`) and, for the GPU,
+an NVIDIA driver 525 or newer (a T4 works).
+Download the weights once, with internet; the run itself is offline.
 
 ```sh
 pip install -r requirements.txt
-sh weights/download.sh          # downloads and SHA-256-verifies the three checkpoints (139.1 MB)
+sh weights/download.sh             # 3 checkpoints, 139 MB, SHA-256 checked
 python run_submission.py --videos /data/test --out predictions.json
 python evaluate.py --pred predictions.json --validate-only
 ```
 
-`run_submission.py` and `evaluate.py` are the organizer files, unchanged; a test checks their hashes.
-Inference never downloads anything: Ultralytics auto-install, online checks and settings sync are
-disabled, and a missing checkpoint raises an error. The weights are also attached to the release as
-`weights.tar`. Extract it in the repository root instead of running the download script.
-
-Docker: `docker build -t crossing .` (the build downloads and verifies the weights), then
-`docker run --rm --gpus all --network none -v /data/test:/data/test:ro -v "$PWD/output:/results" crossing python run_submission.py --videos /data/test --out /results/predictions.json`.
-The image installs the same CUDA 12.6 PyTorch build; without `--gpus all` it runs on the CPU, which
-is too slow for the time budget.
-
-`CROSSING_DEVICE` selects `auto` (CUDA, then MPS, then CPU), `cuda:0`, `mps` or `cpu`. `CROSSING_FPS`
-sets the analysis sampling rate (default 8 frames/s).
+- `run_submission.py` and `evaluate.py` are the organizers' files, unchanged (a test checks their hashes).
+- Instead of the download script you can extract `weights.tar` from the release in the repository root.
+- Docker: `docker build -t pitstop .` downloads the weights during the build. Run it with
+  `docker run --rm --gpus all --network none -v /data/test:/data/test:ro -v "$PWD/output:/results" pitstop python run_submission.py --videos /data/test --out /results/predictions.json`.
+  Without `--gpus all` it runs on the CPU, which is too slow for the time limit.
 
 ## How it works
 
-```text
-video ─► YOLO11s (COCO road users) ─► ByteTrack ─► camera alignment ─► scene rules ─► segments ─► events
-                                     │                (SIFT homography)   per class      merge,
-          accident / fire specialists ┘                                                  min length
-frames one by one ─► own YOLO11s + ByteTrack ─► closest-approach conflict score ─► risk (Part B)
-```
+1. **Detect (learned).** A pretrained YOLO11s finds cars, buses, trucks, motorcycles, bicycles and
+   people in every 4th frame, about 7.5 frames per second.
+2. **Track (rule-based).** ByteTrack joins the detections into tracks.
+3. **Align (rule-based).** SIFT and RANSAC match the video to the reference view of the camera. If the
+   first frame fails, one frame per second of the first 20 seconds is tried. If none matches, the
+   video is treated as another camera and the scene rules are switched off.
+4. **Scene rules (rule-based).** The lanes, stop line, solid lines, crossings and signal were mapped once
+   for this camera ([config/camera.json](config/camera.json), [docs/calibration.md](docs/calibration.md)).
+   Each class is a small rule over the tracks and this map ([docs/classes.md](docs/classes.md)).
+5. **Specialists (learned).** Two open YOLO models look for accidents and fire or smoke once a second.
+   The tracks must confirm them.
+6. **Segments (rule-based).** Short blips are dropped and fragments of the same class are merged.
+7. **Part B risk (rule-based).** A separate `RiskEstimator` runs its own detector and tracker on the frames
+   it is given, and scores how close tracked road users come to colliding. It never reads the video
+   file or Part A's output.
 
-1. **Detection and tracking (learned).** Pretrained YOLO11s finds cars, buses, trucks, motorcycles,
-   bicycles, people and animals in every fourth frame (about 7.5 frames/s at 29.97 fps). ByteTrack
-   links the detections into tracks.
-2. **Camera alignment (rule-based).** The first frame is matched to the organizer reference view with
-   SIFT and RANSAC. Traffic can hide the landmarks in a single frame, so when the first frame fails,
-   one frame per second of the first 20 seconds is tried. If none matches, the video is treated as a
-   different camera and every scene rule is switched off.
-3. **Scene rules (rule-based).** The geometry is mapped once on an empty-road background of the samples
-   ([calibration](docs/calibration.md)). Each class has a small rule over tracks and that geometry
-   ([classes](docs/classes.md)).
-4. **Specialists (learned).** Two open-weights YOLO checkpoints propose accident and fire/smoke boxes
-   about once a second. Temporal confirmation and road gating decide which become events.
-5. **Segments.** Per-class minimum durations drop blips, and same-class events are merged, following
-   the organizers' convention that simultaneous events form one segment.
-6. **Part B.** `RiskEstimator` creates its own detector and tracker, sees only the frames it is given,
-   and scores closest-approach conflicts (time to collision, predicted miss distance, detector
-   confidence). The score is calibrated so the 0.5 alarm threshold is crossed about 0.9 times a minute
-   on normal traffic. It never reads Part A output.
+13 of the 14 classes are on. `near_miss` is off: every near-miss detection on the samples was a false
+alarm, and a predicted class that is absent from the test set scores 0.
 
-**Classes.** 13 of the 14 official classes are active on this camera. `near_miss` is implemented and
-tested but switched off: our review of the samples found no near miss, and every detection was a
-false alarm. A class that is predicted but absent from the test set scores zero in the macro average.
+## Results on our own labels
 
-Details of each class, the legal basis of the two turn classes (Uzbekistan traffic rules, clauses 56
-and 62), and the evidence for every camera fact are in [docs/classes.md](docs/classes.md).
+There are no official labels for the samples, so we labelled the four sample videos ourselves
+([devset/](devset/README.md)). Score it with
+`python evaluate.py --pred predictions_samples.json --gt devset/labels.json`.
 
-## Accuracy on our sample labels
-
-We labelled the four organizer samples ourselves; the method is in [devset/README.md](devset/README.md).
-The labels are in the official ground-truth format:
-
-```sh
-python evaluate.py --pred predictions_samples.json --gt devset/labels.json --per-video
-```
-
-| Class | Labelled | Predicted | Precision | Recall | F1 @ tIoU 0.3 / 0.5 / 0.7 |
+| Class | Labelled | Predicted | Precision | Recall | F1 at IoU 0.3 / 0.5 / 0.7 |
 | --- | ---: | ---: | ---: | ---: | --- |
 | stop_line | 10 | 10 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
 | red_light | 3 | 3 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
@@ -87,130 +62,71 @@ python evaluate.py --pred predictions_samples.json --gt devset/labels.json --per
 | failure_to_yield | 22 | 33 | 0.52 | 0.77 | 0.62 / 0.62 / 0.58 |
 | jaywalking | 36 | 36 | 0.61 | 0.61 | 0.72 / 0.61 / 0.39 |
 
-Precision and recall are at tIoU 0.5. **Score A on these labels is 0.777**; no other class is
-labelled or predicted. The predictions this work replaced (353 events in 10 classes) scored **0.085**
-on the same labels. Most of the gap comes from false events in classes the samples do not contain:
-125 of them, in near_miss, congestion, wrong_way and stopped_vehicle.
-
-The rules were tuned on these same four videos, so the scores are optimistic. Six classes never occur
-in the samples, so their accuracy is unmeasured.
-
-## Reproducibility
-
-- Seeds: Python, NumPy and Torch use 42, and the OpenCV alignment resets its RNG to 42. cuDNN
-  benchmarking is off and deterministic cuDNN is requested.
-- `predictions_samples.json` was produced by the unchanged harness from the tagged commit.
-  A second harness run on C3905 produced identical events and an identical risk curve, and the web pipeline's events equal the harness's.
-- CPU, MPS and CUDA can differ in floating point, so exact equality across platforms is not guaranteed.
-  On an RTX 4060 the events differed slightly from the Apple reference but scored the same on our labels.
-- The time-budget guard reads the wall clock. On a machine near the budget, one run can stop Part B
-  early and another not, so their risk curves differ. The events are unaffected.
-- Dev tooling:
-  - `python -m scripts.devset cache` stores detector and tracker output for every sample once.
-  - `python -m scripts.devset score` re-runs all rules on that cache in about 10 seconds and scores
-    them against `devset/labels.json`.
-  - `python -m scripts.sheets` renders the contact sheets used for review.
-  - `python -m scripts.ablation` replays the cache with one change at a time: the rule sampling rate,
-    tracking on or off, the detector confidence.
-  - `python -m scripts.confusion` sorts every prediction into correct, another class or false alarm.
-  - `python -m scripts.lanes_map samples/C3896.MP4` renders the lanes-and-directions map for the site.
-- Tests: `python -m pytest -q tests` covers the rules, causality, the API, scene matching, segments,
-  the organizer file hashes and the submission contract.
+Score A on these labels is **0.777**. The rules were tuned on the same videos, so expect less on the
+hidden test set. Accident, fire and smoke, road obstacle, congestion, wrong way and illegal U-turn
+never happen in the samples, so their accuracy is unknown. Part B cannot be measured on the samples
+either, since they contain no accident.
 
 ## Runtime
 
-The harness gives each video 3 × its duration for Part A and Part B together, and scores a video that
-runs over as empty. Official harness on an Apple M5 with MPS:
+The limit is 3 × the video length for Part A and Part B together. On sample C3905 (128 s, limit 383 s):
 
-| Video | Duration | Harness time | Share of the 3 × budget |
-| --- | ---: | ---: | ---: |
-| C3896 | 340.3 s | 295.6 s | 29% |
-| C3897 | 317.8 s | 262.7 s | 28% |
-| C3902 | 317.8 s | 270.2 s | 28% |
-| C3905 | 127.6 s | 96.7 s | 25% |
+| Machine | Time | Share of the limit |
+| --- | ---: | ---: |
+| Apple M5 | 97 s | 25% |
+| RTX 4060 with an Intel i5-12400 | 135 s | 35% |
+| The same PC limited to 2 CPU cores | 235 s | 61% |
 
-On an NVIDIA RTX 4060 with an Intel Core i5-12400 (Windows 11), C3905 took 134.9 s, 35% of its
-budget. Pinned to two of the CPU's cores (four threads), a harsher stand-in for the organizers' 8-vCPU
-machine, it took 235.2 s (61%). The T4 itself has not been measured.
+Decoding the 4K video, not the GPU, sets the speed. Part A decodes on a background thread while it
+analyses. If a slow machine would still run over the limit, Part B stops early
+([vision/budget.py](vision/budget.py)), so the video keeps its events and loses only its risk curve.
+Not tested on a T4.
 
-Decoding the 4K video costs more than the models: the GPU was only about a quarter busy. The harness
-decodes every video twice, once in Part A and once in its own Part B loop, and runs the detector
-in both, at about 7.5 frames/s. Two measures protect the budget:
+## Reproducibility
 
-- Part A decodes on a background thread while the main thread analyses. It skips the colour
-  conversion for the three frames in four it does not analyse. The output is unchanged.
-- If a slow machine would push a video over its budget, Part B stops early
-  ([vision/budget.py](vision/budget.py)). The harness then keeps that video's events and drops only
-  its risk curve.
-
-The public website analyses uploads on four CPU cores: a 20-second 1080p clip took 84 s.
-
-## Website
-
-https://wiut.mardonjon.me runs the same Python engine behind a FastAPI job queue. Visitors can upload a
-clip (MP4, up to 2 minutes and 2.5 GB, enough for two minutes of this camera's 4K footage) and get
-annotated playback, an event timeline, a risk curve and a JSON export. Cloudflare limits each request
-to 100 MB, so files above 90 MB are sent in 16 MB pieces and joined on the server. The original video
-is deleted once its analysis finishes. The site also has:
-
-- every sample video annotated in full, with event timelines, EDA maps and the accuracy table;
-- the report, the team and downloads.
-
-Its deployment (systemd unit and nginx vhost) is in [`deploy/`](deploy/). See
-[architecture](docs/architecture.md) for details.
-
-Run it locally with Python 3.12, Node 22.18+ and ffmpeg:
-
-```sh
-python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-PYTHON=.venv/bin/python sh weights/download.sh
-npm --prefix web ci && npm run dev          # http://127.0.0.1:5173
-```
-
-## Repository layout
-
-```text
-solution.py, run_submission.py, evaluate.py   competition interface and unchanged organizer files
-vision/            detection, tracking, camera alignment, rules, segments, risk, rendering, EDA
-  rules/           road, crossing, direction, signal, turn and conflict rules
-config/camera.json scene geometry and camera facts, each with its evidence
-devset/            our sample labels, review notes and the dev-set report
-api/               FastAPI endpoints, SQLite job store, bounded analysis worker
-web/src/           React website
-scripts/           weight setup, dev-set cache/replay/score, contact sheets, archive, packaging
-deploy/            public-site systemd unit and nginx vhost
-tests/             Python tests
-docs/              report, classes, calibration, architecture, API, model research, task text
-```
+- Seeds are fixed at 42 (Python, NumPy, Torch, OpenCV). cuDNN benchmarking is off and deterministic
+  cuDNN is requested.
+- Running the tagged code on the samples reproduces the events and risk curves in
+  `predictions_samples.json` exactly.
+- CPU, Apple and NVIDIA GPUs can differ slightly in floating point. On the RTX 4060 a few event
+  boundaries moved, with the same score on our labels.
+- The Part B time guard reads the clock, so on a machine close to the limit two runs can differ in
+  their risk curves. Events are not affected.
+- No model was trained. The numbers above come from `python -m scripts.devset score`,
+  `python -m scripts.ablation` and `python -m scripts.confusion`. Tests: `python -m pytest -q tests`.
 
 ## Models, datasets and licences
 
-No model was trained or fine-tuned by this team. The learned parts detect appearance. Tracking
-association, camera alignment, signal reading, every event rule, segment merging and the risk score
-are hand-written.
-
-| Component and author | Upstream data | Dataset terms | Checkpoint terms |
+| Model | Trained on | Data licence | Model licence |
 | --- | --- | --- | --- |
-| YOLO11s — Ultralytics | COCO 2017 | [COCO Consortium](https://cocodataset.org/#termsofuse): annotations CC BY 4.0; images retain individual Flickr rights/terms | Ultralytics AGPL-3.0 open-source terms |
-| Fire/smoke YOLO26n — seawsurf | [FASDD CV](https://huggingface.co/datasets/seawsurf/fire_smoke_dataset_fasdd_cv), as identified in the source model card | Publisher declares CC BY 4.0 | Publisher declares CC BY 4.0; Ultralytics base/runtime terms also apply |
-| Accident YOLO11x — Uppada Enos | [Traffic Accident Detection, hilmantm](https://universe.roboflow.com/hilmantm/traffic-accident-detection), as identified in the source model card | Publisher declares CC BY 4.0 | Publisher declares MIT; Ultralytics base/runtime terms also apply |
-| WIUT organizer footage | C3896, C3897, C3902, C3905 | Provided for this competition | Used for camera geometry, our dev labels and regression fixtures, not for training |
+| YOLO11s, Ultralytics | COCO 2017 | [COCO terms](https://cocodataset.org/#termsofuse): annotations CC BY 4.0, images keep their Flickr terms | AGPL-3.0 |
+| Fire/smoke YOLO26n, [seawsurf](https://huggingface.co/seawsurf/fire_smoke_detection_box) | [FASDD CV](https://huggingface.co/datasets/seawsurf/fire_smoke_dataset_fasdd_cv) | CC BY 4.0 (publisher) | CC BY 4.0 (publisher); Ultralytics terms apply |
+| Accident YOLO11x, [Uppada Enos](https://huggingface.co/Enos-123/traffic-accident-detection-yolo11x) | [Traffic Accident Detection, hilmantm](https://universe.roboflow.com/hilmantm/traffic-accident-detection) | CC BY 4.0 (publisher) | MIT (publisher); Ultralytics terms apply |
 
-Model cards: [fire/smoke](https://huggingface.co/seawsurf/fire_smoke_detection_box),
-[accident](https://huggingface.co/Enos-123/traffic-accident-detection-yolo11x). Revisions and SHA-256
-hashes are pinned in `weights/manifest.json`. ByteTrack runs through Ultralytics
-([paper](https://arxiv.org/abs/2110.06864)). The website uses the Inter font (SIL OFL), Phosphor icons
-(MIT), React, Vite and Recharts.
+The organizers' four sample videos were used for the camera map, our labels and tests, not for
+training. Checkpoint versions and hashes are pinned in `weights/manifest.json`. ByteTrack runs
+through Ultralytics. No hosted or paid model is called at any point.
 
-No other footage from this camera was collected, no hosted or closed model is called at any stage,
-and no hidden test data was accessed.
+## Repository
 
-## Team
+```text
+solution.py           the competition interface (Part A and Part B)
+vision/               detection, tracking, alignment, rules, segments, risk, rendering
+config/camera.json    the camera map, with the evidence for each fact
+devset/               our labels of the samples and their scores
+api/, web/            the website's server and pages
+scripts/              weight download, dev-set tools, packaging
+tests/                tests
+docs/                 report, classes, calibration, architecture, submission checklist
+```
 
-| Member | Role | Who did what | Previous projects | Links |
+To run the website locally: `npm --prefix web ci && npm run dev` (needs Node 22.18+ and the Python
+setup above).
+
+## Team Pitstop
+
+| Member | Role | Did | Previous projects | Links |
 | --- | --- | --- | --- | --- |
-| Mardonjon Rasulov | Captain | Made the design and most of the logic: the detection pipeline, the traffic rules, the risk score and the website | [Sifatly](https://sifatly.com) (food and product scanner, about 10,000 users and $250 MRR), [Tarjimonchi](https://tarjimonchi.uz) (AI translation of Word documents) | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmm-code), [LinkedIn](https://www.linkedin.com/in/mardonjon-rasulov-6012762b7) |
-| Saidxon Xaydarov | Team member | Tested the system and helped with the website's UX | [Fikrly](https://fikrly.uz) (a review platform for businesses in Uzbekistan) | [Portfolio](https://xaydarov.uz), [GitHub](https://github.com/khdrvss), [LinkedIn](https://www.linkedin.com/in/saidxon-xaydarov) |
-| Miraziz Mirvaliyev | Team member | Built parts of the logic and tested it | [Driver Management](https://github.com/MMiraziz013/Driver_Management_Frontend) (C# and TypeScript), [HR Service](https://github.com/MMiraziz013/HR_Service) | [GitHub](https://github.com/MMiraziz013), [LinkedIn](https://www.linkedin.com/in/miraziz-mirvaliyev-75a685236/) |
-
-`config/team.json` feeds the website's Team page.
+| Mardonjon Rasulov | Captain | The design and most of the logic: detection pipeline, traffic rules, risk score, website | [Sifatly](https://sifatly.com) (food and product scanner, about 10,000 users, $250 MRR), [Tarjimonchi](https://tarjimonchi.uz) (AI translation of Word documents) | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmm-code), [LinkedIn](https://www.linkedin.com/in/mardonjon-rasulov-6012762b7) |
+| Saidxon Xaydarov | Member | Tested the system, helped with the website's UX | [Fikrly](https://fikrly.uz) (reviews of businesses in Uzbekistan) | [Portfolio](https://xaydarov.uz), [GitHub](https://github.com/khdrvss), [LinkedIn](https://www.linkedin.com/in/saidxon-xaydarov) |
+| Miraziz Mirvaliyev | Member | Built parts of the logic, tested it | [Driver Management](https://github.com/MMiraziz013/Driver_Management_Frontend), [HR Service](https://github.com/MMiraziz013/HR_Service) | [GitHub](https://github.com/MMiraziz013), [LinkedIn](https://www.linkedin.com/in/miraziz-mirvaliyev-75a685236/) |

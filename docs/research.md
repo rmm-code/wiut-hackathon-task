@@ -1,6 +1,6 @@
 # Model selection and provenance
 
-This project uses pretrained open weights and has not trained or fine-tuned a model. Source checkpoint metrics are not Crossing's accuracy measurements.
+This project uses pretrained open weights and has not trained or fine-tuned a model. Source checkpoint metrics are not our accuracy measurements.
 
 | Component | Source | Local use and limits |
 | --- | --- | --- |

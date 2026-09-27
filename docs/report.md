@@ -2,7 +2,7 @@
 
 ## What we built
 
-Crossing turns a fixed CCTV view of a Tashkent T-junction into timed traffic events and a causal
+Team Pitstop's system turns a fixed CCTV view of a Tashkent T-junction into timed traffic events and a causal
 accident-risk curve.
 
 - **Pipeline.** Pretrained YOLO11s finds road users and ByteTrack tracks them. A SIFT homography aligns
