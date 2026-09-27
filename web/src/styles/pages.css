@@ -368,6 +368,21 @@
   line-height: 1.8;
   margin: 10px 0 23px;
 }
+.member-projects {
+  margin: -8px 0 20px;
+}
+.member-projects ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #737373;
+  line-height: 1.7;
+}
+.member-projects a {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+}
 .team-note {
   display: flex;
   gap: 15px;

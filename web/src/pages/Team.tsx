@@ -35,6 +35,21 @@ export function Team() {
             <h3>{member.name}</h3>
             <span className="badge badge-neutral">{member.role}</span>
             {member.contribution && <p>{member.contribution}</p>}
+            {member.projects?.length ? (
+              <div className="member-projects">
+                <span className="eyebrow">Previous projects</span>
+                <ul>
+                  {member.projects.map((project) => (
+                    <li key={project.url}>
+                      <a href={project.url} target="_blank" rel="noreferrer">
+                        {project.name}
+                      </a>{" "}
+                      — {project.description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
             <div className="study-tabs">
               {Object.entries(member.links).map(([label, url]) => (
                 <a
@@ -55,7 +70,8 @@ export function Team() {
       <section className="card report-copy">
         <div className="analysis-body">
           <p>
-            Names, roles and profile links were supplied by the team members.
+            Names, roles, contributions, projects and profile links were
+            supplied by the team.
           </p>
           <a
             className="button"

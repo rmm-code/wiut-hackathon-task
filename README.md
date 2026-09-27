@@ -101,6 +101,9 @@ in the samples, so their accuracy is unmeasured.
 - `predictions_samples.json` was produced by the unchanged harness from the tagged commit.
   A second harness run on C3905 produced identical events and an identical risk curve, and the web pipeline's events equal the harness's.
 - CPU, MPS and CUDA can differ in floating point, so exact equality across platforms is not guaranteed.
+  On an RTX 4060 the events differed slightly from the Apple reference but scored the same on our labels.
+- The time-budget guard reads the wall clock. On a machine near the budget, one run can stop Part B
+  early and another not, so their risk curves differ. The events are unaffected.
 - Dev tooling:
   - `python -m scripts.devset cache` stores detector and tracker output for every sample once.
   - `python -m scripts.devset score` re-runs all rules on that cache in about 10 seconds and scores
@@ -199,10 +202,10 @@ and no hidden test data was accessed.
 
 ## Team
 
-| Member | Role | Links |
-| --- | --- | --- |
-| Mardonjon Rasulov | Captain | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmmcode) |
-| Saidxon Xaydarov | Team member | [Portfolio](https://xaydarov.uz), [GitHub](https://github.com/khdrvss), [LinkedIn](https://www.linkedin.com/in/saidxon-xaydarov) |
-| Miraziz Mirvaliyev | Team member | [GitHub](https://github.com/MMiraziz013), [LinkedIn](https://www.linkedin.com/in/miraziz-mirvaliyev-75a685236/) |
+| Member | Role | Who did what | Previous projects | Links |
+| --- | --- | --- | --- | --- |
+| Mardonjon Rasulov | Captain | Made the design and most of the logic: the detection pipeline, the traffic rules, the risk score and the website | [Taomly](https://github.com/rmm-code/taomly-for-awards) (AI recipe extraction, live on the App Store), [humanizer-uz](https://github.com/rmm-code/humanizer-uz) | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmm-code) |
+| Saidxon Xaydarov | Team member | Tested the system and helped with the website's UX | [AI Talim](https://github.com/khdrvss/edu) (learning AI tools in Uzbek), [3dservice](https://github.com/khdrvss/3dservice) | [Portfolio](https://xaydarov.uz), [GitHub](https://github.com/khdrvss), [LinkedIn](https://www.linkedin.com/in/saidxon-xaydarov) |
+| Miraziz Mirvaliyev | Team member | Built parts of the logic and tested it | [Driver Management](https://github.com/MMiraziz013/Driver_Management_Frontend) (C# and TypeScript), [HR Service](https://github.com/MMiraziz013/HR_Service) | [GitHub](https://github.com/MMiraziz013), [LinkedIn](https://www.linkedin.com/in/miraziz-mirvaliyev-75a685236/) |
 
 `config/team.json` feeds the website's Team page.

@@ -156,6 +156,7 @@ export interface ProjectInfo {
     contribution: string;
     links: Record<string, string>;
     photo?: string;
+    projects?: { name: string; description: string; url: string }[];
   }[];
   models: {
     name: string;
