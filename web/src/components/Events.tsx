@@ -9,13 +9,11 @@ export function Events({
   analysis,
   selected,
   onSelect,
-  onReview,
   onExport,
 }: {
   analysis: Analysis;
   selected: string | null;
   onSelect: (event: TrafficEvent) => void;
-  onReview: (id: string) => void;
   onExport: () => void;
 }) {
   const [query, setQuery] = useState("");
@@ -40,9 +38,7 @@ export function Events({
             `${event.id} ${classes[event.label].name} ${event.lane ?? ""}`.toLowerCase();
           return (
             text.includes(query.toLowerCase()) &&
-            (filter === "all" ||
-              (filter === "review" && !event.reviewed) ||
-              classes[event.label].level === filter)
+            (filter === "all" || classes[event.label].level === filter)
           );
         })
         .sort((a, b) =>
@@ -60,7 +56,7 @@ export function Events({
       <CardHead
         icon="menu"
         title="Event log"
-        subtitle="All events in one place, ready to review."
+        subtitle="Every detected event. Click one to jump the video to it."
         action={
           <button
             className="button small"
@@ -82,16 +78,6 @@ export function Events({
             }}
           >
             All events <span>{analysis.events.length}</span>
-          </button>
-          <button
-            className={filter === "review" ? "active" : ""}
-            onClick={() => {
-              setFilter("review");
-              setPage(0);
-            }}
-          >
-            Needs review{" "}
-            <span>{analysis.events.filter((e) => !e.reviewed).length}</span>
           </button>
         </div>
         <div className="table-filters">
@@ -157,7 +143,6 @@ export function Events({
                 </th>
                 <th>Location</th>
                 <th>Confidence</th>
-                <th>Review</th>
                 <th>
                   <span className="sr-only">Details</span>
                 </th>
@@ -204,10 +189,10 @@ export function Events({
                         {(event.end - event.start).toFixed(1)} seconds
                       </small>
                     </td>
-                    <td>{event.lane ?? "Not provided"}</td>
+                    <td>{event.lane ?? "—"}</td>
                     <td>
                       {event.confidence === undefined ? (
-                        <span className="muted">Not provided</span>
+                        <span className="muted">—</span>
                       ) : (
                         <div className="confidence">
                           <span
@@ -223,20 +208,6 @@ export function Events({
                     </td>
                     <td>
                       <button
-                        className={`review-button ${event.reviewed ? "reviewed" : ""}`}
-                        onClick={() => onReview(event.id)}
-                        aria-label={`${event.reviewed ? "Unmark" : "Mark"} ${event.id} as reviewed`}
-                      >
-                        <Icon
-                          name={event.reviewed ? "circleCheck" : "clock"}
-                          size={15}
-                          weight={event.reviewed ? "fill" : "regular"}
-                        />
-                        {event.reviewed ? "Reviewed" : "To review"}
-                      </button>
-                    </td>
-                    <td>
-                      <button
                         className="icon-button"
                         onClick={() => onSelect(event)}
                         aria-label={`View ${event.id} details`}
@@ -247,7 +218,7 @@ export function Events({
                   </tr>
                   {selected === event.id && (
                     <tr className="event-detail">
-                      <td colSpan={6}>
+                      <td colSpan={5}>
                         <span
                           className={`badge badge-${classes[event.label].color}`}
                         >
@@ -258,8 +229,8 @@ export function Events({
                           {analysis.origin === "preview"
                             ? "Illustrative event. This is not a finding from the source video."
                             : analysis.origin === "model"
-                              ? "Model candidate. Review against the video to confirm the event."
-                              : "Imported result. Review against the video to verify the event."}
+                              ? "Found by the model in this video."
+                              : "Imported from a results file."}
                         </span>
                       </td>
                     </tr>

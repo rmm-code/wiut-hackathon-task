@@ -177,15 +177,6 @@ export function useWorkspace() {
     setPlaying(false);
   }
 
-  function review(id: string) {
-    setAnalysis((value) => ({
-      ...value,
-      events: value.events.map((event) =>
-        event.id === id ? { ...event, reviewed: !event.reviewed } : event,
-      ),
-    }));
-  }
-
   async function importResults(file: File) {
     if (file.size > 20 * 1024 * 1024)
       throw new Error("Results must be smaller than 20 MB.");
@@ -241,7 +232,6 @@ export function useWorkspace() {
     upload,
     seek,
     pick,
-    review,
     importResults,
     exportResults,
     setPlaying,

@@ -60,7 +60,7 @@ export function Timeline({
       <CardHead
         icon="clock"
         title="Event timeline"
-        subtitle="Events by type and time. Select a segment to review."
+        subtitle="Events by type and time. Click one to jump the video to it."
         action={
           <span className="subtle-badge">
             <Icon name="film" size={14} />

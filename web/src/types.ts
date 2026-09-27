@@ -28,7 +28,6 @@ export interface TrafficEvent {
   end: number;
   confidence?: number;
   lane?: string;
-  reviewed: boolean;
 }
 
 export interface Video {

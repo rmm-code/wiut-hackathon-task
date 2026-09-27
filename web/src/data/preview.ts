@@ -24,7 +24,6 @@ export function makePreview(): Analysis {
       end,
       confidence,
       lane,
-      reviewed: i % 3 === 0,
     }),
   );
   const values = [

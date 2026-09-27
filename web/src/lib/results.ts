@@ -46,7 +46,6 @@ export function parseResults(
         label: label as Label,
         start,
         end,
-        reviewed: false,
       };
     })
     .sort((a, b) => a.start - b.start);

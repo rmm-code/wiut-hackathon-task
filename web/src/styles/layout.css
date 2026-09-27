@@ -275,14 +275,6 @@ main {
   color: #555;
   white-space: nowrap;
 }
-.page-footer {
-  padding: 20px 7px 4px;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  color: #888;
-  font-size: 11px;
-}
 .mobile-menu,
 .nav-scrim {
   display: none;

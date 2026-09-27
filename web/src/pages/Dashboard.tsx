@@ -14,7 +14,13 @@ import { demoVideo } from "../data/samples";
 import type { Workspace } from "../hooks/useWorkspace";
 import type { TrafficEvent } from "../types";
 
-export function Dashboard({ workspace: w }: { workspace: Workspace }) {
+export function Dashboard({
+  workspace: w,
+  onUpload,
+}: {
+  workspace: Workspace;
+  onUpload: () => void;
+}) {
   const review = useRef<HTMLDetailsElement>(null);
   const [showReview, setShowReview] = useState(false);
   useEffect(() => {
@@ -50,7 +56,7 @@ export function Dashboard({ workspace: w }: { workspace: Workspace }) {
           <span>
             {w.analysis.origin === "imported"
               ? "Imported results. Review events against the video."
-              : "No analysis yet. Import existing results to review this video."}
+              : "No analysis yet. Upload the video to analyse it, or import existing results."}
           </span>
           <button onClick={() => w.choose(demoVideo)}>
             Explore preview
@@ -60,6 +66,7 @@ export function Dashboard({ workspace: w }: { workspace: Workspace }) {
       )}
       <Stats
         analysis={w.analysis}
+        onUpload={onUpload}
         onInsights={() => w.navigate("samples")}
         onEvents={() =>
           document
@@ -87,7 +94,6 @@ export function Dashboard({ workspace: w }: { workspace: Workspace }) {
         analysis={w.analysis}
         selected={w.selected}
         onSelect={jump}
-        onReview={w.review}
         onExport={w.exportResults}
       />
       <details

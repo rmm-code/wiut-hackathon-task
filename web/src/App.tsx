@@ -86,7 +86,9 @@ export function App() {
           </div>
         </header>
         <main id="main" tabIndex={-1}>
-          {w.page === "dashboard" && <Dashboard workspace={w} />}
+          {w.page === "dashboard" && (
+            <Dashboard workspace={w} onUpload={() => setDialog("video")} />
+          )}
           {w.page === "samples" && (
             <Samples
               onSample={w.choose}
@@ -96,10 +98,6 @@ export function App() {
           )}
           {w.page === "report" && <Report />}
           {w.page === "team" && <Team />}
-          <footer className="page-footer">
-            <span>Team Pitstop © 2026</span>
-            <span>WIUT Hackathon · CV Track</span>
-          </footer>
         </main>
       </div>
       {dialog && (

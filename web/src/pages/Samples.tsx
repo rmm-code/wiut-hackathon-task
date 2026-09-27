@@ -335,13 +335,6 @@ export function Samples({
           ))}
         </div>
       </section>
-      <p className="page-note">
-        <Icon name="info" size={16} />
-        Durations are rounded from the source players.{" "}
-        {report
-          ? "The chart uses measured tracker counts from your latest analysis; identities can split during occlusion."
-          : "The chart is an illustrative preview. Run an analysis to see measured counts."}
-      </p>
     </>
   );
 }

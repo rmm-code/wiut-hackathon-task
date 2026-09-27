@@ -8,10 +8,12 @@ export function Stats({
   analysis,
   onEvents,
   onInsights,
+  onUpload,
 }: {
   analysis: Analysis;
   onEvents: () => void;
   onInsights: () => void;
+  onUpload: () => void;
 }) {
   const { events, origin } = analysis;
   const available = origin !== "none";
@@ -23,7 +25,6 @@ export function Stats({
     (e) => classes[e.label].level === "warning",
   ).length;
   const notice = total - critical - warning;
-  const reviewed = events.filter((e) => e.reviewed).length;
   return (
     <div className="stats-grid">
       <section className="card stat-card">
@@ -86,51 +87,20 @@ export function Stats({
       />
       <section className="card stat-card">
         <CardHead
-          icon="circleCheck"
-          title="Manual review"
-          subtitle="Your review of detected events"
+          icon="upload"
+          title="Live demo"
+          subtitle="Analyse your own video"
         />
         <div className="stat-body">
-          <div className="stat-value-row">
-            <span>Events checked by you</span>
-            <strong>
-              {available ? (
-                <>
-                  {reviewed}
-                  <small> / {total}</small>
-                </>
-              ) : (
-                "—"
-              )}
-            </strong>
-          </div>
-          <div
-            className="segment-meter"
-            aria-label={`${reviewed} of ${total} events reviewed`}
-          >
-            {Array.from({ length: 36 }, (_, i) => (
-              <i
-                key={i}
-                className={total && i / 36 < reviewed / total ? "bg-green" : ""}
-              />
-            ))}
-          </div>
-          <div className="meter-label">
-            <span>
-              {available
-                ? `${total - reviewed} awaiting review`
-                : "Awaiting results"}
-            </span>
-            <span>{total ? Math.round((reviewed / total) * 100) : 0}%</span>
-          </div>
-          <div className="stat-context">
-            <Icon name="eye" size={15} />
-            <span>Select an event to inspect its details</span>
-          </div>
-        </div>
-        <div className="card-footer tinted-green">
-          <Icon name="check" size={15} />
-          <span>Review changes are saved for this session</span>
+          <p className="stat-note">
+            Upload an MP4 of up to 2 minutes and 2.5 GB. Our server runs the
+            same engine as the submission and returns the events, a timeline,
+            an annotated video and the risk curve.
+          </p>
+          <button className="button primary" onClick={onUpload}>
+            <Icon name="upload" size={16} />
+            Upload video
+          </button>
         </div>
       </section>
     </div>

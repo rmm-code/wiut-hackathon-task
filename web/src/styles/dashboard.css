@@ -64,33 +64,11 @@
   color: #747474;
   font-weight: 500;
 }
-.segment-meter {
-  height: 25px;
-  display: flex;
-  gap: 3px;
-  margin: 4px 0 8px;
-}
-.segment-meter i {
-  flex: 1;
-  border-radius: 2px;
-  background: #f0f0f0;
-  border: 1px solid #00000002;
-  opacity: 0.86;
-}
-.meter-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
+.stat-note {
+  font-size: 13px;
   color: #737373;
-}
-.stat-context {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 15px;
-  font-size: 12px;
-  color: #737373;
-  line-height: 1.5;
+  line-height: 1.8;
+  margin: 0 0 16px;
 }
 .monitor-grid {
   display: grid;
@@ -301,10 +279,6 @@
   .stat-card .card-head .subtle-badge {
     display: none;
   }
-  .stat-context {
-    min-height: 30px;
-    align-items: flex-start;
-  }
   .monitor-grid {
     grid-template-columns: 1.3fr 1fr;
     gap: 12px;
@@ -331,8 +305,7 @@
     font-size: 13px;
   }
   .stat-legend,
-  .meter-label,
-  .stat-context,
+  .stat-note,
   .card-footer {
     font-size: 13px;
   }

@@ -143,18 +143,6 @@
   color: #737373;
   margin-top: 3px;
 }
-.page-note {
-  display: flex;
-  align-items: flex-start;
-  gap: 7px;
-  font-size: 12px;
-  color: #737373;
-  line-height: 1.8;
-  padding: 19px 2px 0;
-}
-.page-note svg {
-  margin-top: 2px;
-}
 .eyebrow {
   display: block;
   font-size: 12px;
@@ -551,8 +539,7 @@
     aspect-ratio: 16/9;
   }
   .sample-card p,
-  .observation-list p,
-  .page-note {
+  .observation-list p {
     font-size: 13px;
   }
   .approach-intro {

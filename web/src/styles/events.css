@@ -346,26 +346,6 @@ tr.selected-row {
   border-radius: 50%;
   border: 3px solid;
 }
-.review-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  border: 1px solid #f0e7d8;
-  background: #fffcf6;
-  border-radius: 5px;
-  padding: 5px 7px;
-  color: #8c6f39;
-  font-size: 12px;
-  white-space: nowrap;
-}
-.review-button.reviewed {
-  color: #4c7e66;
-  border-color: #dfede4;
-  background: #f4faf6;
-}
-.review-button:hover {
-  border-color: #a1a1a1;
-}
 .event-detail td {
   padding: 15px 20px;
   background: #f6f6f6;
