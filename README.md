@@ -26,9 +26,10 @@ Inference never downloads anything: Ultralytics auto-install, online checks and 
 disabled, and a missing checkpoint raises an error. The weights are also attached to the release as
 `weights.tar`. Extract it in the repository root instead of running the download script.
 
-Docker: `docker build -t crossing .`, then
-`docker run --rm --network none -v /data/test:/data/test:ro -v "$PWD/output:/results" crossing python run_submission.py --videos /data/test --out /results/predictions.json`.
-Run the weight download before building. The image installs the same CUDA 12.6 PyTorch build.
+Docker: `docker build -t crossing .` (the build downloads and verifies the weights), then
+`docker run --rm --gpus all --network none -v /data/test:/data/test:ro -v "$PWD/output:/results" crossing python run_submission.py --videos /data/test --out /results/predictions.json`.
+The image installs the same CUDA 12.6 PyTorch build; without `--gpus all` it runs on the CPU, which
+is too slow for the time budget.
 
 `CROSSING_DEVICE` selects `auto` (CUDA, then MPS, then CPU), `cuda:0`, `mps` or `cpu`. `CROSSING_FPS`
 sets the analysis sampling rate (default 8 frames/s).
