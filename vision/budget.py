@@ -23,6 +23,10 @@ def part_a_started(video_path):
 
 
 def deadline(video_id, duration):
-    """Latest acceptable finish time for this video (perf_counter clock)."""
-    start = _started.get(video_id, time.perf_counter())
-    return start + SAFETY * FACTOR * duration
+    """Latest acceptable finish time for this video (perf_counter clock).
+
+    Unlimited unless Part A of this video ran in this process: only a harness run has a budget.
+    """
+    if video_id not in _started:
+        return float("inf")
+    return _started[video_id] + SAFETY * FACTOR * duration

@@ -58,6 +58,7 @@ def test_budget_guard_stops_part_b_only_when_the_total_would_run_over(monkeypatc
     from vision import budget, risk
 
     clock = {"now": 1000.0}
+    monkeypatch.setattr(budget, "_started", {})
     monkeypatch.setattr(risk.time, "perf_counter", lambda: clock["now"])
     monkeypatch.setattr(budget.time, "perf_counter", lambda: clock["now"])
     frame = np.zeros((8, 8, 3), np.uint8)
@@ -81,3 +82,11 @@ def test_budget_guard_stops_part_b_only_when_the_total_would_run_over(monkeypatc
     # 0.25 s/frame would finish at 350 s: Part B must stop, well before the harness would.
     with pytest.raises(TimeoutError):
         run(100, 0.25)
+    # Part A alone used 97% of the budget: stop at the first frame, before any detection.
+    with pytest.raises(TimeoutError):
+        run(291, 0.0)
+    # Outside a harness run (Part A never ran here) there is no deadline at all.
+    budget._started.clear()
+    estimator = risk.RiskEstimator()
+    estimator.reset(meta)
+    assert estimator.deadline == float("inf")

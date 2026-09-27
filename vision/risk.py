@@ -96,10 +96,12 @@ class RiskEstimator:
         self.frame_index += 1
         if index == 50:
             self.warm = time.perf_counter()  # pace excludes model loading at the first frame
-        if index >= 150 and index % 25 == 0:
+        if index % 25 == 0:
             now = time.perf_counter()
-            pace = (now - self.warm) / (index - 50)
-            if now + pace * (self.frames - index) > self.deadline:
+            # From frame 150 on, project the finish from the pace since warm-up; before that,
+            # stop only if the budget is already spent (Part A used nearly all of it).
+            rest = (now - self.warm) / (index - 50) * (self.frames - index) if index >= 150 else 0.0
+            if now + rest > self.deadline:
                 raise TimeoutError(
                     "Stopped Part B early to keep this video inside the time budget; Part A events are kept."
                 )
