@@ -1,4 +1,5 @@
 import math
+import time
 from itertools import combinations
 from .geometry import dot, distance
 from .types import VEHICLES
@@ -61,11 +62,19 @@ class RiskModel:
 
 class RiskEstimator:
     def reset(self, meta):
+        from . import budget
         from .settings import Settings
         from .scene import Scene
         from .tracks import Tracks
 
         self.meta = dict(meta)
+        self.warm = None
+        self.frames = int(meta.get("n_frames") or 0)
+        self.deadline = (
+            budget.deadline(meta.get("video_id", ""), self.frames / float(meta["fps"]))
+            if self.frames
+            else float("inf")
+        )
         self.settings = Settings.load()
         self.scene = Scene(self.settings.camera())
         self.tracks = Tracks()
@@ -85,6 +94,15 @@ class RiskEstimator:
         self.last_timestamp = t_sec
         index = self.frame_index
         self.frame_index += 1
+        if index == 50:
+            self.warm = time.perf_counter()  # pace excludes model loading at the first frame
+        if index >= 150 and index % 25 == 0:
+            now = time.perf_counter()
+            pace = (now - self.warm) / (index - 50)
+            if now + pace * (self.frames - index) > self.deadline:
+                raise TimeoutError(
+                    "Stopped Part B early to keep this video inside the time budget; Part A events are kept."
+                )
         if index % self.stride:
             return self.last_score
         if not self.initialized:

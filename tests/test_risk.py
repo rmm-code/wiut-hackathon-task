@@ -48,3 +48,36 @@ def test_calibration_is_monotonic_and_moves_the_alarm_threshold():
     mapped = [calibrate(v) for v in values]
     assert mapped == sorted(mapped) and calibrate(0) == 0 and calibrate(1) == 1
     assert abs(calibrate(ALARM_RAW) - 0.5) < 1e-9 and calibrate(0.5) < 0.5
+
+
+def test_budget_guard_stops_part_b_only_when_the_total_would_run_over(monkeypatch):
+    from types import SimpleNamespace
+
+    import numpy as np
+    import pytest
+    from vision import budget, risk
+
+    clock = {"now": 1000.0}
+    monkeypatch.setattr(risk.time, "perf_counter", lambda: clock["now"])
+    monkeypatch.setattr(budget.time, "perf_counter", lambda: clock["now"])
+    frame = np.zeros((8, 8, 3), np.uint8)
+    meta = {"video_id": "clip.mp4", "fps": 10.0, "width": 8, "height": 8, "n_frames": 1000}
+
+    def run(part_a_seconds, seconds_per_frame):
+        clock["now"] = 1000.0
+        budget.part_a_started("/data/clip.mp4")
+        clock["now"] += part_a_seconds
+        estimator = risk.RiskEstimator()
+        estimator.reset(meta)
+        estimator.stride = 10**9  # only the clock matters here: no model, one empty detection
+        estimator.initialized = True
+        estimator.detector = SimpleNamespace(step=lambda frame: [])
+        for index in range(1000):
+            estimator.step(frame, index / 10)
+            clock["now"] += seconds_per_frame
+
+    # 100 s video, 300 s budget: 100 s of Part A plus 0.15 s/frame finishes at 250 s.
+    run(100, 0.15)
+    # 0.25 s/frame would finish at 350 s: Part B must stop, well before the harness would.
+    with pytest.raises(TimeoutError):
+        run(100, 0.25)
