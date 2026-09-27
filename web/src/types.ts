@@ -176,6 +176,9 @@ export interface ProjectInfo {
     frames: number;
     duration: number;
     fps: number;
+    width: number;
+    height: number;
+    by_class: Record<string, number>;
     events: number;
     road_users: number;
     runtime: number;

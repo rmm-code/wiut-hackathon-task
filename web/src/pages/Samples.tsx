@@ -7,7 +7,15 @@ import { time } from "../lib/format";
 import { Icon } from "../components/Icon";
 import { CardHead } from "../components/Card";
 import { TrafficChart } from "../components/Charts";
+import { useProject } from "../hooks/useProject";
 import type { EngineReport, Video } from "../types";
+
+const kinds = ["car", "person", "bus", "truck", "bicycle", "motorcycle"];
+const maps = [
+  ["occupancy", "Where road users spend time"],
+  ["motion", "Where the image moves"],
+  ["trajectories", "Tracked paths"],
+] as const;
 
 export function Samples({
   onSample,
@@ -18,6 +26,7 @@ export function Samples({
   report?: EngineReport;
   filename?: string;
 }) {
+  const { data: project } = useProject();
   const [archived, setArchived] = useState<string[]>([]);
   const [states, setStates] = useState<Record<string, string | null>>({});
   const [available, setAvailable] = useState<string[]>([]);
@@ -189,6 +198,87 @@ export function Samples({
           </div>
         </section>
       </div>
+      {project?.samples.length ? (
+        <section className="card">
+          <CardHead
+            icon="chart"
+            title="The samples, measured"
+            subtitle="From our analysis of every frame · brightness is the mean grey level (0–255)"
+          />
+          <div className="report-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Video</th>
+                  <th>Resolution</th>
+                  <th>fps</th>
+                  <th>Duration</th>
+                  <th>Brightness</th>
+                  {kinds.map((kind) => (
+                    <th key={kind}>{kind[0].toUpperCase() + kind.slice(1)}s</th>
+                  ))}
+                  <th>Events</th>
+                </tr>
+              </thead>
+              <tbody>
+                {project.samples.map((sample) => (
+                  <tr key={sample.id}>
+                    <td>{sample.name.replace(".MP4", "")}</td>
+                    <td>
+                      {sample.width} × {sample.height}
+                    </td>
+                    <td>{sample.fps.toFixed(2)}</td>
+                    <td>{time(sample.duration)}</td>
+                    <td>{sample.brightness.toFixed(0)}</td>
+                    {kinds.map((kind) => (
+                      <td key={kind}>{sample.by_class[kind] ?? 0}</td>
+                    ))}
+                    <td>{sample.events}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="analysis-body">
+            <p>
+              Counts are unique tracker identities, so an occluded road user can
+              be counted twice. Every sample shares one fixed view, so a single
+              camera map serves all four.
+            </p>
+          </div>
+        </section>
+      ) : null}
+      {project?.samples.length ? (
+        <section className="card">
+          <CardHead
+            icon="eye"
+            title="Occupancy, motion and trajectories for every sample"
+            subtitle="Measured maps · click a map to open it full size"
+          />
+          <div className="eda-grid">
+            {project.samples.map((sample) =>
+              maps.map(([kind, caption]) => (
+                <figure key={`${sample.id}-${kind}`}>
+                  <a
+                    href={`/api/samples/${sample.id}/eda/${kind}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      src={`/api/samples/${sample.id}/eda/${kind}`}
+                      alt={`${caption} in ${sample.name}`}
+                      loading="lazy"
+                    />
+                  </a>
+                  <figcaption>
+                    {sample.name.replace(".MP4", "")} · {caption}
+                  </figcaption>
+                </figure>
+              )),
+            )}
+          </div>
+        </section>
+      ) : null}
       <section className="card">
         <CardHead
           icon="check"
