@@ -1,13 +1,2 @@
-.study img, .labels-panel video { width: 100%; display: block; border-radius: 6px; background: #eee; margin: 12px 0; }
-.study-tabs, .label-tools { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-.labels-panel fieldset { border: 0; padding: 0; min-width: 0; }
-.labels-panel label { display: flex; flex-direction: column; gap: 4px; }
-.labels-panel input:not([type="checkbox"]), .labels-panel select { padding: 8px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #333; font: inherit; }
-.labels-panel input[type="number"] { width: 110px; }
-.labels-panel .review-confirm { flex-direction: row; align-items: center; margin: 16px 0; gap: 8px; }
-.labels-panel input[type="checkbox"] { accent-color: #222; }
-.review-notes { flex: 1; min-width: 200px; }
-.labels-panel .label-events { padding: 0; list-style: none; }
-.label-events li { display: flex; gap: 12px; align-items: center; padding: 7px 0; border-bottom: 1px solid #eee; }
-.label-events li > span { flex: 1; }
-@media (max-width: 550px) { .label-events li { flex-wrap: wrap; } }
+.study img { width: 100%; display: block; border-radius: 6px; background: #eee; margin: 12px 0; }
+.study-tabs { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; margin: 12px 0; }

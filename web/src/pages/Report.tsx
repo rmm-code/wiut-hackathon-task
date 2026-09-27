@@ -170,8 +170,8 @@ export function Report() {
           </p>
           <p>
             <strong>Prediction is not certainty.</strong> Occlusion, poor
-            lighting, and ambiguous movement can affect results. The current
-            preview does not assess real safety.
+            lighting, and ambiguous movement can affect results. The risk
+            score is a heuristic, not a validated safety assessment.
           </p>
           <p>
             <strong>Reproducible by design.</strong> The offline submission uses

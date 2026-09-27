@@ -1,21 +1,18 @@
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
 import type { Activity } from "../types";
-import { traffic } from "../data/preview";
 import { CardHead } from "./Card";
 import { Icon } from "./Icon";
 
 export function TrafficSummary({
-  preview,
   onOpen,
   activity,
   roadUsers,
 }: {
-  preview: boolean;
   activity?: Activity[];
   roadUsers?: number;
   onOpen: () => void;
 }) {
-  const data = preview ? traffic : (activity ?? []);
+  const data = activity ?? [];
   const total =
     roadUsers ??
     data.reduce((sum, item) => sum + item.cars + item.buses + item.people, 0);
@@ -24,23 +21,17 @@ export function TrafficSummary({
       <CardHead
         icon="car"
         title="Traffic activity"
-        subtitle={
-          preview ? "Illustrative road-user observations" : "Road-user counts"
-        }
+        subtitle="Road-user counts"
       />
       <div className="activity-value">
-        <strong>{preview || activity ? total : "—"}</strong>
-        <span>{preview ? "Observations" : "Tracked road users"}</span>
+        <strong>{activity ? total : "—"}</strong>
+        <span>Tracked road users</span>
       </div>
-      {preview || activity ? (
+      {activity ? (
         <div
           className="activity-chart"
           role="img"
-          aria-label={
-            preview
-              ? "Illustrative observations by minute"
-              : "Tracked road users by first appearance"
-          }
+          aria-label="Tracked road users by first appearance"
         >
           <ResponsiveContainer
             width="100%"

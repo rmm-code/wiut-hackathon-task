@@ -1,4 +1,4 @@
-import type { Job, JobResult, Review, ProjectInfo } from "../types";
+import type { Job, JobResult, ProjectInfo } from "../types";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   let response: Response;
@@ -33,19 +33,6 @@ const SINGLE_UPLOAD_BYTES = 90 * 1024 * 1024;
 export const api = {
   about() {
     return request<ProjectInfo>("/about");
-  },
-  labels(id: string, signal?: AbortSignal) {
-    return request<Review>(`/jobs/${id}/labels`, { signal });
-  },
-  saveLabels(id: string, body: Review) {
-    return request<Review>(`/jobs/${id}/labels`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-  },
-  exportLabels(id: string) {
-    return request<Record<string, unknown>>(`/jobs/${id}/labels/export`);
   },
   submit(file: File, signal?: AbortSignal) {
     const body = new FormData();

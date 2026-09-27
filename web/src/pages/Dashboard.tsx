@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Study } from "../components/Study";
-import { Labels } from "../components/Labels";
 import { Stats } from "../components/Stats";
 import { Camera } from "../components/Camera";
 import { RiskChart } from "../components/Charts";
@@ -10,17 +9,10 @@ import { OperatorSummary } from "../components/OperatorSummary";
 import { JobStatus } from "../components/JobStatus";
 import { AnalysisInfo } from "../components/AnalysisInfo";
 import { Icon } from "../components/Icon";
-import { demoVideo } from "../data/samples";
 import type { Workspace } from "../hooks/useWorkspace";
 import type { TrafficEvent } from "../types";
 
-export function Dashboard({
-  workspace: w,
-  onUpload,
-}: {
-  workspace: Workspace;
-  onUpload: () => void;
-}) {
+export function Dashboard({ workspace: w }: { workspace: Workspace }) {
   const review = useRef<HTMLDetailsElement>(null);
   const [showReview, setShowReview] = useState(true);
   useEffect(() => {
@@ -28,7 +20,6 @@ export function Dashboard({
       review.current &&
       (w.selected ||
         w.video.source === "local" ||
-        w.analysis.origin === "imported" ||
         w.analysis.origin === "model")
     ) {
       review.current.open = true;
@@ -46,23 +37,8 @@ export function Dashboard({
   return (
     <>
       <JobStatus job={w.job} onCancel={w.cancelJob} />
-      {w.analysis.origin !== "preview" && !w.job && (
-        <div className="notice-bar">
-          <Icon name="info" size={16} />
-          <span>
-            {w.analysis.origin === "imported"
-              ? "Imported results. Review events against the video."
-              : "No analysis yet. Upload the video to analyse it, or import existing results."}
-          </span>
-          <button onClick={() => w.choose(demoVideo)}>
-            Explore preview
-            <Icon name="arrow" size={14} />
-          </button>
-        </div>
-      )}
       <Stats
         analysis={w.analysis}
-        onUpload={onUpload}
         onInsights={() => w.navigate("samples")}
         onEvents={() =>
           document
@@ -95,7 +71,6 @@ export function Dashboard({
             <RiskChart
               risk={w.analysis.risk}
               position={w.position}
-              preview={w.analysis.origin === "preview"}
             />
           </div>
         )}
@@ -115,23 +90,11 @@ export function Dashboard({
         onSelect={jump}
         onExport={w.exportResults}
       />
-      {w.analysis.origin !== "preview" && (
-        <OperatorSummary events={w.analysis.events} duration={w.video.duration} />
-      )}
+      <OperatorSummary events={w.analysis.events} duration={w.video.duration} />
       <AnalysisInfo report={w.analysis.report} />
       {w.job?.state === "complete" && w.analysis.report?.eda && (
         <Study jobId={w.job.id} />
       )}
-      {w.job?.state === "complete" &&
-        !w.job.id.startsWith("sample-") &&
-        w.analysis.report?.eda && (
-          <Labels
-            key={w.job.id}
-            jobId={w.job.id}
-            fps={w.analysis.report.meta.fps}
-            duration={w.video.duration}
-          />
-        )}
     </>
   );
 }

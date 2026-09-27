@@ -162,7 +162,6 @@ export function Sidebar({
             </span>
             <Icon name="external" size={15} />
           </a>
-          <div className="sidebar-footnote">© 2026 Team Pitstop</div>
         </div>
       </aside>
     </>

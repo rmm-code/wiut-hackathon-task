@@ -8,12 +8,10 @@ export function Stats({
   analysis,
   onEvents,
   onInsights,
-  onUpload,
 }: {
   analysis: Analysis;
   onEvents: () => void;
   onInsights: () => void;
-  onUpload: () => void;
 }) {
   const { events, origin } = analysis;
   const available = origin !== "none";
@@ -31,11 +29,7 @@ export function Stats({
         <CardHead
           icon="bars"
           title="Event overview"
-          subtitle={
-            origin === "preview"
-              ? "Illustrative events · not model results"
-              : "Events in the selected video"
-          }
+          subtitle="Events in the selected video"
         />
         <div className="stat-body">
           <div className="stat-value-row">
@@ -80,29 +74,10 @@ export function Stats({
         </button>
       </section>
       <TrafficSummary
-        preview={origin === "preview"}
         onOpen={onInsights}
         activity={analysis.report?.summary.activity}
         roadUsers={analysis.report?.summary.road_users}
       />
-      <section className="card stat-card">
-        <CardHead
-          icon="upload"
-          title="Live demo"
-          subtitle="Analyse your own video"
-        />
-        <div className="stat-body">
-          <p className="stat-note">
-            Upload an MP4 of up to 2 minutes and 2.5 GB. Our server runs the
-            same engine as the submission and returns the events, a timeline,
-            an annotated video and the risk curve.
-          </p>
-          <button className="button primary" onClick={onUpload}>
-            <Icon name="upload" size={16} />
-            Upload video
-          </button>
-        </div>
-      </section>
     </div>
   );
 }

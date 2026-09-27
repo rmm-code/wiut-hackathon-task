@@ -6,7 +6,6 @@ const file = (events: unknown[], risk: unknown[] = []) => ({ videos: { 'clip.mp4
 
 test('imports official tuples without inventing confidence or lane data', () => {
   const result = parseResults(file([[1, 3, 'near_miss'], [2, 4, 'jaywalking']], [[0, 0.1], [1, 0.7]]), 'clip.mp4', 10);
-  assert.equal(result.origin, 'imported');
   assert.equal(result.events.length, 2);
   assert.equal(result.events[0].confidence, undefined);
   assert.equal(result.events[0].lane, undefined);

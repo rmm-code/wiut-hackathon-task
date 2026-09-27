@@ -13,7 +13,6 @@ import {
 import { CardHead, Empty } from "./Card";
 import { Icon } from "./Icon";
 import { time } from "../lib/format";
-import { traffic } from "../data/preview";
 import type { Activity, RiskPoint } from "../types";
 
 const tooltipStyle = {
@@ -26,11 +25,9 @@ const tooltipStyle = {
 export function RiskChart({
   risk,
   position,
-  preview,
 }: {
   risk: RiskPoint[];
   position: number;
-  preview: boolean;
 }) {
   const data = risk.map(([t, value]) => ({
     time: t,
@@ -44,9 +41,7 @@ export function RiskChart({
         title="Risk over time"
         subtitle="Accident risk over the next 5 seconds"
         action={
-          <span className="subtle-badge">
-            {preview ? "Preview" : "Risk score"}
-          </span>
+          <span className="subtle-badge">Risk score</span>
         }
       />
       {risk.length ? (
@@ -135,17 +130,13 @@ export function RiskChart({
       ) : (
         <Empty
           title="No risk curve yet"
-          text="Import analysis results to explore accident risk over time."
+          text="The risk curve appears when the analysis finishes."
           icon="chart"
         />
       )}
       <div className="card-footer">
         <Icon name="info" size={15} />
-        <span>
-          {preview
-            ? "Illustrative data · not a safety assessment"
-            : "Heuristic risk · not a calibrated probability"}
-        </span>
+        <span>Heuristic risk · not a calibrated probability</span>
       </div>
     </section>
   );
@@ -166,17 +157,21 @@ export function TrafficChart({
         subtitle={
           activity
             ? `${source} · tracks by first appearance`
-            : "Illustrative counts · preview data"
+            : "Counts appear when a video's analysis is open"
         }
       />
+      {!activity ? (
+        <Empty
+          title="No counts yet"
+          text="Open a sample video to see its road users over time."
+          icon="car"
+        />
+      ) : (
+      <>
       <div
         className="traffic-chart"
         role="img"
-        aria-label={
-          activity
-            ? "Measured tracker counts by first appearance"
-            : "Illustrative counts for cars, large vehicles, and pedestrians"
-        }
+        aria-label="Measured tracker counts by first appearance"
       >
         <ResponsiveContainer
           width="100%"
@@ -184,7 +179,7 @@ export function TrafficChart({
           initialDimension={{ width: 320, height: 180 }}
         >
           <BarChart
-            data={activity ?? traffic}
+            data={activity}
             barGap={4}
             margin={{ left: -25, right: 15, top: 15 }}
           >
@@ -239,6 +234,8 @@ export function TrafficChart({
           Pedestrians
         </span>
       </div>
+      </>
+      )}
     </section>
   );
 }

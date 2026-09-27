@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Sidebar, nav } from "./components/Sidebar";
 import { Icon } from "./components/Icon";
-import { Upload } from "./components/Upload";
 import { Dashboard } from "./pages/Dashboard";
 import { LiveDemo } from "./pages/LiveDemo";
 import { Samples } from "./pages/Samples";
@@ -27,7 +26,6 @@ export function App() {
       /* Remembering the choice is optional. */
     }
   }
-  const [dialog, setDialog] = useState<"video" | "results" | null>(null);
   return (
     <div className={`app-shell ${hidden ? "menu-hidden" : ""}`}>
       <a
@@ -70,55 +68,12 @@ export function App() {
                 <Icon name="menu" />
               </button>
             )}
-            <button
-              className="icon-button back-button"
-              onClick={() => w.navigate("dashboard")}
-              disabled={w.page === "dashboard"}
-              aria-label="Back to dashboard"
-            >
-              <Icon name="left" size={15} />
-            </button>
-            <span className="bar-divider" />
             <h1>{nav.find((item) => item.id === w.page)?.label}</h1>
-          </div>
-          <div className="topbar-actions">
-            <span
-              className="data-status"
-              title="Illustrative preview and actual model results are labeled separately."
-            >
-              {w.analysis.origin === "preview"
-                ? "Illustrative preview"
-                : w.analysis.origin === "model"
-                  ? "Model results · baseline"
-                  : w.analysis.origin === "imported"
-                    ? "Imported results"
-                    : "Ready to analyze"}
-            </span>
-            {w.page === "dashboard" && (
-              <button
-                className="button small import-button"
-                onClick={() => setDialog("results")}
-              >
-                <Icon name="json" size={15} />
-                <span>Import results</span>
-              </button>
-            )}
-            <button
-              className="button small primary"
-              onClick={() => setDialog("video")}
-            >
-              <Icon name="upload" size={15} />
-              Upload video
-            </button>
           </div>
         </header>
         <main id="main" tabIndex={-1}>
-          {w.page === "dashboard" && (
-            <Dashboard workspace={w} onUpload={() => setDialog("video")} />
-          )}
-          {w.page === "demo" && (
-            <LiveDemo workspace={w} onUpload={() => setDialog("video")} />
-          )}
+          {w.page === "dashboard" && <Dashboard workspace={w} />}
+          {w.page === "demo" && <LiveDemo workspace={w} />}
           {w.page === "samples" && (
             <Samples
               onSample={w.choose}
@@ -130,15 +85,6 @@ export function App() {
           {w.page === "team" && <Team />}
         </main>
       </div>
-      {dialog && (
-        <Upload
-          key={dialog}
-          kind={dialog}
-          filename={w.video.name}
-          onClose={() => setDialog(null)}
-          onFile={dialog === "video" ? w.upload : w.importResults}
-        />
-      )}
       {w.toast && (
         <div className="toast" role="status">
           <Icon name="info" size={18} />

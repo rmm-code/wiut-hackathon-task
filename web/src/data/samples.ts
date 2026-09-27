@@ -1,13 +1,5 @@
 import type { Video } from "../types";
 
-export const demoVideo: Video = {
-  id: "demo",
-  name: "Intersection preview",
-  duration: 340,
-  condition: "Illustrative scenario",
-  source: "demo",
-};
-
 export const samples: Video[] = [
   {
     id: "c3896",

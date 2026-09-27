@@ -198,12 +198,6 @@
 .repo-link > svg:last-child {
   color: #777;
 }
-.sidebar-footnote {
-  text-align: center;
-  color: #888;
-  font-size: 11px;
-  padding-top: 13px;
-}
 .main-shell {
   margin-left: 224px;
   border: 1px solid #e0e0e0;
@@ -240,60 +234,10 @@
   color: #343434;
   white-space: nowrap;
 }
-.back-button {
-  width: 20px;
-  height: 25px;
-}
-.bar-divider {
-  height: 15px;
-  border-left: 1px solid #dcdcdc;
-}
-.topbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-.topbar-actions .button {
-  min-height: 27px;
-  font-size: 12px;
-  padding: 5px 8px;
-}
-.data-status {
-  font-size: 11px;
-  color: #757575;
-  margin-right: 6px;
-  white-space: nowrap;
-}
 main {
   max-width: 1640px;
   margin: 0 auto;
   padding: 10px;
-}
-.notice-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid #e8e8e8;
-  border-radius: 7px;
-  padding: 9px 12px;
-  margin-bottom: 10px;
-  background: #f5f5f5;
-  color: #686868;
-  font-size: 12px;
-  line-height: 1.6;
-}
-.notice-bar > span {
-  flex: 1;
-}
-.notice-bar button {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: none;
-  border: 0;
-  font-size: 12px;
-  color: #555;
-  white-space: nowrap;
 }
 .mobile-menu,
 .nav-scrim {
@@ -326,11 +270,6 @@ main {
   position: absolute;
   right: 10px;
   top: 14px;
-}
-@media (max-width: 1100px) {
-  .data-status {
-    display: none;
-  }
 }
 @media (max-width: 800px) {
   /* Phones use the slide-out menu; the desktop hide setting does not apply. */
@@ -373,17 +312,11 @@ main {
     width: 25px;
     height: 25px;
   }
-  .back-button {
-    display: none;
-  }
   .topbar {
     margin: 8px 8px 0;
   }
   main {
     padding: 8px;
-  }
-  .topbar-actions .import-button span {
-    display: none;
   }
 }
 @media (max-width: 500px) {
@@ -393,18 +326,5 @@ main {
   .breadcrumbs h1 {
     font-size: 13px;
     white-space: normal;
-  }
-  .bar-divider {
-    display: none;
-  }
-  .topbar-actions {
-    gap: 5px;
-  }
-  .topbar-actions .button {
-    font-size: 11px;
-    padding: 5px 6px;
-  }
-  .notice-bar button {
-    display: none;
   }
 }

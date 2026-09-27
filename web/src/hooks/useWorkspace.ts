@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { demoVideo, samples } from "../data/samples";
-import { makePreview } from "../data/preview";
+import { samples } from "../data/samples";
 import { openVideo } from "../lib/media";
 import { parseResults } from "../lib/results";
 import { download } from "../lib/format";
@@ -14,10 +13,12 @@ function currentPage(): Page {
     : "dashboard";
 }
 
+const empty: Analysis = { origin: "none", events: [], risk: [] };
+
 export function useWorkspace() {
   const [page, setPage] = useState<Page>(currentPage);
-  const [video, setVideo] = useState<Video>(demoVideo);
-  const [analysis, setAnalysis] = useState<Analysis>(makePreview);
+  const [video, setVideo] = useState<Video>(samples[0]);
+  const [analysis, setAnalysis] = useState<Analysis>(empty);
   const [position, setPosition] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
@@ -121,11 +122,7 @@ export function useWorkspace() {
     jobs.reset();
     uploadRequest.current++;
     setVideo(next);
-    setAnalysis(
-      next.source === "demo"
-        ? makePreview()
-        : { origin: "none", events: [], risk: [] },
-    );
+    setAnalysis(empty);
     setPosition(0);
     setSelected(null);
     setPlaying(false);
@@ -172,41 +169,16 @@ export function useWorkspace() {
     setPlaying(false);
   }
 
-  async function importResults(file: File) {
-    if (file.size > 20 * 1024 * 1024)
-      throw new Error("Results must be smaller than 20 MB.");
-    const result = parseResults(
-      JSON.parse(await file.text()),
-      video.name,
-      video.duration,
-    );
-    jobs.reset();
-    setAnalysis(result);
-    setSelected(null);
-    setToast(`Imported ${result.events.length} events for ${video.name}.`);
-  }
-
   function exportResults() {
-    const name = analysis.origin === "preview" ? "demo.mp4" : video.name;
-    download(
-      analysis.origin === "preview"
-        ? "preview-events.json"
-        : "predictions.json",
-      {
-        team: "wiut",
-        ...(analysis.origin === "preview"
-          ? {
-              note: "Illustrative UI fixture. Not model predictions or ground truth.",
-            }
-          : {}),
-        videos: {
-          [name]: {
-            events: analysis.events.map((e) => [e.start, e.end, e.label]),
-            risk: analysis.risk,
-          },
+    download("predictions.json", {
+      team: "pitstop",
+      videos: {
+        [video.name]: {
+          events: analysis.events.map((e) => [e.start, e.end, e.label]),
+          risk: analysis.risk,
         },
       },
-    );
+    });
     setToast("Results exported as JSON.");
   }
 
@@ -226,7 +198,6 @@ export function useWorkspace() {
     upload,
     seek,
     pick,
-    importResults,
     exportResults,
     setPlaying,
     setPosition,

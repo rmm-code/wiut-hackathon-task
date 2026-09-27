@@ -10,7 +10,7 @@ export function parseResults(
   raw: unknown,
   filename: string,
   duration: number,
-): Analysis {
+): Pick<Analysis, "events" | "risk"> {
   if (!isObject(raw) || !isObject(raw.videos))
     throw new Error(
       "Use the official predictions JSON with a “videos” object.",
@@ -75,5 +75,5 @@ export function parseResults(
     }
     risk.push([row[0], row[1]]);
   }
-  return { origin: "imported", events, risk };
+  return { events, risk };
 }

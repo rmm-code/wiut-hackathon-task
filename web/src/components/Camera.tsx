@@ -21,10 +21,7 @@ export function Camera({ workspace: w }: { workspace: Workspace }) {
     }
   }
   const still = !w.video.url;
-  const canPlay =
-    Boolean(w.video.url) ||
-    w.video.source === "demo" ||
-    w.analysis.origin === "imported";
+  const canPlay = Boolean(w.video.url);
   function toggle() {
     if (w.position >= w.video.duration) w.seek(0);
     w.setPlaying(!w.playing);
@@ -33,14 +30,8 @@ export function Camera({ workspace: w }: { workspace: Workspace }) {
     <section ref={container} className="card camera-card">
       <CardHead
         icon="camera"
-        title={
-          w.video.source === "local" ? "Video workspace" : "Intersection 01"
-        }
-        subtitle={
-          w.video.source === "demo"
-            ? "Tashkent · fixed road camera"
-            : w.video.name
-        }
+        title={w.video.source === "local" ? "Your video" : "Intersection 01"}
+        subtitle={w.video.name}
         action={
           <span className="badge badge-neutral">
             <Icon name={still ? "eye" : "film"} size={13} />
@@ -77,15 +68,13 @@ export function Camera({ workspace: w }: { workspace: Workspace }) {
         <div className="camera-top">
           <span>
             <Icon name="camera" size={14} />
-            {still ? "CAM 01" : "LOCAL VIDEO"}
+            {still ? "CAM 01" : "ANNOTATED"}
           </span>
-          <span>{still ? "SOURCE CAMERA" : "ON THIS DEVICE"}</span>
+          <span>{still ? "SOURCE CAMERA" : "PITSTOP ANALYSIS"}</span>
         </div>
         {still && (
           <span className="still-note">
-            {w.video.source === "demo"
-              ? "Camera reference · timeline uses example events"
-              : "Shared camera reference · original video linked below"}
+            Camera reference · the annotated video appears when the analysis is ready
           </span>
         )}
       </div>
@@ -97,9 +86,7 @@ export function Camera({ workspace: w }: { workspace: Workspace }) {
           aria-label={
             w.playing
               ? "Pause playback"
-              : still
-                ? "Play preview timeline"
-                : "Play video"
+              : "Play video"
           }
         >
           <Icon name={w.playing ? "pause" : "play"} size={17} weight="fill" />

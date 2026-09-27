@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { CardHead } from "../components/Card";
 import { Icon } from "../components/Icon";
 import { MAX_UPLOAD_LABEL } from "../lib/media";
+import { samples } from "../data/samples";
 import { Dashboard } from "./Dashboard";
 import type { Workspace } from "../hooks/useWorkspace";
 
@@ -85,13 +86,7 @@ function DropZone({ onFile }: { onFile: (file: File) => Promise<void> }) {
   );
 }
 
-export function LiveDemo({
-  workspace: w,
-  onUpload,
-}: {
-  workspace: Workspace;
-  onUpload: () => void;
-}) {
+export function LiveDemo({ workspace: w }: { workspace: Workspace }) {
   if (w.video.source === "local")
     return (
       <>
@@ -104,12 +99,15 @@ export function LiveDemo({
               deleted when the analysis ends, and the results after 24 hours.
             </p>
           </div>
-          <button className="button" onClick={onUpload}>
+          <button
+            className="button"
+            onClick={() => w.choose(samples[0], "demo")}
+          >
             <Icon name="upload" size={16} />
             Upload another video
           </button>
         </section>
-        <Dashboard workspace={w} onUpload={onUpload} />
+        <Dashboard workspace={w} />
       </>
     );
   return (

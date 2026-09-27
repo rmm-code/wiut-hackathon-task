@@ -10,7 +10,14 @@ import { TrafficChart } from "../components/Charts";
 import { useProject } from "../hooks/useProject";
 import type { EngineReport, Video } from "../types";
 
-const kinds = ["car", "person", "bus", "truck", "bicycle", "motorcycle"];
+const kinds: [string, string][] = [
+  ["car", "Cars"],
+  ["person", "People"],
+  ["bus", "Buses"],
+  ["truck", "Trucks"],
+  ["bicycle", "Bicycles"],
+  ["motorcycle", "Motorcycles"],
+];
 const maps = [
   ["occupancy", "Where road users spend time"],
   ["motion", "Where the image moves"],
@@ -97,7 +104,7 @@ export function Samples({
               <span className="sample-length">{time(sample.duration)}</span>
               <span className="sample-image-label">
                 {archived.includes(sample.id)
-                  ? "Saved sample · no expiry"
+                  ? "Saved analysis"
                   : "Shared camera reference"}
               </span>
             </div>
@@ -214,8 +221,8 @@ export function Samples({
                   <th>fps</th>
                   <th>Duration</th>
                   <th>Brightness</th>
-                  {kinds.map((kind) => (
-                    <th key={kind}>{kind[0].toUpperCase() + kind.slice(1)}s</th>
+                  {kinds.map(([kind, name]) => (
+                    <th key={kind}>{name}</th>
                   ))}
                   <th>Events</th>
                 </tr>
@@ -230,7 +237,7 @@ export function Samples({
                     <td>{sample.fps.toFixed(2)}</td>
                     <td>{time(sample.duration)}</td>
                     <td>{sample.brightness.toFixed(0)}</td>
-                    {kinds.map((kind) => (
+                    {kinds.map(([kind]) => (
                       <td key={kind}>{sample.by_class[kind] ?? 0}</td>
                     ))}
                     <td>{sample.events}</td>

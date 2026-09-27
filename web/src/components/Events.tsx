@@ -122,7 +122,7 @@ export function Events({
           }
           text={
             analysis.origin === "none"
-              ? "Open a local video and import its results, or explore the preview."
+              ? "Events appear when the analysis finishes."
               : "Try a different search or filter."
           }
           icon="search"
@@ -225,13 +225,7 @@ export function Events({
                           {classes[event.label].level}
                         </span>
                         <p>{classes[event.label].description}</p>
-                        <span>
-                          {analysis.origin === "preview"
-                            ? "Illustrative event. This is not a finding from the source video."
-                            : analysis.origin === "model"
-                              ? "Found by the model in this video."
-                              : "Imported from a results file."}
-                        </span>
+                        <span>Found by the model in this video.</span>
                       </td>
                     </tr>
                   )}

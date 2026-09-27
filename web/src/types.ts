@@ -35,13 +35,13 @@ export interface Video {
   name: string;
   duration: number;
   condition: string;
-  source: "demo" | "sample" | "local";
+  source: "sample" | "local";
   url?: string;
   link?: string;
 }
 
 export interface Analysis {
-  origin: "preview" | "imported" | "model" | "none";
+  origin: "model" | "none";
   events: TrafficEvent[];
   risk: RiskPoint[];
   report?: EngineReport;
@@ -136,14 +136,6 @@ export interface AnalysisService {
     progress: number;
   }>;
   result(id: string): Promise<PredictionFile>;
-}
-
-export interface Review {
-  events: EventTuple[];
-  reviewer: string;
-  notes: string;
-  complete: boolean;
-  reviewed_entire_video: boolean;
 }
 
 export interface ProjectInfo {
