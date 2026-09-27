@@ -201,9 +201,12 @@
 }
 .pipeline {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   padding: 18px 24px 25px;
   gap: 22px;
+}
+.pipeline-step small .badge {
+  margin-left: 2px;
 }
 .pipeline-step {
   position: relative;
@@ -238,9 +241,12 @@
 }
 .report-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin: 10px 0;
+}
+.report-link {
+  margin-left: 22px;
 }
 .report-copy {
   padding-bottom: 18px;

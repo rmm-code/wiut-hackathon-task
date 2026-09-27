@@ -6,12 +6,36 @@ import type { IconName } from "../components/Icon";
 import { classes } from "../data/classes";
 import { labels } from "../types";
 
-const pipeline: [IconName, string, string][] = [
-  ["film", "Observe", "Read frames from the fixed road camera."],
-  ["target", "Detect", "YOLO locates vehicles and pedestrians."],
-  ["road", "Track", "ByteTrack follows movement over time."],
-  ["shield", "Understand", "Scene rules identify events and risk."],
-  ["chart", "Review", "Explore precise intervals and evidence."],
+type Kind = "Learned" | "Rule-based";
+
+const pipeline: [IconName, string, string, Kind][] = [
+  ["film", "Sample frames", "Decode the video on a background thread and analyse every 4th frame, about 7.5 per second.", "Rule-based"],
+  ["target", "Detect", "Pretrained YOLO11s (COCO) finds cars, buses, trucks, motorcycles, bicycles and people.", "Learned"],
+  ["road", "Track", "ByteTrack links detections into tracks. Without tracking, Score A falls to 0.", "Rule-based"],
+  ["camera", "Align the camera", "SIFT and RANSAC match the view to the reference; later frames are tried if the first fails.", "Rule-based"],
+  ["signal", "Read the signal", "The one visible signal head is read from its lamp colours, debounced over time.", "Rule-based"],
+  ["shield", "Scene rules", "One small rule per class reads tracks against the lanes, crossings and stop line.", "Rule-based"],
+  ["eye", "Specialists", "Accident YOLO11x and fire/smoke YOLO26n run once a second; tracks must confirm them.", "Learned"],
+  ["stack", "Segments", "Fragments are merged and blips dropped; the result is the Part A event list.", "Rule-based"],
+  ["chart", "Risk (Part B)", "A causal closest-approach score between tracks, calibrated so 0.5 is the alarm level.", "Rule-based"],
+];
+
+const worked = [
+  "Score A 0.777 on our labels of the four samples; the predictions it replaced scored 0.085.",
+  "Stop line and red light: F1 1.00. Illegal turn 0.82, solid-line crossing 0.67.",
+  "Mapping the camera on an empty-road background (a median of 45 frames) removed most false alarms.",
+  "A debounced signal reading with two timing tests removed every false red-light run.",
+  "Traffic rule clause 56 found five wrong-lane right turns and showed that U-turns at the median are legal.",
+  "It fits the time budget: 35% of it on an RTX 4060, 61% on two CPU cores.",
+];
+
+const failed = [
+  "Jaywalking (F1 0.57): foot points beside zebra paint, or behind cars, flicker across the crossing edge.",
+  "Failure to yield over-reports (33 found, 22 labelled): people waiting at a kerb still trigger it.",
+  "Stopped vehicles: every candidate was normal traffic, so the rule has no positive example.",
+  "Near miss is off: every detection in the samples was a false alarm.",
+  "The accident specialist's only confirmed detection was two cars overlapping in perspective.",
+  "Part B cannot be measured: the samples contain no accident.",
 ];
 
 export function Report() {
@@ -20,14 +44,18 @@ export function Report() {
     <>
       <section className="card approach-intro">
         <div>
-          <span className="eyebrow">MEASURED ON SAMPLE LABELS</span>
+          <span className="eyebrow">THE PROBLEM</span>
           <h2>System overview</h2>
           <p>
-            YOLO detects road users. Tracking and camera-specific scene rules
-            turn their movement into events and risk estimates. The rules were
-            reviewed and tuned against our own labels of the four sample videos,
-            and the accuracy table below reports the official metric on those
-            labels.
+            One fixed road camera. Part A reports every traffic event as a time
+            segment in one of 14 official classes, scored by macro F1 over
+            temporal IoU 0.3, 0.5 and 0.7 (70% of the model score). Part B gives,
+            at every frame and from past frames only, the probability that an
+            accident starts within 5 seconds (30%). Our approach: pretrained YOLO
+            detects road users, and tracking plus camera-specific rules turn
+            their movement into events and risk. The rules were tuned on our own
+            labels of the four samples; the tables below report the official
+            metric on those labels.
           </p>
         </div>
       </section>
@@ -35,20 +63,25 @@ export function Report() {
         <CardHead
           icon="stack"
           title="Analysis pipeline"
-          subtitle="Open-weights YOLO on our own server · no hosted AI calls"
+          subtitle="Steps 1–8 give the Part A events; step 9 is Part B · open weights, no hosted AI"
         />
         <div className="pipeline">
-          {pipeline.map(([icon, title, text], i) => (
+          {pipeline.map(([icon, title, text, kind], i) => (
             <div className="pipeline-step" key={title}>
               <span
-                className={`pipeline-icon tone-${["blue", "slate", "green", "amber", "blue"][i]}`}
+                className={`pipeline-icon tone-${kind === "Learned" ? "blue" : "slate"}`}
               >
                 <Icon name={icon} size={25} />
               </span>
-              <small>0{i + 1}</small>
+              <small>
+                0{i + 1} ·{" "}
+                <span className={`badge ${kind === "Learned" ? "badge-blue" : "badge-neutral"}`}>
+                  {kind}
+                </span>
+              </small>
               <h3>{title}</h3>
               <p>{text}</p>
-              {i < 4 && (
+              {i < pipeline.length - 1 && (
                 <Icon className="pipeline-arrow" name="right" size={16} />
               )}
             </div>
@@ -57,29 +90,29 @@ export function Report() {
       </section>
       <div className="report-grid">
         <section className="card report-copy">
-          <CardHead
-            icon="check"
-            title="What works today"
-            subtitle="Live on this site"
-          />
+          <CardHead icon="check" title="What worked" subtitle="Measured on our sample labels" />
           <ul>
-            <li>Explore an explicitly labeled event preview.</li>
-            <li>Upload an MP4 and have it analysed by the submission engine.</li>
-            <li>
-              Get tracked road users, event intervals, and an annotated video.
-            </li>
-            <li>Navigate the timeline, filter, review, and export results.</li>
-            <li>Inspect measured occupancy, movement, and trajectory maps.</li>
-            <li>
-              Label a clean video and export reviewed evaluation intervals.
-            </li>
+            {worked.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
           <span className="badge badge-green">13 of 14 classes active</span>
         </section>
         <section className="card report-copy">
+          <CardHead icon="warning" title="What did not work" subtitle="Still open" />
+          <ul>
+            {failed.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <span className="badge badge-amber">
+            Tuned on the samples it is measured on
+          </span>
+        </section>
+        <section className="card report-copy">
           <CardHead
             icon="cpu"
-            title="What comes next"
+            title="What we would do next"
             subtitle="Validation and class coverage"
           />
           <ul>
@@ -92,11 +125,17 @@ export function Report() {
               Find positive examples for near misses, accidents, fire and
               obstacles, none of which occur in the samples.
             </li>
-            <li>Measure runtime on the judging GPU.</li>
+            <li>Measure runtime on a T4 with an 8-core host.</li>
           </ul>
-          <span className="badge badge-amber">
-            Tuned on the samples it is measured on
-          </span>
+          <a
+            className="button small report-link"
+            href="https://github.com/rmm-code/wiut-hackathon-task/blob/v1.0.0/docs/report.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Full one-page report
+            <Icon name="external" size={14} />
+          </a>
         </section>
       </div>
       <section className="card">
