@@ -1,5 +1,7 @@
 import json
+import queue
 import subprocess
+import threading
 from pathlib import Path
 import cv2
 
@@ -28,6 +30,66 @@ def metadata(path):
         }
     finally:
         cap.release()
+
+
+class FrameReader:
+    """Decode a video on a background thread so decoding overlaps analysis.
+
+    Yields (index, frame) in order. Frames that `keep(index)` rejects are only grabbed
+    (decoded without colour conversion) and yielded as None. The frames analysed are
+    the same pixels in the same order as a plain read loop, so results are identical.
+    """
+
+    def __init__(self, path, keep, depth=16):
+        self.capture = cv2.VideoCapture(str(path))
+        self.keep = keep
+        self.items = queue.Queue(depth)
+        self.stopping = threading.Event()
+        self.thread = threading.Thread(target=self._decode, name="decoder", daemon=True)
+        self.thread.start()
+
+    def _decode(self):
+        index = 0
+        try:
+            while not self.stopping.is_set():
+                if self.keep(index):
+                    ok, frame = self.capture.read()
+                else:
+                    ok, frame = self.capture.grab(), None
+                if not ok:
+                    break
+                self._put((index, frame))
+                index += 1
+        except Exception as error:  # re-raised on the consuming thread
+            self._put(error)
+        finally:
+            self._put(None)
+
+    def _put(self, item):
+        while not self.stopping.is_set():
+            try:
+                self.items.put(item, timeout=0.2)
+                return
+            except queue.Full:
+                continue
+
+    def __iter__(self):
+        while True:
+            item = self.items.get()
+            if item is None:
+                return
+            if isinstance(item, Exception):
+                raise item
+            yield item
+
+    def close(self):
+        self.stopping.set()
+        while self.thread.is_alive():
+            try:
+                self.items.get(timeout=0.1)
+            except queue.Empty:
+                pass
+        self.capture.release()
 
 
 def validate_upload(path, max_seconds=120.1):

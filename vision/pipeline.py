@@ -6,7 +6,7 @@ from pathlib import Path
 import cv2
 from .coverage import coverage
 from .detector import Detector
-from .media import metadata, VideoWriter
+from .media import FrameReader, metadata, VideoWriter
 from .risk import RiskModel
 from .rules import Rules
 from .scene import Scene
@@ -50,7 +50,6 @@ def analyze(
     )
     specialists = Specialists(settings, scene)
     eda = Eda(scene, stride / meta["fps"])
-    cap = cv2.VideoCapture(str(path))
     writer = None
     source_writer = None
     output = Path(output) if output else None
@@ -63,15 +62,15 @@ def analyze(
     observations, flags, index, score = [], [], 0, 0.0
     brightness = []
     success = False
+    # Rendering needs every frame; analysis only every stride-th one.
+    reader = FrameReader(path, (lambda i: True) if output else (lambda i: i % stride == 0))
     try:
-        while True:
+        for position, frame in reader:
             if cancelled():
                 raise InterruptedError("Analysis was cancelled.")
             if time_limit and time.perf_counter() - started > time_limit:
                 raise TimeoutError("Analysis exceeded its runtime limit.")
-            ok, frame = cap.read()
-            if not ok:
-                break
+            assert position == index
             t = index / meta["fps"]
             if index == 0:
                 scene.align(frame)
@@ -205,7 +204,7 @@ def analyze(
         success = True
         return report
     finally:
-        cap.release()
+        reader.close()
         if writer:
             writer.close(success=False)
         if source_writer:
