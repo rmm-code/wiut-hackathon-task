@@ -4,8 +4,8 @@ from vision.coverage import coverage
 from types import SimpleNamespace
 
 
-def devset(root):
-    path = root / "devset" / "report.json"
+def devset(root, name="report.json"):
+    path = root / "devset" / name
     return json.loads(path.read_text()) if path.is_file() else None
 
 
@@ -55,5 +55,6 @@ def register_about(app, root, gallery):
             "predictions": "/api/downloads/predictions.json",
             "manifest": "/api/downloads/weights.json",
             "devset": devset(root),
+            "ablation": devset(root, "ablation.json"),
             "release": json.loads((root / "config/release.json").read_text()),
         }

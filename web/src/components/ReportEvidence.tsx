@@ -1,14 +1,14 @@
 import { CardHead } from "./Card";
 import { classes } from "../data/classes";
 import { time } from "../lib/format";
-import type { DevsetReport, ProjectInfo } from "../types";
+import type { AblationReport, DevsetReport, Label, ProjectInfo } from "../types";
 
 const failures = [
   {
     image: "alignment",
     title: "Camera match rejected the right scene",
     source: "C3902 · 00:00",
-    text: "The first run rejected this camera and disabled scene rules. A second matching scale fixed the rejection without lowering the geometric checks. The video was then rerun in full.",
+    text: "The first run rejected this camera and disabled scene rules. A second matching scale fixed the rejection without lowering the geometric checks. Single frames still fail: 12 of 31 sampled C3902 frames do not match. So when a video's first frame fails, one frame per second of its first 20 seconds is now tried.",
   },
   {
     image: "signal",
@@ -87,10 +87,66 @@ function Devset({ report }: { report: DevsetReport }) {
   );
 }
 
+function Ablation({ report }: { report: AblationReport }) {
+  const [base, ...variants] = report.rows;
+  const labels = Object.keys(base.per_class) as Label[];
+  return (
+    <section className="card">
+      <CardHead
+        icon="chart"
+        title="Ablations"
+        subtitle="One change at a time · Score A on our sample labels"
+      />
+      <div className="report-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Variant</th>
+              <th>Score A</th>
+              <th>Change</th>
+              <th>Events</th>
+              {labels.map((label) => (
+                <th key={label}>{classes[label].name}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[base, ...variants].map((row) => (
+              <tr key={row.variant}>
+                <td>{row.variant}</td>
+                <td>{row.score_a.toFixed(3)}</td>
+                <td>
+                  {row === base
+                    ? "—"
+                    : `${row.score_a >= base.score_a ? "+" : ""}${(row.score_a - base.score_a).toFixed(3)}`}
+                </td>
+                <td>{row.events}</td>
+                {labels.map((label) => (
+                  <td key={label}>{(row.per_class[label] ?? 0).toFixed(2)}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="analysis-body">
+        <p>
+          Each row replays the cached detections of the four samples with one
+          change and scores the result with the official metric; class columns
+          are F1 averaged over the three IoU thresholds. Lower sampling rates
+          keep the 8 frames/s tracks and only run the rules less often.
+          Reproduce with <code>python -m scripts.ablation</code>.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 export function ReportEvidence({ data }: { data: ProjectInfo }) {
   return (
     <>
       {data.devset && <Devset report={data.devset} />}
+      {data.ablation && <Ablation report={data.ablation} />}
       <section className="card">
         <CardHead
           icon="chart"

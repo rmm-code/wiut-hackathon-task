@@ -127,7 +127,7 @@ export function Upload({
         <Icon name="shield" size={19} />
         <p>
           {isVideo
-            ? "Your video is analysed on our server by the same engine as the submission, on CPU, so a two-minute clip takes several minutes. You get events, a risk curve and an annotated video. No hosted AI service is used, and uploads are deleted after 24 hours."
+            ? "Your video is analysed on our server by the same engine as the submission, on CPU: a two-minute 1080p clip takes about 9 minutes, a two-minute 4K clip about 15–20. You get events, a risk curve and an annotated video. No hosted AI service is used; the original is deleted when its analysis ends, and results after 24 hours."
             : "Results must match the selected filename. We check classes, timestamps, same-class overlaps, and risk scores before importing."}
         </p>
       </div>

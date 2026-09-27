@@ -1,0 +1,85 @@
+{
+ "labels": "devset/labels.json",
+ "rows": [
+  {
+   "variant": "Submitted: rules at 8 frames/s, ByteTrack, confidence 0.20",
+   "score_a": 0.7769,
+   "events": 89,
+   "per_class": {
+    "failure_to_yield": 0.606,
+    "illegal_turn": 0.815,
+    "jaywalking": 0.574,
+    "red_light": 1.0,
+    "solid_line_crossing": 0.667,
+    "stop_line": 1.0
+   }
+  },
+  {
+   "variant": "Rules at 4 frames/s",
+   "score_a": 0.7513,
+   "events": 85,
+   "per_class": {
+    "failure_to_yield": 0.549,
+    "illegal_turn": 0.815,
+    "jaywalking": 0.53,
+    "red_light": 1.0,
+    "solid_line_crossing": 0.667,
+    "stop_line": 0.947
+   }
+  },
+  {
+   "variant": "Rules at 2 frames/s",
+   "score_a": 0.3137,
+   "events": 50,
+   "per_class": {
+    "congestion": 0.0,
+    "failure_to_yield": 0.0,
+    "illegal_turn": 0.0,
+    "jaywalking": 0.529,
+    "red_light": 1.0,
+    "solid_line_crossing": 0.667,
+    "stop_line": 0.0
+   }
+  },
+  {
+   "variant": "No tracking (a new identity per detection)",
+   "score_a": 0.0,
+   "events": 13,
+   "per_class": {
+    "congestion": 0.0,
+    "failure_to_yield": 0.0,
+    "illegal_turn": 0.0,
+    "jaywalking": 0.0,
+    "red_light": 0.0,
+    "solid_line_crossing": 0.0,
+    "stop_line": 0.0
+   }
+  },
+  {
+   "variant": "Detector confidence 0.30",
+   "score_a": 0.7173,
+   "events": 90,
+   "per_class": {
+    "failure_to_yield": 0.606,
+    "illegal_turn": 0.815,
+    "jaywalking": 0.55,
+    "red_light": 1.0,
+    "solid_line_crossing": 0.333,
+    "stop_line": 1.0
+   }
+  },
+  {
+   "variant": "Detector confidence 0.40",
+   "score_a": 0.7381,
+   "events": 88,
+   "per_class": {
+    "failure_to_yield": 0.595,
+    "illegal_turn": 0.815,
+    "jaywalking": 0.574,
+    "red_light": 1.0,
+    "solid_line_crossing": 0.444,
+    "stop_line": 1.0
+   }
+  }
+ ]
+}

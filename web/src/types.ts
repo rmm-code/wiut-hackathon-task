@@ -186,11 +186,22 @@ export interface ProjectInfo {
   predictions: string;
   manifest: string;
   devset: DevsetReport | null;
+  ablation: AblationReport | null;
   release: {
     tag: string | null;
     weights_url: string | null;
     samples_url: string | null;
   };
+}
+
+export interface AblationReport {
+  labels: string;
+  rows: {
+    variant: string;
+    score_a: number;
+    events: number;
+    per_class: Partial<Record<Label, number>>;
+  }[];
 }
 
 export interface DevsetReport {

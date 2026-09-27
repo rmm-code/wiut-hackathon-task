@@ -11,6 +11,7 @@ import { AnalysisInfo } from "../components/AnalysisInfo";
 import { Icon } from "../components/Icon";
 import { demoVideo } from "../data/samples";
 import type { Workspace } from "../hooks/useWorkspace";
+import type { TrafficEvent } from "../types";
 
 export function Dashboard({ workspace: w }: { workspace: Workspace }) {
   const review = useRef<HTMLDetailsElement>(null);
@@ -26,6 +27,14 @@ export function Dashboard({ workspace: w }: { workspace: Workspace }) {
       review.current.open = true;
     }
   }, [w.selected, w.video.id, w.analysis.origin]);
+
+  function jump(event: TrafficEvent) {
+    w.pick(event);
+    // The video sits below the event log: bring it into view so the jump is visible.
+    requestAnimationFrame(() =>
+      review.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }),
+    );
+  }
 
   return (
     <>
@@ -66,14 +75,14 @@ export function Dashboard({ workspace: w }: { workspace: Workspace }) {
         duration={w.video.duration}
         position={w.position}
         selected={w.selected}
-        onSelect={w.pick}
+        onSelect={jump}
         onSeek={w.seek}
       />
       <Events
         key={w.video.id}
         analysis={w.analysis}
         selected={w.selected}
-        onSelect={w.pick}
+        onSelect={jump}
         onReview={w.review}
         onExport={w.exportResults}
       />
