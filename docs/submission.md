@@ -53,9 +53,9 @@ Every requirement in the task PDF, [research/WIUT Hackathon _ CV Track Eliminati
 
 | Section | Status | Where on https://wiut.mardonjon.me |
 | --- | --- | --- |
-| 1. Team: roles, who did what, GitHub, LinkedIn, portfolios, previous projects | Partial | "Our team". Missing: Mardonjon's LinkedIn, Miraziz's portfolio, and photos of two members |
+| 1. Team: roles, who did what, GitHub, LinkedIn, portfolios, previous projects | Partial | "Our team": photos, roles, contributions, links and previous projects. Missing: Mardonjon's LinkedIn and Miraziz's portfolio |
 | 2. Problem and approach: pipeline diagram, models and data, learned vs rule-based | Done | "Approach & report": the problem, a nine-step pipeline with each step marked learned or rule-based, and the models, data and licences |
-| 3. EDA: resolution, fps, duration, lighting; counts by class; heatmaps; trajectories; density over time | Partial | "Samples & insights": a measured table (resolution, fps, duration, brightness, road users by class), occupancy, motion and trajectory maps for every sample, and findings that shaped the rules. Lane directions are not drawn, and counts over time are shown only for the open video |
+| 3. EDA: resolution, fps, duration, lighting; counts by class; heatmaps; trajectories; lane directions; density over time | Done | "Samples & insights": a measured table (resolution, fps, duration, brightness, road users by class), a lanes-and-directions map, occupancy, motion and trajectory maps for every sample, and findings that shaped the rules. Counts over time are charted for the open video |
 | 4. Results: every sample annotated, timelines, risk curves, class examples, failure cases | Done | Dashboard (each sample), class examples on "Samples & insights", failures on "Approach & report" |
 | 5. Live demo: upload, events, timeline, annotated playback, risk curve, stated limits, progress | Done | "Upload video": MP4 up to 2 minutes and 2.5 GB (sent in pieces), upload and analysis progress |
 | 6. Report: what worked, what did not, what next | Done | "Approach & report", and the one-page [report.md](report.md) |
@@ -67,7 +67,7 @@ Every requirement in the task PDF, [research/WIUT Hackathon _ CV Track Eliminati
 | --- | --- | --- |
 | Interactive charts; click an event to jump the video to it | Done | Dashboard timeline and event log |
 | Ablations with numbers | Done | "Ablations" on "Approach & report"; `python -m scripts.ablation` |
-| Error analysis on our own dev labels | Partial | Per-class precision, recall and F1, and failure cases; no confusion matrix between classes |
+| Error analysis on our own dev labels | Done | Per-class precision, recall and F1; "Where the errors go" sorts every prediction into correct, another class or false alarm (no class was confused with another); failure cases |
 | Operator dashboard: events per class, location, time | Done | "Operator summary" on the Dashboard |
 | Live stream or webcam | Not done | |
 
@@ -95,5 +95,5 @@ Every requirement in the task PDF, [research/WIUT Hackathon _ CV Track Eliminati
   were tuned on the same videos.
 - **Unmeasured classes.** Accident, fire and smoke, road obstacle, congestion, wrong way and illegal
   U-turn never occur in the samples, so their behaviour on real events is unknown.
-- **Team page.** Mardonjon's LinkedIn, Miraziz's portfolio, and photos of two members.
+- **Team page.** Mardonjon's LinkedIn and Miraziz's portfolio.
 - **Live stream or webcam demo.** Not built.

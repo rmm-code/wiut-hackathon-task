@@ -1,0 +1,31 @@
+{
+ "threshold": 0.3,
+ "rows": {
+  "failure_to_yield": {
+   "none": 16,
+   "failure_to_yield": 17
+  },
+  "stop_line": {
+   "stop_line": 10
+  },
+  "red_light": {
+   "red_light": 3
+  },
+  "jaywalking": {
+   "jaywalking": 26,
+   "none": 10
+  },
+  "illegal_turn": {
+   "illegal_turn": 4
+  },
+  "solid_line_crossing": {
+   "solid_line_crossing": 2,
+   "none": 1
+  }
+ },
+ "missed": {
+  "jaywalking": 10,
+  "illegal_turn": 1,
+  "failure_to_yield": 5
+ }
+}

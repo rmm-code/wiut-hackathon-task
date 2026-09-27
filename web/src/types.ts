@@ -190,11 +190,18 @@ export interface ProjectInfo {
   manifest: string;
   devset: DevsetReport | null;
   ablation: AblationReport | null;
+  confusion: ConfusionReport | null;
   release: {
     tag: string | null;
     weights_url: string | null;
     samples_url: string | null;
   };
+}
+
+export interface ConfusionReport {
+  threshold: number;
+  rows: Partial<Record<Label, Record<string, number>>>;
+  missed: Partial<Record<Label, number>>;
 }
 
 export interface AblationReport {

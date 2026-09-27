@@ -1,7 +1,7 @@
 import { CardHead } from "./Card";
 import { classes } from "../data/classes";
 import { time } from "../lib/format";
-import type { AblationReport, DevsetReport, Label, ProjectInfo } from "../types";
+import type { AblationReport, ConfusionReport, DevsetReport, Label, ProjectInfo } from "../types";
 
 const failures = [
   {
@@ -87,6 +87,75 @@ function Devset({ report }: { report: DevsetReport }) {
   );
 }
 
+function Confusion({ report }: { report: ConfusionReport }) {
+  const labels = [
+    ...new Set([...Object.keys(report.rows), ...Object.keys(report.missed)]),
+  ].sort() as Label[];
+  const confused = labels.some((label) =>
+    Object.keys(report.rows[label] ?? {}).some(
+      (name) => name !== label && name !== "none",
+    ),
+  );
+  const errors = (label: Label) =>
+    (report.rows[label]?.none ?? 0) + (report.missed[label] ?? 0);
+  const worst = [...labels].sort((a, b) => errors(b) - errors(a)).slice(0, 2);
+  return (
+    <section className="card">
+      <CardHead
+        icon="warning"
+        title="Where the errors go"
+        subtitle={`Each prediction against our labels at temporal IoU ${report.threshold}`}
+      />
+      <div className="report-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Correct</th>
+              <th>Taken for another class</th>
+              <th>False alarm</th>
+              <th>Missed labels</th>
+            </tr>
+          </thead>
+          <tbody>
+            {labels.map((label) => {
+              const row = report.rows[label] ?? {};
+              const others = Object.entries(row).filter(
+                ([name]) => name !== label && name !== "none",
+              );
+              return (
+                <tr key={label}>
+                  <td>{classes[label].name}</td>
+                  <td>{row[label] ?? 0}</td>
+                  <td>
+                    {others.length
+                      ? others
+                          .map(([name, count]) => `${classes[name as Label].name} ×${count}`)
+                          .join(", ")
+                      : 0}
+                  </td>
+                  <td>{row.none ?? 0}</td>
+                  <td>{report.missed[label] ?? 0}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className="analysis-body">
+        <p>
+          {confused
+            ? "Some events were reported as the wrong class, as listed above."
+            : "No event was reported as the wrong class: every error is a false alarm or a missed event."}{" "}
+          {worst.map((label) => classes[label].name).join(" and ")} carry the
+          most errors, so that is where the next labelling and rule work should
+          go. Reproduce with <code>python -m scripts.confusion</code>.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Ablation({ report }: { report: AblationReport }) {
   const [base, ...variants] = report.rows;
   const labels = Object.keys(base.per_class) as Label[];
@@ -146,6 +215,7 @@ export function ReportEvidence({ data }: { data: ProjectInfo }) {
   return (
     <>
       {data.devset && <Devset report={data.devset} />}
+      {data.confusion && <Confusion report={data.confusion} />}
       {data.ablation && <Ablation report={data.ablation} />}
       <section className="card">
         <CardHead

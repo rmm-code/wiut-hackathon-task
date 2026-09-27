@@ -59,5 +59,6 @@ def register_about(app, root, gallery):
             "manifest": "/api/downloads/weights.json",
             "devset": devset(root),
             "ablation": devset(root, "ablation.json"),
+            "confusion": devset(root, "confusion.json"),
             "release": json.loads((root / "config/release.json").read_text()),
         }

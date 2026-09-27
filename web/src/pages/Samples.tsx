@@ -248,6 +248,36 @@ export function Samples({
           </div>
         </section>
       ) : null}
+      <section className="card">
+        <CardHead
+          icon="road"
+          title="Lanes and traffic directions"
+          subtitle="Mapped on an empty-road background: the median of 45 frames of C3896"
+        />
+        <div className="lanes-map">
+          <img
+            src="/images/lanes.jpg"
+            alt="The intersection with each carriageway's direction of travel, the stop line, solid lane lines and crossings"
+            loading="lazy"
+          />
+          <ul>
+            <li>
+              <strong>South-east approach (orange).</strong> Five lanes run to the
+              stop line (red); 479 of 480 tracked stop-line crossings in the four
+              samples move this way. White lines are the solid lane markings.
+            </li>
+            <li>
+              <strong>North-west carriageway (green).</strong> Above the raised
+              median; every through track moves north-west.
+            </li>
+            <li>
+              <strong>North-west approach (blue).</strong> Enters from the right
+              and crosses crossing B. U-turns legitimately swing through this
+              junction mouth, so it is left out of wrong-way checks.
+            </li>
+          </ul>
+        </div>
+      </section>
       {project?.samples.length ? (
         <section className="card">
           <CardHead

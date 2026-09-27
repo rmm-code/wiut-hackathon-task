@@ -110,6 +110,10 @@ in the samples, so their accuracy is unmeasured.
   - `python -m scripts.devset score` re-runs all rules on that cache in about 10 seconds and scores
     them against `devset/labels.json`.
   - `python -m scripts.sheets` renders the contact sheets used for review.
+  - `python -m scripts.ablation` replays the cache with one change at a time: the rule sampling rate,
+    tracking on or off, the detector confidence.
+  - `python -m scripts.confusion` sorts every prediction into correct, another class or false alarm.
+  - `python -m scripts.lanes_map samples/C3896.MP4` renders the lanes-and-directions map for the site.
 - Tests: `python -m pytest -q tests` covers the rules, causality, the API, scene matching, segments,
   the organizer file hashes and the submission contract.
 
@@ -205,8 +209,8 @@ and no hidden test data was accessed.
 
 | Member | Role | Who did what | Previous projects | Links |
 | --- | --- | --- | --- | --- |
-| Mardonjon Rasulov | Captain | Made the design and most of the logic: the detection pipeline, the traffic rules, the risk score and the website | [Taomly](https://github.com/rmm-code/taomly-for-awards) (AI recipe extraction, live on the App Store), [humanizer-uz](https://github.com/rmm-code/humanizer-uz) | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmm-code) |
-| Saidxon Xaydarov | Team member | Tested the system and helped with the website's UX | [AI Talim](https://github.com/khdrvss/edu) (learning AI tools in Uzbek), [3dservice](https://github.com/khdrvss/3dservice) | [Portfolio](https://xaydarov.uz), [GitHub](https://github.com/khdrvss), [LinkedIn](https://www.linkedin.com/in/saidxon-xaydarov) |
+| Mardonjon Rasulov | Captain | Made the design and most of the logic: the detection pipeline, the traffic rules, the risk score and the website | [Sifatly](https://sifatly.com) (food and product scanner, about 10,000 users and $250 MRR), [Tarjimonchi](https://tarjimonchi.uz) (AI translation of Word documents) | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmm-code) |
+| Saidxon Xaydarov | Team member | Tested the system and helped with the website's UX | [Fikrly](https://fikrly.uz) (a review platform for businesses in Uzbekistan) | [Portfolio](https://xaydarov.uz), [GitHub](https://github.com/khdrvss), [LinkedIn](https://www.linkedin.com/in/saidxon-xaydarov) |
 | Miraziz Mirvaliyev | Team member | Built parts of the logic and tested it | [Driver Management](https://github.com/MMiraziz013/Driver_Management_Frontend) (C# and TypeScript), [HR Service](https://github.com/MMiraziz013/HR_Service) | [GitHub](https://github.com/MMiraziz013), [LinkedIn](https://www.linkedin.com/in/miraziz-mirvaliyev-75a685236/) |
 
 `config/team.json` feeds the website's Team page.

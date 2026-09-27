@@ -614,6 +614,11 @@
 @media (max-width: 750px) { .failure-grid, .coverage-report { grid-template-columns: 1fr; } }
 .example-list { display: grid; gap: 18px; padding: 16px; }
 .eda-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 16px; }
+.lanes-map { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; padding: 16px; align-items: start; }
+.lanes-map img { display: block; width: 100%; height: auto; border-radius: 6px; background: #f5f5f5; }
+.lanes-map ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.8; color: #737373; display: grid; gap: 10px; }
+.lanes-map strong { color: #404040; font-weight: 500; }
+@media (max-width: 800px) { .lanes-map { grid-template-columns: 1fr; } }
 .eda-grid figure { margin: 0; }
 .eda-grid img { display: block; width: 100%; height: auto; border-radius: 6px; background: #f5f5f5; }
 .eda-grid figcaption { font-size: 12px; color: #737373; margin-top: 6px; }
