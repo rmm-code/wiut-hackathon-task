@@ -68,7 +68,11 @@ export function App() {
                 <Icon name="menu" />
               </button>
             )}
-            <h1>{nav.find((item) => item.id === w.page)?.label}</h1>
+            <h1>
+              {w.page === "dashboard"
+                ? `Dashboard · ${w.video.name}`
+                : nav.find((item) => item.id === w.page)?.label}
+            </h1>
           </div>
         </header>
         <main id="main" tabIndex={-1}>

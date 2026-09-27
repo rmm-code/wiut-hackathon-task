@@ -10,7 +10,6 @@ design/qa
 
 .env
 .env.*
-!.env.example
 weights/candidates
 research/model-checks
 
