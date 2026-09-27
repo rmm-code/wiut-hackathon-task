@@ -20,6 +20,7 @@ export function Sidebar({
   onSample,
   open,
   onClose,
+  onHide,
 }: {
   page: Page;
   navigate: (page: Page) => void;
@@ -27,6 +28,7 @@ export function Sidebar({
   onSample: (video: Video) => void;
   open: boolean;
   onClose: () => void;
+  onHide: () => void;
 }) {
   const [mobile, setMobile] = useState(
     () => matchMedia("(max-width: 800px)").matches,
@@ -88,10 +90,21 @@ export function Sidebar({
             <Icon name="close" />
           </button>
         )}
-        <a className="brand" href="#/dashboard" onClick={onClose}>
-          Pitstop
-        </a>
-        <p className="nav-label">Main menu</p>
+        <div className="brand-row">
+          <a className="brand" href="#/dashboard" onClick={onClose}>
+            Pitstop
+          </a>
+          {!mobile && (
+            <button
+              className="icon-button hide-menu"
+              onClick={onHide}
+              aria-label="Hide the menu"
+              title="Hide the menu"
+            >
+              <Icon name="left" size={16} />
+            </button>
+          )}
+        </div>
         <nav aria-label="Main navigation">
           {nav.map((item) => (
             <a

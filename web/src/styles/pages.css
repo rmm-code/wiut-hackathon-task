@@ -434,21 +434,29 @@
   line-height: 1.8;
   margin-top: 9px;
 }
-.demo-upload {
+.demo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 28px;
   padding: 18px;
-  margin-bottom: 10px;
 }
-.demo-upload .dropzone {
-  width: 100%;
-  min-height: 190px;
+.demo-drop {
+  display: flex;
+  flex-direction: column;
+}
+.demo-drop .dropzone {
+  flex: 1;
+  justify-content: center;
+  min-height: 230px;
+  margin: 0;
 }
 .demo-steps {
   list-style: none;
   margin: 0;
-  padding: 6px 22px 22px;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  align-content: center;
+  gap: 20px;
 }
 .demo-steps li {
   display: flex;
@@ -457,30 +465,35 @@
 }
 .demo-step-number {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   background: #292929;
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 }
 .demo-steps h3 {
   font-size: 14px;
   font-weight: 500;
-  margin: 3px 0 6px;
+  margin: 3px 0 4px;
 }
 .demo-steps p {
   font-size: 13px;
   color: #737373;
-  line-height: 1.8;
+  line-height: 1.7;
   margin: 0;
 }
 @media (max-width: 800px) {
-  .demo-steps {
+  .demo-layout {
     grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 14px;
+  }
+  .demo-drop .dropzone {
+    min-height: 170px;
   }
 }
 .dropzone {

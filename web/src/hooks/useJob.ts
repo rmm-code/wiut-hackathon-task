@@ -111,7 +111,7 @@ export function useJob(onResult: (result: JobResult) => void) {
     }
   }
 
-  async function start(fileOrSample: File | string, force = false) {
+  async function start(fileOrSample: File | string) {
     reset();
     const version = current.current.version;
     const controller = new AbortController();
@@ -127,7 +127,7 @@ export function useJob(onResult: (result: JobResult) => void) {
     });
     try {
       const result = sample
-        ? await api.sample(fileOrSample, controller.signal, force)
+        ? await api.sample(fileOrSample, controller.signal)
         : await api.upload(fileOrSample, controller.signal, {
             onStart(id) {
               if (current.current.version === version) current.current.id = id;

@@ -12,9 +12,24 @@ import { useWorkspace } from "./hooks/useWorkspace";
 export function App() {
   const w = useWorkspace();
   const [menu, setMenu] = useState(false);
+  const [hidden, setHidden] = useState(() => {
+    try {
+      return localStorage.getItem("pitstop.menu") === "hidden";
+    } catch {
+      return false;
+    }
+  });
+  function hideMenu(value: boolean) {
+    setHidden(value);
+    try {
+      localStorage.setItem("pitstop.menu", value ? "hidden" : "shown");
+    } catch {
+      /* Remembering the choice is optional. */
+    }
+  }
   const [dialog, setDialog] = useState<"video" | "results" | null>(null);
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${hidden ? "menu-hidden" : ""}`}>
       <a
         href="#main"
         className="skip-link"
@@ -32,6 +47,7 @@ export function App() {
         onSample={w.choose}
         open={menu}
         onClose={() => setMenu(false)}
+        onHide={() => hideMenu(true)}
       />
       <div className="main-shell">
         <header className="topbar">
@@ -44,6 +60,16 @@ export function App() {
             >
               <Icon name="menu" />
             </button>
+            {hidden && (
+              <button
+                className="icon-button show-menu"
+                onClick={() => hideMenu(false)}
+                aria-label="Show the menu"
+                title="Show the menu"
+              >
+                <Icon name="menu" />
+              </button>
+            )}
             <button
               className="icon-button back-button"
               onClick={() => w.navigate("dashboard")}

@@ -43,7 +43,6 @@ export function useWorkspace() {
       ...parsed,
       events,
       origin: "model",
-      canReanalyze: result.can_reanalyze !== false,
       report: result.analysis,
     });
     const sample = samples.find(item => item.id === result.sample_id);
@@ -54,9 +53,11 @@ export function useWorkspace() {
     });
     setPosition(0);
     setPlaying(false);
-    setToast(
-      `Analysis complete: ${events.length} events and ${result.analysis.summary.road_users} tracked road users.`,
-    );
+    // Saved samples open silently; an upload announces that its analysis finished.
+    if (!sample)
+      setToast(
+        `Analysis complete: ${events.length} events and ${result.analysis.summary.road_users} tracked road users.`,
+      );
   });
 
   useEffect(() => {
@@ -159,12 +160,6 @@ export function useWorkspace() {
     setToast("Video sent to the local analysis server.");
   }
 
-  function reanalyze() {
-    if (video.source !== "sample") return;
-    setPlaying(false);
-    void jobs.start(video.id, true).catch(error => setToast(error.message));
-  }
-
   function seek(value: number) {
     const next = Math.max(0, Math.min(value, video.duration));
     setPosition(next);
@@ -218,7 +213,6 @@ export function useWorkspace() {
   return {
     job: jobs.job,
     cancelJob: () => { void jobs.cancel().catch(error => setToast(error.message)); },
-    reanalyze,
     page,
     video,
     analysis,

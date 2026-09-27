@@ -101,9 +101,9 @@ export const api = {
       signal,
     });
   },
-  sample(id: string, signal?: AbortSignal, force = false) {
+  sample(id: string, signal?: AbortSignal) {
     return request<{ id: string }>(
-      `/samples/${encodeURIComponent(id)}/jobs${force ? "?force=true" : ""}`,
+      `/samples/${encodeURIComponent(id)}/jobs`,
       {
         method: "POST",
         signal,

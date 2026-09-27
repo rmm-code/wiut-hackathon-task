@@ -9,6 +9,9 @@
 - The live demo has its own "Live demo" tab. Uploads from anywhere land there, with progress and results on that page.
 - No manual-review workflow in the UI (no "To review" column or review card), no page footer and no page notes.
 - The team name is Pitstop; there is no logo mark.
+- The sidebar can be hidden on desktop (the button beside the name; a menu button in the top bar brings it back). It has no "Main menu" label.
+- The job status bar shows only while a video uploads or is analysed, or after a failure. There is no Reanalyze button, and saved samples open without a notification.
+- The Live demo page is one card: the drop area on the left and the three steps on the right, stacked on phones.
 - Do not restore the sidebar promotional block or the W / WIUT Hackathon / Traffic intelligence workspace card; the user explicitly removed both.
 - Use English throughout. Keep comments short and source filenames concise.
 - Keep authored source files at or below 700 lines; review executable files at 500 lines.

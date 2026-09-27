@@ -41,7 +41,6 @@ export interface Video {
 }
 
 export interface Analysis {
-  canReanalyze?: boolean;
   origin: "preview" | "imported" | "model" | "none";
   events: TrafficEvent[];
   risk: RiskPoint[];
@@ -119,7 +118,6 @@ export interface Job {
 }
 
 export interface JobResult extends PredictionFile {
-  can_reanalyze?: boolean;
   sample_id?: string | null;
   analysis: EngineReport;
   video_url: string;

@@ -13,6 +13,27 @@
   background: #eeeeee;
   z-index: 30;
 }
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+.hide-menu {
+  width: 28px;
+  height: 28px;
+  color: #777;
+}
+.show-menu {
+  width: 25px;
+  height: 25px;
+}
+.menu-hidden .sidebar {
+  display: none;
+}
+.menu-hidden .main-shell {
+  margin-left: 10px;
+}
 .brand {
   display: flex;
   align-items: center;
@@ -21,7 +42,6 @@
   font-weight: 600;
   letter-spacing: -1px;
   width: fit-content;
-  margin-bottom: 32px;
 }
 .brand-icon {
   display: grid;
@@ -313,6 +333,17 @@ main {
   }
 }
 @media (max-width: 800px) {
+  /* Phones use the slide-out menu; the desktop hide setting does not apply. */
+  .menu-hidden .sidebar {
+    display: flex;
+  }
+  .menu-hidden .main-shell {
+    margin-left: 0;
+  }
+  .show-menu,
+  .hide-menu {
+    display: none;
+  }
   .app-shell {
     padding: 0;
   }

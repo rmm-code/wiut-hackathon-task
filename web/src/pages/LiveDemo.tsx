@@ -42,7 +42,7 @@ function DropZone({ onFile }: { onFile: (file: File) => Promise<void> }) {
   }
 
   return (
-    <section className="card demo-upload">
+    <div className="demo-drop">
       <button
         className={`dropzone ${dragging ? "dragging" : ""}`}
         onClick={() => input.current?.click()}
@@ -58,7 +58,7 @@ function DropZone({ onFile }: { onFile: (file: File) => Promise<void> }) {
           void select(e.dataTransfer.files[0]);
         }}
       >
-        <Icon name="film" size={35} />
+        <Icon name="upload" size={32} />
         <strong>
           {busy ? "Preparing your video…" : "Drop an MP4 here, or click to choose one"}
         </strong>
@@ -81,7 +81,7 @@ function DropZone({ onFile }: { onFile: (file: File) => Promise<void> }) {
           <span>{error}</span>
         </div>
       )}
-    </section>
+    </div>
   );
 }
 
@@ -125,20 +125,26 @@ export function LiveDemo({
           </p>
         </div>
       </section>
-      <DropZone onFile={w.upload} />
       <section className="card">
-        <CardHead icon="stack" title="What happens" subtitle="From upload to results" />
-        <ol className="demo-steps">
-          {steps.map(([title, text], i) => (
-            <li key={title}>
-              <span className="demo-step-number">{i + 1}</span>
-              <div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <CardHead
+          icon="upload"
+          title="Upload a video"
+          subtitle="Progress and results appear on this page"
+        />
+        <div className="demo-layout">
+          <DropZone onFile={w.upload} />
+          <ol className="demo-steps">
+            {steps.map(([title, text], i) => (
+              <li key={title}>
+                <span className="demo-step-number">{i + 1}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </section>
     </>
   );

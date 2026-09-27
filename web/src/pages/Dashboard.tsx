@@ -45,11 +45,7 @@ export function Dashboard({
 
   return (
     <>
-      <JobStatus
-        job={w.job}
-        onCancel={w.cancelJob}
-        onReanalyze={w.video.source === "sample" && w.analysis.canReanalyze !== false ? w.reanalyze : undefined}
-      />
+      <JobStatus job={w.job} onCancel={w.cancelJob} />
       {w.analysis.origin !== "preview" && !w.job && (
         <div className="notice-bar">
           <Icon name="info" size={16} />
