@@ -1,0 +1,7 @@
+[
+ {"video": "C3896.MP4", "id": 1595, "verdict": "yes", "start": 123.2, "end": 126.2, "why": "lane coordinate 3.0 -> 3.9 inside the solid section; crosses solid lane line 3 toward the median (4K zoom checked)"},
+ {"video": "C3897.MP4", "id": 2011, "verdict": "yes", "start": 129.1, "end": 135.5, "why": "moves from lane 4 across solid lines 3 and 2 toward the kerb while the queue creeps (4K zoom: passes the silver Matiz on its kerb side)"},
+ {"video": "C3896.MP4", "id": 3580, "verdict": "uncertain", "why": "lane 4 -> 5 change whose line crossing is at the gantry, where the marking turns from dashed to solid"},
+ {"video": "C3896.MP4", "id": 4679, "verdict": "no", "why": "box switches from a black SUV in lane 4 to a black sedan in lane 5 (ID switch)"},
+ {"video": "C3905.MP4", "id": 936, "verdict": "no", "why": "rule detection at the stop line at dusk; queue shuffle, no lane change visible"}
+]

@@ -1,0 +1,284 @@
+[
+ {
+  "eid": "fail-C3897-0126",
+  "verdicts": [
+   {
+    "id": 18,
+    "verdict": "no",
+    "why": "essentially stationary (creeping) at NE-kerb end of zebra B; peds 9/17/100 are at the island end walking away"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0127",
+  "verdicts": [
+   {
+    "id": 361,
+    "verdict": "no",
+    "why": "stationary on zebra A by the median nose ~40.8-63 s; moves off ~64-65 s when peds 368/1025 have only just left the far SW kerb (other half)"
+   },
+   {
+    "id": 592,
+    "verdict": "no",
+    "why": "crosses mid zebra A; ped 368 and group only waiting at SW kerb"
+   },
+   {
+    "id": 564,
+    "verdict": "no",
+    "why": "crosses zebra A in lanes 2-3; ped 368 and group waiting at SW kerb"
+   },
+   {
+    "id": 620,
+    "verdict": "no",
+    "why": "crosses zebra A in lanes 2-3; ped 368 and group waiting at SW kerb"
+   },
+   {
+    "id": 649,
+    "verdict": "no",
+    "why": "crosses mid zebra A; ped 368 and group waiting at SW kerb"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0128",
+  "verdicts": [
+   {
+    "id": 589,
+    "verdict": "no",
+    "why": "van parked/maneuvering at NE-kerb end of zebra B, leaves up-left without crossing it; ped 895 stays on sidewalk"
+   },
+   {
+    "id": 786,
+    "verdict": "no",
+    "why": "crosses mid zebra A; ped 368 and group waiting at SW kerb"
+   },
+   {
+    "id": 755,
+    "verdict": "no",
+    "why": "crosses zebra A in lanes 2-3; ped 368 and group waiting at SW kerb"
+   },
+   {
+    "id": 856,
+    "verdict": "no",
+    "why": "crosses mid zebra A; ped 368 and group waiting at SW kerb"
+   },
+   {
+    "id": 873,
+    "verdict": "no",
+    "why": "turns through kerb lane next to peds 368/924 who stand still at the SW kerb (waiting), not crossing"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0129",
+  "verdicts": [
+   {
+    "id": 852,
+    "verdict": "no",
+    "why": "creeps across mid zebra A; peds 368/924 and group only waiting at SW kerb"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0130",
+  "verdicts": [
+   {
+    "id": 509,
+    "verdict": "no",
+    "why": "crosses zebra A in the median lane while peds 368/936/1025/1059 walk from SW kerb in the other half, ~1.5 lanes short of its path"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0131",
+  "verdicts": [
+   {
+    "id": 1162,
+    "verdict": "no",
+    "why": "waited at near edge of zebra B while group incl. ped 368 crossed; moved only after they reached the NE kerb end"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0132",
+  "verdicts": [
+   {
+    "id": 1439,
+    "verdict": "uncertain",
+    "why": "left-turner crosses side-road part of zebra C ~2 m in front of peds 1292/1402/1441 who stand waiting on the painted zebra between the islands; rubric does not say if that waiting spot counts"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0133",
+  "verdicts": [
+   {
+    "id": 1073,
+    "verdict": "no",
+    "why": "right-turner crosses slip-lane end of zebra C; peds 787/1402/1410/1441 on the far (side-road) end walking away"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0134",
+  "verdicts": [
+   {
+    "id": 1528,
+    "verdict": "no",
+    "why": "right-turner crosses slip-lane end of zebra C; peds 1624/1692 still on the lower side-road half"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0135",
+  "verdicts": [
+   {
+    "id": 1637,
+    "verdict": "no",
+    "why": "right-turner crosses slip-lane part of zebra C; peds 1692/1720 still ~4 m away on the between-islands part walking up, not yet at its lane"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0136",
+  "verdicts": [
+   {
+    "id": 1857,
+    "verdict": "no",
+    "why": "crosses zebra A in the median lane; peds 1907/1976 waiting at far SW kerb"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0137",
+  "verdicts": [
+   {
+    "id": 1951,
+    "verdict": "no",
+    "why": "crosses zebra A lane 2; peds 1907/1962/1976/1993 standing still at SW kerb"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0138",
+  "verdicts": [
+   {
+    "id": 1899,
+    "verdict": "no",
+    "why": "crosses zebra A median lane; peds 1962/1976 waiting at SW kerb"
+   },
+   {
+    "id": 1930,
+    "verdict": "no",
+    "why": "crosses zebra A lane 3; peds 1962/1976 waiting at SW kerb"
+   },
+   {
+    "id": 2015,
+    "verdict": "no",
+    "why": "crosses zebra A lane 2; peds 1962/1976 waiting at SW kerb"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0139",
+  "verdicts": [
+   {
+    "id": 1938,
+    "verdict": "no",
+    "why": "crosses zebra A median lane; peds 1962/1976 waiting at SW kerb"
+   },
+   {
+    "id": 1987,
+    "verdict": "no",
+    "why": "rolled onto zebra A ~131 s while peds 1962/1976 waited at SW kerb, stood there; pulled off forward ~137.5 s away from peds 1962/2129/2228 ~3 m to its left (stop-line case, not yield)"
+   },
+   {
+    "id": 2026,
+    "verdict": "no",
+    "why": "crosses zebra A lane 2; peds 1962/1976 waiting at SW kerb"
+   },
+   {
+    "id": 2037,
+    "verdict": "no",
+    "why": "crosses mid zebra A; peds 1962/1976 waiting at SW kerb"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0140",
+  "verdicts": [
+   {
+    "id": 2455,
+    "verdict": "no",
+    "why": "left-turner crosses bottom (side-road) end of zebra C; peds 2404/2433/2525 near the top/slip-lane end, far away"
+   },
+   {
+    "id": 2454,
+    "verdict": "yes",
+    "start": 156.0,
+    "end": 158.6,
+    "why": "drives across island half of zebra B while ped 2436 walks on the stripes in its lane toward the island, passing ~1 m behind him; ped 2288 also on far edge"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0141",
+  "verdicts": [
+   {
+    "id": 2422,
+    "verdict": "uncertain",
+    "why": "crosses NE half of zebra B while ped 2288 walks along the far painted edge toward NE kerb; ped just outside its path, ~2-3 m when it passed, walking away"
+   },
+   {
+    "id": 2504,
+    "verdict": "no",
+    "why": "enters island end of zebra B as ped 2436 steps onto the island; 2564 waiting on island"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0142",
+  "verdicts": [
+   {
+    "id": 2584,
+    "verdict": "no",
+    "why": "crosses mid zebra B while ped 2288 is already at the NE kerb end, 3+ m away and leaving"
+   },
+   {
+    "id": 2574,
+    "verdict": "no",
+    "why": "crosses island half of zebra B; ped 2288 at far NE end; no ped on zebra B near it"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "fail-C3897-0143",
+  "verdicts": [
+   {
+    "id": 2011,
+    "verdict": "yes",
+    "start": 177.3,
+    "end": 178.9,
+    "why": "right-turner drives across slip-lane part of zebra C ~1.5 m behind ped 2513, who stepped off the SW corner and crossed its lane just ahead of it"
+   }
+  ],
+  "extra": []
+ }
+]

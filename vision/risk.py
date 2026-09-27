@@ -4,6 +4,18 @@ from .geometry import dot, distance
 from .types import VEHICLES
 
 
+# Raw conflict level mapped to the 0.5 alarm threshold. On the four accident-free samples,
+# raw 0.5 gave 2.9 alarms per minute and raw 0.65 gives 0.87. The mapping is monotonic,
+# so the ranking (and average precision) is unchanged; only alarms become rarer.
+ALARM_RAW = 0.65
+
+
+def calibrate(raw):
+    if raw <= ALARM_RAW:
+        return 0.5 * raw / ALARM_RAW
+    return 0.5 + 0.5 * (raw - ALARM_RAW) / (1 - ALARM_RAW)
+
+
 class RiskModel:
     def __init__(self):
         self.value = 0.0
@@ -44,7 +56,7 @@ class RiskModel:
         dt = max(0, t - self.last_t) if self.last_t is not None else 0
         self.value = min(1.0, max(peak, self.value * math.exp(-dt / 0.5)))
         self.last_t = t
-        return self.value
+        return calibrate(self.value)
 
 
 class RiskEstimator:

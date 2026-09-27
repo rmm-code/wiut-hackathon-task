@@ -1,0 +1,116 @@
+[
+ {"eid": "wron-C3896-0112", "verdicts": [
+   {"id": 16, "verdict": "no", "why": "U-turn swing: crossed zebra A from SE lanes, moves a few metres right of median-nose island and stops to wait (later turns up through zebra B into NW-bound lanes)"}],
+  "extra": []},
+ {"eid": "wron-C3896-0113", "verdicts": [
+   {"id": 990, "verdict": "no", "why": "stationary on zebra B facing left (NW-bound, correct) while pedestrians cross; box only widens as a dark car creeps past in front"}],
+  "extra": []},
+ {"eid": "wron-C3896-0114", "verdicts": [
+   {"id": 1384, "verdict": "no", "why": "stationary near far kerb of NW-bound carriageway; box jitters while a box truck passes in front and occludes it"}],
+  "extra": []},
+ {"eid": "wron-C3896-0115", "verdicts": [
+   {"id": 1765, "verdict": "no", "why": "U-turn swing: SUV from SE lanes moves right below zebra B, then turns to face up (rear visible at 146.5 s); later exits up-left through zebra B"}],
+  "extra": []},
+ {"eid": "wron-C3896-0116", "verdicts": [
+   {"id": 1740, "verdict": "no", "why": "stationary in SE approach queue at red; box shifts left/right as it merges with adjacent white car"}],
+  "extra": []},
+ {"eid": "wron-C3896-0117", "verdicts": [
+   {"id": 1917, "verdict": "no", "why": "stationary in SE approach queue at red beside truck 1740; box jitter only"}],
+  "extra": []},
+ {"eid": "wron-C3896-0118", "verdicts": [
+   {"id": 1740, "verdict": "no", "why": "same truck stationary in SE queue at red; box shrinks off adjacent car so its centre drifts left"}],
+  "extra": []},
+ {"eid": "wron-C3896-0119", "verdicts": [
+   {"id": 1975, "verdict": "no", "why": "stationary behind bus at far-kerb stop of NW-bound carriageway; few-pixel box jitter"}],
+  "extra": []},
+ {"eid": "wron-C3896-0120", "verdicts": [
+   {"id": 2227, "verdict": "no", "why": "nearly stationary in NW-bound carriageway, creeping up-left (correct); box drops out when passing cars occlude it"}],
+  "extra": []},
+ {"eid": "wron-C3896-0121", "verdicts": [
+   {"id": 2558, "verdict": "no", "why": "stationary behind bus at far-kerb stop of NW-bound carriageway; box jitter from passing cars"}],
+  "extra": []},
+ {"eid": "wron-C3896-0122", "verdicts": [
+   {"id": 2924, "verdict": "no", "why": "U-turn swing: emerges from behind SE-bound bus right of island and curves from heading right to heading up toward zebra B (rear visible)"}],
+  "extra": []},
+ {"eid": "wron-C3896-0123", "verdicts": [
+   {"id": 2401, "verdict": "no", "why": "U-turn swing: moves right from island and queues behind U-turning car 2924 at zebra B; later exits into NW-bound lanes"}],
+  "extra": []},
+ {"eid": "wron-C3896-0124", "verdicts": [
+   {"id": 2558, "verdict": "no", "why": "same car stationary behind bus at far-kerb stop; box overlaps passing cars"}],
+  "extra": []},
+ {"eid": "wron-C3897-0236", "verdicts": [
+   {"id": 503, "verdict": "no", "why": "U-turn swing: moves right of median-nose island and stops facing right to wait for a gap (completes U-turn at ~63 s)"}],
+  "extra": []},
+ {"eid": "wron-C3897-0237", "verdicts": [
+   {"id": 554, "verdict": "no", "why": "stationary in SE approach queue beside median behind stop line; box jitter"}],
+  "extra": []},
+ {"eid": "wron-C3897-0238", "verdicts": [
+   {"id": 871, "verdict": "no", "why": "stationary in SE approach queue; box jitter while a bus passes in front"}],
+  "extra": []},
+ {"eid": "wron-C3897-0239", "verdicts": [
+   {"id": 503, "verdict": "no", "why": "completes U-turn: curves from heading right to heading up across zebra B (rear visible from 63.5 s)"}],
+  "extra": []},
+ {"eid": "wron-C3897-0240", "verdicts": [
+   {"id": 551, "verdict": "no", "why": "U-turn behind car 503: swings right of island and turns to head up toward zebra B"}],
+  "extra": []},
+ {"eid": "wron-C3897-0241", "verdicts": [
+   {"id": 1636, "verdict": "no", "why": "U-turn: waiting SUV turns from facing right to heading up through zebra B (rear visible at 124.3 s)"}],
+  "extra": []},
+ {"eid": "wron-C3897-0242", "verdicts": [
+   {"id": 1938, "verdict": "no", "why": "U-turn swing: moves right from island and queues behind another U-turning car"}],
+  "extra": []},
+ {"eid": "wron-C3897-0243", "verdicts": [
+   {"id": 1782, "verdict": "no", "why": "wide U-turn: moves right below zebra B then turns to head up (rear visible from 137.6 s); later exits up-left through zebra B"}],
+  "extra": []},
+ {"eid": "wron-C3897-0244", "verdicts": [
+   {"id": 1938, "verdict": "no", "why": "completes U-turn: turns from heading right to heading up toward zebra B"}],
+  "extra": []},
+ {"eid": "wron-C3897-0245", "verdicts": [
+   {"id": 2858, "verdict": "no", "why": "U-turn: SUV moves right of island and turns to head up toward zebra B (rear visible from 205.4 s)"}],
+  "extra": []},
+ {"eid": "wron-C3897-0246", "verdicts": [
+   {"id": 3130, "verdict": "no", "why": "U-turn swing: moves right from island and stops to wait behind U-turning SUV 2858"}],
+  "extra": []},
+ {"eid": "wron-C3897-0247", "verdicts": [
+   {"id": 3130, "verdict": "no", "why": "completes U-turn: turns from heading right to heading up toward zebra B"}],
+  "extra": []},
+ {"eid": "wron-C3897-0248", "verdicts": [
+   {"id": 3395, "verdict": "no", "why": "U-turning car creeps right behind SE-bound box truck; at 265.3 s the id jumps to a different car driving up-left through zebra B"}],
+  "extra": []},
+ {"eid": "wron-C3897-0249", "verdicts": [
+   {"id": 4273, "verdict": "no", "why": "same U-turning car under new id, nearly stationary facing right behind SE-bound truck; few-pixel creep"}],
+  "extra": []},
+ {"eid": "wron-C3897-0250", "verdicts": [
+   {"id": 4207, "verdict": "no", "why": "stationary near far kerb of NW-bound carriageway; box drops out as cars pass in front"}],
+  "extra": []},
+ {"eid": "wron-C3897-0251", "verdicts": [
+   {"id": 4273, "verdict": "no", "why": "completes wide U-turn: moves right then turns to head up near right end of zebra B (rear visible from 283.2 s)"}],
+  "extra": []},
+ {"eid": "wron-C3902-0352", "verdicts": [
+   {"id": 59, "verdict": "no", "why": "stationary in SE approach queue at red; box jitter"}],
+  "extra": []},
+ {"eid": "wron-C3902-0353", "verdicts": [
+   {"id": 596, "verdict": "no", "why": "turning swing: after waiting past the island, SUV curves right/up-right across NW approach to the NE kerb, then (as id 1441) waits facing up at right end of zebra B; not driving along opposing lanes"}],
+  "extra": []},
+ {"eid": "wron-C3902-0354", "verdicts": [
+   {"id": 1186, "verdict": "no", "why": "U-turn: SUV swings right of island and turns to face up at zebra B (rear visible from 85.9 s); later exits up-left through zebra B"}],
+  "extra": []},
+ {"eid": "wron-C3905-0398", "verdicts": [
+   {"id": 500, "verdict": "no", "why": "far end of NW-bound carriageway at dusk; box jumps between two small cars both moving away (tail lights visible); track moves up-left"}],
+  "extra": []},
+ {"eid": "wron-C3905-0399", "verdicts": [
+   {"id": 981, "verdict": "no", "why": "turning swing: crosses zebra A, moves a few metres right of island and stops facing right to wait"}],
+  "extra": []},
+ {"eid": "wron-C3905-0400", "verdicts": [
+   {"id": 981, "verdict": "no", "why": "turns from facing right to heading up toward zebra B (rear visible from 79.3 s)"}],
+  "extra": []},
+ {"eid": "wron-C3905-0401", "verdicts": [
+   {"id": 1024, "verdict": "no", "why": "stationary behind bus at far-kerb stop of NW-bound carriageway; box overlap from passing cars"}],
+  "extra": []},
+ {"eid": "wron-C3905-0402", "verdicts": [
+   {"id": 1628, "verdict": "no", "why": "mini pickup moves right from island and turns to head up toward zebra B (rear lights visible); id switches to 1661"}],
+  "extra": []},
+ {"eid": "wron-C3905-0403", "verdicts": [
+   {"id": 1661, "verdict": "no", "why": "same mini pickup heading up toward zebra B and waiting for pedestrians; turning, not against traffic"}],
+  "extra": []}
+]

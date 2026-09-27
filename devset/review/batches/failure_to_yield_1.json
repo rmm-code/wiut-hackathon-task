@@ -1,0 +1,1309 @@
+[
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 2.94,
+  "t1": 4.67,
+  "ids": [
+   18,
+   9,
+   17,
+   100
+  ],
+  "members": [
+   {
+    "cid": "fai-0328",
+    "t0": 2.94,
+    "t1": 4.67,
+    "ids": [
+     18,
+     9,
+     17,
+     100
+    ],
+    "note": "vehicle in Crossing B with 3 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0126",
+  "sheet": "sheets/fail-C3897-0126.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 39.51,
+  "t1": 64.33,
+  "ids": [
+   361,
+   368,
+   564,
+   592,
+   620,
+   649,
+   924,
+   1025
+  ],
+  "members": [
+   {
+    "cid": "fai-0329",
+    "t0": 39.51,
+    "t1": 64.33,
+    "ids": [
+     361,
+     368,
+     924,
+     1025
+    ],
+    "note": "vehicle in Crossing A with 3 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0333",
+    "t0": 39.77,
+    "t1": 40.04,
+    "ids": [
+     592,
+     368
+    ],
+    "note": "vehicle in Crossing A with 1 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0331",
+    "t0": 40.44,
+    "t1": 40.71,
+    "ids": [
+     564,
+     368
+    ],
+    "note": "vehicle in Crossing A with 1 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0334",
+    "t0": 42.44,
+    "t1": 42.98,
+    "ids": [
+     620,
+     368
+    ],
+    "note": "vehicle in Crossing A with 1 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0335",
+    "t0": 43.24,
+    "t1": 43.51,
+    "ids": [
+     649,
+     368
+    ],
+    "note": "vehicle in Crossing A with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0127",
+  "sheet": "sheets/fail-C3897-0127.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 44.58,
+  "t1": 58.73,
+  "ids": [
+   368,
+   589,
+   755,
+   786,
+   856,
+   873,
+   895,
+   924
+  ],
+  "members": [
+   {
+    "cid": "fai-0332",
+    "t0": 44.58,
+    "t1": 58.73,
+    "ids": [
+     589,
+     895
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0337",
+    "t0": 50.45,
+    "t1": 50.72,
+    "ids": [
+     786,
+     368
+    ],
+    "note": "vehicle in Crossing A with 1 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0336",
+    "t0": 50.58,
+    "t1": 50.98,
+    "ids": [
+     755,
+     368
+    ],
+    "note": "vehicle in Crossing A with 1 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0339",
+    "t0": 55.12,
+    "t1": 55.52,
+    "ids": [
+     856,
+     368
+    ],
+    "note": "vehicle in Crossing A with 1 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0340",
+    "t0": 55.79,
+    "t1": 56.72,
+    "ids": [
+     873,
+     368,
+     924
+    ],
+    "note": "vehicle in Crossing A with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0128",
+  "sheet": "sheets/fail-C3897-0128.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 56.06,
+  "t1": 59.53,
+  "ids": [
+   852,
+   368,
+   924
+  ],
+  "members": [
+   {
+    "cid": "fai-0338",
+    "t0": 56.06,
+    "t1": 59.53,
+    "ids": [
+     852,
+     368,
+     924
+    ],
+    "note": "vehicle in Crossing A with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0129",
+  "sheet": "sheets/fail-C3897-0129.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 67.0,
+  "t1": 67.4,
+  "ids": [
+   509,
+   368,
+   936,
+   1025,
+   1059
+  ],
+  "members": [
+   {
+    "cid": "fai-0330",
+    "t0": 67.0,
+    "t1": 67.4,
+    "ids": [
+     509,
+     368,
+     936,
+     1025,
+     1059
+    ],
+    "note": "vehicle in Crossing A with 4 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0130",
+  "sheet": "sheets/fail-C3897-0130.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 86.22,
+  "t1": 86.62,
+  "ids": [
+   1162,
+   368
+  ],
+  "members": [
+   {
+    "cid": "fai-0342",
+    "t0": 86.22,
+    "t1": 86.62,
+    "ids": [
+     1162,
+     368
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0131",
+  "sheet": "sheets/fail-C3897-0131.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 91.96,
+  "t1": 93.83,
+  "ids": [
+   1439,
+   1292,
+   1402,
+   1441
+  ],
+  "members": [
+   {
+    "cid": "fai-0343",
+    "t0": 91.96,
+    "t1": 93.83,
+    "ids": [
+     1439,
+     1292,
+     1402,
+     1441
+    ],
+    "note": "vehicle in Crossing C with 3 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0132",
+  "sheet": "sheets/fail-C3897-0132.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 101.97,
+  "t1": 102.77,
+  "ids": [
+   1073,
+   787,
+   1402,
+   1410,
+   1441
+  ],
+  "members": [
+   {
+    "cid": "fai-0341",
+    "t0": 101.97,
+    "t1": 102.77,
+    "ids": [
+     1073,
+     787,
+     1402,
+     1410,
+     1441
+    ],
+    "note": "vehicle in Crossing C with 6 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0133",
+  "sheet": "sheets/fail-C3897-0133.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 106.64,
+  "t1": 107.44,
+  "ids": [
+   1528,
+   1624,
+   1692
+  ],
+  "members": [
+   {
+    "cid": "fai-0344",
+    "t0": 106.64,
+    "t1": 107.44,
+    "ids": [
+     1528,
+     1624,
+     1692
+    ],
+    "note": "vehicle in Crossing C with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0134",
+  "sheet": "sheets/fail-C3897-0134.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 109.44,
+  "t1": 110.11,
+  "ids": [
+   1637,
+   1692,
+   1720,
+   1756
+  ],
+  "members": [
+   {
+    "cid": "fai-0345",
+    "t0": 109.44,
+    "t1": 110.11,
+    "ids": [
+     1637,
+     1692,
+     1720,
+     1756
+    ],
+    "note": "vehicle in Crossing C with 3 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0135",
+  "sheet": "sheets/fail-C3897-0135.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 122.52,
+  "t1": 122.79,
+  "ids": [
+   1857,
+   1907,
+   1976
+  ],
+  "members": [
+   {
+    "cid": "fai-0346",
+    "t0": 122.52,
+    "t1": 122.79,
+    "ids": [
+     1857,
+     1907,
+     1976
+    ],
+    "note": "vehicle in Crossing A with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0136",
+  "sheet": "sheets/fail-C3897-0136.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 124.79,
+  "t1": 125.33,
+  "ids": [
+   1951,
+   1907,
+   1962,
+   1976,
+   1993
+  ],
+  "members": [
+   {
+    "cid": "fai-0350",
+    "t0": 124.79,
+    "t1": 125.33,
+    "ids": [
+     1951,
+     1907,
+     1962,
+     1976,
+     1993
+    ],
+    "note": "vehicle in Crossing A with 4 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0137",
+  "sheet": "sheets/fail-C3897-0137.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 125.99,
+  "t1": 127.33,
+  "ids": [
+   1899,
+   1930,
+   1962,
+   1976,
+   2015
+  ],
+  "members": [
+   {
+    "cid": "fai-0347",
+    "t0": 125.99,
+    "t1": 126.39,
+    "ids": [
+     1899,
+     1962,
+     1976
+    ],
+    "note": "vehicle in Crossing A with 2 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0348",
+    "t0": 126.39,
+    "t1": 127.33,
+    "ids": [
+     1930,
+     1962,
+     1976
+    ],
+    "note": "vehicle in Crossing A with 2 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0353",
+    "t0": 126.79,
+    "t1": 127.19,
+    "ids": [
+     2015,
+     1962,
+     1976
+    ],
+    "note": "vehicle in Crossing A with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0138",
+  "sheet": "sheets/fail-C3897-0138.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 129.33,
+  "t1": 138.14,
+  "ids": [
+   1938,
+   1962,
+   1976,
+   1987,
+   2026,
+   2037,
+   2129,
+   2190
+  ],
+  "members": [
+   {
+    "cid": "fai-0349",
+    "t0": 129.33,
+    "t1": 129.73,
+    "ids": [
+     1938,
+     1962,
+     1976
+    ],
+    "note": "vehicle in Crossing A with 2 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0351",
+    "t0": 130.0,
+    "t1": 138.14,
+    "ids": [
+     1987,
+     1962,
+     1976,
+     2129,
+     2190
+    ],
+    "note": "vehicle in Crossing A with 7 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0354",
+    "t0": 130.26,
+    "t1": 130.8,
+    "ids": [
+     2026,
+     1962,
+     1976
+    ],
+    "note": "vehicle in Crossing A with 2 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0355",
+    "t0": 131.73,
+    "t1": 132.0,
+    "ids": [
+     2037,
+     1962,
+     1976
+    ],
+    "note": "vehicle in Crossing A with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0139",
+  "sheet": "sheets/fail-C3897-0139.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 157.76,
+  "t1": 158.29,
+  "ids": [
+   2288,
+   2404,
+   2433,
+   2436,
+   2454,
+   2455,
+   2525,
+   2564
+  ],
+  "members": [
+   {
+    "cid": "fai-0360",
+    "t0": 157.76,
+    "t1": 158.02,
+    "ids": [
+     2455,
+     2404,
+     2433,
+     2525
+    ],
+    "note": "vehicle in Crossing C with 3 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0359",
+    "t0": 158.02,
+    "t1": 158.29,
+    "ids": [
+     2454,
+     2288,
+     2436,
+     2564
+    ],
+    "note": "vehicle in Crossing B with 3 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0140",
+  "sheet": "sheets/fail-C3897-0140.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 159.76,
+  "t1": 160.29,
+  "ids": [
+   2288,
+   2422,
+   2504
+  ],
+  "members": [
+   {
+    "cid": "fai-0358",
+    "t0": 159.76,
+    "t1": 160.16,
+    "ids": [
+     2422,
+     2288
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0362",
+    "t0": 159.89,
+    "t1": 160.29,
+    "ids": [
+     2504,
+     2288
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0141",
+  "sheet": "sheets/fail-C3897-0141.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 161.63,
+  "t1": 162.56,
+  "ids": [
+   2288,
+   2574,
+   2584
+  ],
+  "members": [
+   {
+    "cid": "fai-0364",
+    "t0": 161.63,
+    "t1": 162.03,
+    "ids": [
+     2584,
+     2288
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0363",
+    "t0": 162.3,
+    "t1": 162.56,
+    "ids": [
+     2574,
+     2288
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0142",
+  "sheet": "sheets/fail-C3897-0142.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 177.64,
+  "t1": 178.31,
+  "ids": [
+   2011,
+   2404,
+   2433,
+   2450,
+   2513
+  ],
+  "members": [
+   {
+    "cid": "fai-0352",
+    "t0": 177.64,
+    "t1": 178.31,
+    "ids": [
+     2011,
+     2404,
+     2433,
+     2450,
+     2513
+    ],
+    "note": "vehicle in Crossing C with 4 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0143",
+  "sheet": "sheets/fail-C3897-0143.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 180.31,
+  "t1": 181.11,
+  "ids": [
+   2221,
+   2471,
+   2513,
+   2834
+  ],
+  "members": [
+   {
+    "cid": "fai-0357",
+    "t0": 180.31,
+    "t1": 180.98,
+    "ids": [
+     2221,
+     2513
+    ],
+    "note": "vehicle in Crossing C with 1 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0361",
+    "t0": 180.85,
+    "t1": 181.11,
+    "ids": [
+     2471,
+     2834
+    ],
+    "note": "vehicle in Crossing A with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0144",
+  "sheet": "sheets/fail-C3897-0144.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 182.58,
+  "t1": 183.25,
+  "ids": [
+   2175,
+   2513
+  ],
+  "members": [
+   {
+    "cid": "fai-0356",
+    "t0": 182.58,
+    "t1": 183.25,
+    "ids": [
+     2175,
+     2513
+    ],
+    "note": "vehicle in Crossing C with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0145",
+  "sheet": "sheets/fail-C3897-0145.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 187.92,
+  "t1": 188.19,
+  "ids": [
+   2962,
+   3002
+  ],
+  "members": [
+   {
+    "cid": "fai-0366",
+    "t0": 187.92,
+    "t1": 188.19,
+    "ids": [
+     2962,
+     3002
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0146",
+  "sheet": "sheets/fail-C3897-0146.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 204.07,
+  "t1": 204.47,
+  "ids": [
+   3205,
+   3220,
+   3222
+  ],
+  "members": [
+   {
+    "cid": "fai-0368",
+    "t0": 204.07,
+    "t1": 204.47,
+    "ids": [
+     3205,
+     3220,
+     3222
+    ],
+    "note": "vehicle in Crossing B with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0147",
+  "sheet": "sheets/fail-C3897-0147.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 208.21,
+  "t1": 208.47,
+  "ids": [
+   2858,
+   3220,
+   3222
+  ],
+  "members": [
+   {
+    "cid": "fai-0365",
+    "t0": 208.21,
+    "t1": 208.47,
+    "ids": [
+     2858,
+     3220,
+     3222
+    ],
+    "note": "vehicle in Crossing B with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0148",
+  "sheet": "sheets/fail-C3897-0148.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 214.21,
+  "t1": 214.88,
+  "ids": [
+   3288,
+   3251,
+   3293,
+   3296,
+   3323
+  ],
+  "members": [
+   {
+    "cid": "fai-0369",
+    "t0": 214.21,
+    "t1": 214.88,
+    "ids": [
+     3288,
+     3251,
+     3293,
+     3296,
+     3323
+    ],
+    "note": "vehicle in Crossing C with 4 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0149",
+  "sheet": "sheets/fail-C3897-0149.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 215.82,
+  "t1": 216.35,
+  "ids": [
+   3130,
+   3220,
+   3222,
+   3251,
+   3293,
+   3296,
+   3307
+  ],
+  "members": [
+   {
+    "cid": "fai-0367",
+    "t0": 215.82,
+    "t1": 216.22,
+    "ids": [
+     3130,
+     3220,
+     3222
+    ],
+    "note": "vehicle in Crossing B with 2 pedestrian track(s) on it"
+   },
+   {
+    "cid": "fai-0370",
+    "t0": 215.95,
+    "t1": 216.35,
+    "ids": [
+     3307,
+     3251,
+     3293,
+     3296
+    ],
+    "note": "vehicle in Crossing C with 3 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0150",
+  "sheet": "sheets/fail-C3897-0150.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 222.62,
+  "t1": 223.02,
+  "ids": [
+   3445,
+   3091,
+   3220,
+   3356,
+   3386
+  ],
+  "members": [
+   {
+    "cid": "fai-0371",
+    "t0": 222.62,
+    "t1": 223.02,
+    "ids": [
+     3445,
+     3091,
+     3220,
+     3356,
+     3386
+    ],
+    "note": "vehicle in Crossing B with 5 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0151",
+  "sheet": "sheets/fail-C3897-0151.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 236.5,
+  "t1": 237.04,
+  "ids": [
+   3492,
+   3644
+  ],
+  "members": [
+   {
+    "cid": "fai-0372",
+    "t0": 236.5,
+    "t1": 237.04,
+    "ids": [
+     3492,
+     3644
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0152",
+  "sheet": "sheets/fail-C3897-0152.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 249.98,
+  "t1": 250.65,
+  "ids": [
+   3603,
+   3476,
+   3669,
+   3738,
+   3749
+  ],
+  "members": [
+   {
+    "cid": "fai-0373",
+    "t0": 249.98,
+    "t1": 250.65,
+    "ids": [
+     3603,
+     3476,
+     3669,
+     3738,
+     3749
+    ],
+    "note": "vehicle in Crossing C with 9 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0153",
+  "sheet": "sheets/fail-C3897-0153.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 286.15,
+  "t1": 286.42,
+  "ids": [
+   4273,
+   3873,
+   4387,
+   4554
+  ],
+  "members": [
+   {
+    "cid": "fai-0374",
+    "t0": 286.15,
+    "t1": 286.42,
+    "ids": [
+     4273,
+     3873,
+     4387,
+     4554
+    ],
+    "note": "vehicle in Crossing B with 3 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0154",
+  "sheet": "sheets/fail-C3897-0154.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 290.42,
+  "t1": 290.69,
+  "ids": [
+   4588,
+   3873,
+   4387,
+   4567
+  ],
+  "members": [
+   {
+    "cid": "fai-0375",
+    "t0": 290.42,
+    "t1": 290.69,
+    "ids": [
+     4588,
+     3873,
+     4387,
+     4567
+    ],
+    "note": "vehicle in Crossing B with 3 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0155",
+  "sheet": "sheets/fail-C3897-0155.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 306.44,
+  "t1": 306.84,
+  "ids": [
+   4713,
+   4586,
+   4669
+  ],
+  "members": [
+   {
+    "cid": "fai-0377",
+    "t0": 306.44,
+    "t1": 306.84,
+    "ids": [
+     4713,
+     4586,
+     4669
+    ],
+    "note": "vehicle in Crossing B with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0156",
+  "sheet": "sheets/fail-C3897-0156.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 308.04,
+  "t1": 308.31,
+  "ids": [
+   4764,
+   4586
+  ],
+  "members": [
+   {
+    "cid": "fai-0378",
+    "t0": 308.04,
+    "t1": 308.31,
+    "ids": [
+     4764,
+     4586
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0157",
+  "sheet": "sheets/fail-C3897-0157.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 309.38,
+  "t1": 309.78,
+  "ids": [
+   4699,
+   4824,
+   4825
+  ],
+  "members": [
+   {
+    "cid": "fai-0376",
+    "t0": 309.38,
+    "t1": 309.78,
+    "ids": [
+     4699,
+     4824,
+     4825
+    ],
+    "note": "vehicle in Crossing B with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0158",
+  "sheet": "sheets/fail-C3897-0158.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 312.05,
+  "t1": 312.45,
+  "ids": [
+   4841,
+   4824
+  ],
+  "members": [
+   {
+    "cid": "fai-0379",
+    "t0": 312.05,
+    "t1": 312.45,
+    "ids": [
+     4841,
+     4824
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0159",
+  "sheet": "sheets/fail-C3897-0159.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "failure_to_yield",
+  "t0": 316.98,
+  "t1": 317.25,
+  "ids": [
+   4897,
+   4572,
+   4692,
+   4736
+  ],
+  "members": [
+   {
+    "cid": "fai-0380",
+    "t0": 316.98,
+    "t1": 317.25,
+    "ids": [
+     4897,
+     4572,
+     4692,
+     4736
+    ],
+    "note": "vehicle in Crossing C with 3 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3897-0160",
+  "sheet": "sheets/fail-C3897-0160.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "failure_to_yield",
+  "t0": 5.34,
+  "t1": 6.14,
+  "ids": [
+   54,
+   110,
+   111
+  ],
+  "members": [
+   {
+    "cid": "fai-0561",
+    "t0": 5.34,
+    "t1": 6.14,
+    "ids": [
+     54,
+     110,
+     111
+    ],
+    "note": "vehicle in Crossing B with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3902-0252",
+  "sheet": "sheets/fail-C3902-0252.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "failure_to_yield",
+  "t0": 23.76,
+  "t1": 24.42,
+  "ids": [
+   271,
+   9,
+   379,
+   383
+  ],
+  "members": [
+   {
+    "cid": "fai-0562",
+    "t0": 23.76,
+    "t1": 24.42,
+    "ids": [
+     271,
+     9,
+     379,
+     383
+    ],
+    "note": "vehicle in Crossing B with 3 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3902-0253",
+  "sheet": "sheets/fail-C3902-0253.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "failure_to_yield",
+  "t0": 25.49,
+  "t1": 26.56,
+  "ids": [
+   389,
+   179,
+   357
+  ],
+  "members": [
+   {
+    "cid": "fai-0565",
+    "t0": 25.49,
+    "t1": 26.56,
+    "ids": [
+     389,
+     179,
+     357
+    ],
+    "note": "vehicle in Crossing C with 2 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3902-0254",
+  "sheet": "sheets/fail-C3902-0254.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "failure_to_yield",
+  "t0": 28.96,
+  "t1": 29.36,
+  "ids": [
+   282,
+   177
+  ],
+  "members": [
+   {
+    "cid": "fai-0563",
+    "t0": 28.96,
+    "t1": 29.36,
+    "ids": [
+     282,
+     177
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3902-0255",
+  "sheet": "sheets/fail-C3902-0255.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "failure_to_yield",
+  "t0": 30.16,
+  "t1": 30.56,
+  "ids": [
+   376,
+   177
+  ],
+  "members": [
+   {
+    "cid": "fai-0564",
+    "t0": 30.16,
+    "t1": 30.56,
+    "ids": [
+     376,
+     177
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3902-0256",
+  "sheet": "sheets/fail-C3902-0256.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "failure_to_yield",
+  "t0": 31.9,
+  "t1": 32.17,
+  "ids": [
+   434,
+   177
+  ],
+  "members": [
+   {
+    "cid": "fai-0566",
+    "t0": 31.9,
+    "t1": 32.17,
+    "ids": [
+     434,
+     177
+    ],
+    "note": "vehicle in Crossing B with 1 pedestrian track(s) on it"
+   }
+  ],
+  "eid": "fail-C3902-0257",
+  "sheet": "sheets/fail-C3902-0257.jpg"
+ }
+]

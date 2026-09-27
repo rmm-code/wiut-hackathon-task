@@ -1,0 +1,648 @@
+[
+ {
+  "eid": "jayw-C3896-0047",
+  "verdicts": [
+   {
+    "id": 27,
+    "verdict": "no",
+    "why": "steps from kerb gap at the east end of zebra B onto the zebra and walks along its near painted edge; never clearly off the paint"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0049",
+  "verdicts": [
+   {
+    "id": 268,
+    "verdict": "yes",
+    "start": 17.48,
+    "end": 20.0,
+    "why": "same pedestrian as pers#17 (0048) re-identified; walks diagonally on asphalt well north of zebra B toward NE corner, still on road near the kerb at 19.8 s (last tile)"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0048",
+  "verdicts": [
+   {
+    "id": 17,
+    "verdict": "yes",
+    "start": 14.0,
+    "end": 17.48,
+    "why": "after the island walks along the north side of zebra B with asphalt visible between feet and paint (~1 m off at 15.3 s), then veers NE toward the corner (~1.3 m off at 17.3 s); continues as pers#268 (0049)"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0050",
+  "verdicts": [
+   {
+    "id": 476,
+    "verdict": "no",
+    "why": "walks along zebra A; flagged span is while passing behind the dark car stopped on zebra A (legs occluded, box truncated)"
+   },
+   {
+    "id": 895,
+    "verdict": "no",
+    "why": "crosses on zebra B/A; flagged spans are the island gap between A and B and occlusion behind the car stopped on zebra A"
+   },
+   {
+    "id": 953,
+    "verdict": "no",
+    "why": "on zebra A/B; flagged spans are occlusion behind the car stopped on zebra A and the step past the island between A and B"
+   },
+   {
+    "id": 965,
+    "verdict": "yes",
+    "start": 93.7,
+    "end": 98.0,
+    "why": "after passing behind the car stopped on zebra A, walks west on asphalt 1-3 m north of zebra A (between zebra and stop line) to the SW corner; asphalt visible between feet and paint at 94.4 and 96.6 s"
+   },
+   {
+    "id": 969,
+    "verdict": "no",
+    "why": "on zebra A then zebra B; flagged span is occlusion behind the car stopped on zebra A"
+   },
+   {
+    "id": 1114,
+    "verdict": "uncertain",
+    "why": "walks along the north side of zebra B, track ~1 m off the edge but box partly hidden by a car; feet vs paint not resolvable in the wide view"
+   },
+   {
+    "id": 1139,
+    "verdict": "no",
+    "why": "on zebra A; flagged span is occlusion behind the car stopped on zebra A (box truncated)"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0051",
+  "verdicts": [
+   {
+    "id": 1388,
+    "verdict": "yes",
+    "start": 124.5,
+    "end": 128.2,
+    "tag": "slip-lane",
+    "why": "walks up the east edge of zebra C (on paint edge until ~124.5 s), then leaves its top end and cuts across the slip-lane asphalt to the kerb at zebra A's west end"
+   },
+   {
+    "id": 1410,
+    "verdict": "uncertain",
+    "why": "walks east along the north kerb of the NW-bound carriageway in tree shadow; cannot tell road from sidewalk edge (same pedestrian later tracked as pers#1551)"
+   },
+   {
+    "id": 1551,
+    "verdict": "yes",
+    "start": 131.0,
+    "end": 151.0,
+    "why": "stands on asphalt beside the planter end at the NE corner, ~1 m off the kerb and well north of zebra B, for ~15 s, then walks diagonally on the road onto zebra B at ~151 s; earlier kerbside walk (119-131 s) not resolvable"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0052",
+  "verdicts": [
+   {
+    "id": 1794,
+    "verdict": "yes",
+    "start": 165.0,
+    "end": 172.2,
+    "tag": "slip-lane",
+    "why": "leaves the south edge of zebra A mid-way, walks diagonally over the asphalt to the tip of the slip-lane island and down the slip lane to zebra C (clearly off paint at 167.4 and 169.3 s)"
+   },
+   {
+    "id": 1987,
+    "verdict": "yes",
+    "start": 165.0,
+    "end": 172.0,
+    "tag": "slip-lane",
+    "why": "walks with pers#1794: leaves zebra A diagonally and crosses the slip-lane asphalt past the island tip to zebra C"
+   },
+   {
+    "id": 1998,
+    "verdict": "no",
+    "why": "walks along zebra A; track jitters around its north edge and the island gap between A and B"
+   },
+   {
+    "id": 2104,
+    "verdict": "yes",
+    "start": 163.2,
+    "end": 165.5,
+    "why": "leaves the east part of zebra B and cuts diagonally NE over the asphalt (~1-2 m north of the zebra) to the NE corner sidewalk"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0053",
+  "verdicts": [
+   {
+    "id": 2190,
+    "verdict": "no",
+    "why": "walks down the east end of the painted zebra C stripes and briefly onto the tip of the adjacent island; the zone outline's east edge runs inside the paint"
+   },
+   {
+    "id": 2300,
+    "verdict": "no",
+    "why": "same pedestrian as pers#2190 continuing from the island tip down the east end of zebra C's painted stripes"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0054",
+  "verdicts": [
+   {
+    "id": 2471,
+    "verdict": "yes",
+    "start": 194.59,
+    "end": 201.27,
+    "why": "stands on the asphalt at the rear corner of an SUV parked north of zebra B's east end, ~1 m out from the planter kerb and well clear of the zebra, throughout the track (buses hide him at both ends)"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0055",
+  "verdicts": [
+   {
+    "id": 2631,
+    "verdict": "yes",
+    "start": 203.67,
+    "end": 225.5,
+    "why": "same man as pers#2471 (0054): keeps standing on the asphalt beside the parked SUV, then from ~216.5 s walks west 1.5-2 m north of zebra B and joins it near the island at ~225.5 s"
+   },
+   {
+    "id": 2755,
+    "verdict": "no",
+    "why": "waits on the east end of zebra B at the kerb among the crowd; flagged only as the box touches the zebra edge"
+   },
+   {
+    "id": 2860,
+    "verdict": "yes",
+    "start": 220.35,
+    "end": 225.5,
+    "why": "steps off the NE-corner kerb and walks west with pers#2631 on the asphalt ~2 m north of zebra B, joining the zebra near the island at ~225.5 s"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0056",
+  "verdicts": [
+   {
+    "id": 2631,
+    "verdict": "no",
+    "why": "crosses on zebra A along its north edge (within ~1 m of the paint) and steps onto the SW corner at the zebra's end"
+   },
+   {
+    "id": 2860,
+    "verdict": "yes",
+    "start": 238.5,
+    "end": 243.8,
+    "tag": "slip-lane",
+    "why": "leaves zebra A near its west part and walks down the slip-lane asphalt to the top of zebra C (first flagged span 228-230 s is only the island gap between B and A)"
+   },
+   {
+    "id": 2938,
+    "verdict": "no",
+    "why": "walks west along the south edge of zebra B, on the painted edge"
+   },
+   {
+    "id": 2980,
+    "verdict": "no",
+    "why": "on zebra B and zebra A; flagged spans are the island gap and the last metre along zebra A's north edge before stepping onto the SW corner"
+   },
+   {
+    "id": 3163,
+    "verdict": "yes",
+    "start": 238.8,
+    "end": 249.2,
+    "why": "leaves zebra A mid-way and walks diagonally across the junction box onto the slip-lane island (238.8-245.0 s), then steps off its south corner across ~2 m of lane toward zebra C (247.4-249.2 s)"
+   },
+   {
+    "id": 3214,
+    "verdict": "yes",
+    "start": 234.4,
+    "end": 239.7,
+    "why": "walks east from the island end on the asphalt 1.5-3 m north of zebra B to the NE corner kerb (clearly off the zebra at 237.6 s)"
+   },
+   {
+    "id": 3217,
+    "verdict": "yes",
+    "start": 242.8,
+    "end": 249.8,
+    "tag": "slip-lane",
+    "why": "leaves zebra A diagonally past the island tip and down the slip-lane asphalt to zebra C"
+   },
+   {
+    "id": 3293,
+    "verdict": "yes",
+    "start": 244.0,
+    "end": 253.8,
+    "tag": "slip-lane",
+    "why": "drifts off zebra A's south edge and walks diagonally through the slip lane to zebra C (visible on asphalt below zebra A at 251.1 s)"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0057",
+  "verdicts": [
+   {
+    "id": 3163,
+    "verdict": "yes",
+    "start": 244.4,
+    "end": 249.2,
+    "why": "end of its junction-box diagonal onto the slip-lane island (to 245.0 s), then steps off the island's south corner across ~2 m of lane to zebra C (247.4-249.2 s)"
+   },
+   {
+    "id": 3396,
+    "verdict": "yes",
+    "start": 244.4,
+    "end": 246.9,
+    "why": "walks from zebra A diagonally over the junction-box asphalt onto the tip of the slip-lane island (on asphalt well below zebra A at 245.1 s)"
+   },
+   {
+    "id": 3441,
+    "verdict": "no",
+    "why": "continuation of pers#3396: steps from the island directly onto the east edge of zebra C; flagged because the zebra C outline sits inside the paint"
+   },
+   {
+    "id": 3459,
+    "verdict": "yes",
+    "start": 249.9,
+    "end": 252.3,
+    "why": "steps off the south edge of the slip-lane island and crosses ~2.5 m of the side-road entry lane to zebra C's east stripes (reached ~252.5 s)"
+   },
+   {
+    "id": 3514,
+    "verdict": "yes",
+    "start": 251.32,
+    "end": 253.5,
+    "tag": "slip-lane",
+    "why": "walks down the slip-lane asphalt (clearly off paint at 251.7 s) to the top end of zebra C, then waits at its edge"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3896-0058",
+  "verdicts": [
+   {
+    "id": 3566,
+    "verdict": "no",
+    "why": "walks down the east end of zebra C's stripes in a group next to the island tip; legs hidden by the person in front (truncated box) and the zone outline sits inside the paint"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3897-0168",
+  "verdicts": [
+   {
+    "id": 12,
+    "verdict": "yes",
+    "start": 6.0,
+    "end": 9.2,
+    "tag": "slip-lane",
+    "why": "leaves zebra A's west part and cuts diagonally over the slip-lane asphalt to the SW corner (clearly below zebra A at 8.2 s), then takes zebra C"
+   },
+   {
+    "id": 15,
+    "verdict": "yes",
+    "start": 0.0,
+    "end": 10.4,
+    "why": "already on the asphalt south of zebra B at video start; walks past the median-nose island and across the junction box onto the slip-lane island (to 7.3 s), then crosses ~3 m of the side-road entry lane to zebra C's east edge (8.2-10.4 s)"
+   },
+   {
+    "id": 24,
+    "verdict": "yes",
+    "start": 6.0,
+    "end": 17.2,
+    "why": "leaves zebra A's south edge and walks diagonally over the junction box to the slip-lane island (6.0-11.5 s), rests there, then crosses ~2.5 m of lane to zebra C (14.5-17.2 s)"
+   },
+   {
+    "id": 41,
+    "verdict": "yes",
+    "start": 0.67,
+    "end": 2.1,
+    "why": "walks east on the asphalt ~1.3-2 m north of zebra B to the NE corner kerb"
+   },
+   {
+    "id": 57,
+    "verdict": "yes",
+    "start": 0.93,
+    "end": 2.8,
+    "why": "walks east on the NW-bound lanes ~1.5-2.5 m north of zebra B (clear gap to the paint at 2.7 s); track ends"
+   },
+   {
+    "id": 81,
+    "verdict": "no",
+    "why": "walks along the north edge of zebra B (within ~1 m of the paint) to the NE corner"
+   },
+   {
+    "id": 89,
+    "verdict": "yes",
+    "start": 5.5,
+    "end": 9.9,
+    "why": "walks west ~2 m south of zebra A's south edge, then heads diagonally toward the slip-lane island (A-distance up to 4 m)"
+   },
+   {
+    "id": 151,
+    "verdict": "yes",
+    "start": 6.8,
+    "end": 20.95,
+    "why": "leaves zebra A diagonally into the junction box and lingers in the side-road entry lane east of the slip-lane island before drifting toward zebra C"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3897-0169",
+  "verdicts": [
+   {
+    "id": 15,
+    "verdict": "yes",
+    "start": 6.67,
+    "end": 10.4,
+    "why": "end of its junction-box walk onto the slip-lane island (to 7.3 s), then crosses ~3 m of the side-road entry lane to zebra C's east edge (8.2-10.4 s); afterwards waits on the paint edge"
+   },
+   {
+    "id": 16,
+    "verdict": "yes",
+    "start": 10.3,
+    "end": 16.4,
+    "tag": "slip-lane",
+    "why": "leaves zebra A's west part and walks diagonally down the slip-lane asphalt to the top of zebra C"
+   },
+   {
+    "id": 24,
+    "verdict": "yes",
+    "start": 6.67,
+    "end": 17.2,
+    "why": "walks diagonally off zebra A over the junction box to the slip-lane island (to 11.5 s), rests, then crosses ~2.5 m of lane to zebra C (14.5-17.2 s)"
+   },
+   {
+    "id": 71,
+    "verdict": "yes",
+    "start": 7.5,
+    "end": 9.8,
+    "why": "veers off zebra A's south edge toward the slip-lane island (up to ~4 m off) before the track jumps to another walker on zebra A"
+   },
+   {
+    "id": 141,
+    "verdict": "yes",
+    "start": 8.0,
+    "end": 20.29,
+    "why": "leaves zebra A diagonally, walks down the asphalt along the east kerb of the slip-lane island and on toward zebra C in the side-road entry lane"
+   },
+   {
+    "id": 195,
+    "verdict": "yes",
+    "start": 9.0,
+    "end": 19.7,
+    "why": "leaves zebra A over the junction-box asphalt onto the slip-lane island (9.0-14.2 s), then crosses ~2.5 m of lane to zebra C (17.2-19.7 s)"
+   },
+   {
+    "id": 228,
+    "verdict": "yes",
+    "start": 10.28,
+    "end": 16.9,
+    "why": "reaches the slip-lane island over junction-box asphalt (10.3-11.6 s), waits on it, then hops ~2 m of lane to zebra C's east edge (15.0-16.9 s)"
+   },
+   {
+    "id": 308,
+    "verdict": "yes",
+    "start": 13.75,
+    "end": 15.0,
+    "why": "walks from south of zebra A (~2-3 m off) onto the slip-lane island (island-to-zebra-C hop in 0170)"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3897-0170",
+  "verdicts": [
+   {
+    "id": 195,
+    "verdict": "yes",
+    "start": 17.35,
+    "end": 19.7,
+    "why": "steps off the slip-lane island and crosses ~2.5 m of the side-road entry lane to zebra C (1.5-2.5 m from the paint at 17.4-18.6 s)"
+   },
+   {
+    "id": 308,
+    "verdict": "no",
+    "why": "quick step (<1 s beyond ~1 m) from the island edge onto zebra C's east stripes; rest of span is on the paint, which lies outside the misaligned zebra C outline"
+   },
+   {
+    "id": 407,
+    "verdict": "no",
+    "why": "walks down the east end of zebra C's painted stripes beside the island tip; flagged only because the zone outline sits inside the paint"
+   },
+   {
+    "id": 415,
+    "verdict": "no",
+    "why": "within ~1 m of zebra C's painted east edge beside the island tip, then on the stripes"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3897-0171",
+  "verdicts": [
+   {
+    "id": 368,
+    "verdict": "yes",
+    "why": "standing flags at zebra A's west end (43-62 s) are occlusion artefacts; at 80.9-84 s walks east ~1-2 m north of zebra B and cuts to the NE corner (82.2 s tile)",
+    "start": 80.9,
+    "end": 84.0
+   },
+   {
+    "id": 469,
+    "verdict": "no",
+    "why": "walks up zebra C on the painted stripes (east part lies outside the misaligned zone outline) to the SW corner"
+   },
+   {
+    "id": 491,
+    "verdict": "yes",
+    "start": 38.2,
+    "end": 42.3,
+    "tag": "slip-lane",
+    "why": "leaves the top of zebra C and walks north over the slip-lane asphalt toward zebra A's west end instead of via the corner"
+   },
+   {
+    "id": 500,
+    "verdict": "yes",
+    "start": 41.2,
+    "end": 45.5,
+    "tag": "slip-lane",
+    "why": "leaves zebra C's top and cuts over the slip-lane asphalt to the SW corner; afterwards waits within ~1 m of the kerb (not counted)"
+   },
+   {
+    "id": 512,
+    "verdict": "yes",
+    "start": 37.3,
+    "end": 55.1,
+    "tag": "slip-lane",
+    "why": "leaves zebra C's east side, walks up the slip lane past the island and then stands in the slip lane ~3 m off the kerb just south of zebra A until ~55 s"
+   },
+   {
+    "id": 519,
+    "verdict": "yes",
+    "start": 40.8,
+    "end": 49.65,
+    "tag": "slip-lane",
+    "why": "with pers#512: leaves zebra C and walks up the slip-lane asphalt, then waits in the lane ~1.5 m off the kerb south of zebra A"
+   },
+   {
+    "id": 787,
+    "verdict": "no",
+    "why": "stands ~35 s on zebra C's painted east stripes beside the island tip; flagged only because the zone outline sits inside the paint"
+   },
+   {
+    "id": 936,
+    "verdict": "yes",
+    "why": "waits within ~1 m of the SW corner kerb earlier (not counted); at 81-84.4 s walks east 1-2 m north of zebra B's paint and cuts to the NE corner (visible at the 82.2 s tile)",
+    "start": 81.0,
+    "end": 84.4
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3897-0172",
+  "verdicts": [
+   {
+    "id": 936,
+    "verdict": "no",
+    "why": "steps from the SW corner kerb onto zebra A and walks east along its south edge (\u2264~1.4 m from the paint for ~2 s) before centering on the zebra"
+   },
+   {
+    "id": 1084,
+    "verdict": "no",
+    "why": "walks east along the south edge of zebra A, on/within ~0.9 m of the paint"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3897-0173",
+  "verdicts": [
+   {
+    "id": 368,
+    "verdict": "yes",
+    "start": 80.9,
+    "end": 84.0,
+    "why": "walks east with the group along the north side of zebra B, drifting ~1-2 m off the paint as it cuts to the NE corner kerb"
+   },
+   {
+    "id": 936,
+    "verdict": "yes",
+    "start": 81.0,
+    "end": 84.4,
+    "why": "walks east ~1-2 m north of zebra B's painted edge (gap visible at 81.5 and 83.2 s) and cuts to the NE corner"
+   },
+   {
+    "id": 1025,
+    "verdict": "no",
+    "why": "walks east on zebra B near its north edge; flagged only at the end with a shrinking box"
+   },
+   {
+    "id": 1181,
+    "verdict": "no",
+    "why": "walks along zebra A's south edge (within ~1 m); later flagged points come from a box merged with walkers further south"
+   },
+   {
+    "id": 1194,
+    "verdict": "yes",
+    "why": "after crossing the island gap walks east along zebra B's north side drifting 1-3 m off the paint to the NE corner (same event as in 0174)",
+    "start": 81.8,
+    "end": 85.95
+   },
+   {
+    "id": 1232,
+    "verdict": "yes",
+    "start": 77.6,
+    "end": 88.3,
+    "why": "leaves zebra A and walks diagonally SW across the junction-box asphalt past the slip-lane island to zebra C"
+   },
+   {
+    "id": 1253,
+    "verdict": "yes",
+    "start": 79.0,
+    "end": 87.8,
+    "why": "leaves zebra A's south edge and walks diagonally over the junction box onto the slip-lane island (79.0-85.6 s), then steps off toward zebra C (~87-87.8 s, track ends)"
+   },
+   {
+    "id": 1260,
+    "verdict": "no",
+    "why": "walks west along zebra A's south edge, within ~1 m of the paint"
+   }
+  ],
+  "extra": []
+ },
+ {
+  "eid": "jayw-C3897-0174",
+  "verdicts": [
+   {
+    "id": 1194,
+    "verdict": "yes",
+    "start": 81.7,
+    "end": 85.95,
+    "why": "walks east with a group on the NW-bound lanes 1.5-3 m north of zebra B to the NE corner (clear at 81.9 and 84.1 s)"
+   },
+   {
+    "id": 1255,
+    "verdict": "yes",
+    "start": 81.3,
+    "end": 83.0,
+    "why": "part of the same group walking east clearly north of zebra B toward the NE corner"
+   },
+   {
+    "id": 1267,
+    "verdict": "yes",
+    "start": 80.61,
+    "end": 85.02,
+    "why": "walks east ~1.5-2 m north of zebra B's paint with the group, reaching the NE corner kerb"
+   },
+   {
+    "id": 1276,
+    "verdict": "uncertain",
+    "why": "steps ~1 m off the SW corner beside the bollards onto the asphalt just north of zebra A's west end for ~2 s, then back; margin to the paint too small to be sure"
+   },
+   {
+    "id": 1292,
+    "verdict": "yes",
+    "start": 82.4,
+    "end": 91.0,
+    "why": "leaves zebra A's south edge and walks diagonally across the junction box and the lane south of the slip-lane island to zebra C (2-6 m off any zebra at 84.1-88.6 s)"
+   },
+   {
+    "id": 1302,
+    "verdict": "yes",
+    "start": 85.7,
+    "end": 88.3,
+    "why": "walks off zebra A's south edge across the junction-box asphalt onto the slip-lane island tip; its later 90-93.7 s flags are a truncated box while it stands on zebra C's paint"
+   },
+   {
+    "id": 1377,
+    "verdict": "uncertain",
+    "why": "briefly on the asphalt just below the slip-lane island's south kerb (~1 m) before stepping onto zebra C's NE corner; short track, margin unclear"
+   },
+   {
+    "id": 1455,
+    "verdict": "no",
+    "why": "stands on zebra C's painted NE corner beside the island; its box covers only the upper body, which puts the foot point north of the paint"
+   }
+  ],
+  "extra": []
+ }
+]

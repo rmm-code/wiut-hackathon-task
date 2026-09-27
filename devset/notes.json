@@ -6,29 +6,31 @@
   "ids": [
    27
   ],
-  "why": "steps from kerb gap at the east end of zebra B onto the zebra and walks along its near painted edge; never clearly off the paint",
-  "episode": "jayw-C3896-0047"
+  "source": "agent:jaywalking_0",
+  "why": "steps from kerb gap at the east end of zebra B onto the zebra and walks along its near painted edge; never clearly off the paint"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 17.48,
   "end": 20.0,
   "ids": [
    268
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "same pedestrian as pers#17 (0048) re-identified; walks diagonally on asphalt well north of zebra B toward NE corner, still on road near the kerb at 19.8 s (last tile)"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 14.0,
   "end": 17.48,
   "ids": [
    17
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "after the island walks along the north side of zebra B with asphalt visible between feet and paint (~1 m off at 15.3 s), then veers NE toward the corner (~1.3 m off at 17.3 s); continues as pers#268 (0049)"
  },
  {
@@ -38,8 +40,8 @@
   "ids": [
    476
   ],
-  "why": "walks along zebra A; flagged span is while passing behind the dark car stopped on zebra A (legs occluded, box truncated)",
-  "episode": "jayw-C3896-0050"
+  "source": "agent:jaywalking_0",
+  "why": "walks along zebra A; flagged span is while passing behind the dark car stopped on zebra A (legs occluded, box truncated)"
  },
  {
   "video": "C3896.MP4",
@@ -48,8 +50,8 @@
   "ids": [
    895
   ],
-  "why": "crosses on zebra B/A; flagged spans are the island gap between A and B and occlusion behind the car stopped on zebra A",
-  "episode": "jayw-C3896-0050"
+  "source": "agent:jaywalking_0",
+  "why": "crosses on zebra B/A; flagged spans are the island gap between A and B and occlusion behind the car stopped on zebra A"
  },
  {
   "video": "C3896.MP4",
@@ -58,18 +60,19 @@
   "ids": [
    953
   ],
-  "why": "on zebra A/B; flagged spans are occlusion behind the car stopped on zebra A and the step past the island between A and B",
-  "episode": "jayw-C3896-0050"
+  "source": "agent:jaywalking_0",
+  "why": "on zebra A/B; flagged spans are occlusion behind the car stopped on zebra A and the step past the island between A and B"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 93.7,
   "end": 98.0,
   "ids": [
    965
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "after passing behind the car stopped on zebra A, walks west on asphalt 1-3 m north of zebra A (between zebra and stop line) to the SW corner; asphalt visible between feet and paint at 94.4 and 96.6 s"
  },
  {
@@ -79,8 +82,8 @@
   "ids": [
    969
   ],
-  "why": "on zebra A then zebra B; flagged span is occlusion behind the car stopped on zebra A",
-  "episode": "jayw-C3896-0050"
+  "source": "agent:jaywalking_0",
+  "why": "on zebra A then zebra B; flagged span is occlusion behind the car stopped on zebra A"
  },
  {
   "video": "C3896.MP4",
@@ -89,8 +92,8 @@
   "ids": [
    1114
   ],
-  "why": "walks along the north side of zebra B, track ~1 m off the edge but box partly hidden by a car; feet vs paint not resolvable in the wide view",
-  "episode": "jayw-C3896-0050"
+  "source": "agent:jaywalking_0",
+  "why": "walks along the north side of zebra B, track ~1 m off the edge but box partly hidden by a car; feet vs paint not resolvable in the wide view"
  },
  {
   "video": "C3896.MP4",
@@ -99,18 +102,19 @@
   "ids": [
    1139
   ],
-  "why": "on zebra A; flagged span is occlusion behind the car stopped on zebra A (box truncated)",
-  "episode": "jayw-C3896-0050"
+  "source": "agent:jaywalking_0",
+  "why": "on zebra A; flagged span is occlusion behind the car stopped on zebra A (box truncated)"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 124.5,
   "end": 128.2,
   "ids": [
    1388
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks up the east edge of zebra C (on paint edge until ~124.5 s), then leaves its top end and cuts across the slip-lane asphalt to the kerb at zebra A's west end [slip-lane]"
  },
  {
@@ -120,40 +124,43 @@
   "ids": [
    1410
   ],
-  "why": "walks east along the north kerb of the NW-bound carriageway in tree shadow; cannot tell road from sidewalk edge (same pedestrian later tracked as pers#1551)",
-  "episode": "jayw-C3896-0051"
+  "source": "agent:jaywalking_0",
+  "why": "walks east along the north kerb of the NW-bound carriageway in tree shadow; cannot tell road from sidewalk edge (same pedestrian later tracked as pers#1551)"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 131.0,
   "end": 151.0,
   "ids": [
    1551
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "stands on asphalt beside the planter end at the NE corner, ~1 m off the kerb and well north of zebra B, for ~15 s, then walks diagonally on the road onto zebra B at ~151 s; earlier kerbside walk (119-131 s) not resolvable"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 165.0,
   "end": 172.2,
   "ids": [
    1794
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves the south edge of zebra A mid-way, walks diagonally over the asphalt to the tip of the slip-lane island and down the slip lane to zebra C (clearly off paint at 167.4 and 169.3 s) [slip-lane]"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 165.0,
   "end": 172.0,
   "ids": [
    1987
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks with pers#1794: leaves zebra A diagonally and crosses the slip-lane asphalt past the island tip to zebra C [slip-lane]"
  },
  {
@@ -163,18 +170,19 @@
   "ids": [
    1998
   ],
-  "why": "walks along zebra A; track jitters around its north edge and the island gap between A and B",
-  "episode": "jayw-C3896-0052"
+  "source": "agent:jaywalking_0",
+  "why": "walks along zebra A; track jitters around its north edge and the island gap between A and B"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 163.2,
   "end": 165.5,
   "ids": [
    2104
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves the east part of zebra B and cuts diagonally NE over the asphalt (~1-2 m north of the zebra) to the NE corner sidewalk"
  },
  {
@@ -184,8 +192,8 @@
   "ids": [
    2190
   ],
-  "why": "walks down the east end of the painted zebra C stripes and briefly onto the tip of the adjacent island; the zone outline's east edge runs inside the paint",
-  "episode": "jayw-C3896-0053"
+  "source": "agent:jaywalking_0",
+  "why": "walks down the east end of the painted zebra C stripes and briefly onto the tip of the adjacent island; the zone outline's east edge runs inside the paint"
  },
  {
   "video": "C3896.MP4",
@@ -194,29 +202,31 @@
   "ids": [
    2300
   ],
-  "why": "same pedestrian as pers#2190 continuing from the island tip down the east end of zebra C's painted stripes",
-  "episode": "jayw-C3896-0053"
+  "source": "agent:jaywalking_0",
+  "why": "same pedestrian as pers#2190 continuing from the island tip down the east end of zebra C's painted stripes"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 194.59,
   "end": 201.27,
   "ids": [
    2471
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "stands on the asphalt at the rear corner of an SUV parked north of zebra B's east end, ~1 m out from the planter kerb and well clear of the zebra, throughout the track (buses hide him at both ends)"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 203.67,
   "end": 225.5,
   "ids": [
    2631
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "same man as pers#2471 (0054): keeps standing on the asphalt beside the parked SUV, then from ~216.5 s walks west 1.5-2 m north of zebra B and joins it near the island at ~225.5 s"
  },
  {
@@ -226,18 +236,19 @@
   "ids": [
    2755
   ],
-  "why": "waits on the east end of zebra B at the kerb among the crowd; flagged only as the box touches the zebra edge",
-  "episode": "jayw-C3896-0055"
+  "source": "agent:jaywalking_0",
+  "why": "waits on the east end of zebra B at the kerb among the crowd; flagged only as the box touches the zebra edge"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 220.35,
   "end": 225.5,
   "ids": [
    2860
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "steps off the NE-corner kerb and walks west with pers#2631 on the asphalt ~2 m north of zebra B, joining the zebra near the island at ~225.5 s"
  },
  {
@@ -247,18 +258,19 @@
   "ids": [
    2631
   ],
-  "why": "crosses on zebra A along its north edge (within ~1 m of the paint) and steps onto the SW corner at the zebra's end",
-  "episode": "jayw-C3896-0056"
+  "source": "agent:jaywalking_0",
+  "why": "crosses on zebra A along its north edge (within ~1 m of the paint) and steps onto the SW corner at the zebra's end"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 238.5,
   "end": 243.8,
   "ids": [
    2860
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A near its west part and walks down the slip-lane asphalt to the top of zebra C (first flagged span 228-230 s is only the island gap between B and A) [slip-lane]"
  },
  {
@@ -268,8 +280,8 @@
   "ids": [
    2938
   ],
-  "why": "walks west along the south edge of zebra B, on the painted edge",
-  "episode": "jayw-C3896-0056"
+  "source": "agent:jaywalking_0",
+  "why": "walks west along the south edge of zebra B, on the painted edge"
  },
  {
   "video": "C3896.MP4",
@@ -278,73 +290,79 @@
   "ids": [
    2980
   ],
-  "why": "on zebra B and zebra A; flagged spans are the island gap and the last metre along zebra A's north edge before stepping onto the SW corner",
-  "episode": "jayw-C3896-0056"
+  "source": "agent:jaywalking_0",
+  "why": "on zebra B and zebra A; flagged spans are the island gap and the last metre along zebra A's north edge before stepping onto the SW corner"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 238.8,
   "end": 249.2,
   "ids": [
    3163
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A mid-way and walks diagonally across the junction box onto the slip-lane island (238.8-245.0 s), then steps off its south corner across ~2 m of lane toward zebra C (247.4-249.2 s)"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 234.4,
   "end": 239.7,
   "ids": [
    3214
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks east from the island end on the asphalt 1.5-3 m north of zebra B to the NE corner kerb (clearly off the zebra at 237.6 s)"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 242.8,
   "end": 249.8,
   "ids": [
    3217
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A diagonally past the island tip and down the slip-lane asphalt to zebra C [slip-lane]"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 244.0,
   "end": 253.8,
   "ids": [
    3293
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "drifts off zebra A's south edge and walks diagonally through the slip lane to zebra C (visible on asphalt below zebra A at 251.1 s) [slip-lane]"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 244.4,
   "end": 249.2,
   "ids": [
    3163
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "end of its junction-box diagonal onto the slip-lane island (to 245.0 s), then steps off the island's south corner across ~2 m of lane to zebra C (247.4-249.2 s)"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 244.4,
   "end": 246.9,
   "ids": [
    3396
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks from zebra A diagonally over the junction-box asphalt onto the tip of the slip-lane island (on asphalt well below zebra A at 245.1 s)"
  },
  {
@@ -354,29 +372,31 @@
   "ids": [
    3441
   ],
-  "why": "continuation of pers#3396: steps from the island directly onto the east edge of zebra C; flagged because the zebra C outline sits inside the paint",
-  "episode": "jayw-C3896-0057"
+  "source": "agent:jaywalking_0",
+  "why": "continuation of pers#3396: steps from the island directly onto the east edge of zebra C; flagged because the zebra C outline sits inside the paint"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 249.9,
   "end": 252.3,
   "ids": [
    3459
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "steps off the south edge of the slip-lane island and crosses ~2.5 m of the side-road entry lane to zebra C's east stripes (reached ~252.5 s)"
  },
  {
   "video": "C3896.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 251.32,
   "end": 253.5,
   "ids": [
    3514
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks down the slip-lane asphalt (clearly off paint at 251.7 s) to the top end of zebra C, then waits at its edge [slip-lane]"
  },
  {
@@ -386,62 +406,67 @@
   "ids": [
    3566
   ],
-  "why": "walks down the east end of zebra C's stripes in a group next to the island tip; legs hidden by the person in front (truncated box) and the zone outline sits inside the paint",
-  "episode": "jayw-C3896-0058"
+  "source": "agent:jaywalking_0",
+  "why": "walks down the east end of zebra C's stripes in a group next to the island tip; legs hidden by the person in front (truncated box) and the zone outline sits inside the paint"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 6.0,
   "end": 9.2,
   "ids": [
    12
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A's west part and cuts diagonally over the slip-lane asphalt to the SW corner (clearly below zebra A at 8.2 s), then takes zebra C [slip-lane]"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 0.0,
   "end": 10.4,
   "ids": [
    15
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "already on the asphalt south of zebra B at video start; walks past the median-nose island and across the junction box onto the slip-lane island (to 7.3 s), then crosses ~3 m of the side-road entry lane to zebra C's east edge (8.2-10.4 s)"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 6.0,
   "end": 17.2,
   "ids": [
    24
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A's south edge and walks diagonally over the junction box to the slip-lane island (6.0-11.5 s), rests there, then crosses ~2.5 m of lane to zebra C (14.5-17.2 s)"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 0.67,
   "end": 2.1,
   "ids": [
    41
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks east on the asphalt ~1.3-2 m north of zebra B to the NE corner kerb"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 0.93,
   "end": 2.8,
   "ids": [
    57
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks east on the NW-bound lanes ~1.5-2.5 m north of zebra B (clear gap to the paint at 2.7 s); track ends"
  },
  {
@@ -451,128 +476,139 @@
   "ids": [
    81
   ],
-  "why": "walks along the north edge of zebra B (within ~1 m of the paint) to the NE corner",
-  "episode": "jayw-C3897-0168"
+  "source": "agent:jaywalking_0",
+  "why": "walks along the north edge of zebra B (within ~1 m of the paint) to the NE corner"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 5.5,
   "end": 9.9,
   "ids": [
    89
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks west ~2 m south of zebra A's south edge, then heads diagonally toward the slip-lane island (A-distance up to 4 m)"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 6.8,
   "end": 20.95,
   "ids": [
    151
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A diagonally into the junction box and lingers in the side-road entry lane east of the slip-lane island before drifting toward zebra C"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 6.67,
   "end": 10.4,
   "ids": [
    15
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "end of its junction-box walk onto the slip-lane island (to 7.3 s), then crosses ~3 m of the side-road entry lane to zebra C's east edge (8.2-10.4 s); afterwards waits on the paint edge"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 10.3,
   "end": 16.4,
   "ids": [
    16
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A's west part and walks diagonally down the slip-lane asphalt to the top of zebra C [slip-lane]"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 6.67,
   "end": 17.2,
   "ids": [
    24
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks diagonally off zebra A over the junction box to the slip-lane island (to 11.5 s), rests, then crosses ~2.5 m of lane to zebra C (14.5-17.2 s)"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 7.5,
   "end": 9.8,
   "ids": [
    71
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "veers off zebra A's south edge toward the slip-lane island (up to ~4 m off) before the track jumps to another walker on zebra A"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 8.0,
   "end": 20.29,
   "ids": [
    141
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A diagonally, walks down the asphalt along the east kerb of the slip-lane island and on toward zebra C in the side-road entry lane"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 9.0,
   "end": 19.7,
   "ids": [
    195
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A over the junction-box asphalt onto the slip-lane island (9.0-14.2 s), then crosses ~2.5 m of lane to zebra C (17.2-19.7 s)"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 10.28,
   "end": 16.9,
   "ids": [
    228
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "reaches the slip-lane island over junction-box asphalt (10.3-11.6 s), waits on it, then hops ~2 m of lane to zebra C's east edge (15.0-16.9 s)"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 13.75,
   "end": 15.0,
   "ids": [
    308
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks from south of zebra A (~2-3 m off) onto the slip-lane island (island-to-zebra-C hop in 0170)"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 17.35,
   "end": 19.7,
   "ids": [
    195
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "steps off the slip-lane island and crosses ~2.5 m of the side-road entry lane to zebra C (1.5-2.5 m from the paint at 17.4-18.6 s)"
  },
  {
@@ -582,8 +618,8 @@
   "ids": [
    308
   ],
-  "why": "quick step (<1 s beyond ~1 m) from the island edge onto zebra C's east stripes; rest of span is on the paint, which lies outside the misaligned zebra C outline",
-  "episode": "jayw-C3897-0170"
+  "source": "agent:jaywalking_0",
+  "why": "quick step (<1 s beyond ~1 m) from the island edge onto zebra C's east stripes; rest of span is on the paint, which lies outside the misaligned zebra C outline"
  },
  {
   "video": "C3897.MP4",
@@ -592,8 +628,8 @@
   "ids": [
    407
   ],
-  "why": "walks down the east end of zebra C's painted stripes beside the island tip; flagged only because the zone outline sits inside the paint",
-  "episode": "jayw-C3897-0170"
+  "source": "agent:jaywalking_0",
+  "why": "walks down the east end of zebra C's painted stripes beside the island tip; flagged only because the zone outline sits inside the paint"
  },
  {
   "video": "C3897.MP4",
@@ -602,18 +638,19 @@
   "ids": [
    415
   ],
-  "why": "within ~1 m of zebra C's painted east edge beside the island tip, then on the stripes",
-  "episode": "jayw-C3897-0170"
+  "source": "agent:jaywalking_0",
+  "why": "within ~1 m of zebra C's painted east edge beside the island tip, then on the stripes"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 80.9,
   "end": 84.0,
   "ids": [
    368
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "standing flags at zebra A's west end (43-62 s) are occlusion artefacts; at 80.9-84 s walks east ~1-2 m north of zebra B and cuts to the NE corner (82.2 s tile)"
  },
  {
@@ -623,51 +660,55 @@
   "ids": [
    469
   ],
-  "why": "walks up zebra C on the painted stripes (east part lies outside the misaligned zone outline) to the SW corner",
-  "episode": "jayw-C3897-0171"
+  "source": "agent:jaywalking_0",
+  "why": "walks up zebra C on the painted stripes (east part lies outside the misaligned zone outline) to the SW corner"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 38.2,
   "end": 42.3,
   "ids": [
    491
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves the top of zebra C and walks north over the slip-lane asphalt toward zebra A's west end instead of via the corner [slip-lane]"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 41.2,
   "end": 45.5,
   "ids": [
    500
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra C's top and cuts over the slip-lane asphalt to the SW corner; afterwards waits within ~1 m of the kerb (not counted) [slip-lane]"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 37.3,
   "end": 55.1,
   "ids": [
    512
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra C's east side, walks up the slip lane past the island and then stands in the slip lane ~3 m off the kerb just south of zebra A until ~55 s [slip-lane]"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 40.8,
   "end": 49.65,
   "ids": [
    519
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "with pers#512: leaves zebra C and walks up the slip-lane asphalt, then waits in the lane ~1.5 m off the kerb south of zebra A [slip-lane]"
  },
  {
@@ -677,18 +718,19 @@
   "ids": [
    787
   ],
-  "why": "stands ~35 s on zebra C's painted east stripes beside the island tip; flagged only because the zone outline sits inside the paint",
-  "episode": "jayw-C3897-0171"
+  "source": "agent:jaywalking_0",
+  "why": "stands ~35 s on zebra C's painted east stripes beside the island tip; flagged only because the zone outline sits inside the paint"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 81.0,
   "end": 84.4,
   "ids": [
    936
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "waits within ~1 m of the SW corner kerb earlier (not counted); at 81-84.4 s walks east 1-2 m north of zebra B's paint and cuts to the NE corner (visible at the 82.2 s tile)"
  },
  {
@@ -698,8 +740,8 @@
   "ids": [
    936
   ],
-  "why": "steps from the SW corner kerb onto zebra A and walks east along its south edge (\u2264~1.4 m from the paint for ~2 s) before centering on the zebra",
-  "episode": "jayw-C3897-0172"
+  "source": "agent:jaywalking_0",
+  "why": "steps from the SW corner kerb onto zebra A and walks east along its south edge (\u2264~1.4 m from the paint for ~2 s) before centering on the zebra"
  },
  {
   "video": "C3897.MP4",
@@ -708,29 +750,31 @@
   "ids": [
    1084
   ],
-  "why": "walks east along the south edge of zebra A, on/within ~0.9 m of the paint",
-  "episode": "jayw-C3897-0172"
+  "source": "agent:jaywalking_0",
+  "why": "walks east along the south edge of zebra A, on/within ~0.9 m of the paint"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 80.9,
   "end": 84.0,
   "ids": [
    368
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks east with the group along the north side of zebra B, drifting ~1-2 m off the paint as it cuts to the NE corner kerb"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 81.0,
   "end": 84.4,
   "ids": [
    936
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks east ~1-2 m north of zebra B's painted edge (gap visible at 81.5 and 83.2 s) and cuts to the NE corner"
  },
  {
@@ -740,8 +784,8 @@
   "ids": [
    1025
   ],
-  "why": "walks east on zebra B near its north edge; flagged only at the end with a shrinking box",
-  "episode": "jayw-C3897-0173"
+  "source": "agent:jaywalking_0",
+  "why": "walks east on zebra B near its north edge; flagged only at the end with a shrinking box"
  },
  {
   "video": "C3897.MP4",
@@ -750,40 +794,43 @@
   "ids": [
    1181
   ],
-  "why": "walks along zebra A's south edge (within ~1 m); later flagged points come from a box merged with walkers further south",
-  "episode": "jayw-C3897-0173"
+  "source": "agent:jaywalking_0",
+  "why": "walks along zebra A's south edge (within ~1 m); later flagged points come from a box merged with walkers further south"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 81.8,
   "end": 85.95,
   "ids": [
    1194
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "after crossing the island gap walks east along zebra B's north side drifting 1-3 m off the paint to the NE corner (same event as in 0174)"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 77.6,
   "end": 88.3,
   "ids": [
    1232
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A and walks diagonally SW across the junction-box asphalt past the slip-lane island to zebra C"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 79.0,
   "end": 87.8,
   "ids": [
    1253
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A's south edge and walks diagonally over the junction box onto the slip-lane island (79.0-85.6 s), then steps off toward zebra C (~87-87.8 s, track ends)"
  },
  {
@@ -793,40 +840,43 @@
   "ids": [
    1260
   ],
-  "why": "walks west along zebra A's south edge, within ~1 m of the paint",
-  "episode": "jayw-C3897-0173"
+  "source": "agent:jaywalking_0",
+  "why": "walks west along zebra A's south edge, within ~1 m of the paint"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 81.7,
   "end": 85.95,
   "ids": [
    1194
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks east with a group on the NW-bound lanes 1.5-3 m north of zebra B to the NE corner (clear at 81.9 and 84.1 s)"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 81.3,
   "end": 83.0,
   "ids": [
    1255
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "part of the same group walking east clearly north of zebra B toward the NE corner"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 80.61,
   "end": 85.02,
   "ids": [
    1267
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks east ~1.5-2 m north of zebra B's paint with the group, reaching the NE corner kerb"
  },
  {
@@ -836,29 +886,31 @@
   "ids": [
    1276
   ],
-  "why": "steps ~1 m off the SW corner beside the bollards onto the asphalt just north of zebra A's west end for ~2 s, then back; margin to the paint too small to be sure",
-  "episode": "jayw-C3897-0174"
+  "source": "agent:jaywalking_0",
+  "why": "steps ~1 m off the SW corner beside the bollards onto the asphalt just north of zebra A's west end for ~2 s, then back; margin to the paint too small to be sure"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 82.4,
   "end": 91.0,
   "ids": [
    1292
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "leaves zebra A's south edge and walks diagonally across the junction box and the lane south of the slip-lane island to zebra C (2-6 m off any zebra at 84.1-88.6 s)"
  },
  {
   "video": "C3897.MP4",
   "label": "jaywalking",
+  "status": "accepted",
   "start": 85.7,
   "end": 88.3,
   "ids": [
    1302
   ],
-  "source": "review:jaywalking_0",
+  "source": "agent:jaywalking_0",
   "why": "walks off zebra A's south edge across the junction-box asphalt onto the slip-lane island tip; its later 90-93.7 s flags are a truncated box while it stands on zebra C's paint"
  },
  {
@@ -868,8 +920,8 @@
   "ids": [
    1377
   ],
-  "why": "briefly on the asphalt just below the slip-lane island's south kerb (~1 m) before stepping onto zebra C's NE corner; short track, margin unclear",
-  "episode": "jayw-C3897-0174"
+  "source": "agent:jaywalking_0",
+  "why": "briefly on the asphalt just below the slip-lane island's south kerb (~1 m) before stepping onto zebra C's NE corner; short track, margin unclear"
  },
  {
   "video": "C3897.MP4",
@@ -878,8 +930,8 @@
   "ids": [
    1455
   ],
-  "why": "stands on zebra C's painted NE corner beside the island; its box covers only the upper body, which puts the foot point north of the paint",
-  "episode": "jayw-C3897-0174"
+  "source": "agent:jaywalking_0",
+  "why": "stands on zebra C's painted NE corner beside the island; its box covers only the upper body, which puts the foot point north of the paint"
  },
  {
   "video": "C3897.MP4",
@@ -888,8 +940,8 @@
   "ids": [
    18
   ],
-  "why": "essentially stationary (creeping) at NE-kerb end of zebra B; peds 9/17/100 are at the island end walking away",
-  "episode": "fail-C3897-0126"
+  "source": "agent:failure_to_yield_1",
+  "why": "essentially stationary (creeping) at NE-kerb end of zebra B; peds 9/17/100 are at the island end walking away"
  },
  {
   "video": "C3897.MP4",
@@ -898,8 +950,8 @@
   "ids": [
    361
   ],
-  "why": "stationary on zebra A by the median nose ~40.8-63 s; moves off ~64-65 s when peds 368/1025 have only just left the far SW kerb (other half)",
-  "episode": "fail-C3897-0127"
+  "source": "agent:failure_to_yield_1",
+  "why": "stationary on zebra A by the median nose ~40.8-63 s; moves off ~64-65 s when peds 368/1025 have only just left the far SW kerb (other half)"
  },
  {
   "video": "C3897.MP4",
@@ -908,8 +960,8 @@
   "ids": [
    592
   ],
-  "why": "crosses mid zebra A; ped 368 and group only waiting at SW kerb",
-  "episode": "fail-C3897-0127"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses mid zebra A; ped 368 and group only waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -918,8 +970,8 @@
   "ids": [
    564
   ],
-  "why": "crosses zebra A in lanes 2-3; ped 368 and group waiting at SW kerb",
-  "episode": "fail-C3897-0127"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A in lanes 2-3; ped 368 and group waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -928,8 +980,8 @@
   "ids": [
    620
   ],
-  "why": "crosses zebra A in lanes 2-3; ped 368 and group waiting at SW kerb",
-  "episode": "fail-C3897-0127"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A in lanes 2-3; ped 368 and group waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -938,8 +990,8 @@
   "ids": [
    649
   ],
-  "why": "crosses mid zebra A; ped 368 and group waiting at SW kerb",
-  "episode": "fail-C3897-0127"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses mid zebra A; ped 368 and group waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -948,8 +1000,8 @@
   "ids": [
    589
   ],
-  "why": "van parked/maneuvering at NE-kerb end of zebra B, leaves up-left without crossing it; ped 895 stays on sidewalk",
-  "episode": "fail-C3897-0128"
+  "source": "agent:failure_to_yield_1",
+  "why": "van parked/maneuvering at NE-kerb end of zebra B, leaves up-left without crossing it; ped 895 stays on sidewalk"
  },
  {
   "video": "C3897.MP4",
@@ -958,8 +1010,8 @@
   "ids": [
    786
   ],
-  "why": "crosses mid zebra A; ped 368 and group waiting at SW kerb",
-  "episode": "fail-C3897-0128"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses mid zebra A; ped 368 and group waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -968,8 +1020,8 @@
   "ids": [
    755
   ],
-  "why": "crosses zebra A in lanes 2-3; ped 368 and group waiting at SW kerb",
-  "episode": "fail-C3897-0128"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A in lanes 2-3; ped 368 and group waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -978,8 +1030,8 @@
   "ids": [
    856
   ],
-  "why": "crosses mid zebra A; ped 368 and group waiting at SW kerb",
-  "episode": "fail-C3897-0128"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses mid zebra A; ped 368 and group waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -988,8 +1040,8 @@
   "ids": [
    873
   ],
-  "why": "turns through kerb lane next to peds 368/924 who stand still at the SW kerb (waiting), not crossing",
-  "episode": "fail-C3897-0128"
+  "source": "agent:failure_to_yield_1",
+  "why": "turns through kerb lane next to peds 368/924 who stand still at the SW kerb (waiting), not crossing"
  },
  {
   "video": "C3897.MP4",
@@ -998,8 +1050,8 @@
   "ids": [
    852
   ],
-  "why": "creeps across mid zebra A; peds 368/924 and group only waiting at SW kerb",
-  "episode": "fail-C3897-0129"
+  "source": "agent:failure_to_yield_1",
+  "why": "creeps across mid zebra A; peds 368/924 and group only waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -1008,8 +1060,8 @@
   "ids": [
    509
   ],
-  "why": "crosses zebra A in the median lane while peds 368/936/1025/1059 walk from SW kerb in the other half, ~1.5 lanes short of its path",
-  "episode": "fail-C3897-0130"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A in the median lane while peds 368/936/1025/1059 walk from SW kerb in the other half, ~1.5 lanes short of its path"
  },
  {
   "video": "C3897.MP4",
@@ -1018,8 +1070,8 @@
   "ids": [
    1162
   ],
-  "why": "waited at near edge of zebra B while group incl. ped 368 crossed; moved only after they reached the NE kerb end",
-  "episode": "fail-C3897-0131"
+  "source": "agent:failure_to_yield_1",
+  "why": "waited at near edge of zebra B while group incl. ped 368 crossed; moved only after they reached the NE kerb end"
  },
  {
   "video": "C3897.MP4",
@@ -1028,8 +1080,8 @@
   "ids": [
    1439
   ],
-  "why": "left-turner crosses side-road part of zebra C ~2 m in front of peds 1292/1402/1441 who stand waiting on the painted zebra between the islands; rubric does not say if that waiting spot counts",
-  "episode": "fail-C3897-0132"
+  "source": "agent:failure_to_yield_1",
+  "why": "left-turner crosses side-road part of zebra C ~2 m in front of peds 1292/1402/1441 who stand waiting on the painted zebra between the islands; rubric does not say if that waiting spot counts"
  },
  {
   "video": "C3897.MP4",
@@ -1038,8 +1090,8 @@
   "ids": [
    1073
   ],
-  "why": "right-turner crosses slip-lane end of zebra C; peds 787/1402/1410/1441 on the far (side-road) end walking away",
-  "episode": "fail-C3897-0133"
+  "source": "agent:failure_to_yield_1",
+  "why": "right-turner crosses slip-lane end of zebra C; peds 787/1402/1410/1441 on the far (side-road) end walking away"
  },
  {
   "video": "C3897.MP4",
@@ -1048,8 +1100,8 @@
   "ids": [
    1528
   ],
-  "why": "right-turner crosses slip-lane end of zebra C; peds 1624/1692 still on the lower side-road half",
-  "episode": "fail-C3897-0134"
+  "source": "agent:failure_to_yield_1",
+  "why": "right-turner crosses slip-lane end of zebra C; peds 1624/1692 still on the lower side-road half"
  },
  {
   "video": "C3897.MP4",
@@ -1058,8 +1110,8 @@
   "ids": [
    1637
   ],
-  "why": "right-turner crosses slip-lane part of zebra C; peds 1692/1720 still ~4 m away on the between-islands part walking up, not yet at its lane",
-  "episode": "fail-C3897-0135"
+  "source": "agent:failure_to_yield_1",
+  "why": "right-turner crosses slip-lane part of zebra C; peds 1692/1720 still ~4 m away on the between-islands part walking up, not yet at its lane"
  },
  {
   "video": "C3897.MP4",
@@ -1068,8 +1120,8 @@
   "ids": [
    1857
   ],
-  "why": "crosses zebra A in the median lane; peds 1907/1976 waiting at far SW kerb",
-  "episode": "fail-C3897-0136"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A in the median lane; peds 1907/1976 waiting at far SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -1078,8 +1130,8 @@
   "ids": [
    1951
   ],
-  "why": "crosses zebra A lane 2; peds 1907/1962/1976/1993 standing still at SW kerb",
-  "episode": "fail-C3897-0137"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A lane 2; peds 1907/1962/1976/1993 standing still at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -1088,8 +1140,8 @@
   "ids": [
    1899
   ],
-  "why": "crosses zebra A median lane; peds 1962/1976 waiting at SW kerb",
-  "episode": "fail-C3897-0138"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A median lane; peds 1962/1976 waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -1098,8 +1150,8 @@
   "ids": [
    1930
   ],
-  "why": "crosses zebra A lane 3; peds 1962/1976 waiting at SW kerb",
-  "episode": "fail-C3897-0138"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A lane 3; peds 1962/1976 waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -1108,8 +1160,8 @@
   "ids": [
    2015
   ],
-  "why": "crosses zebra A lane 2; peds 1962/1976 waiting at SW kerb",
-  "episode": "fail-C3897-0138"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A lane 2; peds 1962/1976 waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -1118,8 +1170,8 @@
   "ids": [
    1938
   ],
-  "why": "crosses zebra A median lane; peds 1962/1976 waiting at SW kerb",
-  "episode": "fail-C3897-0139"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A median lane; peds 1962/1976 waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -1128,8 +1180,8 @@
   "ids": [
    1987
   ],
-  "why": "rolled onto zebra A ~131 s while peds 1962/1976 waited at SW kerb, stood there; pulled off forward ~137.5 s away from peds 1962/2129/2228 ~3 m to its left (stop-line case, not yield)",
-  "episode": "fail-C3897-0139"
+  "source": "agent:failure_to_yield_1",
+  "why": "rolled onto zebra A ~131 s while peds 1962/1976 waited at SW kerb, stood there; pulled off forward ~137.5 s away from peds 1962/2129/2228 ~3 m to its left (stop-line case, not yield)"
  },
  {
   "video": "C3897.MP4",
@@ -1138,8 +1190,8 @@
   "ids": [
    2026
   ],
-  "why": "crosses zebra A lane 2; peds 1962/1976 waiting at SW kerb",
-  "episode": "fail-C3897-0139"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses zebra A lane 2; peds 1962/1976 waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -1148,8 +1200,8 @@
   "ids": [
    2037
   ],
-  "why": "crosses mid zebra A; peds 1962/1976 waiting at SW kerb",
-  "episode": "fail-C3897-0139"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses mid zebra A; peds 1962/1976 waiting at SW kerb"
  },
  {
   "video": "C3897.MP4",
@@ -1158,18 +1210,19 @@
   "ids": [
    2455
   ],
-  "why": "left-turner crosses bottom (side-road) end of zebra C; peds 2404/2433/2525 near the top/slip-lane end, far away",
-  "episode": "fail-C3897-0140"
+  "source": "agent:failure_to_yield_1",
+  "why": "left-turner crosses bottom (side-road) end of zebra C; peds 2404/2433/2525 near the top/slip-lane end, far away"
  },
  {
   "video": "C3897.MP4",
   "label": "failure_to_yield",
+  "status": "accepted",
   "start": 156.0,
   "end": 158.6,
   "ids": [
    2454
   ],
-  "source": "review:failure_to_yield_1",
+  "source": "agent:failure_to_yield_1",
   "why": "drives across island half of zebra B while ped 2436 walks on the stripes in its lane toward the island, passing ~1 m behind him; ped 2288 also on far edge"
  },
  {
@@ -1179,8 +1232,8 @@
   "ids": [
    2422
   ],
-  "why": "crosses NE half of zebra B while ped 2288 walks along the far painted edge toward NE kerb; ped just outside its path, ~2-3 m when it passed, walking away",
-  "episode": "fail-C3897-0141"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses NE half of zebra B while ped 2288 walks along the far painted edge toward NE kerb; ped just outside its path, ~2-3 m when it passed, walking away"
  },
  {
   "video": "C3897.MP4",
@@ -1189,8 +1242,8 @@
   "ids": [
    2504
   ],
-  "why": "enters island end of zebra B as ped 2436 steps onto the island; 2564 waiting on island",
-  "episode": "fail-C3897-0141"
+  "source": "agent:failure_to_yield_1",
+  "why": "enters island end of zebra B as ped 2436 steps onto the island; 2564 waiting on island"
  },
  {
   "video": "C3897.MP4",
@@ -1199,8 +1252,8 @@
   "ids": [
    2584
   ],
-  "why": "crosses mid zebra B while ped 2288 is already at the NE kerb end, 3+ m away and leaving",
-  "episode": "fail-C3897-0142"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses mid zebra B while ped 2288 is already at the NE kerb end, 3+ m away and leaving"
  },
  {
   "video": "C3897.MP4",
@@ -1209,18 +1262,19 @@
   "ids": [
    2574
   ],
-  "why": "crosses island half of zebra B; ped 2288 at far NE end; no ped on zebra B near it",
-  "episode": "fail-C3897-0142"
+  "source": "agent:failure_to_yield_1",
+  "why": "crosses island half of zebra B; ped 2288 at far NE end; no ped on zebra B near it"
  },
  {
   "video": "C3897.MP4",
   "label": "failure_to_yield",
+  "status": "accepted",
   "start": 177.3,
   "end": 178.9,
   "ids": [
    2011
   ],
-  "source": "review:failure_to_yield_1",
+  "source": "agent:failure_to_yield_1",
   "why": "right-turner drives across slip-lane part of zebra C ~1.5 m behind ped 2513, who stepped off the SW corner and crossed its lane just ahead of it"
  },
  {
@@ -1230,8 +1284,8 @@
   "ids": [
    24
   ],
-  "why": "pers#24 walks across zebra B past the front of stationary car#107, then creeping car#180; both cars pull away after, no sharp braking or swerve by any party",
-  "episode": "near-C3896-0059"
+  "source": "agent:near_miss_0",
+  "why": "pers#24 walks across zebra B past the front of stationary car#107, then creeping car#180; both cars pull away after, no sharp braking or swerve by any party"
  },
  {
   "video": "C3896.MP4",
@@ -1240,8 +1294,8 @@
   "ids": [
    12
   ],
-  "why": "car#12 eases to a stop over ~2 s behind a vehicle ahead in SE-exit traffic while car#154 passes in the adjacent lane; normal queue braking, no swerve",
-  "episode": "near-C3896-0060"
+  "source": "agent:near_miss_0",
+  "why": "car#12 eases to a stop over ~2 s behind a vehicle ahead in SE-exit traffic while car#154 passes in the adjacent lane; normal queue braking, no swerve"
  },
  {
   "video": "C3896.MP4",
@@ -1250,8 +1304,8 @@
   "ids": [
    870
   ],
-  "why": "car#897 overtakes gradually slowing bus#870 in the adjacent NW-bound lane at steady speed; no sharp braking or swerve",
-  "episode": "near-C3896-0061"
+  "source": "agent:near_miss_0",
+  "why": "car#897 overtakes gradually slowing bus#870 in the adjacent NW-bound lane at steady speed; no sharp braking or swerve"
  },
  {
   "video": "C3896.MP4",
@@ -1260,8 +1314,8 @@
   "ids": [
    517
   ],
-  "why": "car#961 follows car#517 into the SE exit at a normal gap; apparent slowdown is frame-edge box clipping; no evasive action",
-  "episode": "near-C3896-0062"
+  "source": "agent:near_miss_0",
+  "why": "car#961 follows car#517 into the SE exit at a normal gap; apparent slowdown is frame-edge box clipping; no evasive action"
  },
  {
   "video": "C3896.MP4",
@@ -1270,8 +1324,8 @@
   "ids": [
    1506
   ],
-  "why": "truck#1864 follows car#1506 into the SE exit (dip = frame-edge clipping); bus#2044 passes zebra B beside walking pers#1888 without braking, pedestrian keeps walking",
-  "episode": "near-C3896-0063"
+  "source": "agent:near_miss_0",
+  "why": "truck#1864 follows car#1506 into the SE exit (dip = frame-edge clipping); bus#2044 passes zebra B beside walking pers#1888 without braking, pedestrian keeps walking"
  },
  {
   "video": "C3896.MP4",
@@ -1280,8 +1334,8 @@
   "ids": [
    1667
   ],
-  "why": "car#1667/car#1832 and car#1710/car#1917 travel side by side in adjacent lanes of a moving SE-bound platoon; dips are frame-edge clipping; no brake or swerve",
-  "episode": "near-C3896-0064"
+  "source": "agent:near_miss_0",
+  "why": "car#1667/car#1832 and car#1710/car#1917 travel side by side in adjacent lanes of a moving SE-bound platoon; dips are frame-edge clipping; no brake or swerve"
  },
  {
   "video": "C3896.MP4",
@@ -1290,8 +1344,8 @@
   "ids": [
    2339
   ],
-  "why": "car#2339 and car#2366 drive side by side SE-bound beside a bus at steady speed; dip is frame-edge clipping; no evasive action",
-  "episode": "near-C3896-0065"
+  "source": "agent:near_miss_0",
+  "why": "car#2339 and car#2366 drive side by side SE-bound beside a bus at steady speed; dip is frame-edge clipping; no evasive action"
  },
  {
   "video": "C3896.MP4",
@@ -1300,8 +1354,8 @@
   "ids": [
    2267
   ],
-  "why": "car#2854 passes stationary car#2267 at the far NW-bound bus-stop kerb with gradual slowing only; car#2666 follows car#2656 into the SE exit (dips = edge clipping)",
-  "episode": "near-C3896-0066"
+  "source": "agent:near_miss_0",
+  "why": "car#2854 passes stationary car#2267 at the far NW-bound bus-stop kerb with gradual slowing only; car#2666 follows car#2656 into the SE exit (dips = edge clipping)"
  },
  {
   "video": "C3896.MP4",
@@ -1310,8 +1364,8 @@
   "ids": [
    2898
   ],
-  "why": "car#3655 follows bus#2898 SE-bound into the exit at steady speed; dips are frame-edge clipping; no brake or swerve",
-  "episode": "near-C3896-0067"
+  "source": "agent:near_miss_0",
+  "why": "car#3655 follows bus#2898 SE-bound into the exit at steady speed; dips are frame-edge clipping; no brake or swerve"
  },
  {
   "video": "C3896.MP4",
@@ -1320,8 +1374,8 @@
   "ids": [
    3654
   ],
-  "why": "car#3847 passes bus#3654 pulling into the far bus stop in the adjacent lane, gradual perspective slowing only; car#3792 follows car#3684 into the SE exit (dip = edge clipping)",
-  "episode": "near-C3896-0068"
+  "source": "agent:near_miss_0",
+  "why": "car#3847 passes bus#3654 pulling into the far bus stop in the adjacent lane, gradual perspective slowing only; car#3792 follows car#3684 into the SE exit (dip = edge clipping)"
  },
  {
   "video": "C3896.MP4",
@@ -1330,8 +1384,8 @@
   "ids": [
    4066
   ],
-  "why": "car#4066 passes stationary car#4110 at the far NW-bound kerb near the bus stop; gradual perspective slowing only, no evasive action",
-  "episode": "near-C3896-0069"
+  "source": "agent:near_miss_0",
+  "why": "car#4066 passes stationary car#4110 at the far NW-bound kerb near the bus stop; gradual perspective slowing only, no evasive action"
  },
  {
   "video": "C3896.MP4",
@@ -1340,8 +1394,8 @@
   "ids": [
    3960
   ],
-  "why": "truck#4683 follows car#3960 into the SE exit at steady speed; dips are frame-edge clipping; no evasive action",
-  "episode": "near-C3896-0070"
+  "source": "agent:near_miss_0",
+  "why": "truck#4683 follows car#3960 into the SE exit at steady speed; dips are frame-edge clipping; no evasive action"
  },
  {
   "video": "C3897.MP4",
@@ -1350,8 +1404,8 @@
   "ids": [
    18
   ],
-  "why": "car#18 stationary at the NE kerb; car#187 accelerates steadily past it across zebra B; no brake or swerve",
-  "episode": "near-C3897-0191"
+  "source": "agent:near_miss_0",
+  "why": "car#18 stationary at the NE kerb; car#187 accelerates steadily past it across zebra B; no brake or swerve"
  },
  {
   "video": "C3897.MP4",
@@ -1360,8 +1414,8 @@
   "ids": [
    361
   ],
-  "why": "car#361 and car#509 stationary near the median nose; car#856 follows a bus past them at steady speed; no evasive action",
-  "episode": "near-C3897-0192"
+  "source": "agent:near_miss_0",
+  "why": "car#361 and car#509 stationary near the median nose; car#856 follows a bus past them at steady speed; no evasive action"
  },
  {
   "video": "C3897.MP4",
@@ -1370,8 +1424,8 @@
   "ids": [
    1025
   ],
-  "why": "van #1169/#1209 drives off NW-bound beyond the far edge of zebra B while the group with pers#1025/#1059 walks steadily on the zebra; no braking or swerve",
-  "episode": "near-C3897-0193"
+  "source": "agent:near_miss_0",
+  "why": "van #1169/#1209 drives off NW-bound beyond the far edge of zebra B while the group with pers#1025/#1059 walks steadily on the zebra; no braking or swerve"
  },
  {
   "video": "C3897.MP4",
@@ -1380,8 +1434,8 @@
   "ids": [
    1383
   ],
-  "why": "moving SE-bound platoon: bus#1383/car#1622, bus#1464/car#1657/#1671, car#1680/#1824, car#1400/#1762 are adjacent-lane or following pairs; speed drops coincide with frame-edge clipping; no brake or swerve",
-  "episode": "near-C3897-0194"
+  "source": "agent:near_miss_0",
+  "why": "moving SE-bound platoon: bus#1383/car#1622, bus#1464/car#1657/#1671, car#1680/#1824, car#1400/#1762 are adjacent-lane or following pairs; speed drops coincide with frame-edge clipping; no brake or swerve"
  },
  {
   "video": "C3897.MP4",
@@ -1390,8 +1444,8 @@
   "ids": [
    1680
   ],
-  "why": "car#1762 follows car#1680 in a moving SE-bound platoon into the exit; slowdowns are frame-edge clipping; no evasive action",
-  "episode": "near-C3897-0195"
+  "source": "agent:near_miss_0",
+  "why": "car#1762 follows car#1680 in a moving SE-bound platoon into the exit; slowdowns are frame-edge clipping; no evasive action"
  },
  {
   "video": "C3897.MP4",
@@ -1400,8 +1454,8 @@
   "ids": [
    1962
   ],
-  "why": "car#2454 creeping in the NW-bound queue at zebra B eases to a crawl while pers#1962 walks past its front, then moves on; low-speed yield, no sharp braking",
-  "episode": "near-C3897-0196"
+  "source": "agent:near_miss_0",
+  "why": "car#2454 creeping in the NW-bound queue at zebra B eases to a crawl while pers#1962 walks past its front, then moves on; low-speed yield, no sharp braking"
  },
  {
   "video": "C3897.MP4",
@@ -1410,8 +1464,8 @@
   "ids": [
    2026
   ],
-  "why": "moped rider pers#2763 pulling out beside a parked minivan pauses at walking pace while car#2026 accelerates past ~1 m ahead, then follows; car does not brake or swerve; low-speed merge yield, no hard braking",
-  "episode": "near-C3897-0197"
+  "source": "agent:near_miss_0",
+  "why": "moped rider pers#2763 pulling out beside a parked minivan pauses at walking pace while car#2026 accelerates past ~1 m ahead, then follows; car does not brake or swerve; low-speed merge yield, no hard braking"
  },
  {
   "video": "C3897.MP4",
@@ -1420,8 +1474,8 @@
   "ids": [
    2236
   ],
-  "why": "car#2903 accelerates SE past near-stationary car#2236 beside a parked minivan at the SE-exit kerb; no brake or swerve by either",
-  "episode": "near-C3897-0198"
+  "source": "agent:near_miss_0",
+  "why": "car#2903 accelerates SE past near-stationary car#2236 beside a parked minivan at the SE-exit kerb; no brake or swerve by either"
  },
  {
   "video": "C3897.MP4",
@@ -1430,8 +1484,8 @@
   "ids": [
    3109
   ],
-  "why": "car#3147 passes stationary car#3109 at the far NW-bound bus-stop kerb; smooth perspective slowing only",
-  "episode": "near-C3897-0199"
+  "source": "agent:near_miss_0",
+  "why": "car#3147 passes stationary car#3109 at the far NW-bound bus-stop kerb; smooth perspective slowing only"
  },
  {
   "video": "C3897.MP4",
@@ -1440,8 +1494,8 @@
   "ids": [
    2701
   ],
-  "why": "car#3219 draws alongside bus#2701 in the adjacent NW-bound lane far up-left; smooth perspective slowing, no brake or swerve",
-  "episode": "near-C3897-0200"
+  "source": "agent:near_miss_0",
+  "why": "car#3219 draws alongside bus#2701 in the adjacent NW-bound lane far up-left; smooth perspective slowing, no brake or swerve"
  },
  {
   "video": "C3897.MP4",
@@ -1450,8 +1504,8 @@
   "ids": [
    3445
   ],
-  "why": "car#3448 enters from the right edge and decelerates smoothly over ~3 s to stop beside creeping taxi car#3445 at zebra B while pedestrians cross; normal braking, no swerve",
-  "episode": "near-C3897-0201"
+  "source": "agent:near_miss_0",
+  "why": "car#3448 enters from the right edge and decelerates smoothly over ~3 s to stop beside creeping taxi car#3445 at zebra B while pedestrians cross; normal braking, no swerve"
  },
  {
   "video": "C3897.MP4",
@@ -1460,8 +1514,8 @@
   "ids": [
    3109
   ],
-  "why": "car#4152 passes parked car#3109 at the far NW-bound kerb at steady speed; car#3253 and car#3941 accelerate side by side into the SE exit (dips = edge clipping)",
-  "episode": "near-C3897-0202"
+  "source": "agent:near_miss_0",
+  "why": "car#4152 passes parked car#3109 at the far NW-bound kerb at steady speed; car#3253 and car#3941 accelerate side by side into the SE exit (dips = edge clipping)"
  },
  {
   "video": "C3897.MP4",
@@ -1470,8 +1524,8 @@
   "ids": [
    3553
   ],
-  "why": "car#4290 passes bus#3553 stopped at the far bus stop at steady speed; overlap is perspective only",
-  "episode": "near-C3897-0203"
+  "source": "agent:near_miss_0",
+  "why": "car#4290 passes bus#3553 stopped at the far bus stop at steady speed; overlap is perspective only"
  },
  {
   "video": "C3897.MP4",
@@ -1480,8 +1534,8 @@
   "ids": [
    4818
   ],
-  "why": "pers#4824 walks along the north edge of zebra B while car#4818 and then truck#4915 pass in slow NW-bound traffic; no braking or swerve, pedestrian keeps walking",
-  "episode": "near-C3897-0204"
+  "source": "agent:near_miss_0",
+  "why": "pers#4824 walks along the north edge of zebra B while car#4818 and then truck#4915 pass in slow NW-bound traffic; no braking or swerve, pedestrian keeps walking"
  },
  {
   "video": "C3902.MP4",
@@ -1490,8 +1544,8 @@
   "ids": [
    177
   ],
-  "why": "pers#177 is a motionless detection at the median-nose signal pole for the whole clip; car#552 passes at constant speed; no evasive action",
-  "episode": "near-C3902-0307"
+  "source": "agent:near_miss_0",
+  "why": "pers#177 is a motionless detection at the median-nose signal pole for the whole clip; car#552 passes at constant speed; no evasive action"
  },
  {
   "video": "C3902.MP4",
@@ -1500,8 +1554,8 @@
   "ids": [
    50
   ],
-  "why": "car#50 slows moderately behind slower car#691 at the right frame edge in SE-exit traffic; car#646 passes stopped bus#707 at the far kerb at steady speed; no sharp braking or swerve",
-  "episode": "near-C3902-0308"
+  "source": "agent:near_miss_0",
+  "why": "car#50 slows moderately behind slower car#691 at the right frame edge in SE-exit traffic; car#646 passes stopped bus#707 at the far kerb at steady speed; no sharp braking or swerve"
  },
  {
   "video": "C3902.MP4",
@@ -1510,8 +1564,8 @@
   "ids": [
    33
   ],
-  "why": "car#33 parked at the far NW-bound kerb near the bus stop; car#740 passes in the adjacent lane at steady speed",
-  "episode": "near-C3902-0309"
+  "source": "agent:near_miss_0",
+  "why": "car#33 parked at the far NW-bound kerb near the bus stop; car#740 passes in the adjacent lane at steady speed"
  },
  {
   "video": "C3902.MP4",
@@ -1520,8 +1574,8 @@
   "ids": [
    1433
   ],
-  "why": "car#1629 moves off along the north edge of zebra B and accelerates NW past pers#1433, who keeps walking; no sharp braking or swerve",
-  "episode": "near-C3902-0310"
+  "source": "agent:near_miss_0",
+  "why": "car#1629 moves off along the north edge of zebra B and accelerates NW past pers#1433, who keeps walking; no sharp braking or swerve"
  },
  {
   "video": "C3902.MP4",
@@ -1530,8 +1584,8 @@
   "ids": [
    2081
   ],
-  "why": "car#2244 follows car#2081 and car#2222 follows car#2190 into the SE exit; box left edges keep speed, dips are frame-edge clipping; no evasive action",
-  "episode": "near-C3902-0311"
+  "source": "agent:near_miss_0",
+  "why": "car#2244 follows car#2081 and car#2222 follows car#2190 into the SE exit; box left edges keep speed, dips are frame-edge clipping; no evasive action"
  },
  {
   "video": "C3902.MP4",
@@ -1540,8 +1594,8 @@
   "ids": [
    2315
   ],
-  "why": "car#2315 parked at the far NW-bound kerb; car#2694 passes in the adjacent lane at steady speed (later ID jump); no evasive action",
-  "episode": "near-C3902-0312"
+  "source": "agent:near_miss_0",
+  "why": "car#2315 parked at the far NW-bound kerb; car#2694 passes in the adjacent lane at steady speed (later ID jump); no evasive action"
  },
  {
   "video": "C3902.MP4",
@@ -1550,8 +1604,8 @@
   "ids": [
    3379
   ],
-  "why": "car#3575 overtakes slower car#3379 in the adjacent NW-bound lane; both keep speed; overlap is perspective only",
-  "episode": "near-C3902-0313"
+  "source": "agent:near_miss_0",
+  "why": "car#3575 overtakes slower car#3379 in the adjacent NW-bound lane; both keep speed; overlap is perspective only"
  },
  {
   "video": "C3902.MP4",
@@ -1560,8 +1614,8 @@
   "ids": [
    3754
   ],
-  "why": "car#3754 enters fast from the lower right and merges alongside/past car#3765 in the NW-bound lanes; #3765 speed changes only gradually; no sharp braking or swerve",
-  "episode": "near-C3902-0314"
+  "source": "agent:near_miss_0",
+  "why": "car#3754 enters fast from the lower right and merges alongside/past car#3765 in the NW-bound lanes; #3765 speed changes only gradually; no sharp braking or swerve"
  },
  {
   "video": "C3902.MP4",
@@ -1570,8 +1624,8 @@
   "ids": [
    3833
   ],
-  "why": "minibus truck#3833 runs alongside/behind car#3874 into the SE exit at steady speed; dips are frame-edge clipping",
-  "episode": "near-C3902-0315"
+  "source": "agent:near_miss_0",
+  "why": "minibus truck#3833 runs alongside/behind car#3874 into the SE exit at steady speed; dips are frame-edge clipping"
  },
  {
   "video": "C3902.MP4",
@@ -1580,8 +1634,8 @@
   "ids": [
    3212
   ],
-  "why": "truck#3212/car#3918 and car#3296/bus#3969 are SE-exit platoon following (dips = edge clipping); car#4121 overtakes bus#4081 pulling into the far bus stop, easing gradually with no swerve",
-  "episode": "near-C3902-0316"
+  "source": "agent:near_miss_0",
+  "why": "truck#3212/car#3918 and car#3296/bus#3969 are SE-exit platoon following (dips = edge clipping); car#4121 overtakes bus#4081 pulling into the far bus stop, easing gradually with no swerve"
  },
  {
   "video": "C3902.MP4",
@@ -1590,8 +1644,8 @@
   "ids": [
    4177
   ],
-  "why": "bus#4177 accelerates SE past the island tip while pers#4203 walks slowly at the island edge; bus does not brake or swerve, pedestrian makes no evasive move",
-  "episode": "near-C3902-0317"
+  "source": "agent:near_miss_0",
+  "why": "bus#4177 accelerates SE past the island tip while pers#4203 walks slowly at the island edge; bus does not brake or swerve, pedestrian makes no evasive move"
  },
  {
   "video": "C3902.MP4",
@@ -1600,8 +1654,8 @@
   "ids": [
    4229
   ],
-  "why": "bus#4229 box covers near-stationary buses in the junction; car#4416 accelerates SE away from them; car#4389 slows gradually into far NW-bound traffic near car#4485; no sharp braking",
-  "episode": "near-C3902-0318"
+  "source": "agent:near_miss_0",
+  "why": "bus#4229 box covers near-stationary buses in the junction; car#4416 accelerates SE away from them; car#4389 slows gradually into far NW-bound traffic near car#4485; no sharp braking"
  },
  {
   "video": "C3902.MP4",
@@ -1610,8 +1664,8 @@
   "ids": [
    4081
   ],
-  "why": "car#4558 gradually closes on slow bus#4081 far up-left in the NW-bound lanes and runs alongside; gradual slowing only",
-  "episode": "near-C3902-0319"
+  "source": "agent:near_miss_0",
+  "why": "car#4558 gradually closes on slow bus#4081 far up-left in the NW-bound lanes and runs alongside; gradual slowing only"
  },
  {
   "video": "C3902.MP4",
@@ -1620,8 +1674,8 @@
   "ids": [
    4408
   ],
-  "why": "car#4791 moves off near zebra B and accelerates NW just north of the crossing past pers#4408, who keeps walking; no sharp braking or swerve",
-  "episode": "near-C3902-0320"
+  "source": "agent:near_miss_0",
+  "why": "car#4791 moves off near zebra B and accelerates NW just north of the crossing past pers#4408, who keeps walking; no sharp braking or swerve"
  },
  {
   "video": "C3902.MP4",
@@ -1630,8 +1684,8 @@
   "ids": [
    4815
   ],
-  "why": "car#4815 and truck#5222 travel side by side in adjacent SE-bound lanes, both accelerating; dips are frame-edge clipping",
-  "episode": "near-C3902-0321"
+  "source": "agent:near_miss_0",
+  "why": "car#4815 and truck#5222 travel side by side in adjacent SE-bound lanes, both accelerating; dips are frame-edge clipping"
  },
  {
   "video": "C3902.MP4",
@@ -1640,8 +1694,8 @@
   "ids": [
    5546
   ],
-  "why": "car#5546/#5580, #5546/#5628 and #5670/#5732 run side by side or following in a moving SE-bound platoon; steady speeds, dips only at the frame edge",
-  "episode": "near-C3902-0322"
+  "source": "agent:near_miss_0",
+  "why": "car#5546/#5580, #5546/#5628 and #5670/#5732 run side by side or following in a moving SE-bound platoon; steady speeds, dips only at the frame edge"
  },
  {
   "video": "C3902.MP4",
@@ -1650,8 +1704,8 @@
   "ids": [
    5757
   ],
-  "why": "car#5757 and car#5785 drive side by side in adjacent SE-bound lanes at steady speed; #5785 box later merges two cars at the frame edge",
-  "episode": "near-C3902-0323"
+  "source": "agent:near_miss_0",
+  "why": "car#5757 and car#5785 drive side by side in adjacent SE-bound lanes at steady speed; #5785 box later merges two cars at the frame edge"
  },
  {
   "video": "C3905.MP4",
@@ -1660,8 +1714,8 @@
   "ids": [
    3
   ],
-  "why": "car#3 overtakes car#6 on the left while car#6 moves toward the kerb lane (NW-bound); smooth speeds, no brake or swerve",
-  "episode": "near-C3905-0381"
+  "source": "agent:near_miss_0",
+  "why": "car#3 overtakes car#6 on the left while car#6 moves toward the kerb lane (NW-bound); smooth speeds, no brake or swerve"
  },
  {
   "video": "C3905.MP4",
@@ -1670,8 +1724,8 @@
   "ids": [
    10
   ],
-  "why": "car#243 passes stationary kerb car#10 at constant speed; car#442 crosses zebra B ~1.5 m from walking pers#367 without slowing (dip is occlusion), pedestrian keeps walking",
-  "episode": "near-C3905-0382"
+  "source": "agent:near_miss_0",
+  "why": "car#243 passes stationary kerb car#10 at constant speed; car#442 crosses zebra B ~1.5 m from walking pers#367 without slowing (dip is occlusion), pedestrian keeps walking"
  },
  {
   "video": "C3905.MP4",
@@ -1680,8 +1734,8 @@
   "ids": [
    150
   ],
-  "why": "car#564 accelerates steadily through the left turn into the side road, passing pedestrian group pers#150 at the bottom frame edge; no braking or swerve, pedestrians keep moving",
-  "episode": "near-C3905-0383"
+  "source": "agent:near_miss_0",
+  "why": "car#564 accelerates steadily through the left turn into the side road, passing pedestrian group pers#150 at the bottom frame edge; no braking or swerve, pedestrians keep moving"
  },
  {
   "video": "C3905.MP4",
@@ -1690,8 +1744,8 @@
   "ids": [
    661
   ],
-  "why": "car#661/#769, #701/#733, #761/#775 and #794/#818 are adjacent-lane or following cars in a moving SE-bound platoon at dusk; steady speeds, dips are frame-edge clipping",
-  "episode": "near-C3905-0384"
+  "source": "agent:near_miss_0",
+  "why": "car#661/#769, #701/#733, #761/#775 and #794/#818 are adjacent-lane or following cars in a moving SE-bound platoon at dusk; steady speeds, dips are frame-edge clipping"
  },
  {
   "video": "C3905.MP4",
@@ -1700,8 +1754,8 @@
   "ids": [
    973
   ],
-  "why": "car#1022 overtakes articulated bus#973 in the adjacent NW-bound lane on a constant heading; gradual perspective slowing only, no brake or swerve",
-  "episode": "near-C3905-0385"
+  "source": "agent:near_miss_0",
+  "why": "car#1022 overtakes articulated bus#973 in the adjacent NW-bound lane on a constant heading; gradual perspective slowing only, no brake or swerve"
  },
  {
   "video": "C3905.MP4",
@@ -1710,8 +1764,8 @@
   "ids": [
    957
   ],
-  "why": "car#957 moves steadily SE into the exit; car#1105 emerges from behind a truck at the right edge in slow traffic and its speed drop is box growth/clipping; no brake or swerve",
-  "episode": "near-C3905-0386"
+  "source": "agent:near_miss_0",
+  "why": "car#957 moves steadily SE into the exit; car#1105 emerges from behind a truck at the right edge in slow traffic and its speed drop is box growth/clipping; no brake or swerve"
  },
  {
   "video": "C3896.MP4",
@@ -1720,8 +1774,8 @@
   "ids": [
    16
   ],
-  "why": "U-turn swing: crossed zebra A from SE lanes, moves a few metres right of median-nose island and stops to wait (later turns up through zebra B into NW-bound lanes)",
-  "episode": "wron-C3896-0112"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn swing: crossed zebra A from SE lanes, moves a few metres right of median-nose island and stops to wait (later turns up through zebra B into NW-bound lanes)"
  },
  {
   "video": "C3896.MP4",
@@ -1730,8 +1784,8 @@
   "ids": [
    990
   ],
-  "why": "stationary on zebra B facing left (NW-bound, correct) while pedestrians cross; box only widens as a dark car creeps past in front",
-  "episode": "wron-C3896-0113"
+  "source": "agent:wrong_way_0",
+  "why": "stationary on zebra B facing left (NW-bound, correct) while pedestrians cross; box only widens as a dark car creeps past in front"
  },
  {
   "video": "C3896.MP4",
@@ -1740,8 +1794,8 @@
   "ids": [
    1384
   ],
-  "why": "stationary near far kerb of NW-bound carriageway; box jitters while a box truck passes in front and occludes it",
-  "episode": "wron-C3896-0114"
+  "source": "agent:wrong_way_0",
+  "why": "stationary near far kerb of NW-bound carriageway; box jitters while a box truck passes in front and occludes it"
  },
  {
   "video": "C3896.MP4",
@@ -1750,8 +1804,8 @@
   "ids": [
    1765
   ],
-  "why": "U-turn swing: SUV from SE lanes moves right below zebra B, then turns to face up (rear visible at 146.5 s); later exits up-left through zebra B",
-  "episode": "wron-C3896-0115"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn swing: SUV from SE lanes moves right below zebra B, then turns to face up (rear visible at 146.5 s); later exits up-left through zebra B"
  },
  {
   "video": "C3896.MP4",
@@ -1760,8 +1814,8 @@
   "ids": [
    1740
   ],
-  "why": "stationary in SE approach queue at red; box shifts left/right as it merges with adjacent white car",
-  "episode": "wron-C3896-0116"
+  "source": "agent:wrong_way_0",
+  "why": "stationary in SE approach queue at red; box shifts left/right as it merges with adjacent white car"
  },
  {
   "video": "C3896.MP4",
@@ -1770,8 +1824,8 @@
   "ids": [
    1917
   ],
-  "why": "stationary in SE approach queue at red beside truck 1740; box jitter only",
-  "episode": "wron-C3896-0117"
+  "source": "agent:wrong_way_0",
+  "why": "stationary in SE approach queue at red beside truck 1740; box jitter only"
  },
  {
   "video": "C3896.MP4",
@@ -1780,8 +1834,8 @@
   "ids": [
    1740
   ],
-  "why": "same truck stationary in SE queue at red; box shrinks off adjacent car so its centre drifts left",
-  "episode": "wron-C3896-0118"
+  "source": "agent:wrong_way_0",
+  "why": "same truck stationary in SE queue at red; box shrinks off adjacent car so its centre drifts left"
  },
  {
   "video": "C3896.MP4",
@@ -1790,8 +1844,8 @@
   "ids": [
    1975
   ],
-  "why": "stationary behind bus at far-kerb stop of NW-bound carriageway; few-pixel box jitter",
-  "episode": "wron-C3896-0119"
+  "source": "agent:wrong_way_0",
+  "why": "stationary behind bus at far-kerb stop of NW-bound carriageway; few-pixel box jitter"
  },
  {
   "video": "C3896.MP4",
@@ -1800,8 +1854,8 @@
   "ids": [
    2227
   ],
-  "why": "nearly stationary in NW-bound carriageway, creeping up-left (correct); box drops out when passing cars occlude it",
-  "episode": "wron-C3896-0120"
+  "source": "agent:wrong_way_0",
+  "why": "nearly stationary in NW-bound carriageway, creeping up-left (correct); box drops out when passing cars occlude it"
  },
  {
   "video": "C3896.MP4",
@@ -1810,8 +1864,8 @@
   "ids": [
    2558
   ],
-  "why": "stationary behind bus at far-kerb stop of NW-bound carriageway; box jitter from passing cars",
-  "episode": "wron-C3896-0121"
+  "source": "agent:wrong_way_0",
+  "why": "stationary behind bus at far-kerb stop of NW-bound carriageway; box jitter from passing cars"
  },
  {
   "video": "C3896.MP4",
@@ -1820,8 +1874,8 @@
   "ids": [
    2924
   ],
-  "why": "U-turn swing: emerges from behind SE-bound bus right of island and curves from heading right to heading up toward zebra B (rear visible)",
-  "episode": "wron-C3896-0122"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn swing: emerges from behind SE-bound bus right of island and curves from heading right to heading up toward zebra B (rear visible)"
  },
  {
   "video": "C3896.MP4",
@@ -1830,8 +1884,8 @@
   "ids": [
    2401
   ],
-  "why": "U-turn swing: moves right from island and queues behind U-turning car 2924 at zebra B; later exits into NW-bound lanes",
-  "episode": "wron-C3896-0123"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn swing: moves right from island and queues behind U-turning car 2924 at zebra B; later exits into NW-bound lanes"
  },
  {
   "video": "C3896.MP4",
@@ -1840,8 +1894,8 @@
   "ids": [
    2558
   ],
-  "why": "same car stationary behind bus at far-kerb stop; box overlaps passing cars",
-  "episode": "wron-C3896-0124"
+  "source": "agent:wrong_way_0",
+  "why": "same car stationary behind bus at far-kerb stop; box overlaps passing cars"
  },
  {
   "video": "C3897.MP4",
@@ -1850,8 +1904,8 @@
   "ids": [
    503
   ],
-  "why": "U-turn swing: moves right of median-nose island and stops facing right to wait for a gap (completes U-turn at ~63 s)",
-  "episode": "wron-C3897-0236"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn swing: moves right of median-nose island and stops facing right to wait for a gap (completes U-turn at ~63 s)"
  },
  {
   "video": "C3897.MP4",
@@ -1860,8 +1914,8 @@
   "ids": [
    554
   ],
-  "why": "stationary in SE approach queue beside median behind stop line; box jitter",
-  "episode": "wron-C3897-0237"
+  "source": "agent:wrong_way_0",
+  "why": "stationary in SE approach queue beside median behind stop line; box jitter"
  },
  {
   "video": "C3897.MP4",
@@ -1870,8 +1924,8 @@
   "ids": [
    871
   ],
-  "why": "stationary in SE approach queue; box jitter while a bus passes in front",
-  "episode": "wron-C3897-0238"
+  "source": "agent:wrong_way_0",
+  "why": "stationary in SE approach queue; box jitter while a bus passes in front"
  },
  {
   "video": "C3897.MP4",
@@ -1880,8 +1934,8 @@
   "ids": [
    503
   ],
-  "why": "completes U-turn: curves from heading right to heading up across zebra B (rear visible from 63.5 s)",
-  "episode": "wron-C3897-0239"
+  "source": "agent:wrong_way_0",
+  "why": "completes U-turn: curves from heading right to heading up across zebra B (rear visible from 63.5 s)"
  },
  {
   "video": "C3897.MP4",
@@ -1890,8 +1944,8 @@
   "ids": [
    551
   ],
-  "why": "U-turn behind car 503: swings right of island and turns to head up toward zebra B",
-  "episode": "wron-C3897-0240"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn behind car 503: swings right of island and turns to head up toward zebra B"
  },
  {
   "video": "C3897.MP4",
@@ -1900,8 +1954,8 @@
   "ids": [
    1636
   ],
-  "why": "U-turn: waiting SUV turns from facing right to heading up through zebra B (rear visible at 124.3 s)",
-  "episode": "wron-C3897-0241"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn: waiting SUV turns from facing right to heading up through zebra B (rear visible at 124.3 s)"
  },
  {
   "video": "C3897.MP4",
@@ -1910,8 +1964,8 @@
   "ids": [
    1938
   ],
-  "why": "U-turn swing: moves right from island and queues behind another U-turning car",
-  "episode": "wron-C3897-0242"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn swing: moves right from island and queues behind another U-turning car"
  },
  {
   "video": "C3897.MP4",
@@ -1920,8 +1974,8 @@
   "ids": [
    1782
   ],
-  "why": "wide U-turn: moves right below zebra B then turns to head up (rear visible from 137.6 s); later exits up-left through zebra B",
-  "episode": "wron-C3897-0243"
+  "source": "agent:wrong_way_0",
+  "why": "wide U-turn: moves right below zebra B then turns to head up (rear visible from 137.6 s); later exits up-left through zebra B"
  },
  {
   "video": "C3897.MP4",
@@ -1930,8 +1984,8 @@
   "ids": [
    1938
   ],
-  "why": "completes U-turn: turns from heading right to heading up toward zebra B",
-  "episode": "wron-C3897-0244"
+  "source": "agent:wrong_way_0",
+  "why": "completes U-turn: turns from heading right to heading up toward zebra B"
  },
  {
   "video": "C3897.MP4",
@@ -1940,8 +1994,8 @@
   "ids": [
    2858
   ],
-  "why": "U-turn: SUV moves right of island and turns to head up toward zebra B (rear visible from 205.4 s)",
-  "episode": "wron-C3897-0245"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn: SUV moves right of island and turns to head up toward zebra B (rear visible from 205.4 s)"
  },
  {
   "video": "C3897.MP4",
@@ -1950,8 +2004,8 @@
   "ids": [
    3130
   ],
-  "why": "U-turn swing: moves right from island and stops to wait behind U-turning SUV 2858",
-  "episode": "wron-C3897-0246"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn swing: moves right from island and stops to wait behind U-turning SUV 2858"
  },
  {
   "video": "C3897.MP4",
@@ -1960,8 +2014,8 @@
   "ids": [
    3130
   ],
-  "why": "completes U-turn: turns from heading right to heading up toward zebra B",
-  "episode": "wron-C3897-0247"
+  "source": "agent:wrong_way_0",
+  "why": "completes U-turn: turns from heading right to heading up toward zebra B"
  },
  {
   "video": "C3897.MP4",
@@ -1970,8 +2024,8 @@
   "ids": [
    3395
   ],
-  "why": "U-turning car creeps right behind SE-bound box truck; at 265.3 s the id jumps to a different car driving up-left through zebra B",
-  "episode": "wron-C3897-0248"
+  "source": "agent:wrong_way_0",
+  "why": "U-turning car creeps right behind SE-bound box truck; at 265.3 s the id jumps to a different car driving up-left through zebra B"
  },
  {
   "video": "C3897.MP4",
@@ -1980,8 +2034,8 @@
   "ids": [
    4273
   ],
-  "why": "same U-turning car under new id, nearly stationary facing right behind SE-bound truck; few-pixel creep",
-  "episode": "wron-C3897-0249"
+  "source": "agent:wrong_way_0",
+  "why": "same U-turning car under new id, nearly stationary facing right behind SE-bound truck; few-pixel creep"
  },
  {
   "video": "C3897.MP4",
@@ -1990,8 +2044,8 @@
   "ids": [
    4207
   ],
-  "why": "stationary near far kerb of NW-bound carriageway; box drops out as cars pass in front",
-  "episode": "wron-C3897-0250"
+  "source": "agent:wrong_way_0",
+  "why": "stationary near far kerb of NW-bound carriageway; box drops out as cars pass in front"
  },
  {
   "video": "C3897.MP4",
@@ -2000,8 +2054,8 @@
   "ids": [
    4273
   ],
-  "why": "completes wide U-turn: moves right then turns to head up near right end of zebra B (rear visible from 283.2 s)",
-  "episode": "wron-C3897-0251"
+  "source": "agent:wrong_way_0",
+  "why": "completes wide U-turn: moves right then turns to head up near right end of zebra B (rear visible from 283.2 s)"
  },
  {
   "video": "C3902.MP4",
@@ -2010,8 +2064,8 @@
   "ids": [
    59
   ],
-  "why": "stationary in SE approach queue at red; box jitter",
-  "episode": "wron-C3902-0352"
+  "source": "agent:wrong_way_0",
+  "why": "stationary in SE approach queue at red; box jitter"
  },
  {
   "video": "C3902.MP4",
@@ -2020,8 +2074,8 @@
   "ids": [
    596
   ],
-  "why": "turning swing: after waiting past the island, SUV curves right/up-right across NW approach to the NE kerb, then (as id 1441) waits facing up at right end of zebra B; not driving along opposing lanes",
-  "episode": "wron-C3902-0353"
+  "source": "agent:wrong_way_0",
+  "why": "turning swing: after waiting past the island, SUV curves right/up-right across NW approach to the NE kerb, then (as id 1441) waits facing up at right end of zebra B; not driving along opposing lanes"
  },
  {
   "video": "C3902.MP4",
@@ -2030,8 +2084,8 @@
   "ids": [
    1186
   ],
-  "why": "U-turn: SUV swings right of island and turns to face up at zebra B (rear visible from 85.9 s); later exits up-left through zebra B",
-  "episode": "wron-C3902-0354"
+  "source": "agent:wrong_way_0",
+  "why": "U-turn: SUV swings right of island and turns to face up at zebra B (rear visible from 85.9 s); later exits up-left through zebra B"
  },
  {
   "video": "C3905.MP4",
@@ -2040,8 +2094,8 @@
   "ids": [
    500
   ],
-  "why": "far end of NW-bound carriageway at dusk; box jumps between two small cars both moving away (tail lights visible); track moves up-left",
-  "episode": "wron-C3905-0398"
+  "source": "agent:wrong_way_0",
+  "why": "far end of NW-bound carriageway at dusk; box jumps between two small cars both moving away (tail lights visible); track moves up-left"
  },
  {
   "video": "C3905.MP4",
@@ -2050,8 +2104,8 @@
   "ids": [
    981
   ],
-  "why": "turning swing: crosses zebra A, moves a few metres right of island and stops facing right to wait",
-  "episode": "wron-C3905-0399"
+  "source": "agent:wrong_way_0",
+  "why": "turning swing: crosses zebra A, moves a few metres right of island and stops facing right to wait"
  },
  {
   "video": "C3905.MP4",
@@ -2060,8 +2114,8 @@
   "ids": [
    981
   ],
-  "why": "turns from facing right to heading up toward zebra B (rear visible from 79.3 s)",
-  "episode": "wron-C3905-0400"
+  "source": "agent:wrong_way_0",
+  "why": "turns from facing right to heading up toward zebra B (rear visible from 79.3 s)"
  },
  {
   "video": "C3905.MP4",
@@ -2070,8 +2124,8 @@
   "ids": [
    1024
   ],
-  "why": "stationary behind bus at far-kerb stop of NW-bound carriageway; box overlap from passing cars",
-  "episode": "wron-C3905-0401"
+  "source": "agent:wrong_way_0",
+  "why": "stationary behind bus at far-kerb stop of NW-bound carriageway; box overlap from passing cars"
  },
  {
   "video": "C3905.MP4",
@@ -2080,8 +2134,8 @@
   "ids": [
    1628
   ],
-  "why": "mini pickup moves right from island and turns to head up toward zebra B (rear lights visible); id switches to 1661",
-  "episode": "wron-C3905-0402"
+  "source": "agent:wrong_way_0",
+  "why": "mini pickup moves right from island and turns to head up toward zebra B (rear lights visible); id switches to 1661"
  },
  {
   "video": "C3905.MP4",
@@ -2090,57 +2144,1774 @@
   "ids": [
    1661
   ],
-  "why": "same mini pickup heading up toward zebra B and waiting for pedestrians; turning, not against traffic",
-  "episode": "wron-C3905-0403"
+  "source": "agent:wrong_way_0",
+  "why": "same mini pickup heading up toward zebra B and waiting for pedestrians; turning, not against traffic"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 0.0,
+  "end": 20.95,
+  "ids": [
+   12,
+   15,
+   16,
+   24,
+   71,
+   89,
+   141,
+   151,
+   195
+  ],
+  "source": "manual:jaywalking",
+  "why": "slip-lane group crossing from zebra A diagonally to zebra C"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   512
+  ],
+  "source": "manual:jaywalking",
+  "why": "edge of zebra C next to island"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   512
+  ],
+  "source": "manual:jaywalking",
+  "why": "standing at island/zebra C edge"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 39.5,
+  "end": 44.5,
+  "ids": [
+   368,
+   500,
+   512,
+   519
+  ],
+  "source": "manual:jaywalking",
+  "why": "group crosses the slip-lane asphalt ~40-44 s, then waits on the SW kerb (rest of interval is not jaywalking)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 77.41,
+  "end": 91.02,
+  "ids": [
+   1232,
+   1253,
+   1292
+  ],
+  "source": "manual:jaywalking",
+  "why": "walk diagonally from zebra A across the junction box to zebra C"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   1302,
+   1455
+  ],
+  "source": "manual:jaywalking",
+  "why": "standing on zebra C top by the island"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   1720
+  ],
+  "source": "manual:jaywalking",
+  "why": "on the SW kerb / zebra A end"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 142.68,
+  "end": 150.55,
+  "ids": [
+   2335
+  ],
+  "source": "manual:jaywalking",
+  "why": "walks on the asphalt beside the NE planter north of zebra B"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   2834
+  ],
+  "source": "manual:jaywalking",
+  "why": "stands on the raised median by the gantry"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 217.02,
+  "end": 222.36,
+  "ids": [
+   3386
+  ],
+  "source": "manual:jaywalking",
+  "why": "walks on the asphalt north of zebra B toward the NE corner"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 225.96,
+  "end": 228.49,
+  "ids": [
+   3544
+  ],
+  "source": "manual:jaywalking",
+  "why": "stands on the asphalt beside the NE planter north of zebra B"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   3295,
+   3594,
+   3621,
+   3713,
+   3749
+  ],
+  "source": "manual:jaywalking",
+  "why": "pedestrians crossing on zebra A/B"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 237.57,
+  "end": 245.18,
+  "ids": [
+   3749
+  ],
+  "source": "manual:jaywalking",
+  "why": "walks up the slip-lane asphalt from zebra C toward zebra A"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   3594
+  ],
+  "source": "manual:jaywalking",
+  "why": "on zebra C stripes"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   4193
+  ],
+  "source": "manual:jaywalking",
+  "why": "on zebra C stripes"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 298.0,
+  "end": 304.8,
+  "ids": [
+   4572,
+   4609,
+   4669
+  ],
+  "source": "manual:jaywalking",
+  "why": "pair walks from zebra A across the slip-lane asphalt to zebra C (~298-305 s)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 309.0,
+  "end": 316.3,
+  "ids": [
+   3873,
+   4628,
+   4669
+  ],
+  "source": "manual:jaywalking",
+  "why": "pedestrians cross the slip-lane asphalt toward zebra C (~309-316 s)"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 6.67,
+  "end": 12.01,
+  "ids": [
+   9
+  ],
+  "source": "manual:jaywalking",
+  "why": "walks along the asphalt between zebra A and the island (slip lane)"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 25.0,
+  "end": 34.3,
+  "ids": [
+   70,
+   151,
+   195,
+   323,
+   374
+  ],
+  "source": "manual:jaywalking",
+  "why": "group crosses from zebra A diagonally over the slip-lane asphalt to zebra C"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   661
+  ],
+  "source": "manual:jaywalking",
+  "why": "bottom of zebra C"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   661
+  ],
+  "source": "manual:jaywalking",
+  "why": "on zebra C"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 60.59,
+  "end": 71.0,
+  "ids": [
+   808
+  ],
+  "source": "manual:jaywalking",
+  "why": "walks up the slip-lane asphalt from zebra C to zebra A"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 82.0,
+  "end": 101.8,
+  "ids": [
+   1386,
+   1413,
+   1418,
+   1433
+  ],
+  "source": "manual:jaywalking",
+  "why": "pedestrians cross the junction box/slip lane diagonally, off the zebras"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 101.97,
+  "end": 109.31,
+  "ids": [
+   1386,
+   1606
+  ],
+  "source": "manual:jaywalking",
+  "why": "walk on the asphalt north of zebra B toward the NE corner"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   2254,
+   2263
+  ],
+  "source": "manual:jaywalking",
+  "why": "group at zebra C top / island"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   2339
+  ],
+  "source": "manual:jaywalking",
+  "why": "on zebra C"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 136.8,
+  "end": 145.48,
+  "ids": [
+   2339
+  ],
+  "source": "manual:jaywalking",
+  "why": "walks up the slip-lane asphalt between zebra C and zebra A"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 182.0,
+  "end": 192.86,
+  "ids": [
+   2871,
+   2970,
+   3050,
+   3149,
+   3215,
+   3245,
+   3370,
+   3505,
+   3554
+  ],
+  "source": "manual:jaywalking",
+  "why": "group crosses the slip-lane asphalt from zebra A toward zebra C (~182-193 s); earlier part is on the zebras"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 193.79,
+  "end": 198.2,
+  "ids": [
+   3425
+  ],
+  "source": "manual:jaywalking",
+  "why": "walks up the slip-lane asphalt from zebra C to zebra A"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   2970
+  ],
+  "source": "manual:jaywalking",
+  "why": "bottom of zebra C, box clipped by the frame edge"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 201.8,
+  "end": 204.6,
+  "ids": [
+   3755
+  ],
+  "source": "manual:jaywalking",
+  "why": "walks on the side-road asphalt right of zebra C below the island"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 219.42,
+  "end": 224.62,
+  "ids": [
+   4203
+  ],
+  "source": "manual:jaywalking",
+  "why": "crosses the side road diagonally right of zebra C toward the island"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 232.23,
+  "end": 241.17,
+  "ids": [
+   4203
+  ],
+  "source": "manual:jaywalking",
+  "why": "continues diagonally across the junction box toward the median nose"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 259.0,
+  "end": 264.7,
+  "ids": [
+   4587,
+   4696,
+   4700,
+   4918,
+   4932
+  ],
+  "source": "manual:jaywalking",
+  "why": "group leaves zebra A and crosses the slip-lane asphalt toward zebra C"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 261.86,
+  "end": 268.8,
+  "ids": [
+   4587
+  ],
+  "source": "manual:jaywalking",
+  "why": "walks down the slip-lane asphalt from zebra A to zebra C"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 271.47,
+  "end": 275.61,
+  "ids": [
+   5101
+  ],
+  "source": "manual:jaywalking",
+  "why": "leaves zebra A and crosses the junction box to the middle island"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 277.08,
+  "end": 285.75,
+  "ids": [
+   4254,
+   4262,
+   4700
+  ],
+  "source": "manual:jaywalking",
+  "why": "group walks the side-road asphalt beside zebra C"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   5526
+  ],
+  "source": "manual:jaywalking",
+  "why": "on zebra C"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   19,
+   20
+  ],
+  "source": "manual:jaywalking",
+  "why": "low-light fragments of people standing at the far kerb"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "uncertain",
+  "ids": [
+   883
+  ],
+  "source": "manual:jaywalking",
+  "why": "group at the island tip near zebra C"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 71.94,
+  "end": 77.94,
+  "ids": [
+   1305
+  ],
+  "source": "manual:jaywalking",
+  "why": "group crosses the slip-lane asphalt from zebra A toward zebra C"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 100.63,
+  "end": 115.18,
+  "ids": [
+   1875,
+   1961,
+   1974,
+   2103,
+   2116,
+   2126
+  ],
+  "source": "manual:jaywalking",
+  "why": "group walks down the slip lane between zebra A and zebra C"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   415
+  ],
+  "source": "manual:jaywalking",
+  "why": "group on zebra C"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   469
+  ],
+  "source": "manual:jaywalking",
+  "why": "group at the top of zebra C by the island"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   936
+  ],
+  "source": "manual:jaywalking",
+  "why": "on zebra A"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   1084
+  ],
+  "source": "manual:jaywalking",
+  "why": "on zebra A"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   1084
+  ],
+  "source": "manual:jaywalking",
+  "why": "on zebra A"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 152.02,
+  "end": 157.62,
+  "ids": [
+   2487,
+   2527
+  ],
+  "source": "manual:jaywalking",
+  "why": "walk on the carriageway just north of zebra B"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "uncertain",
+  "ids": [
+   2563
+  ],
+  "source": "manual:jaywalking",
+  "why": "~2 m of asphalt between zebra B and the planter"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   2596
+  ],
+  "source": "manual:jaywalking",
+  "why": "top edge of zebra A"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   2763
+  ],
+  "source": "manual:jaywalking",
+  "why": "moped rider"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   2950
+  ],
+  "source": "manual:jaywalking",
+  "why": "moped rider"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   4021
+  ],
+  "source": "manual:jaywalking",
+  "why": "at the island edge next to zebra C"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   169,
+   179
+  ],
+  "source": "manual:jaywalking",
+  "why": "on the top of zebra C"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   549
+  ],
+  "source": "manual:jaywalking",
+  "why": "scooter rider"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 140.41,
+  "end": 147.88,
+  "ids": [
+   2339,
+   2566
+  ],
+  "source": "manual:jaywalking",
+  "why": "continuation of the slip-lane walk (item 26)"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "uncertain",
+  "ids": [
+   2339,
+   2418
+  ],
+  "source": "manual:jaywalking",
+  "why": "near the SW kerb"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 162.3,
+  "end": 166.17,
+  "ids": [
+   2970
+  ],
+  "source": "manual:jaywalking",
+  "why": "walks on the asphalt north of zebra B"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "uncertain",
+  "ids": [
+   3933
+  ],
+  "source": "manual:jaywalking",
+  "why": "about 1 s north of zebra B"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   3425
+  ],
+  "source": "manual:jaywalking",
+  "why": "bottom frame edge beside zebra C"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 226.63,
+  "end": 229.03,
+  "ids": [
+   4203
+  ],
+  "source": "manual:jaywalking",
+  "why": "part of the diagonal walk across the junction box (items 31-32)"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   795
+  ],
+  "source": "manual:jaywalking",
+  "why": "clipped at the bottom edge beside zebra C"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "no",
+  "ids": [
+   1201
+  ],
+  "source": "manual:jaywalking",
+  "why": "clipped at the bottom edge"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "accepted",
+  "start": 69.8,
+  "end": 72.07,
+  "ids": [
+   1278
+  ],
+  "source": "manual:jaywalking",
+  "why": "crosses the side-road asphalt toward the island"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "uncertain",
+  "ids": [
+   1400
+  ],
+  "source": "manual:jaywalking",
+  "why": "near the SW corner kerb"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "uncertain",
+  "ids": [
+   1632
+  ],
+  "source": "manual:jaywalking",
+  "why": "at zebra B's north edge"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "uncertain",
+  "ids": [
+   1634,
+   1730
+  ],
+  "source": "manual:jaywalking",
+  "why": "north of zebra B at dusk"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "jaywalking",
+  "status": "uncertain",
+  "ids": [
+   2126,
+   2266
+  ],
+  "source": "manual:jaywalking",
+  "why": "beside zebra C at dusk"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   6
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   138
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 53.92,
+  "end": 54.99,
+  "ids": [
+   139
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   980
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   990
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 156.02,
+  "end": 157.76,
+  "ids": [
+   1765,
+   2044
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing B' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   2110
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 305.24,
+  "end": 305.91,
+  "ids": [
+   4272
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing B' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   503
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 92.23,
+  "end": 94.63,
+  "ids": [
+   1439
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1987
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 156.96,
+  "end": 158.29,
+  "ids": [
+   2454,
+   2455
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   2584
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 177.38,
+  "end": 178.71,
+  "ids": [
+   2011
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 214.35,
+  "end": 215.15,
+  "ids": [
+   3288
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 215.95,
+  "end": 216.75,
+  "ids": [
+   3307
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 298.43,
+  "end": 299.1,
+  "ids": [
+   4687
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing B' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 305.77,
+  "end": 306.31,
+  "ids": [
+   4713
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing B' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   4764
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 316.98,
+  "end": 317.82,
+  "ids": [
+   4897
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 12.28,
+  "end": 12.95,
+  "ids": [
+   192
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing B' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   389
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   450
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 52.99,
+  "end": 54.72,
+  "ids": [
+   643
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   3710
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   5001
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 285.35,
+  "end": 287.49,
+  "ids": [
+   5225
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 288.29,
+  "end": 289.76,
+  "ids": [
+   4731
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   2
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 20.95,
+  "end": 22.16,
+  "ids": [
+   322,
+   366
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing B' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 23.49,
+  "end": 24.02,
+  "ids": [
+   385
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing B' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "dropped-short",
+  "start": 27.36,
+  "end": 27.63,
+  "why": "vehicle traverses 'Crossing B' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   290,
+   328
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 39.51,
+  "end": 40.57,
+  "ids": [
+   564
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (tuned detection)"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1661
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1500,
+   1661,
+   1838
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1344
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "tuned detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   229
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   577
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   889,
+   897
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   952
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   1010
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1102,
+   1182
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1230,
+   1240
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   922
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1322
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   2167
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   2227,
+   2236
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   2267
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   2317
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   3025
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   4092
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   4268
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   873
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   509
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   1528
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1637
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   2574
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   2221
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   3153
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   3448
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   3492
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 249.85,
+  "end": 250.92,
+  "ids": [
+   3603
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (loose-only detection)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   3464
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   4402
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   4588
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   271
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   889
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1441
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1326
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   2246
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 171.77,
+  "end": 172.31,
+  "ids": [
+   3136
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing B' beside a walking pedestrian (loose-only detection)"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   3238
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   3976
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   5205,
+   5215
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   227
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   311
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   435
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   339
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   614
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   13
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 44.84,
+  "end": 46.58,
+  "ids": [
+   684
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing C' beside a walking pedestrian (loose-only detection)"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "uncertain",
+  "ids": [
+   1012
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1441
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "no",
+  "ids": [
+   1499
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "loose-only detection"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "failure_to_yield",
+  "status": "accepted",
+  "start": 80.88,
+  "end": 84.48,
+  "ids": [
+   981
+  ],
+  "source": "manual:failure_to_yield",
+  "why": "vehicle traverses 'Crossing B' beside a walking pedestrian (loose-only detection)"
  },
  {
   "video": "C3896.MP4",
   "label": "stop_line",
+  "status": "accepted",
   "start": 63.7,
   "end": 102.24,
   "ids": [
    543,
    567
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
  },
  {
   "video": "C3896.MP4",
   "label": "stop_line",
+  "status": "accepted",
   "start": 216.3,
   "end": 252.12,
   "ids": [
    2706
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
  },
  {
   "video": "C3896.MP4",
   "label": "stop_line",
+  "status": "accepted",
   "start": 288.6,
   "end": 327.39,
   "ids": [
    3416
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
  },
  {
   "video": "C3897.MP4",
   "label": "stop_line",
+  "status": "accepted",
   "start": 0.0,
   "end": 20.15,
   "ids": [
    2
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
  },
  {
   "video": "C3897.MP4",
   "label": "stop_line",
+  "status": "accepted",
   "start": 56.7,
   "end": 94.76,
   "ids": [
@@ -2148,23 +3919,25 @@
    509,
    852
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
  },
  {
   "video": "C3897.MP4",
   "label": "stop_line",
+  "status": "accepted",
   "start": 131.6,
   "end": 169.77,
   "ids": [
    1987
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
  },
  {
   "video": "C3902.MP4",
   "label": "stop_line",
+  "status": "accepted",
   "start": 75.7,
   "end": 117.18,
   "ids": [
@@ -2173,35 +3946,38 @@
    1787,
    1929
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
  },
  {
   "video": "C3902.MP4",
   "label": "stop_line",
+  "status": "accepted",
   "start": 232.2,
   "end": 277.21,
   "ids": [
    4158,
    4229
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
  },
  {
   "video": "C3902.MP4",
   "label": "stop_line",
+  "status": "accepted",
   "start": 316.0,
   "end": 317.78,
   "ids": [
    5893
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
  },
  {
   "video": "C3905.MP4",
   "label": "stop_line",
+  "status": "accepted",
   "start": 77.8,
   "end": 114.51,
   "ids": [
@@ -2209,95 +3985,404 @@
    1500,
    1885
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
  },
  {
   "video": "C3896.MP4",
   "label": "red_light",
+  "status": "accepted",
   "start": 78.9,
   "end": 82.3,
   "ids": [
    952
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "crosses the stop line ~13 s into red and drives through the junction while the other lanes wait"
  },
  {
   "video": "C3897.MP4",
   "label": "red_light",
+  "status": "accepted",
   "start": 57.9,
   "end": 61.5,
   "ids": [
    913
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "bus in the kerb lane crosses 2-3 s into red and continues through the junction; lamp inset red throughout"
  },
  {
   "video": "C3897.MP4",
   "label": "red_light",
+  "status": "accepted",
   "start": 132.4,
   "end": 135.8,
   "ids": [
    2082
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "median-lane car crosses ~1.6 s into red while other lanes wait; lamp inset red"
  },
  {
   "video": "C3896.MP4",
   "label": "illegal_turn",
+  "status": "accepted",
   "start": 106.6,
   "end": 111.5,
   "ids": [
    922
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "right turn into the slip lane from lane 2, cutting across the kerb-lane queue (clause 56)"
  },
  {
   "video": "C3896.MP4",
   "label": "illegal_turn",
+  "status": "accepted",
   "start": 274.4,
   "end": 288.5,
   "ids": [
    3890
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "right turn into the side road from lane 2 through the junction box (clause 56)"
  },
  {
   "video": "C3897.MP4",
   "label": "illegal_turn",
+  "status": "accepted",
   "start": 172.3,
   "end": 178.7,
   "ids": [
    2011
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "right turn from lane 2 swinging across the kerb lane at the stop line (clause 56)"
  },
  {
   "video": "C3897.MP4",
   "label": "illegal_turn",
+  "status": "accepted",
   "start": 175.4,
   "end": 183.5,
   "ids": [
    2175
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "right turn into the side road from lane 3 (clause 56); overlaps 2011, merged"
  },
  {
   "video": "C3902.MP4",
   "label": "illegal_turn",
+  "status": "accepted",
   "start": 280.5,
   "end": 289.8,
   "ids": [
    4731
   ],
-  "source": "review:manual",
+  "source": "manual:zoom",
   "why": "right turn via the slip lane from lane 2 (clause 56)"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "solid_line_crossing",
+  "status": "accepted",
+  "start": 123.2,
+  "end": 126.2,
+  "ids": [
+   1595
+  ],
+  "source": "manual:solid",
+  "why": "lane coordinate 3.0 -> 3.9 inside the solid section; crosses solid lane line 3 toward the median (4K zoom checked)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "solid_line_crossing",
+  "status": "accepted",
+  "start": 129.1,
+  "end": 135.5,
+  "ids": [
+   2011
+  ],
+  "source": "manual:solid",
+  "why": "moves from lane 4 across solid lines 3 and 2 toward the kerb while the queue creeps (4K zoom: passes the silver Matiz on its kerb side)"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "solid_line_crossing",
+  "status": "uncertain",
+  "ids": [
+   3580
+  ],
+  "source": "manual:solid",
+  "why": "lane 4 -> 5 change whose line crossing is at the gantry, where the marking turns from dashed to solid"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "solid_line_crossing",
+  "status": "no",
+  "ids": [
+   4679
+  ],
+  "source": "manual:solid",
+  "why": "box switches from a black SUV in lane 4 to a black sedan in lane 5 (ID switch)"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "solid_line_crossing",
+  "status": "no",
+  "ids": [
+   936
+  ],
+  "source": "manual:solid",
+  "why": "rule detection at the stop line at dusk; queue shuffle, no lane change visible"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   1,
+   2
+  ],
+  "source": "manual:stopped",
+  "why": "vehicles at the bottom-right frame edge (SE exit), box clipped; waiting in traffic"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   567
+  ],
+  "source": "manual:stopped",
+  "why": "creeps past the stop line during red: a signal queue (labelled as stop_line)"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   509,
+   662
+  ],
+  "source": "manual:stopped",
+  "why": "cars at the far kerb of the north-west carriageway (parking/bus stop)"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   2380
+  ],
+  "source": "manual:stopped",
+  "why": "bus held in the junction mouth by traffic"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   2401,
+   2558,
+   3063
+  ],
+  "source": "manual:stopped",
+  "why": "U-turners waiting in the junction mouth for a gap"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   3908
+  ],
+  "source": "manual:stopped",
+  "why": "waits at the north-east driveway kerb to join traffic"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   3896
+  ],
+  "source": "manual:stopped",
+  "why": "waits in the junction box to turn, yielding (some doubt)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "stopped_vehicle",
+  "status": "uncertain",
+  "ids": [
+   1
+  ],
+  "source": "manual:stopped",
+  "why": "black SUV stands ~25 s in the junction box; possibly waiting for pedestrians before turning"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   503,
+   551
+  ],
+  "source": "manual:stopped",
+  "why": "U-turners waiting in the junction mouth"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   1930,
+   1938
+  ],
+  "source": "manual:stopped",
+  "why": "far-kerb parking area"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   2701,
+   3109,
+   3212
+  ],
+  "source": "manual:stopped",
+  "why": "far-kerb parking / bus stop"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   4262
+  ],
+  "source": "manual:stopped",
+  "why": "right frame edge, waiting in traffic"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   4196
+  ],
+  "source": "manual:stopped",
+  "why": "far-kerb parking area"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   5,
+   33,
+   103
+  ],
+  "source": "manual:stopped",
+  "why": "car parked at the far kerb (visible in the empty-road median background)"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   659
+  ],
+  "source": "manual:stopped",
+  "why": "articulated bus in traffic at the bottom-right edge"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   1117,
+   1478
+  ],
+  "source": "manual:stopped",
+  "why": "same far-kerb parked car"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   2193,
+   2195,
+   2215
+  ],
+  "source": "manual:stopped",
+  "why": "right frame edge, traffic"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   1117,
+   2315
+  ],
+  "source": "manual:stopped",
+  "why": "same far-kerb parked car"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   4197
+  ],
+  "source": "manual:stopped",
+  "why": "far-kerb bus stop"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   1117
+  ],
+  "source": "manual:stopped",
+  "why": "same far-kerb parked car"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   5189
+  ],
+  "source": "manual:stopped",
+  "why": "right frame edge, traffic"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   2,
+   10
+  ],
+  "source": "manual:stopped",
+  "why": "waiting in the junction mouth"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "stopped_vehicle",
+  "status": "no",
+  "ids": [
+   1024,
+   1111,
+   1129
+  ],
+  "source": "manual:stopped",
+  "why": "queue at and past the stop line during red"
  }
 ]

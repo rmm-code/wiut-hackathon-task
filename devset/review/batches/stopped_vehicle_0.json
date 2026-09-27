@@ -1,0 +1,1635 @@
+[
+ {
+  "video": "C3896.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 4.8,
+  "t1": 67.53,
+  "ids": [
+   1,
+   2,
+   8,
+   16,
+   120,
+   156,
+   191,
+   510
+  ],
+  "members": [
+   {
+    "cid": "sto-0120",
+    "t0": 4.8,
+    "t1": 14.15,
+    "ids": [
+     2
+    ],
+    "note": "stationary 9s at (0.97,1.00); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0119",
+    "t0": 5.74,
+    "t1": 22.56,
+    "ids": [
+     1
+    ],
+    "note": "stationary 17s at (0.92,0.94); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0124",
+    "t0": 6.27,
+    "t1": 21.89,
+    "ids": [
+     120
+    ],
+    "note": "stationary 16s at (0.32,0.17); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0127",
+    "t0": 13.88,
+    "t1": 34.43,
+    "ids": [
+     156
+    ],
+    "note": "stationary 21s at (0.17,0.27); in approach 100%; green 36%"
+   },
+   {
+    "cid": "sto-0128",
+    "t0": 21.35,
+    "t1": 33.77,
+    "ids": [
+     191
+    ],
+    "note": "stationary 12s at (0.10,0.26); in approach 100%; green 57%"
+   },
+   {
+    "cid": "sto-0125",
+    "t0": 23.22,
+    "t1": 45.91,
+    "ids": [
+     120
+    ],
+    "note": "stationary 23s at (0.32,0.18); in approach 0%; green 80%"
+   },
+   {
+    "cid": "sto-0121",
+    "t0": 40.44,
+    "t1": 49.38,
+    "ids": [
+     8
+    ],
+    "note": "stationary 9s at (0.94,1.00); in approach 0%; green 97%"
+   },
+   {
+    "cid": "sto-0123",
+    "t0": 47.25,
+    "t1": 58.32,
+    "ids": [
+     16
+    ],
+    "note": "stationary 11s at (0.78,0.57); in approach 100%; green 96%"
+   },
+   {
+    "cid": "sto-0139",
+    "t0": 54.05,
+    "t1": 67.53,
+    "ids": [
+     510
+    ],
+    "note": "stationary 13s at (0.93,0.79); in approach 0%; green 51%"
+   }
+  ],
+  "eid": "stop-C3896-0099",
+  "sheet": "sheets/stop-C3896-0099.jpg"
+ },
+ {
+  "video": "C3896.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 54.72,
+  "t1": 72.07,
+  "ids": [
+   12,
+   450,
+   462,
+   466,
+   497,
+   501,
+   536,
+   639
+  ],
+  "members": [
+   {
+    "cid": "sto-0122",
+    "t0": 54.72,
+    "t1": 65.53,
+    "ids": [
+     12
+    ],
+    "note": "stationary 11s at (0.96,0.96); in approach 0%; green 60%"
+   },
+   {
+    "cid": "sto-0143",
+    "t0": 55.39,
+    "t1": 70.6,
+    "ids": [
+     536
+    ],
+    "note": "stationary 15s at (0.89,1.00); in approach 0%; green 38%"
+   },
+   {
+    "cid": "sto-0129",
+    "t0": 55.66,
+    "t1": 64.33,
+    "ids": [
+     450
+    ],
+    "note": "stationary 9s at (0.83,0.83); in approach 0%; green 64%"
+   },
+   {
+    "cid": "sto-0135",
+    "t0": 57.12,
+    "t1": 65.53,
+    "ids": [
+     501
+    ],
+    "note": "stationary 8s at (0.78,0.68); in approach 0%; green 50%"
+   },
+   {
+    "cid": "sto-0130",
+    "t0": 57.79,
+    "t1": 67.27,
+    "ids": [
+     462
+    ],
+    "note": "stationary 9s at (0.71,0.73); in approach 0%; green 38%"
+   },
+   {
+    "cid": "sto-0148",
+    "t0": 58.19,
+    "t1": 69.4,
+    "ids": [
+     639
+    ],
+    "note": "stationary 11s at (0.67,0.59); in approach 0%; green 28%"
+   },
+   {
+    "cid": "sto-0134",
+    "t0": 58.59,
+    "t1": 67.8,
+    "ids": [
+     497
+    ],
+    "note": "stationary 9s at (0.63,0.64); in approach 0%; green 30%"
+   },
+   {
+    "cid": "sto-0132",
+    "t0": 58.86,
+    "t1": 72.07,
+    "ids": [
+     466
+    ],
+    "note": "stationary 13s at (0.75,0.89); in approach 0%; green 19%"
+   }
+  ],
+  "eid": "stop-C3896-0100",
+  "sheet": "sheets/stop-C3896-0100.jpg"
+ },
+ {
+  "video": "C3896.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 58.99,
+  "t1": 110.38,
+  "ids": [
+   509,
+   517,
+   533,
+   543,
+   567,
+   591,
+   662,
+   734
+  ],
+  "members": [
+   {
+    "cid": "sto-0142",
+    "t0": 58.99,
+    "t1": 69.4,
+    "ids": [
+     533
+    ],
+    "note": "stationary 10s at (0.55,0.57); in approach 0%; green 23%"
+   },
+   {
+    "cid": "sto-0144",
+    "t0": 60.33,
+    "t1": 71.27,
+    "ids": [
+     543
+    ],
+    "note": "stationary 11s at (0.47,0.52); in approach 0%; green 12%"
+   },
+   {
+    "cid": "sto-0136",
+    "t0": 62.2,
+    "t1": 73.01,
+    "ids": [
+     509
+    ],
+    "note": "stationary 11s at (0.61,0.76); in approach 0%; green 5%"
+   },
+   {
+    "cid": "sto-0149",
+    "t0": 62.73,
+    "t1": 72.87,
+    "ids": [
+     662
+    ],
+    "note": "stationary 10s at (0.44,0.24); in approach 0%; green 4%"
+   },
+   {
+    "cid": "sto-0140",
+    "t0": 63.93,
+    "t1": 74.47,
+    "ids": [
+     517
+    ],
+    "note": "stationary 11s at (0.49,0.64); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0145",
+    "t0": 64.6,
+    "t1": 75.81,
+    "ids": [
+     567
+    ],
+    "note": "stationary 11s at (0.40,0.54); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0147",
+    "t0": 64.6,
+    "t1": 110.38,
+    "ids": [
+     591
+    ],
+    "note": "stationary 46s at (0.31,0.47); in approach 0%; green 15%"
+   },
+   {
+    "cid": "sto-0151",
+    "t0": 65.4,
+    "t1": 73.54,
+    "ids": [
+     734
+    ],
+    "note": "stationary 8s at (0.38,0.21); in approach 0%; green 0%"
+   }
+  ],
+  "eid": "stop-C3896-0101",
+  "sheet": "sheets/stop-C3896-0101.jpg"
+ },
+ {
+  "video": "C3896.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 76.34,
+  "t1": 105.97,
+  "ids": [
+   120,
+   462,
+   466,
+   509,
+   517,
+   567,
+   662,
+   734
+  ],
+  "members": [
+   {
+    "cid": "sto-0131",
+    "t0": 76.34,
+    "t1": 97.3,
+    "ids": [
+     462
+    ],
+    "note": "stationary 21s at (0.97,0.95); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0133",
+    "t0": 76.61,
+    "t1": 104.64,
+    "ids": [
+     466
+    ],
+    "note": "stationary 28s at (0.89,1.00); in approach 0%; green 8%"
+   },
+   {
+    "cid": "sto-0137",
+    "t0": 76.74,
+    "t1": 93.83,
+    "ids": [
+     509
+    ],
+    "note": "stationary 17s at (0.67,0.81); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0141",
+    "t0": 76.88,
+    "t1": 104.1,
+    "ids": [
+     517
+    ],
+    "note": "stationary 27s at (0.52,0.67); in approach 0%; green 6%"
+   },
+   {
+    "cid": "sto-0150",
+    "t0": 78.48,
+    "t1": 101.97,
+    "ids": [
+     662
+    ],
+    "note": "stationary 23s at (0.44,0.24); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0146",
+    "t0": 78.88,
+    "t1": 105.97,
+    "ids": [
+     567
+    ],
+    "note": "stationary 27s at (0.44,0.58); in approach 0%; green 12%"
+   },
+   {
+    "cid": "sto-0152",
+    "t0": 79.01,
+    "t1": 88.35,
+    "ids": [
+     734
+    ],
+    "note": "stationary 9s at (0.38,0.21); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0126",
+    "t0": 80.75,
+    "t1": 98.77,
+    "ids": [
+     120
+    ],
+    "note": "stationary 18s at (0.32,0.17); in approach 0%; green 0%"
+   }
+  ],
+  "eid": "stop-C3896-0102",
+  "sheet": "sheets/stop-C3896-0102.jpg"
+ },
+ {
+  "video": "C3896.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 82.62,
+  "t1": 105.44,
+  "ids": [
+   509,
+   870,
+   927,
+   952
+  ],
+  "members": [
+   {
+    "cid": "sto-0153",
+    "t0": 82.62,
+    "t1": 99.7,
+    "ids": [
+     870
+    ],
+    "note": "stationary 17s at (0.46,0.22); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0154",
+    "t0": 83.28,
+    "t1": 99.3,
+    "ids": [
+     927
+    ],
+    "note": "stationary 16s at (0.35,0.17); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0155",
+    "t0": 85.42,
+    "t1": 104.77,
+    "ids": [
+     952
+    ],
+    "note": "stationary 19s at (0.87,0.85); in approach 0%; green 11%"
+   },
+   {
+    "cid": "sto-0138",
+    "t0": 95.7,
+    "t1": 105.44,
+    "ids": [
+     509
+    ],
+    "note": "stationary 10s at (0.71,0.85); in approach 0%; green 28%"
+   }
+  ],
+  "eid": "stop-C3896-0103",
+  "sheet": "sheets/stop-C3896-0103.jpg"
+ },
+ {
+  "video": "C3896.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 134.53,
+  "t1": 144.14,
+  "ids": [
+   1656
+  ],
+  "members": [
+   {
+    "cid": "sto-0156",
+    "t0": 134.53,
+    "t1": 144.14,
+    "ids": [
+     1656
+    ],
+    "note": "stationary 10s at (0.90,0.78); in approach 0%; green 19%"
+   }
+  ],
+  "eid": "stop-C3896-0104",
+  "sheet": "sheets/stop-C3896-0104.jpg"
+ },
+ {
+  "video": "C3896.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 150.68,
+  "t1": 188.59,
+  "ids": [
+   1975,
+   1989,
+   2044
+  ],
+  "members": [
+   {
+    "cid": "sto-0157",
+    "t0": 150.68,
+    "t1": 161.36,
+    "ids": [
+     1975
+    ],
+    "note": "stationary 11s at (0.32,0.17); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0158",
+    "t0": 159.89,
+    "t1": 180.58,
+    "ids": [
+     1989
+    ],
+    "note": "stationary 21s at (0.25,0.26); in approach 60%; green 11%"
+   },
+   {
+    "cid": "sto-0159",
+    "t0": 170.84,
+    "t1": 188.59,
+    "ids": [
+     2044
+    ],
+    "note": "stationary 18s at (0.39,0.18); in approach 0%; green 53%"
+   }
+  ],
+  "eid": "stop-C3896-0105",
+  "sheet": "sheets/stop-C3896-0105.jpg"
+ },
+ {
+  "video": "C3896.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 197.0,
+  "t1": 211.28,
+  "ids": [
+   2380
+  ],
+  "members": [
+   {
+    "cid": "sto-0160",
+    "t0": 197.0,
+    "t1": 211.28,
+    "ids": [
+     2380
+    ],
+    "note": "stationary 14s at (0.81,0.77); in approach 0%; green 86%"
+   }
+  ],
+  "eid": "stop-C3896-0106",
+  "sheet": "sheets/stop-C3896-0106.jpg"
+ },
+ {
+  "video": "C3896.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 217.42,
+  "t1": 289.62,
+  "ids": [
+   2558,
+   2582,
+   2957,
+   3025,
+   3063,
+   3640,
+   3654,
+   3766
+  ],
+  "members": [
+   {
+    "cid": "sto-0164",
+    "t0": 217.42,
+    "t1": 226.09,
+    "ids": [
+     2582
+    ],
+    "note": "stationary 9s at (0.46,0.22); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0166",
+    "t0": 227.43,
+    "t1": 239.04,
+    "ids": [
+     3025
+    ],
+    "note": "stationary 12s at (0.94,0.44); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0161",
+    "t0": 229.03,
+    "t1": 250.25,
+    "ids": [
+     2558
+    ],
+    "note": "stationary 21s at (0.32,0.18); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0168",
+    "t0": 229.43,
+    "t1": 240.37,
+    "ids": [
+     3063
+    ],
+    "note": "stationary 11s at (0.94,0.65); in approach 4%; green 0%"
+   },
+   {
+    "cid": "sto-0167",
+    "t0": 247.85,
+    "t1": 257.19,
+    "ids": [
+     3025
+    ],
+    "note": "stationary 9s at (0.94,0.44); in approach 0%; green 48%"
+   },
+   {
+    "cid": "sto-0162",
+    "t0": 256.39,
+    "t1": 265.87,
+    "ids": [
+     2558
+    ],
+    "note": "stationary 9s at (0.32,0.17); in approach 0%; green 92%"
+   },
+   {
+    "cid": "sto-0174",
+    "t0": 263.33,
+    "t1": 272.54,
+    "ids": [
+     3766
+    ],
+    "note": "stationary 9s at (0.94,0.44); in approach 0%; green 96%"
+   },
+   {
+    "cid": "sto-0165",
+    "t0": 266.4,
+    "t1": 280.41,
+    "ids": [
+     2957
+    ],
+    "note": "stationary 14s at (0.97,0.78); in approach 0%; green 94%"
+   },
+   {
+    "cid": "sto-0163",
+    "t0": 267.07,
+    "t1": 278.95,
+    "ids": [
+     2558
+    ],
+    "note": "stationary 12s at (0.32,0.17); in approach 0%; green 94%"
+   },
+   {
+    "cid": "sto-0170",
+    "t0": 267.07,
+    "t1": 280.95,
+    "ids": [
+     3640
+    ],
+    "note": "stationary 14s at (0.85,0.73); in approach 0%; green 93%"
+   },
+   {
+    "cid": "sto-0172",
+    "t0": 273.21,
+    "t1": 289.62,
+    "ids": [
+     3654
+    ],
+    "note": "stationary 16s at (0.39,0.19); in approach 0%; green 73%"
+   }
+  ],
+  "eid": "stop-C3896-0107",
+  "sheet": "sheets/stop-C3896-0107.jpg"
+ },
+ {
+  "video": "C3896.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 275.21,
+  "t1": 333.0,
+  "ids": [
+   3416,
+   3640,
+   3705,
+   3766,
+   3896,
+   3908,
+   3949,
+   4279
+  ],
+  "members": [
+   {
+    "cid": "sto-0178",
+    "t0": 275.21,
+    "t1": 288.96,
+    "ids": [
+     3908
+    ],
+    "note": "stationary 14s at (0.94,0.44); in approach 0%; green 72%"
+   },
+   {
+    "cid": "sto-0175",
+    "t0": 283.35,
+    "t1": 298.83,
+    "ids": [
+     3766
+    ],
+    "note": "stationary 15s at (0.50,0.24); in approach 0%; green 18%"
+   },
+   {
+    "cid": "sto-0171",
+    "t0": 284.95,
+    "t1": 293.89,
+    "ids": [
+     3640
+    ],
+    "note": "stationary 9s at (0.87,0.74); in approach 0%; green 16%"
+   },
+   {
+    "cid": "sto-0173",
+    "t0": 286.15,
+    "t1": 294.29,
+    "ids": [
+     3705
+    ],
+    "note": "stationary 8s at (0.72,0.65); in approach 0%; green 10%"
+   },
+   {
+    "cid": "sto-0176",
+    "t0": 287.09,
+    "t1": 298.3,
+    "ids": [
+     3896
+    ],
+    "note": "stationary 11s at (0.62,0.74); in approach 0%; green 4%"
+   },
+   {
+    "cid": "sto-0180",
+    "t0": 288.29,
+    "t1": 298.43,
+    "ids": [
+     3949
+    ],
+    "note": "stationary 10s at (0.51,0.65); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0169",
+    "t0": 298.83,
+    "t1": 328.33,
+    "ids": [
+     3416
+    ],
+    "note": "stationary 29s at (0.51,0.50); in approach 0%; green 4%"
+   },
+   {
+    "cid": "sto-0177",
+    "t0": 299.63,
+    "t1": 327.93,
+    "ids": [
+     3896
+    ],
+    "note": "stationary 28s at (0.64,0.75); in approach 0%; green 2%"
+   },
+   {
+    "cid": "sto-0181",
+    "t0": 300.43,
+    "t1": 328.19,
+    "ids": [
+     3949
+    ],
+    "note": "stationary 28s at (0.53,0.67); in approach 0%; green 3%"
+   },
+   {
+    "cid": "sto-0179",
+    "t0": 305.1,
+    "t1": 323.26,
+    "ids": [
+     3908
+    ],
+    "note": "stationary 18s at (0.94,0.44); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0182",
+    "t0": 322.46,
+    "t1": 333.0,
+    "ids": [
+     4279
+    ],
+    "note": "stationary 11s at (0.23,0.26); in approach 100%; green 54%"
+   }
+  ],
+  "eid": "stop-C3896-0108",
+  "sheet": "sheets/stop-C3896-0108.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 0.27,
+  "t1": 28.7,
+  "ids": [
+   1,
+   2,
+   14,
+   250
+  ],
+  "members": [
+   {
+    "cid": "sto-0399",
+    "t0": 0.27,
+    "t1": 26.16,
+    "ids": [
+     1
+    ],
+    "note": "stationary 26s at (0.66,0.77); in approach 0%; green 24%"
+   },
+   {
+    "cid": "sto-0400",
+    "t0": 4.67,
+    "t1": 21.09,
+    "ids": [
+     2
+    ],
+    "note": "stationary 16s at (0.48,0.46); in approach 0%; green 6%"
+   },
+   {
+    "cid": "sto-0401",
+    "t0": 13.75,
+    "t1": 22.69,
+    "ids": [
+     14
+    ],
+    "note": "stationary 9s at (0.19,0.34); in approach 100%; green 35%"
+   },
+   {
+    "cid": "sto-0402",
+    "t0": 19.35,
+    "t1": 28.7,
+    "ids": [
+     250
+    ],
+    "note": "stationary 9s at (0.10,0.25); in approach 100%; green 94%"
+   }
+  ],
+  "eid": "stop-C3897-0223",
+  "sheet": "sheets/stop-C3897-0223.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 38.57,
+  "t1": 64.73,
+  "ids": [
+   361,
+   460,
+   503,
+   509,
+   551
+  ],
+  "members": [
+   {
+    "cid": "sto-0405",
+    "t0": 38.57,
+    "t1": 56.59,
+    "ids": [
+     503
+    ],
+    "note": "stationary 18s at (0.78,0.59); in approach 100%; green 82%"
+   },
+   {
+    "cid": "sto-0407",
+    "t0": 39.77,
+    "t1": 50.85,
+    "ids": [
+     551
+    ],
+    "note": "stationary 11s at (0.62,0.57); in approach 0%; green 96%"
+   },
+   {
+    "cid": "sto-0403",
+    "t0": 40.84,
+    "t1": 49.92,
+    "ids": [
+     361
+    ],
+    "note": "stationary 9s at (0.54,0.52); in approach 0%; green 96%"
+   },
+   {
+    "cid": "sto-0404",
+    "t0": 42.58,
+    "t1": 53.12,
+    "ids": [
+     460
+    ],
+    "note": "stationary 11s at (0.93,0.74); in approach 0%; green 91%"
+   },
+   {
+    "cid": "sto-0406",
+    "t0": 56.72,
+    "t1": 64.73,
+    "ids": [
+     509
+    ],
+    "note": "stationary 8s at (0.48,0.47); in approach 0%; green 0%"
+   }
+  ],
+  "eid": "stop-C3897-0224",
+  "sheet": "sheets/stop-C3897-0224.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 137.74,
+  "t1": 189.66,
+  "ids": [
+   1930,
+   1938,
+   1951,
+   2015,
+   2026
+  ],
+  "members": [
+   {
+    "cid": "sto-0411",
+    "t0": 137.74,
+    "t1": 150.28,
+    "ids": [
+     1951
+    ],
+    "note": "stationary 13s at (0.84,1.00); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0413",
+    "t0": 143.74,
+    "t1": 151.89,
+    "ids": [
+     2015
+    ],
+    "note": "stationary 8s at (0.65,0.90); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0414",
+    "t0": 145.21,
+    "t1": 170.97,
+    "ids": [
+     2026
+    ],
+    "note": "stationary 26s at (0.56,0.77); in approach 0%; green 5%"
+   },
+   {
+    "cid": "sto-0412",
+    "t0": 151.75,
+    "t1": 174.97,
+    "ids": [
+     1951
+    ],
+    "note": "stationary 23s at (0.87,1.00); in approach 0%; green 23%"
+   },
+   {
+    "cid": "sto-0409",
+    "t0": 152.69,
+    "t1": 164.56,
+    "ids": [
+     1938
+    ],
+    "note": "stationary 12s at (0.39,0.21); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0408",
+    "t0": 153.22,
+    "t1": 177.11,
+    "ids": [
+     1930
+    ],
+    "note": "stationary 24s at (0.97,1.00); in approach 0%; green 31%"
+   },
+   {
+    "cid": "sto-0410",
+    "t0": 172.97,
+    "t1": 189.66,
+    "ids": [
+     1938
+    ],
+    "note": "stationary 17s at (0.39,0.21); in approach 0%; green 98%"
+   }
+  ],
+  "eid": "stop-C3897-0225",
+  "sheet": "sheets/stop-C3897-0225.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 201.4,
+  "t1": 249.18,
+  "ids": [
+   3109,
+   3212
+  ],
+  "members": [
+   {
+    "cid": "sto-0415",
+    "t0": 201.4,
+    "t1": 212.75,
+    "ids": [
+     3109
+    ],
+    "note": "stationary 11s at (0.39,0.21); in approach 0%; green 26%"
+   },
+   {
+    "cid": "sto-0417",
+    "t0": 210.21,
+    "t1": 247.05,
+    "ids": [
+     3212
+    ],
+    "note": "stationary 37s at (0.46,0.71); in approach 0%; green 6%"
+   },
+   {
+    "cid": "sto-0416",
+    "t0": 230.36,
+    "t1": 249.18,
+    "ids": [
+     3109
+    ],
+    "note": "stationary 19s at (0.39,0.21); in approach 0%; green 23%"
+   }
+  ],
+  "eid": "stop-C3897-0226",
+  "sheet": "sheets/stop-C3897-0226.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 267.73,
+  "t1": 283.22,
+  "ids": [
+   4262
+  ],
+  "members": [
+   {
+    "cid": "sto-0419",
+    "t0": 267.73,
+    "t1": 283.22,
+    "ids": [
+     4262
+    ],
+    "note": "stationary 15s at (0.93,0.71); in approach 0%; green 74%"
+   }
+  ],
+  "eid": "stop-C3897-0227",
+  "sheet": "sheets/stop-C3897-0227.jpg"
+ },
+ {
+  "video": "C3897.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 291.89,
+  "t1": 316.58,
+  "ids": [
+   4196,
+   4588
+  ],
+  "members": [
+   {
+    "cid": "sto-0418",
+    "t0": 291.89,
+    "t1": 316.58,
+    "ids": [
+     4196
+    ],
+    "note": "stationary 25s at (0.39,0.21); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0420",
+    "t0": 302.44,
+    "t1": 312.85,
+    "ids": [
+     4588
+    ],
+    "note": "stationary 10s at (0.46,0.24); in approach 0%; green 0%"
+   }
+  ],
+  "eid": "stop-C3897-0228",
+  "sheet": "sheets/stop-C3897-0228.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 11.61,
+  "t1": 52.85,
+  "ids": [
+   1,
+   5,
+   33,
+   49,
+   54,
+   103
+  ],
+  "members": [
+   {
+    "cid": "sto-0612",
+    "t0": 11.61,
+    "t1": 29.9,
+    "ids": [
+     33
+    ],
+    "note": "stationary 18s at (0.28,0.15); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0609",
+    "t0": 12.81,
+    "t1": 27.49,
+    "ids": [
+     1
+    ],
+    "note": "stationary 15s at (0.29,0.15); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0616",
+    "t0": 13.21,
+    "t1": 29.63,
+    "ids": [
+     103
+    ],
+    "note": "stationary 16s at (0.17,0.09); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0610",
+    "t0": 16.68,
+    "t1": 27.76,
+    "ids": [
+     5
+    ],
+    "note": "stationary 11s at (0.44,0.23); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0615",
+    "t0": 18.28,
+    "t1": 34.83,
+    "ids": [
+     54
+    ],
+    "note": "stationary 17s at (0.43,0.21); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0614",
+    "t0": 24.82,
+    "t1": 43.51,
+    "ids": [
+     49
+    ],
+    "note": "stationary 19s at (0.18,0.23); in approach 100%; green 34%"
+   },
+   {
+    "cid": "sto-0611",
+    "t0": 37.5,
+    "t1": 47.11,
+    "ids": [
+     5
+    ],
+    "note": "stationary 10s at (0.44,0.23); in approach 0%; green 100%"
+   },
+   {
+    "cid": "sto-0613",
+    "t0": 39.64,
+    "t1": 52.85,
+    "ids": [
+     33
+    ],
+    "note": "stationary 13s at (0.28,0.15); in approach 0%; green 100%"
+   }
+  ],
+  "eid": "stop-C3902-0336",
+  "sheet": "sheets/stop-C3902-0336.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 57.66,
+  "t1": 80.48,
+  "ids": [
+   596,
+   659,
+   1170
+  ],
+  "members": [
+   {
+    "cid": "sto-0618",
+    "t0": 57.66,
+    "t1": 69.54,
+    "ids": [
+     659
+    ],
+    "note": "stationary 12s at (0.79,0.94); in approach 0%; green 100%"
+   },
+   {
+    "cid": "sto-0617",
+    "t0": 58.06,
+    "t1": 76.88,
+    "ids": [
+     596
+    ],
+    "note": "stationary 19s at (0.92,0.63); in approach 100%; green 83%"
+   },
+   {
+    "cid": "sto-0625",
+    "t0": 70.74,
+    "t1": 80.48,
+    "ids": [
+     1170
+    ],
+    "note": "stationary 10s at (0.83,0.91); in approach 0%; green 31%"
+   }
+  ],
+  "eid": "stop-C3902-0337",
+  "sheet": "sheets/stop-C3902-0337.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 83.02,
+  "t1": 115.45,
+  "ids": [
+   1117,
+   1478
+  ],
+  "members": [
+   {
+    "cid": "sto-0619",
+    "t0": 83.02,
+    "t1": 98.36,
+    "ids": [
+     1117
+    ],
+    "note": "stationary 15s at (0.44,0.23); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0626",
+    "t0": 85.15,
+    "t1": 100.5,
+    "ids": [
+     1478
+    ],
+    "note": "stationary 15s at (0.28,0.15); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0620",
+    "t0": 99.7,
+    "t1": 114.91,
+    "ids": [
+     1117
+    ],
+    "note": "stationary 15s at (0.44,0.23); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0627",
+    "t0": 101.84,
+    "t1": 115.45,
+    "ids": [
+     1478
+    ],
+    "note": "stationary 14s at (0.28,0.15); in approach 0%; green 0%"
+   }
+  ],
+  "eid": "stop-C3902-0338",
+  "sheet": "sheets/stop-C3902-0338.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 130.8,
+  "t1": 162.3,
+  "ids": [
+   1117,
+   2193,
+   2195,
+   2215
+  ],
+  "members": [
+   {
+    "cid": "sto-0621",
+    "t0": 130.8,
+    "t1": 144.81,
+    "ids": [
+     1117
+    ],
+    "note": "stationary 14s at (0.44,0.23); in approach 0%; green 100%"
+   },
+   {
+    "cid": "sto-0630",
+    "t0": 136.4,
+    "t1": 148.15,
+    "ids": [
+     2215
+    ],
+    "note": "stationary 12s at (0.96,0.78); in approach 0%; green 100%"
+   },
+   {
+    "cid": "sto-0629",
+    "t0": 143.08,
+    "t1": 162.3,
+    "ids": [
+     2195
+    ],
+    "note": "stationary 19s at (0.95,0.67); in approach 0%; green 55%"
+   },
+   {
+    "cid": "sto-0628",
+    "t0": 144.94,
+    "t1": 162.16,
+    "ids": [
+     2193
+    ],
+    "note": "stationary 17s at (0.83,0.69); in approach 0%; green 51%"
+   }
+  ],
+  "eid": "stop-C3902-0339",
+  "sheet": "sheets/stop-C3902-0339.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 166.17,
+  "t1": 199.53,
+  "ids": [
+   1117,
+   2315
+  ],
+  "members": [
+   {
+    "cid": "sto-0622",
+    "t0": 166.17,
+    "t1": 199.53,
+    "ids": [
+     1117
+    ],
+    "note": "stationary 33s at (0.44,0.22); in approach 0%; green 8%"
+   },
+   {
+    "cid": "sto-0631",
+    "t0": 167.9,
+    "t1": 178.44,
+    "ids": [
+     2315
+    ],
+    "note": "stationary 11s at (0.28,0.15); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0632",
+    "t0": 179.91,
+    "t1": 192.33,
+    "ids": [
+     2315
+    ],
+    "note": "stationary 12s at (0.28,0.15); in approach 0%; green 0%"
+   }
+  ],
+  "eid": "stop-C3902-0340",
+  "sheet": "sheets/stop-C3902-0340.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 217.95,
+  "t1": 226.76,
+  "ids": [
+   3905
+  ],
+  "members": [
+   {
+    "cid": "sto-0633",
+    "t0": 217.95,
+    "t1": 226.76,
+    "ids": [
+     3905
+    ],
+    "note": "stationary 9s at (0.28,0.15); in approach 0%; green 75%"
+   }
+  ],
+  "eid": "stop-C3902-0341",
+  "sheet": "sheets/stop-C3902-0341.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 229.56,
+  "t1": 244.78,
+  "ids": [
+   4197
+  ],
+  "members": [
+   {
+    "cid": "sto-0634",
+    "t0": 229.56,
+    "t1": 244.78,
+    "ids": [
+     4197
+    ],
+    "note": "stationary 15s at (0.50,0.23); in approach 0%; green 0%"
+   }
+  ],
+  "eid": "stop-C3902-0342",
+  "sheet": "sheets/stop-C3902-0342.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 248.65,
+  "t1": 274.41,
+  "ids": [
+   1117,
+   5144
+  ],
+  "members": [
+   {
+    "cid": "sto-0623",
+    "t0": 248.65,
+    "t1": 274.41,
+    "ids": [
+     1117
+    ],
+    "note": "stationary 26s at (0.44,0.23); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0635",
+    "t0": 264.13,
+    "t1": 273.07,
+    "ids": [
+     5144
+    ],
+    "note": "stationary 9s at (0.28,0.15); in approach 0%; green 0%"
+   }
+  ],
+  "eid": "stop-C3902-0343",
+  "sheet": "sheets/stop-C3902-0343.jpg"
+ },
+ {
+  "video": "C3902.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 285.62,
+  "t1": 307.77,
+  "ids": [
+   1117,
+   5189,
+   5415
+  ],
+  "members": [
+   {
+    "cid": "sto-0624",
+    "t0": 285.62,
+    "t1": 294.29,
+    "ids": [
+     1117
+    ],
+    "note": "stationary 9s at (0.44,0.23); in approach 0%; green 92%"
+   },
+   {
+    "cid": "sto-0637",
+    "t0": 293.09,
+    "t1": 303.5,
+    "ids": [
+     5415
+    ],
+    "note": "stationary 10s at (0.25,0.64); in approach 0%; green 100%"
+   },
+   {
+    "cid": "sto-0636",
+    "t0": 296.56,
+    "t1": 307.77,
+    "ids": [
+     5189
+    ],
+    "note": "stationary 11s at (0.99,0.75); in approach 0%; green 100%"
+   }
+  ],
+  "eid": "stop-C3902-0344",
+  "sheet": "sheets/stop-C3902-0344.jpg"
+ },
+ {
+  "video": "C3905.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 6.41,
+  "t1": 24.29,
+  "ids": [
+   3,
+   10,
+   189
+  ],
+  "members": [
+   {
+    "cid": "sto-0752",
+    "t0": 6.41,
+    "t1": 21.76,
+    "ids": [
+     10
+    ],
+    "note": "stationary 15s at (0.44,0.23); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0755",
+    "t0": 10.54,
+    "t1": 24.29,
+    "ids": [
+     189
+    ],
+    "note": "stationary 14s at (0.29,0.15); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0751",
+    "t0": 12.95,
+    "t1": 22.96,
+    "ids": [
+     3
+    ],
+    "note": "stationary 10s at (0.09,0.08); in approach 0%; green 0%"
+   }
+  ],
+  "eid": "stop-C3905-0391",
+  "sheet": "sheets/stop-C3905-0391.jpg"
+ },
+ {
+  "video": "C3905.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 29.76,
+  "t1": 43.24,
+  "ids": [
+   10
+  ],
+  "members": [
+   {
+    "cid": "sto-0753",
+    "t0": 29.76,
+    "t1": 43.24,
+    "ids": [
+     10
+    ],
+    "note": "stationary 13s at (0.44,0.23); in approach 0%; green 63%"
+   }
+  ],
+  "eid": "stop-C3905-0392",
+  "sheet": "sheets/stop-C3905-0392.jpg"
+ },
+ {
+  "video": "C3905.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 52.99,
+  "t1": 116.78,
+  "ids": [
+   10,
+   981,
+   1024,
+   1043,
+   1074,
+   1111,
+   1129,
+   1416
+  ],
+  "members": [
+   {
+    "cid": "sto-0754",
+    "t0": 52.99,
+    "t1": 71.67,
+    "ids": [
+     10
+    ],
+    "note": "stationary 19s at (0.44,0.23); in approach 0%; green 93%"
+   },
+   {
+    "cid": "sto-0757",
+    "t0": 59.13,
+    "t1": 72.21,
+    "ids": [
+     1024
+    ],
+    "note": "stationary 13s at (0.37,0.19); in approach 0%; green 89%"
+   },
+   {
+    "cid": "sto-0760",
+    "t0": 65.0,
+    "t1": 74.07,
+    "ids": [
+     1074
+    ],
+    "note": "stationary 9s at (0.91,0.74); in approach 0%; green 65%"
+   },
+   {
+    "cid": "sto-0756",
+    "t0": 67.13,
+    "t1": 77.81,
+    "ids": [
+     981
+    ],
+    "note": "stationary 11s at (0.74,0.57); in approach 100%; green 36%"
+   },
+   {
+    "cid": "sto-0763",
+    "t0": 75.54,
+    "t1": 113.71,
+    "ids": [
+     1416
+    ],
+    "note": "stationary 38s at (0.46,0.44); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0759",
+    "t0": 77.54,
+    "t1": 108.24,
+    "ids": [
+     1043
+    ],
+    "note": "stationary 31s at (0.74,0.99); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0762",
+    "t0": 77.81,
+    "t1": 116.78,
+    "ids": [
+     1129
+    ],
+    "note": "stationary 39s at (0.39,0.52); in approach 0%; green 6%"
+   },
+   {
+    "cid": "sto-0761",
+    "t0": 80.21,
+    "t1": 116.65,
+    "ids": [
+     1111
+    ],
+    "note": "stationary 36s at (0.48,0.62); in approach 0%; green 6%"
+   }
+  ],
+  "eid": "stop-C3905-0393",
+  "sheet": "sheets/stop-C3905-0393.jpg"
+ },
+ {
+  "video": "C3905.MP4",
+  "hint": "stopped_vehicle",
+  "t0": 81.01,
+  "t1": 116.92,
+  "ids": [
+   1024,
+   1500,
+   1570
+  ],
+  "members": [
+   {
+    "cid": "sto-0764",
+    "t0": 81.01,
+    "t1": 97.3,
+    "ids": [
+     1500
+    ],
+    "note": "stationary 16s at (0.51,0.53); in approach 0%; green 0%"
+   },
+   {
+    "cid": "sto-0765",
+    "t0": 86.22,
+    "t1": 116.92,
+    "ids": [
+     1570
+    ],
+    "note": "stationary 31s at (0.57,0.61); in approach 0%; green 8%"
+   },
+   {
+    "cid": "sto-0758",
+    "t0": 89.02,
+    "t1": 107.97,
+    "ids": [
+     1024
+    ],
+    "note": "stationary 19s at (0.37,0.19); in approach 0%; green 0%"
+   }
+  ],
+  "eid": "stop-C3905-0394",
+  "sheet": "sheets/stop-C3905-0394.jpg"
+ }
+]

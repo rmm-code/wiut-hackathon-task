@@ -23,7 +23,7 @@ export function Team() {
             </span>
             <h3>{member.name}</h3>
             <span className="badge badge-neutral">{member.role}</span>
-            <p>{member.contribution}</p>
+            {member.contribution && <p>{member.contribution}</p>}
             <div className="study-tabs">
               {Object.entries(member.links).map(([label, url]) => (
                 <a
@@ -44,8 +44,7 @@ export function Team() {
       <section className="card report-copy">
         <div className="analysis-body">
           <p>
-            Names and the listed profiles were supplied by the team. Missing
-            contributions and profile URLs are left unclaimed until confirmed.
+            Names, roles and profile links were supplied by the team members.
           </p>
           <a
             className="button"

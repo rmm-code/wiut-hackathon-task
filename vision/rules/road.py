@@ -1,4 +1,4 @@
-from ..geometry import distance
+from ..geometry import distance, inside
 from ..types import Flag, VEHICLES
 from .conflicts import clipped
 from .crossing import CrossingRules, is_rider, occluded
@@ -7,12 +7,30 @@ from .direction import DirectionRules
 
 class RoadRules:
     # Ground-point clearance, in pedestrian heights: inside the kerb, and away from crossings.
-    edge_margin, crossing_margin = 0.12, 0.12
+    # Tuned on devset/labels.json (python -m scripts.devset score).
+    edge_margin, crossing_margin = 0.06, 0.12
 
     def __init__(self, scene):
         self.scene = scene
         self.crossing_rules = CrossingRules(scene)
         self.direction_rules = DirectionRules(scene)
+
+    def excluded(self, track):
+        """Inside a zone where stationary vehicles queue, wait to turn or park.
+
+        A zone tied to a signal only excludes vehicles that stopped before its lamp last
+        turned green: a lone vehicle that stops on green is a stopped vehicle.
+        """
+        point = self.scene.point(track.observation.foot)
+        for zone in self.scene.config.get("queue_zones", []):
+            polygon = zone["polygon"] if isinstance(zone, dict) else zone
+            if not inside(point, polygon):
+                continue
+            signal = zone.get("signal") if isinstance(zone, dict) else None
+            lamp = self.direction_rules.lamps.get(signal) if signal else None
+            if lamp is None or lamp.state != "green" or track.stopped_since < lamp.since:
+                return True
+        return False
 
     def step(self, tracks, t, frame=None):
         flags = []
@@ -42,7 +60,7 @@ class RoadRules:
                     for other in vehicles
                 )
                 if (
-                    not self.scene.queue_zone(observation.foot)
+                    not self.excluded(track)
                     and not clipped(observation.box)
                     and nearby == 0
                 ):

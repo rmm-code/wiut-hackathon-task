@@ -11,8 +11,11 @@ class Pending:
 
 class Segments:
     # Shortest observed interval kept per class, in seconds; stopped_vehicle has its own 10 s rule.
-    minimum = {"jaywalking": 0.5, "wrong_way": 0.5, "road_obstacle": 0.5, "congestion": 0.5}
+    minimum = {"jaywalking": 3.0, "wrong_way": 0.5, "road_obstacle": 0.5, "congestion": 0.5}
     default_minimum = 0.12
+    # Same-class events closer than this are one event (a vehicle crossing two lane
+    # lines, a pedestrian track split by occlusion). Overlapping events always merge.
+    merge_gap = {"solid_line_crossing": 3.0}
 
     def __init__(self):
         self.pending = {}
@@ -72,7 +75,7 @@ class Segments:
             if (
                 output
                 and output[-1].label == event.label
-                and event.start <= output[-1].end
+                and event.start <= output[-1].end + self.merge_gap.get(event.label, 0.0)
             ):
                 output[-1].end = max(output[-1].end, event.end)
                 output[-1].confidence = max(output[-1].confidence, event.confidence)

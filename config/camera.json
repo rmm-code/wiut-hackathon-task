@@ -440,7 +440,8 @@
           0.175
         ]
       ],
-      "evidence": "Five-lane approach: vehicles here wait for the signal."
+      "evidence": "Five-lane approach: vehicles that stopped during red are queueing; a lone vehicle that stops on green is not.",
+      "signal": "South-east approach signal (median head)"
     },
     {
       "id": "past the stop line",

@@ -1,175 +1,167 @@
 # Crossing
 
-A traffic-video review system for the WIUT Hackathon CV Track.
+Traffic-event detection and accident anticipation for one fixed CCTV camera, built for the WIUT
+Hackathon CV Track.
 
-**Phase 2 baseline is connected:** uploads run through local YOLO11s + ByteTrack, provisional scene rules, and causal risk scoring. The website displays real job progress, annotated playback, tracked-road-user counts, event intervals, and JSON export. This is **not yet a validated competition model**: see the class-coverage limitations below.
+- **Website and live demo:** https://wiut.mardonjon.me
+- **Release (weights, sample results):** [v1.0.0](https://github.com/rmm-code/wiut-hackathon-task/releases/tag/v1.0.0)
+- **Technical report:** [docs/report.md](docs/report.md) (also on the website's Report page)
+- **Sample predictions:** [predictions_samples.json](predictions_samples.json)
 
-## Start locally
+## Run the submission
 
-Use Python 3.12, Node 22.18+, npm, and ffmpeg/ffprobe. Tested on an Apple M5 Mac with 16 GB unified memory; CUDA and CPU selection are supported by the code but not yet benchmarked here.
-
-```sh
-uv venv --python 3.12 .venv
-uv pip install --python .venv/bin/python -r requirements.txt
-PYTHON=.venv/bin/python sh weights/download.sh
-npm --prefix web ci
-npm run dev
-```
-
-Open http://127.0.0.1:5173. The combined command starts the Python API on port 8000 and the web app on 5173. For separate terminals, use `npm run dev:api` and `npm run dev:web`.
-
-The API is local-only by default. Videos are sent to the local Python server, not to a hosted AI provider. Uploads accept MP4, up to two minutes and 250 MB. Jobs have a bounded queue, cookie-based ownership, cancellation, restart recovery, and cleanup after 24 hours. Cookies/results are not a substitute for a full public-deployment security review.
-
-The default dashboard remains a clearly labeled illustrative preview. Upload a real clip or select a downloaded sample to run the actual engine. Results are labeled **Model results · baseline**, and Analysis details exposes active/disabled rules and calibration limitations. Uploaded video becomes annotated playback on completion. The current job is restored after page refresh; saved labels and outputs follow the server’s 24-hour retention. Export labels to keep them.
-
-## Tests and build
-
-```sh
-npm run check
-npm test
-npm run build
-```
-
-`check` verifies strict TypeScript and the 700-line ceiling. `test` runs frontend result validation and Python rules, causality, API ownership, scene matching, and submission-contract tests. No actual traffic-event accuracy is implied by these engineering tests.
-
-## Official offline interface
-
-The root organizer files are byte-identical to the supplied ZIP. The root `solution.py` exposes `CLASSES`, `detect_events`, and `RiskEstimator`.
-
-```sh
-.venv/bin/python run_submission.py --videos samples --out predictions_samples.json --team crossing
-.venv/bin/python evaluate.py --pred predictions_samples.json --validate-only
-# After independently reviewing labels:
-.venv/bin/python evaluate.py --pred predictions_samples.json --gt my_labels.json --per-video
-```
-
-For the judging environment, install ffmpeg/ffprobe and the system libraries required by OpenCV (the Dockerfile includes them), then install dependencies and download weights once while online:
+Python 3.10+ (tested on 3.12), ffmpeg/ffprobe and the OpenCV system libraries. Download the weights
+once, with internet, before the offline run:
 
 ```sh
 pip install -r requirements.txt
-sh weights/download.sh
-```
-
-After setup, run offline:
-
-```sh
+sh weights/download.sh          # downloads and SHA-256-verifies the three checkpoints (139.1 MB)
 python run_submission.py --videos /data/test --out predictions.json
 python evaluate.py --pred predictions.json --validate-only
 ```
 
-The root Dockerfile supplies the Python environment. Run the weight downloader before building, then use `docker run --rm --network none -v /data/test:/data/test:ro -v "$PWD/output:/results" team python run_submission.py --videos /data/test --out /results/predictions.json` after `docker build -t team .`. Create `output/` first. This container is the Python service/submission environment; it does not publish the web frontend.
+`run_submission.py` and `evaluate.py` are the organizer files, unchanged; a test checks their hashes.
+Inference never downloads anything: Ultralytics auto-install, online checks and settings sync are
+disabled, and a missing checkpoint raises an error. The weights are also attached to the release as
+`weights.tar`. Extract it in the repository root instead of running the download script.
 
-Weights must be downloaded before offline execution. `scripts/setup.py` verifies the checkpoint SHA-256 in `weights/manifest.json`. Inference disables Ultralytics automatic installation, online checks, and synchronization. The three installed checkpoints total 139.1 MB; no model training has been performed.
+Docker: `docker build -t crossing .`, then
+`docker run --rm --network none -v /data/test:/data/test:ro -v "$PWD/output:/results" crossing python run_submission.py --videos /data/test --out /results/predictions.json`.
+Run the weight download before building. The image installs the default PyTorch wheels, which include
+CUDA.
 
-Part B creates a fresh detector/tracker/history and only processes frames supplied by the harness. It does not open the video or reuse Part A results. It returns a bounded, uncalibrated image-space conflict score.
+`CROSSING_DEVICE` selects `auto` (CUDA, then MPS, then CPU), `cuda:0`, `mps` or `cpu`. `CROSSING_FPS`
+sets the analysis sampling rate (default 8 frames/s).
 
-## Sample videos
-
-Only organizer-supplied links are used. Original samples are large: C3905 alone is approximately 2.35 GB, 3840 × 2160, 127.6275 seconds, and 29.97 fps.
-
-```sh
-.venv/bin/python -m scripts.samples C3905.MP4
-# Omit the name to download all four supplied originals.
-.venv/bin/python -m scripts.samples
-```
-
-C3905 is downloaded and processed. C3897 and C3902 were moved from Downloads into `samples/`, checked for metadata and first/last-frame decoding, and registered with SHA-256 ready markers. Both have now been fully analyzed on the Mac GPU, with saved results in the app and `output/C3897` / `output/C3902`. C3896 was subsequently imported and fully analyzed too. All four organizer samples now have saved results. Source links remain available in the website. Ready markers store metadata, source URL, and checksum; incomplete downloads are not offered to the sample-analysis endpoint. Trusted server-side originals can exceed the public upload duration/byte limit.
-
-Generate local visual artifacts with:
-
-```sh
-.venv/bin/python -m vision.cli samples/C3905.MP4 --output output/C3905
-```
-
-This creates `annotated.mp4`, clean `source.mp4`, three traffic-map JPEGs, `analysis.json`, `predictions.json`, and measured progress. Local generated videos, uploads, caches, weights, and environments are excluded from Git. Package verified weights separately for competition submission.
-
-## Coverage and limits
-
-Default provisional rules: pedestrian on road, stopped vehicle, failure to yield, and limited animal-on-road obstacle detection. The camera is matched against the supplied reference before applying those rules. Unknown camera views still get object detection and tracking, but scene-specific events/risk are disabled.
-
-Current camera coverage includes near-miss, wrong-way, congestion, red-light, stop-line and one finite solid-line rule in addition to the original six categories. Verified here means the visible camera feature was inspected; rule accuracy remains provisional. Illegal turns and U-turns still require authoritative prohibition facts. Accident and fire/smoke specialist checkpoints are enabled with temporal confirmation but unvalidated accuracy. Near-miss candidates require approach, evasive action and separation; generic debris remains limited to supported object classes. The website reports these limits for every analysis. Do not enable unsupported classes merely to advertise full coverage.
-
-There are no independent dev labels yet, so precision, recall, temporal F1, and anticipation accuracy are **not established**. A long predicted interval may be a false positive or a union of concurrent same-class events; review footage before treating it as correct. Mac runtime is not proof of runtime on the organizers' Linux/NVIDIA machine.
-
-## Structure
+## How it works
 
 ```text
-solution.py        competition adapter
-run_submission.py  unchanged organizer harness
-evaluate.py        unchanged organizer evaluator
-vision/            inference, tracking, scene geometry, events, risk, rendering
-  rules/           road, signal, turn, and experimental conflict rules
-api/               FastAPI endpoints, SQLite jobs, bounded process worker
-config/            provisional camera geometry and explicit verification flags
-weights/           model manifest and pre-run download instructions
-web/src/           approved React interface, API client, job state, review panels
-scripts/           setup, sample download, dev startup, source-size check
-tests/             Python engineering checks
-samples/           local organizer footage and verified metadata
-storage/           private, expiring job artifacts; ignored
-output/            local analysis/evaluation artifacts; ignored
-docs/              architecture, calibration, evidence, API, provenance
+video ─► YOLO11s (COCO road users) ─► ByteTrack ─► camera alignment ─► scene rules ─► segments ─► events
+                                     │                (SIFT homography)   per class      merge,
+          accident / fire specialists ┘                                                  min length
+frames one by one ─► own YOLO11s + ByteTrack ─► closest-approach conflict score ─► risk (Part B)
 ```
 
-The inference package is shared by the web worker and offline adapter. API jobs run in isolated subprocesses; no second browser model or future-aware tracking cache is used. The optional web starter Worker only serves static frontend assets and cannot run the Python model.
+1. **Detection and tracking (learned).** Pretrained YOLO11s finds cars, buses, trucks, motorcycles,
+   bicycles, people and animals in every fourth frame (about 7.5 frames/s at 29.97 fps). ByteTrack
+   links the detections into tracks.
+2. **Camera alignment (rule-based).** The first frame is matched to the organizer reference view with
+   SIFT and RANSAC. If the match fails, the video is treated as a different camera and every scene rule
+   is switched off.
+3. **Scene rules (rule-based).** The geometry is mapped once on an empty-road background of the samples
+   ([calibration](docs/calibration.md)). Each class has a small rule over tracks and that geometry
+   ([classes](docs/classes.md)).
+4. **Specialists (learned).** Two open-weights YOLO checkpoints propose accident and fire/smoke boxes
+   about once a second. Temporal confirmation and road gating decide which become events.
+5. **Segments.** Per-class minimum durations drop blips, and same-class events are merged, following
+   the organizers' convention that simultaneous events form one segment.
+6. **Part B.** `RiskEstimator` creates its own detector and tracker, sees only the frames it is given,
+   and scores closest-approach conflicts (time to collision, predicted miss distance, detector
+   confidence). The score is calibrated so the 0.5 alarm threshold is crossed about 0.9 times a minute
+   on normal traffic. It never reads Part A output.
 
-## Configuration
+**Classes.** 13 of the 14 official classes are active on this camera. `near_miss` is implemented and
+tested but switched off: our review of the samples found no near miss, and every detection was a
+false alarm. A class that is predicted but absent from the test set scores zero in the macro average.
 
-Environment variables are listed in `.env.example`; export them before starting. `CROSSING_DEVICE` accepts `auto`, `mps`, `cpu`, or `cuda:0`. `auto` selects CUDA, then MPS, then CPU. `CROSSING_FPS` sets the desired sampling rate. Model and scene paths can be overridden explicitly. Review `config/camera.json` and [calibration notes](docs/calibration.md) before enabling any verification flags.
+Details of each class, the legal basis of the two turn classes (Uzbekistan traffic rules, clauses 56
+and 62), and the evidence for every camera fact are in [docs/classes.md](docs/classes.md).
 
-The Dockerfile has been built for Linux x86_64. All three models run with networking disabled and all 30 Python tests pass in that environment. Public deployment and the target NVIDIA benchmark are still pending; the installed CUDA 13 build needs a compatible NVIDIA driver.
+## Accuracy on our sample labels
 
-## Documentation and attribution
+We labelled the four organizer samples ourselves; the method is in [devset/README.md](devset/README.md).
+The labels are in the official ground-truth format:
 
-- [Architecture](docs/architecture.md), [API](docs/api.md), [calibration and rule coverage](docs/calibration.md), [technical report](docs/report.md).
-- Official YOLO11s weights and Ultralytics runtime: AGPL-3.0 open-source terms; source and hash in `weights/manifest.json`.
-- ByteTrack implementation through Ultralytics; paper: https://arxiv.org/abs/2110.06864.
-- User-supplied design references in `design/`; organizer camera still provenance in [assets](docs/assets.md).
-- Inter font (SIL OFL), Phosphor icons (MIT), React/Vite, Recharts, and the installed Product Design starter.
+```sh
+python evaluate.py --pred predictions_samples.json --gt devset/labels.json --per-video
+```
 
-No additional footage from the target camera was collected, no closed-model inference API is used, and no hidden test data was accessed. Team member details and public publication remain to be completed.
+DEV_TABLE
 
-## Submission audit
-
-Read [the readiness checklist](docs/submission.md), [current measured report](docs/report.md), and [model research and licences](docs/research.md). Run `python -m scripts.check` to identify missing release inputs. All three pinned model weights are verified by `python -m scripts.setup`. The current candidate is not yet a complete public submission.
-
-The supplied specifications are saved as [full task](docs/task.md) and [submission package](docs/package.md).
+The rules were tuned on these same four videos, so the scores are optimistic. Six classes never occur
+in the samples, so their accuracy is unmeasured.
 
 ## Reproducibility
 
-Python `random`, NumPy and Torch use seed 42; OpenCV alignment resets its RNG to 42. cuDNN benchmarking is disabled and deterministic cuDNN behavior is requested. Exact cross-platform numerical equality is not guaranteed between MPS, CPU and CUDA. Independent web/harness output equality has been checked on C3905; final all-sample repeated harness runs and target NVIDIA timing remain unverified. Predictions are model candidates, not human labels.
+- Seeds: Python, NumPy and Torch use 42, and the OpenCV alignment resets its RNG to 42. cuDNN
+  benchmarking is off and deterministic cuDNN is requested.
+- `predictions_samples.json` was produced by the unchanged harness from the tagged commit.
+  DETERMINISM
+- CPU, MPS and CUDA can differ in floating point, so exact equality across platforms is not guaranteed.
+- Dev tooling:
+  - `python -m scripts.devset cache` stores detector and tracker output for every sample once.
+  - `python -m scripts.devset score` re-runs all rules on that cache in about 10 seconds and scores
+    them against `devset/labels.json`.
+  - `python -m scripts.sheets` renders the contact sheets used for review.
+- Tests: `python -m pytest -q tests` covers the rules, causality, the API, scene matching, segments,
+  the organizer file hashes and the submission contract.
 
-## Public website
+RUNTIME
 
-Pushing this repository does not deploy the application. A public installation needs the frontend plus the Python API/worker, ffmpeg, local model weights, and writable storage. Serve the frontend and `/api` under the same HTTPS origin through a reverse proxy, configure `CROSSING_ORIGINS`, and provision persistent sample artifacts. GitHub Pages or another static-only host cannot run the Python inference service. The local two-minute / 250 MB upload limit also applies to the demo unless deliberately changed.
+## Website
+
+https://wiut.mardonjon.me runs the same Python engine behind a FastAPI job queue. Visitors can upload a
+clip (MP4, up to 2 minutes and 95 MB) and get annotated playback, an event timeline, a risk curve and a
+JSON export. The site also has:
+
+- every sample video annotated in full, with event timelines, EDA maps and the accuracy table;
+- the report, the team and downloads.
+
+Its deployment (systemd unit and nginx vhost) is in [`deploy/`](deploy/). See
+[architecture](docs/architecture.md) for details.
+
+Run it locally with Python 3.12, Node 22.18+ and ffmpeg:
+
+```sh
+uv venv --python 3.12 .venv && uv pip install --python .venv/bin/python -r requirements.txt
+PYTHON=.venv/bin/python sh weights/download.sh
+npm --prefix web ci && npm run dev          # http://127.0.0.1:5173
+```
+
+## Repository layout
+
+```text
+solution.py, run_submission.py, evaluate.py   competition interface and unchanged organizer files
+vision/            detection, tracking, camera alignment, rules, segments, risk, rendering, EDA
+  rules/           road, crossing, direction, signal, turn and conflict rules
+config/camera.json scene geometry and camera facts, each with its evidence
+devset/            our sample labels, review notes and the dev-set report
+api/               FastAPI endpoints, SQLite job store, bounded analysis worker
+web/src/           React website
+scripts/           weight setup, dev-set cache/replay/score, contact sheets, archive, packaging
+deploy/            public-site systemd unit and nginx vhost
+tests/             Python tests
+docs/              report, classes, calibration, architecture, API, model research, task text
+```
 
 ## Models, datasets and licences
 
-No training or fine-tuning was performed by this team. The following datasets were used by the upstream pretrained models; they are not redistributed here. The learned components detect appearance. ByteTrack association, signal reading, lane/turn geometry, temporal rules, merging, and closest-approach risk are rule-based.
+No model was trained or fine-tuned by this team. The learned parts detect appearance. Tracking
+association, camera alignment, signal reading, every event rule, segment merging and the risk score
+are hand-written.
 
 | Component and author | Upstream data | Dataset terms | Checkpoint terms |
 | --- | --- | --- | --- |
 | YOLO11s — Ultralytics | COCO 2017 | [COCO Consortium](https://cocodataset.org/#termsofuse): annotations CC BY 4.0; images retain individual Flickr rights/terms | Ultralytics AGPL-3.0 open-source terms |
 | Fire/smoke YOLO26n — seawsurf | [FASDD CV](https://huggingface.co/datasets/seawsurf/fire_smoke_dataset_fasdd_cv), as identified in the source model card | Publisher declares CC BY 4.0 | Publisher declares CC BY 4.0; Ultralytics base/runtime terms also apply |
 | Accident YOLO11x — Uppada Enos | [Traffic Accident Detection, hilmantm](https://universe.roboflow.com/hilmantm/traffic-accident-detection), as identified in the source model card | Publisher declares CC BY 4.0 | Publisher declares MIT; Ultralytics base/runtime terms also apply |
-| WIUT organizer footage | C3896, C3897, C3902, C3905 | Provided for this competition; no independent open-data licence was supplied | Used for camera geometry, sample inference and regression fixtures, not training |
+| WIUT organizer footage | C3896, C3897, C3902, C3905 | Provided for this competition | Used for camera geometry, our dev labels and regression fixtures, not for training |
 
-Source model cards: [fire/smoke](https://huggingface.co/seawsurf/fire_smoke_detection_box), [accident](https://huggingface.co/Enos-123/traffic-accident-detection-yolo11x). Attribution and source declarations were checked on 25 September 2026. These declarations are not a claim to have audited every upstream image's rights. All model revisions and hashes are pinned in `weights/manifest.json`. No additional target-camera footage or hosted inference API is used.
+Model cards: [fire/smoke](https://huggingface.co/seawsurf/fire_smoke_detection_box),
+[accident](https://huggingface.co/Enos-123/traffic-accident-detection-yolo11x). Revisions and SHA-256
+hashes are pinned in `weights/manifest.json`. ByteTrack runs through Ultralytics
+([paper](https://arxiv.org/abs/2110.06864)). The website uses the Inter font (SIL OFL), Phosphor icons
+(MIT), React, Vite and Recharts.
 
-## Team and confirmed contributions
+No other footage from this camera was collected, no hosted or closed model is called at any stage,
+and no hidden test data was accessed.
 
-| Member | Confirmed role/contribution | Supplied profiles |
+## Team
+
+| Member | Role | Links |
 | --- | --- | --- |
-| Mardonjon Rasulov | Captain; detailed technical contributions awaiting confirmation | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmmcode) |
-| Saidxon Xaydarov | Team member; contribution awaiting confirmation | [Portfolio](https://xaydarov.uz) |
-| Miraziz Mirvaliyev | Team member; contribution and profile URLs awaiting confirmation | Not yet provided |
+| Mardonjon Rasulov | Captain | [Portfolio](https://mardonjon.me), [GitHub](https://github.com/rmmcode) |
+| Saidxon Xaydarov | Team member | [Portfolio](https://xaydarov.uz), [GitHub](https://github.com/khdrvss), [LinkedIn](https://www.linkedin.com/in/saidxon-xaydarov) |
+| Miraziz Mirvaliyev | Team member | [GitHub](https://github.com/MMiraziz013), [LinkedIn](https://www.linkedin.com/in/miraziz-mirvaliyev-75a685236/) |
 
-Missing LinkedIn/GitHub URLs and individual implementation claims are deliberately not invented. `config/team.json` is the website's editable source of truth for confirmed details.
-
-## Permanent sample gallery
-
-After generating each sample under `output/<sample>/`, run `python -m scripts.archive`. This copies only organizer-sample outputs into `artifacts/`, including complete annotated video, analysis, maps and a checksum record. These artifacts never enter the private job cleanup path. Mount/preserve this directory on a public server; private visitor uploads still expire after 24 hours.
-
-Anonymous routes serve `/api/samples/<id>/results`, `/video`, `/eda/<kind>` and `/api/downloads/predictions.json`. They never expose arbitrary upload jobs. `GET /api/downloads/weights.json` provides the hash manifest; checkpoint links point directly to pinned public upstream downloads. Public internet access still requires deploying the backend. Repository visibility and hosting are separate from these anonymous routes.
-
-Create release archives with `python -m scripts.package` after archiving all samples. It verifies the stored files before producing `release/weights.tar`, `release/samples.tar` and `release/checksums.json`. Extract these trusted archives into the repository root on the deployment machine; keep `artifacts/` on durable storage. Publishing an archive requires a public hosting/release destination; generating it does not change repository visibility. See [class evidence](docs/classes.md) for the two remaining camera-fact prerequisites.
+`config/team.json` feeds the website's Team page.

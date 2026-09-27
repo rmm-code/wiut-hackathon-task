@@ -39,3 +39,12 @@ def test_safe_parallel_motion_does_not_raise_risk():
 def test_no_risk_leaks_between_instances():
     RiskModel().step(pair(2), 2, Scene())
     assert RiskModel().step([], 0, Scene()) == 0
+
+
+def test_calibration_is_monotonic_and_moves_the_alarm_threshold():
+    from vision.risk import ALARM_RAW, calibrate
+
+    values = [i / 100 for i in range(101)]
+    mapped = [calibrate(v) for v in values]
+    assert mapped == sorted(mapped) and calibrate(0) == 0 and calibrate(1) == 1
+    assert abs(calibrate(ALARM_RAW) - 0.5) < 1e-9 and calibrate(0.5) < 0.5

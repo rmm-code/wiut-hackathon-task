@@ -6,7 +6,10 @@ from vision.geometry import inside
 
 class Scene:
     matched = True
-    config = {"lanes": []}
+    config = {
+        "lanes": [],
+        "queue_zones": [{"id": "queue", "polygon": [[0, 0], [0.4, 0], [0.4, 1], [0, 1]]}],
+    }
 
     def point(self, point):
         return point
@@ -22,9 +25,6 @@ class Scene:
 
     def lane(self, point):
         return None
-
-    def queue_zone(self, point):
-        return point[0] < 0.4
 
 
 def observation(identity=1, kind="car", x=0.7):
@@ -44,6 +44,24 @@ def test_stop_requires_ten_seconds_and_excludes_queue():
         assert bool(found) is should_detect
         if found:
             assert found[0].start < 1
+
+
+def test_signal_queue_zone_excludes_only_vehicles_that_stopped_before_green():
+    from types import SimpleNamespace
+
+    scene = Scene()
+    scene.config = {
+        "lanes": [],
+        "queue_zones": [{"id": "approach", "signal": "lamp", "polygon": [[0, 0], [0.4, 0], [0.4, 1], [0, 1]]}],
+    }
+    for green_since, should_detect in [(-5.0, True), (3.0, False)]:
+        tracks, rules = Tracks(), RoadRules(scene)
+        rules.direction_rules.lamps["lamp"] = SimpleNamespace(state="green", since=green_since)
+        found = []
+        for index in range(97):
+            t = index / 8
+            found.extend(rules.step(tracks.update([observation(x=0.2)], t), t))
+        assert bool(found) is should_detect
 
 
 def test_marked_crossing_is_not_jaywalking():

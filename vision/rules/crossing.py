@@ -70,7 +70,9 @@ class CrossingRules:
     standing in a queue are excluded. The interval covers the vehicle's traversal.
     """
 
-    end_margin, reach, walking = 0.06, 1.0, 0.3
+    # Tuned on devset/labels.json: crossing-end margin (fraction of its length), reach in
+    # vehicle heights, walking speed in pedestrian heights per second.
+    end_margin, reach, walking = 0.12, 1.0, 0.3
 
     def __init__(self, scene):
         self.scene = scene

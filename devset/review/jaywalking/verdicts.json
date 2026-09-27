@@ -1,0 +1,410 @@
+{
+"00": [
+"yes",
+null,
+null,
+"slip-lane group crossing from zebra A diagonally to zebra C"
+],
+"01": [
+"no",
+null,
+null,
+"edge of zebra C next to island"
+],
+"02": [
+"no",
+null,
+null,
+"standing at island/zebra C edge"
+],
+"03": [
+"partial",
+39.5,
+44.5,
+"group crosses the slip-lane asphalt ~40-44 s, then waits on the SW kerb (rest of interval is not jaywalking)"
+],
+"04": [
+"yes",
+null,
+null,
+"walk diagonally from zebra A across the junction box to zebra C"
+],
+"05": [
+"no",
+null,
+null,
+"standing on zebra C top by the island"
+],
+"06": [
+"no",
+null,
+null,
+"on the SW kerb / zebra A end"
+],
+"07": [
+"yes",
+null,
+null,
+"walks on the asphalt beside the NE planter north of zebra B"
+],
+"08": [
+"no",
+null,
+null,
+"stands on the raised median by the gantry"
+],
+"09": [
+"yes",
+null,
+null,
+"walks on the asphalt north of zebra B toward the NE corner"
+],
+"10": [
+"yes",
+null,
+null,
+"stands on the asphalt beside the NE planter north of zebra B"
+],
+"11": [
+"no",
+null,
+null,
+"pedestrians crossing on zebra A/B"
+],
+"12": [
+"yes",
+null,
+null,
+"walks up the slip-lane asphalt from zebra C toward zebra A"
+],
+"13": [
+"no",
+null,
+null,
+"on zebra C stripes"
+],
+"14": [
+"no",
+null,
+null,
+"on zebra C stripes"
+],
+"15": [
+"partial",
+298.0,
+304.8,
+"pair walks from zebra A across the slip-lane asphalt to zebra C (~298-305 s)"
+],
+"16": [
+"partial",
+309.0,
+316.3,
+"pedestrians cross the slip-lane asphalt toward zebra C (~309-316 s)"
+],
+"17": [
+"yes",
+null,
+null,
+"walks along the asphalt between zebra A and the island (slip lane)"
+],
+"18": [
+"partial",
+25.0,
+34.3,
+"group crosses from zebra A diagonally over the slip-lane asphalt to zebra C"
+],
+"19": [
+"no",
+null,
+null,
+"bottom of zebra C"
+],
+"20": [
+"no",
+null,
+null,
+"on zebra C"
+],
+"21": [
+"yes",
+null,
+null,
+"walks up the slip-lane asphalt from zebra C to zebra A"
+],
+"22": [
+"partial",
+82.0,
+101.8,
+"pedestrians cross the junction box/slip lane diagonally, off the zebras"
+],
+"23": [
+"yes",
+null,
+null,
+"walk on the asphalt north of zebra B toward the NE corner"
+],
+"24": [
+"no",
+null,
+null,
+"group at zebra C top / island"
+],
+"25": [
+"no",
+null,
+null,
+"on zebra C"
+],
+"26": [
+"yes",
+null,
+null,
+"walks up the slip-lane asphalt between zebra C and zebra A"
+],
+"27": [
+"partial",
+182.0,
+192.86,
+"group crosses the slip-lane asphalt from zebra A toward zebra C (~182-193 s); earlier part is on the zebras"
+],
+"28": [
+"yes",
+null,
+null,
+"walks up the slip-lane asphalt from zebra C to zebra A"
+],
+"29": [
+"no",
+null,
+null,
+"bottom of zebra C, box clipped by the frame edge"
+],
+"30": [
+"yes",
+null,
+null,
+"walks on the side-road asphalt right of zebra C below the island"
+],
+"31": [
+"yes",
+null,
+null,
+"crosses the side road diagonally right of zebra C toward the island"
+],
+"32": [
+"yes",
+null,
+null,
+"continues diagonally across the junction box toward the median nose"
+],
+"33": [
+"partial",
+259.0,
+264.7,
+"group leaves zebra A and crosses the slip-lane asphalt toward zebra C"
+],
+"34": [
+"yes",
+null,
+null,
+"walks down the slip-lane asphalt from zebra A to zebra C"
+],
+"35": [
+"yes",
+null,
+null,
+"leaves zebra A and crosses the junction box to the middle island"
+],
+"36": [
+"yes",
+null,
+null,
+"group walks the side-road asphalt beside zebra C"
+],
+"37": [
+"no",
+null,
+null,
+"on zebra C"
+],
+"38": [
+"no",
+null,
+null,
+"low-light fragments of people standing at the far kerb"
+],
+"39": [
+"uncertain",
+null,
+null,
+"group at the island tip near zebra C"
+],
+"40": [
+"yes",
+null,
+null,
+"group crosses the slip-lane asphalt from zebra A toward zebra C"
+],
+"41": [
+"yes",
+null,
+null,
+"group walks down the slip lane between zebra A and zebra C"
+],
+"42": [
+"no",
+null,
+null,
+"group on zebra C"
+],
+"43": [
+"no",
+null,
+null,
+"group at the top of zebra C by the island"
+],
+"44": [
+"no",
+null,
+null,
+"on zebra A"
+],
+"45": [
+"no",
+null,
+null,
+"on zebra A"
+],
+"46": [
+"no",
+null,
+null,
+"on zebra A"
+],
+"47": [
+"yes",
+null,
+null,
+"walk on the carriageway just north of zebra B"
+],
+"48": [
+"uncertain",
+null,
+null,
+"~2 m of asphalt between zebra B and the planter"
+],
+"49": [
+"no",
+null,
+null,
+"top edge of zebra A"
+],
+"50": [
+"no",
+null,
+null,
+"moped rider"
+],
+"51": [
+"no",
+null,
+null,
+"moped rider"
+],
+"52": [
+"no",
+null,
+null,
+"at the island edge next to zebra C"
+],
+"53": [
+"no",
+null,
+null,
+"on the top of zebra C"
+],
+"54": [
+"no",
+null,
+null,
+"scooter rider"
+],
+"55": [
+"yes",
+null,
+null,
+"continuation of the slip-lane walk (item 26)"
+],
+"56": [
+"uncertain",
+null,
+null,
+"near the SW kerb"
+],
+"57": [
+"yes",
+null,
+null,
+"walks on the asphalt north of zebra B"
+],
+"58": [
+"uncertain",
+null,
+null,
+"about 1 s north of zebra B"
+],
+"59": [
+"no",
+null,
+null,
+"bottom frame edge beside zebra C"
+],
+"60": [
+"yes",
+null,
+null,
+"part of the diagonal walk across the junction box (items 31-32)"
+],
+"61": [
+"no",
+null,
+null,
+"clipped at the bottom edge beside zebra C"
+],
+"62": [
+"no",
+null,
+null,
+"clipped at the bottom edge"
+],
+"63": [
+"yes",
+null,
+null,
+"crosses the side-road asphalt toward the island"
+],
+"64": [
+"uncertain",
+null,
+null,
+"near the SW corner kerb"
+],
+"65": [
+"uncertain",
+null,
+null,
+"at zebra B's north edge"
+],
+"66": [
+"uncertain",
+null,
+null,
+"north of zebra B at dusk"
+],
+"67": [
+"uncertain",
+null,
+null,
+"beside zebra C at dusk"
+]
+}

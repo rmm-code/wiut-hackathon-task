@@ -1,0 +1,191 @@
+[
+ {
+  "video": "C3896.MP4",
+  "label": "stop_line",
+  "start": 63.7,
+  "end": 102.24,
+  "ids": [
+   543,
+   567
+  ],
+  "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "stop_line",
+  "start": 216.3,
+  "end": 252.12,
+  "ids": [
+   2706
+  ],
+  "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "stop_line",
+  "start": 288.6,
+  "end": 327.39,
+  "ids": [
+   3416
+  ],
+  "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "stop_line",
+  "start": 0.0,
+  "end": 20.15,
+  "ids": [
+   2
+  ],
+  "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "stop_line",
+  "start": 56.7,
+  "end": 94.76,
+  "ids": [
+   361,
+   509,
+   852
+  ],
+  "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "stop_line",
+  "start": 131.6,
+  "end": 169.77,
+  "ids": [
+   1987
+  ],
+  "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stop_line",
+  "start": 75.7,
+  "end": 117.18,
+  "ids": [
+   889,
+   1746,
+   1787,
+   1929
+  ],
+  "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stop_line",
+  "start": 232.2,
+  "end": 277.21,
+  "ids": [
+   4158,
+   4229
+  ],
+  "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "stop_line",
+  "start": 316.0,
+  "end": 317.78,
+  "ids": [
+   5893
+  ],
+  "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
+ },
+ {
+  "video": "C3905.MP4",
+  "label": "stop_line",
+  "start": 77.8,
+  "end": 114.51,
+  "ids": [
+   1129,
+   1500,
+   1885
+  ],
+  "why": "vehicle(s) stationary with the front past the south-east stop line during red (checked at zoom); ends at green onset"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "red_light",
+  "start": 78.9,
+  "end": 82.3,
+  "ids": [
+   952
+  ],
+  "why": "crosses the stop line ~13 s into red and drives through the junction while the other lanes wait"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "red_light",
+  "start": 57.9,
+  "end": 61.5,
+  "ids": [
+   913
+  ],
+  "why": "bus in the kerb lane crosses 2-3 s into red and continues through the junction; lamp inset red throughout"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "red_light",
+  "start": 132.4,
+  "end": 135.8,
+  "ids": [
+   2082
+  ],
+  "why": "median-lane car crosses ~1.6 s into red while other lanes wait; lamp inset red"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "illegal_turn",
+  "start": 106.6,
+  "end": 111.5,
+  "ids": [
+   922
+  ],
+  "why": "right turn into the slip lane from lane 2, cutting across the kerb-lane queue (clause 56)"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "illegal_turn",
+  "start": 274.4,
+  "end": 288.5,
+  "ids": [
+   3890
+  ],
+  "why": "right turn into the side road from lane 2 through the junction box (clause 56)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "illegal_turn",
+  "start": 172.3,
+  "end": 178.7,
+  "ids": [
+   2011
+  ],
+  "why": "right turn from lane 2 swinging across the kerb lane at the stop line (clause 56)"
+ },
+ {
+  "video": "C3897.MP4",
+  "label": "illegal_turn",
+  "start": 175.4,
+  "end": 183.5,
+  "ids": [
+   2175
+  ],
+  "why": "right turn into the side road from lane 3 (clause 56); overlaps 2011, merged"
+ },
+ {
+  "video": "C3902.MP4",
+  "label": "illegal_turn",
+  "start": 280.5,
+  "end": 289.8,
+  "ids": [
+   4731
+  ],
+  "why": "right turn via the slip lane from lane 2 (clause 56)"
+ }
+]

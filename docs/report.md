@@ -1,63 +1,88 @@
 # Technical report
 
-Crossing analyzes fixed-camera road videos with YOLO11s, ByteTrack, camera alignment, temporal event rules, two specialist incident detectors, and an independent causal risk estimator. The website supports uploads, queued processing, cancellation, annotated playback, event timelines, risk curves, JSON export, measured traffic maps, and independent event labeling. No model training or hosted AI inference is claimed.
+## What we built
 
-## Verified evidence — 24 September 2026
+Crossing turns a fixed CCTV view of a Tashkent T-junction into timed traffic events and a causal
+accident-risk curve.
 
-| Check | Result |
-| --- | --- |
-| Original sample available | C3905: 3840 × 2160, 29.97003 fps, 3,825 frames, 127.6275 seconds |
-| Updated official harness, Part A + Part B | 140.0 seconds on Apple M5 / MPS; allowance 382.9 seconds |
-| Official output | 17 candidate events, 3,825 risk samples; validator reports zero errors/warnings |
-| Web run with annotated/clean video and maps | 79.46 seconds; event and risk arrays exactly equal to the separate official harness run |
-| Model storage | Three pinned checkpoints, 139.1 MB total |
-| Engineering tests | 30 Python and 6 frontend tests pass |
-| Linux offline check | All three models load and predict without networking; all 30 Python tests pass |
-| Frontend | Strict TypeScript, production build and 700-line source guard pass |
+- **Pipeline.** Pretrained YOLO11s finds road users and ByteTrack tracks them. A SIFT homography aligns
+  each video to the reference view. Hand-written rules then read the tracks against scene geometry
+  mapped once for this camera. Two open-weights specialist detectors propose accident and fire/smoke
+  candidates.
+- **Part B.** A separate estimator sees frames one at a time and scores closest-approach conflicts
+  between tracked road users.
+- **Training.** None. Everything learned is pretrained appearance detection. The camera knowledge
+  lives in `config/camera.json`, where every fact carries its evidence.
+- **Website.** https://wiut.mardonjon.me runs the same engine for uploads and shows every sample
+  video annotated, with timelines, risk curves, EDA maps and the accuracy table below.
 
-The Mac measurement does not establish NVIDIA timing. Predictions now cover all four organizer samples. Candidate counts and runtime vary with code revisions; older 22-event reports and 195.6-second runs describe the earlier baseline.
+## How we measured it
 
-## Changes motivated by observed problems
+There are no official labels, so we labelled the four sample videos ourselves; the method is in
+[devset/README.md](../devset/README.md).
 
-Area-filtered downsampling and feature alignment fixed a false camera mismatch on the dark 4K sample. Crossing rules now exclude likely cyclists classified as pedestrians and maintain a yielding interval until the vehicle clears the crossing. Signal logic separates stop-line crossing from intersection entry and retains stopped-line events until green. Turn and solid-line events use observed boundaries instead of arbitrary short intervals. Signal/turn modules remain inactive without verified scene facts.
+1. Loose versions of the rules proposed candidates; for jaywalking, every pedestrian foot point on
+   the carriageway outside a crossing.
+2. AI reviewers checked each candidate on contact sheets rendered from the original 4K frames, under a
+   rubric that quotes the official class definitions.
+3. Signal, turn and lane-line cases were re-checked at high zoom with measured geometry: front overshoot
+   past the stop line, the lane at the stop line, and the lane coordinate between the painted lines.
 
-Two appearance specialists provide accident and fire/smoke candidates, with repeated-frame confirmation and a road-region constraint. Accident suppression reduces repeated events from an already stopped wreck. Source example images establish only functional loading and inference; they are not held-out evaluation data. Details and licences are in `docs/research.md`.
+This gave 77 labelled segments in six classes, 248 rejected candidates and 28 left uncertain.
 
-Measured EDA includes visible counts over time, ground-point occupancy, image-space motion and object trajectories. These are tracker-derived observations. Identity switches inflate totals; image-space movement is not physical speed. Maps on an unmatched camera use the actual input frame rather than the configured intersection background.
+DEV_TABLE
 
-Part B receives only the current frame and timestamp, owns independent tracking state, and never calls the incident specialists or Part A. Prefix/reset tests verify this contract with controlled detections. Its closest-approach score remains uncalibrated; causal execution alone does not prove anticipation quality.
+The rules were tuned on the same four videos, so these numbers are optimistic. They are a development
+measurement, not a test-set estimate.
 
-## Limitations and incomplete submission requirements
+## What worked
 
-Six categories are enabled on matching scenes: stopped vehicle, pedestrian on road, failure to yield, limited animal obstacles, accident, and fire/smoke. Near-miss detection and legal signal/direction/turn/line rules remain disabled where evidence is insufficient. The specialist detectors sample around 1 Hz, so brief incidents and precise onset times can be missed. Congestion needs confirmed lane groups; arbitrary debris remains unsupported.
+- **Mapping the camera from an empty-road background.** The first geometry was drawn on single frames
+  and was wrong in ways that produced most false alarms: the stop line in the wrong place, lanes that
+  did not follow the paint, zebra C drawn straight. A temporal median of 45 frames removes vehicles and
+  exposes the paint. The stop line, the four solid lane lines and the crossings were placed on it and
+  checked in all four videos.
+- **Reading the one visible signal properly.** Crossings of the stop line cluster in green phases of
+  the median signal head, which identifies it as the south-east approach's signal. A debounced lamp
+  (amber keeps the last state) plus two tests removed every false red-light run that review found:
+  the lamp must have been red for a second, and must still be red 1.5 s after the crossing. That
+  excludes amber clearance and starts in the last second of red.
+- **Reasoning from the traffic rules, not from rarity.** Clause 56 (turn from the extreme lane)
+  identified five right turns from the wrong lane; the rule finds all of them. Clause 56 also shows
+  that the eleven U-turns around the median nose, all from the median lane, are legal, so the U-turn
+  rule flags only U-turns started from other lanes.
+- **Negative evidence.** Review found no near miss, wrong-way drive, congestion episode, accident,
+  fire or obstacle in the samples. Near-miss detection was switched off because every detection was a
+  false alarm. The wrong-way rule was rewritten after 38 of 38 candidates proved to be U-turns through
+  the junction mouth or tracker jitter. It now needs sustained travel against the direction inside one
+  carriageway.
 
-There is no completed independent ground truth, so no precision, recall, temporal F1, or anticipation accuracy is reported. The review panel helps produce labels but does not establish their correctness. Model event-table review flags are not ground truth.
+## What did not work
 
-All four organizer samples are now available and fully processed. A public working host, populated public repository/tag, public artifact links, and three real team profiles are still missing. NVIDIA runtime has not been measured. See `docs/submission.md` for the release checklist. This remains a tested local candidate, not a completed competition submission.
+- **Stopped vehicles.** Every candidate was normal traffic: vehicles queued at the signal, waiting in
+  the junction box to U-turn, parked at the far kerb or dwelling at a bus stop. Mapped zones and a
+  "no stationary neighbour" test now suppress all of them. The rule can still find a lone vehicle
+  stopped on green in a traffic lane, but it has no positive example to be measured against.
+- **Pedestrians near crossings.** Foot points of people walking on or beside zebra paint, or hidden
+  behind cars, flicker across the crossing edge. Margins, an occlusion check and a minimum duration
+  help, but jaywalking remains the least precise active class.
+- **Failure to yield.** Deciding whether a pedestrian is close enough to a vehicle's path from
+  image boxes is fragile. Pedestrians waiting at a kerb, or on the other half of the split A/B
+  crossing, still produce false events.
+- **Accident specialist.** Its only confirmed detection in the samples was two cars overlapping in
+  perspective. Requiring the participants to come to rest removed it, but the model's recall on a
+  real crash here is unknown.
+- **Part B cannot be measured on accident-free samples.** Its score was only calibrated for false-alarm
+  rate, a monotonic change that leaves ranking and AP untouched.
 
+## Runtime
 
-## Additional samples — 24 September 2026
+RUNTIME
 
-| Sample | Decoded frames | Candidate events | Tracked identities | Web pipeline runtime |
-| --- | --- | --- | --- | --- |
-| C3897 | 9,525 / 9,525 | 44 | 1,087 | 183.29 s |
-| C3902 | 9,525 / 9,525 | 34 | 1,192 | 210.98 s |
+## Next steps
 
-Both clips are 317.8175 seconds at 3840 × 2160 / 29.97003 fps. Each has 9,525 risk points, complete annotated and clean H.264 exports, and occupancy/motion/trajectory maps. The combined three-sample predictions pass the unchanged evaluator's format validation with 95 candidate events and no errors/warnings. These timings describe the web pipeline, not an independent Part A + Part B harness benchmark on those two clips.
-
-The first C3902 run decoded successfully but failed camera recognition, disabling event rules. That zero-event output was superseded after a native-resolution matching fallback fixed alignment without relaxing the acceptance checks. The full corrected rerun matched the scene and produced 34 candidates. Independent labels and event-accuracy measurements remain outstanding.
-
-
-## Final source sample — 25 September 2026
-
-C3896 was found in Downloads, verified, moved into `samples/`, and fully processed on Apple M5 / MPS. All 10,200 frames decoded; the 340.34-second clip produced 56 candidate events, 10,200 risk points and 1,050 tracked identities in 225.51 seconds. Camera matching passed with 703 inliers. Both annotated and clean H.264 exports contain 10,200 frames and the full source duration. The combined four-video predictions contain 151 candidate events and pass official format validation with zero errors or warnings. These are unreviewed model candidates; completing all samples does not establish accuracy or satisfy the remaining public-release requirements.
-
-## Expanded-rule revision
-
-The current sample outputs supersede the earlier six-category candidate lists. C3896 has 114 candidates (255.23 s web runtime), C3897 99 (208.91 s), C3902 98 (218.22 s), and C3905 42 (93.30 s). All full-length frame and risk counts remain intact. The revised combined file contains 353 candidates and passes the unchanged format validator.
-
-Twelve categories are active; illegal turn and illegal U-turn remain conditional on missing prohibition facts. This increase in count is not a demonstrated accuracy improvement. The new near-miss/direction/congestion/signal/finite-line paths have controlled positive and negative tests, and the visible lamp thresholds have actual-frame regression crops.
-
-Sample results are now served from the permanent organizer archive rather than expiring upload jobs. The report page includes source images showing a former alignment failure, a dim signal and an unconfirmed collision candidate. Detailed team contributions and external profiles await confirmation; no roles or links were invented.
-
-The unchanged official C3905 harness was rerun after the expanded-rule revision: 132.3 seconds combined against 382.9 allowed. Its 42 events and 3,825 risk points exactly equal the independent web run. This is a Mac measurement; target NVIDIA and all-four-video repeated harness checks remain outstanding. Current checks: 45 Python tests and 6 frontend tests pass.
+- Have people check the model-assisted labels and label boundaries frame by frame.
+- Label held-out footage.
+- Collect positive examples of the unobserved classes (near miss, accident, obstacle, fire).
+- Validate Part B on public crash datasets (DAD, CCD, DoTA) before relying on its alarms.
+- Measure runtime on the judging GPU.

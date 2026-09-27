@@ -1,0 +1,959 @@
+[
+ {
+  "video": "C3896.MP4",
+  "start": 0.27,
+  "end": 3.47,
+  "ids": [
+   6
+  ],
+  "key": "(6, 'Crossing B')|(6, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 14.15,
+  "end": 14.81,
+  "ids": [
+   138
+  ],
+  "key": "(138, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 53.92,
+  "end": 54.99,
+  "ids": [
+   139
+  ],
+  "key": "(139, 'Crossing C')|(139, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 81.15,
+  "end": 81.82,
+  "ids": [
+   980
+  ],
+  "key": "(980, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 94.76,
+  "end": 96.1,
+  "ids": [
+   990
+  ],
+  "key": "(990, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 156.02,
+  "end": 157.76,
+  "ids": [
+   1765,
+   2044
+  ],
+  "key": "(1765, 'Crossing B')|(2044, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 164.7,
+  "end": 165.63,
+  "ids": [
+   2110
+  ],
+  "key": "(2110, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 305.24,
+  "end": 305.91,
+  "ids": [
+   4272
+  ],
+  "key": "(4272, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 65.13,
+  "end": 65.53,
+  "ids": [
+   503
+  ],
+  "key": "(503, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 92.23,
+  "end": 94.63,
+  "ids": [
+   1439
+  ],
+  "key": "(1439, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 129.86,
+  "end": 138.14,
+  "ids": [
+   1987
+  ],
+  "key": "(1987, 'Crossing A')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 156.96,
+  "end": 158.29,
+  "ids": [
+   2454,
+   2455
+  ],
+  "key": "(2454, 'Crossing B')|(2455, 'Crossing C')|(2455, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 161.23,
+  "end": 161.63,
+  "ids": [
+   2584
+  ],
+  "key": "(2584, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 177.38,
+  "end": 178.71,
+  "ids": [
+   2011
+  ],
+  "key": "(2011, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 214.35,
+  "end": 215.15,
+  "ids": [
+   3288
+  ],
+  "key": "(3288, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 215.95,
+  "end": 216.75,
+  "ids": [
+   3307
+  ],
+  "key": "(3307, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 298.43,
+  "end": 299.1,
+  "ids": [
+   4687
+  ],
+  "key": "(4687, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 305.77,
+  "end": 306.31,
+  "ids": [
+   4713
+  ],
+  "key": "(4713, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 307.64,
+  "end": 308.44,
+  "ids": [
+   4764
+  ],
+  "key": "(4764, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 316.98,
+  "end": 317.82,
+  "ids": [
+   4897
+  ],
+  "key": "(4897, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 12.28,
+  "end": 12.95,
+  "ids": [
+   192
+  ],
+  "key": "(192, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 25.23,
+  "end": 27.09,
+  "ids": [
+   389
+  ],
+  "key": "(389, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 32.17,
+  "end": 32.7,
+  "ids": [
+   450
+  ],
+  "key": "(450, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 52.99,
+  "end": 54.72,
+  "ids": [
+   643
+  ],
+  "key": "(643, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 193.53,
+  "end": 193.93,
+  "ids": [
+   3710
+  ],
+  "key": "(3710, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 268.0,
+  "end": 269.2,
+  "ids": [
+   5001
+  ],
+  "key": "(5001, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 285.35,
+  "end": 287.49,
+  "ids": [
+   5225
+  ],
+  "key": "(5225, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 288.29,
+  "end": 289.76,
+  "ids": [
+   4731
+  ],
+  "key": "(4731, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 1.07,
+  "end": 2.8,
+  "ids": [
+   2
+  ],
+  "key": "(2, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 20.95,
+  "end": 22.16,
+  "ids": [
+   322,
+   366
+  ],
+  "key": "(322, 'Crossing B')|(366, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 23.49,
+  "end": 24.02,
+  "ids": [
+   385
+  ],
+  "key": "(385, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 27.36,
+  "end": 27.63,
+  "ids": [
+   458
+  ],
+  "key": "(458, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 37.24,
+  "end": 38.44,
+  "ids": [
+   290,
+   328
+  ],
+  "key": "(328, 'Crossing A')|(290, 'Crossing A')",
+  "source": "tuned",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 39.51,
+  "end": 40.57,
+  "ids": [
+   564
+  ],
+  "key": "(564, 'Crossing C')",
+  "source": "tuned",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 89.29,
+  "end": 90.49,
+  "ids": [
+   1661
+  ],
+  "key": "(1661, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 95.16,
+  "end": 115.72,
+  "ids": [
+   1500,
+   1661,
+   1838
+  ],
+  "key": "(1500, 'Crossing A')|(1661, 'Crossing B')|(1661, 'Crossing B')|(1838, 'Crossing B')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 119.19,
+  "end": 119.99,
+  "ids": [
+   1344
+  ],
+  "key": "(1344, 'Crossing A')",
+  "source": "tuned",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 17.75,
+  "end": 18.02,
+  "ids": [
+   229
+  ],
+  "key": "(229, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 45.78,
+  "end": 47.11,
+  "ids": [
+   577
+  ],
+  "key": "(577, 'Crossing C')|(577, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 69.67,
+  "end": 70.47,
+  "ids": [
+   889,
+   897
+  ],
+  "key": "(889, 'Crossing B')|(897, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 79.55,
+  "end": 80.35,
+  "ids": [
+   952
+  ],
+  "key": "(952, 'Crossing A')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 93.69,
+  "end": 94.36,
+  "ids": [
+   1010
+  ],
+  "key": "(1010, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 98.77,
+  "end": 99.3,
+  "ids": [
+   1102,
+   1182
+  ],
+  "key": "(1182, 'Crossing B')|(1102, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 102.37,
+  "end": 103.04,
+  "ids": [
+   1230,
+   1240
+  ],
+  "key": "(1230, 'Crossing B')|(1240, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 110.91,
+  "end": 112.25,
+  "ids": [
+   922
+  ],
+  "key": "(922, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 114.25,
+  "end": 114.78,
+  "ids": [
+   1322
+  ],
+  "key": "(1322, 'Crossing C')|(1322, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 171.37,
+  "end": 171.64,
+  "ids": [
+   2167
+  ],
+  "key": "(2167, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 174.97,
+  "end": 176.04,
+  "ids": [
+   2227,
+   2236
+  ],
+  "key": "(2227, 'Crossing B')|(2236, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 178.18,
+  "end": 179.91,
+  "ids": [
+   2267
+  ],
+  "key": "(2267, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 183.38,
+  "end": 184.05,
+  "ids": [
+   2317
+  ],
+  "key": "(2317, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 226.89,
+  "end": 227.29,
+  "ids": [
+   3025
+  ],
+  "key": "(3025, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 291.09,
+  "end": 291.49,
+  "ids": [
+   4092
+  ],
+  "key": "(4092, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3896.MP4",
+  "start": 304.44,
+  "end": 305.1,
+  "ids": [
+   4268
+  ],
+  "key": "(4268, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 58.99,
+  "end": 61.26,
+  "ids": [
+   873
+  ],
+  "key": "(873, 'Crossing C')|(873, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 66.87,
+  "end": 67.53,
+  "ids": [
+   509
+  ],
+  "key": "(509, 'Crossing A')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 106.51,
+  "end": 107.97,
+  "ids": [
+   1528
+  ],
+  "key": "(1528, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 109.31,
+  "end": 110.51,
+  "ids": [
+   1637
+  ],
+  "key": "(1637, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 161.76,
+  "end": 162.16,
+  "ids": [
+   2574
+  ],
+  "key": "(2574, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 180.05,
+  "end": 181.38,
+  "ids": [
+   2221
+  ],
+  "key": "(2221, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 196.86,
+  "end": 197.13,
+  "ids": [
+   3153
+  ],
+  "key": "(3153, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 223.42,
+  "end": 225.69,
+  "ids": [
+   3448
+  ],
+  "key": "(3448, 'Crossing B')|(3448, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 235.7,
+  "end": 237.3,
+  "ids": [
+   3492
+  ],
+  "key": "(3492, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 249.85,
+  "end": 250.92,
+  "ids": [
+   3603
+  ],
+  "key": "(3603, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 252.12,
+  "end": 253.45,
+  "ids": [
+   3464
+  ],
+  "key": "(3464, 'Crossing A')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 282.15,
+  "end": 282.55,
+  "ids": [
+   4402
+  ],
+  "key": "(4402, 'Crossing A')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3897.MP4",
+  "start": 289.89,
+  "end": 290.96,
+  "ids": [
+   4588
+  ],
+  "key": "(4588, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 23.22,
+  "end": 24.56,
+  "ids": [
+   271
+  ],
+  "key": "(271, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 78.08,
+  "end": 81.28,
+  "ids": [
+   889
+  ],
+  "key": "(889, 'Crossing A')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 93.16,
+  "end": 94.76,
+  "ids": [
+   1441
+  ],
+  "key": "(1441, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 121.72,
+  "end": 122.79,
+  "ids": [
+   1326
+  ],
+  "key": "(1326, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 132.53,
+  "end": 133.87,
+  "ids": [
+   2246
+  ],
+  "key": "(2246, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 171.77,
+  "end": 172.31,
+  "ids": [
+   3136
+  ],
+  "key": "(3136, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 174.57,
+  "end": 174.97,
+  "ids": [
+   3238
+  ],
+  "key": "(3238, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 207.94,
+  "end": 208.47,
+  "ids": [
+   3976
+  ],
+  "key": "(3976, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3902.MP4",
+  "start": 269.34,
+  "end": 270.94,
+  "ids": [
+   5205,
+   5215
+  ],
+  "key": "(5215, 'Crossing B')|(5205, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 14.15,
+  "end": 14.55,
+  "ids": [
+   227
+  ],
+  "key": "(227, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 18.55,
+  "end": 18.95,
+  "ids": [
+   311
+  ],
+  "key": "(311, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 24.42,
+  "end": 24.96,
+  "ids": [
+   435
+  ],
+  "key": "(435, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 36.57,
+  "end": 36.97,
+  "ids": [
+   339
+  ],
+  "key": "(339, 'Crossing A')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 39.11,
+  "end": 39.37,
+  "ids": [
+   614
+  ],
+  "key": "(614, 'Crossing A')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 42.44,
+  "end": 43.91,
+  "ids": [
+   13
+  ],
+  "key": "(13, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 44.84,
+  "end": 46.58,
+  "ids": [
+   684
+  ],
+  "key": "(684, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "yes"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 60.19,
+  "end": 62.2,
+  "ids": [
+   1012
+  ],
+  "key": "(1012, 'Crossing C')",
+  "source": "loose-only",
+  "verdict": "uncertain"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 75.68,
+  "end": 76.08,
+  "ids": [
+   1441
+  ],
+  "key": "(1441, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 78.08,
+  "end": 78.21,
+  "ids": [
+   1499
+  ],
+  "key": "(1499, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "no"
+ },
+ {
+  "video": "C3905.MP4",
+  "start": 80.88,
+  "end": 84.48,
+  "ids": [
+   981
+  ],
+  "key": "(981, 'Crossing B')|(981, 'Crossing B')",
+  "source": "loose-only",
+  "verdict": "yes"
+ }
+]

@@ -1,40 +1,70 @@
-# Camera calibration and coverage
+# Camera calibration
 
-The baseline uses the organizer-provided intersection reference, not a generic road layout. `config/camera.json` stores normalized carriageway, crossing, island, lane, and queue geometry.
+All scene geometry lives in `config/camera.json`, in the coordinates of the organizer reference image
+(`web/public/images/camera.webp`, 960 × 540 normalised to 0–1). Each video is aligned to that reference
+once, on its first frame, so the same geometry applies to every clip from this camera.
 
-The geometry was drawn from the actual reference and checked against the downloaded C3905 footage. It remains **provisional**. A first broad road polygon incorrectly included sidewalk/island areas; the current map follows the curb and includes all three foreground pedestrian islands plus the central island. Pedestrians close to crossing/island boundaries are treated conservatively using a size-aware margin.
+## Alignment
 
-The original sample is 3840 × 2160 at approximately 29.97 fps, not the brief's typical 25 fps. Camera matching downsamples with area filtering, normalizes contrast, matches SIFT features, estimates a RANSAC homography, and checks inlier count, inlier fraction, spatial coverage, and plausible projected area. Linear downsampling of the original 4K frame created aliasing that rejected the same scene while accepting its 720p copy; area filtering corrected that cause. A camera mismatch disables scene-dependent events and risk instead of applying this map to arbitrary roads.
+The sample videos are 3840 × 2160 at 29.97 fps (the brief says typically 25 fps). Alignment downsamples
+with area filtering, normalises contrast (CLAHE), matches SIFT features and estimates a RANSAC
+homography. The match is accepted only with enough inliers, a high inlier fraction, broad spatial
+coverage and a plausible projected area. If it fails at 960 × 540, it retries at the reference's
+native 640 × 360 without relaxing those checks. That retry fixed C3902, whose first attempt fell just
+below the inlier-fraction gate.
 
-Current default rule coverage:
+When alignment fails, the video is treated as a different camera. Detection and tracking still run,
+but every scene rule and the risk score are switched off rather than applying this junction's
+geometry to another road. `tests/test_scene.py` covers acceptance, rejection and the C3902 fallback.
 
-| Class | State | Limitation |
-| --- | --- | --- |
-| Pedestrian on road | Active, provisional | Footpoint and crossing/island geometry can be imperfect; riders can be confused with walking pedestrians |
-| Stopped vehicle | Active, provisional | Ten-second check and queue exclusion implemented; queue/bus-stop conventions need label review |
-| Failure to yield | Active, provisional | Shared crossing occupancy; occlusions and approximate vehicle footprint can create false positives |
-| Road obstacle | Partial, provisional | Only supported animal classes; no arbitrary-debris model |
-| Wrong way, congestion | Disabled | Lane directions/complete lane groups have not been confirmed |
-| Red light, stop line | Disabled | Governing signal regions and stop-line mappings are not confirmed |
-| Illegal turn/U-turn, solid-line crossing | Disabled | Prohibitions and solid markings have not been verified |
-| Accident | Active specialist, provisional | Appearance and temporal confirmation; contact onset accuracy is unvalidated |
-| Near miss | Disabled | Evasive-action detection is not validated |
-| Fire/smoke | Active specialist, provisional | Two-frame confirmation and road gating; tiny or brief incidents may be missed |
+## How the geometry was drawn
 
-Do not set verification flags to true merely to increase class count. Signal/turn modules are experimental scaffolding until their configuration, boundaries, and behavior are validated. They are not advertised as working competition coverage. Image-plane trajectory geometry does not establish physical speed or calibrated collision probability.
+The first version was drawn on single frames and contained real errors:
 
-The risk estimator produces a causal closest-approach conflict score with decay, on matching camera views. It uses no future frames and has independent tracking state. This is not a calibrated probability, and its anticipation quality cannot be claimed without accident labels.
+- a stop line placed in the wrong spot;
+- lane polygons that did not follow the lanes;
+- zebra C drawn as a straight band although the paint bends;
+- the raised median missing as an island.
 
-Next validation work: annotate all supplied clips using the official event conventions, audit false positives, verify camera facts with organizers, evaluate held-out intervals, and add suitable open-weights accident/near-miss and smoke/fire recognition. No F1, precision, recall, or anticipation accuracy has been measured yet.
+The current geometry was placed on a **temporal-median background** of C3896: the per-pixel median of
+45 frames spread over the clip. Moving and queued vehicles vanish from it, leaving the empty road and its
+paint. Every region was then projected back into all four videos through their alignments and checked
+by eye (`python -m scripts.sheets` draws the overlays).
 
-C3902 initially failed the single-scale matcher: 21 inliers represented 39.6% of descriptor matches, just below the existing 40% gate. Matching against the reference at its native 640 × 360 resolution produced 19 inliers with 42.2% agreement and broad spatial coverage. The matcher now retries that resolution after a failed 960 × 540 pass, retaining all existing inlier, area and coverage checks. Homographies are converted back to the common coordinate system. A regression fixture verifies recognition and that later unrelated frames clear the previous alignment. C3897 and C3905 still pass the original first matching pass.
+| Element | How it was placed |
+| --- | --- |
+| Carriageway and islands | Kerbs, the three pedestrian islands, the median-nose refuge and the raised median traced on the median background |
+| Crossings A, B, C | Painted zebra outlines; C follows the bend of the side-road crossing |
+| South-east stop line | Painted line on the 4K median background, confirmed by where stop-line crossings cluster |
+| Four solid lane lines | Painted-line detection (Hough) on the 4K median background of the approach; they land on the paint in all four videos |
+| Lanes and carriageways | South-east approach (five lanes), north-west departure above the median, north-west approach from the right edge |
+| Signal lamp | The median vehicle head; its region was checked on crops from all four videos |
 
-## Expanded camera evidence (25 September)
+## Signal
 
-The current revision maps three lanes separately in each visible carriageway, using the raised median, lane divisions and repeated observed motion in C3896 as direction evidence. Congestion requires occupancy of every mapped lane and an explicit complete-visibility flag. Wrong-way intervals persist while a vehicle stops in the opposing lane.
+Only one vehicle signal head is visible, on the median. It governs the south-east approach: in C3896
+and C3897, 97% of south-east-bound stop-line crossings happen while it is green, and the queue discharges
+when it turns green. North-west-bound traffic crosses zebra B in both lamp states, so no visible head
+governs that approach and no signal rule is applied to it.
 
-The visible median vehicle head faces the northwest-bound approach. Its region is `[0.601, 0.325, 0.615, 0.390]` in reference coordinates. Inspected C3896 frames show red at 0/10/20 s, green at 30/40/50/60 s, and red at 70/80/90 s. HSV brightness 120 missed the dim lamp; measured region thresholds are saturation 100 / value 50. This does not map the opposite hidden signal head or establish every lane's turning-phase permissions. One visible continuous white lane separator approaching the near stop line is mapped as a finite segment, not an infinite line.
+The lamp reader classifies saturated red and green pixels in the lamp region (saturation above 100,
+value above 50; the lamp is dim at dusk). A state change is accepted after three readings, or one
+reading left uncontradicted for a second. Amber and unreadable frames keep the previous state.
+`tests/fixtures/signal-*.png` are real lamp crops used as regression tests.
 
-Near-miss candidates require an approaching conflict, a measured braking/heading change, no observed box-overlap evidence and subsequent separation. Bounding boxes cannot establish absence of physical contact conclusively, so accuracy remains provisional.
+## Scene facts used by the rules
 
-Two prerequisites remain unresolved: an authoritative no-U-turn zone and prohibited lane-to-exit movements. The supplied signs/footage inspected here do not establish those prohibitions. `TurnRules` supports both with positive/negative controlled tests, but their real-camera configurations remain empty. To activate them honestly, supply the relevant sign/marking or organizer rule, its visible region, and prohibited entry/exit mapping. No legal rule is inferred from a rare manoeuvre or low traffic frequency alone.
+- Lane directions come from the carriageway layout and tracked motion.
+- Turn restrictions come from Uzbekistan's traffic rules, clauses 56 and 62. See [classes](classes.md).
+- The four solid lane lines are the painted continuous section between the gantry and the stop line.
+  Upstream of the gantry the lines are dashed.
+- `queue_zones` list where stationary vehicles are normal, so they are not reported as stopped vehicles.
+  Each zone records its evidence from the reviewed samples:
+  - the signal queue on the approach, which counts only while the lamp is red;
+  - past the stop line;
+  - the junction box, where vehicles wait to turn or U-turn;
+  - the far-kerb parking strip and bus stop;
+  - the north-east driveway corner.
+
+Image-plane geometry is not metric. Speeds and gaps are measured in multiples of the object's box
+height, so the rules scale with distance from the camera but make no physical-speed claims.

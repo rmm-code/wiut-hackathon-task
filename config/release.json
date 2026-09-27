@@ -5,6 +5,22 @@
   "weights_url": "https://github.com/rmm-code/wiut-hackathon-task/releases/download/v1.0.0/weights.tar",
   "samples_url": "https://github.com/rmm-code/wiut-hackathon-task/releases/download/v1.0.0/samples.tar",
   "predictions_url": "https://github.com/rmm-code/wiut-hackathon-task/blob/v1.0.0/predictions_samples.json",
-  "team": [],
+  "team": [
+    {
+      "name": "Mardonjon Rasulov",
+      "role": "Captain",
+      "url": "https://github.com/rmmcode"
+    },
+    {
+      "name": "Saidxon Xaydarov",
+      "role": "Team member",
+      "url": "https://github.com/khdrvss"
+    },
+    {
+      "name": "Miraziz Mirvaliyev",
+      "role": "Team member",
+      "url": "https://github.com/MMiraziz013"
+    }
+  ],
   "nvidia_benchmark_verified": false
 }

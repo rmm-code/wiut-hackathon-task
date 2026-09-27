@@ -1,0 +1,44 @@
+{
+  "red_light": [
+    {"video": "C3896.MP4", "start": 78.9, "end": 81.9, "id": 952, "verdict": "yes", "why": "white car crosses the SE stop line with the median head red (13 s into red), continues through the junction; queue lanes beside it stationary"},
+    {"video": "C3897.MP4", "start": 244.5, "end": 248.0, "id": 3325, "verdict": "yes", "why": "dark car crosses the stop line 16 s into red, drives through zebra A and the junction"},
+    {"video": "C3896.MP4", "id": 4121, "verdict": "uncertain", "why": "tracked crossing 5.3 s into red, but the lamp inset shows green at the crossing time; lamp phase read ambiguous"},
+    {"video": "C3897.MP4", "id": 554, "verdict": "uncertain", "why": "queue lanes stationary, lamp inset appears green at the crossing time; possible early-green or lamp-reader lag"},
+    {"video": "C3897.MP4", "id": 913, "verdict": "no", "why": "bus tracked from far upstream; crossing coincides with amber/red transition"},
+    {"video": "C3896.MP4", "id": 3858, "verdict": "no", "why": "0.1 s into red: amber-phase clearance"},
+    {"video": "C3897.MP4", "id": 2037, "verdict": "no", "why": "0.3 s into red: amber-phase clearance"},
+    {"video": "C3902.MP4", "id": 1086, "verdict": "no", "why": "0.1 s into red: amber-phase clearance"},
+    {"video": "C3902.MP4", "id": 2837, "verdict": "no", "why": "0.8 s into red: amber-phase clearance"}
+  ],
+  "stop_line": [
+    {"video": "C3896.MP4", "start": 64.7, "end": 100.0, "id": 591, "verdict": "yes", "why": "white car stopped with its front past the stop line for the whole red phase; moves at green"},
+    {"video": "C3896.MP4", "start": 64.7, "end": 75.5, "id": 567, "verdict": "uncertain", "why": "black car creeps onto zebra A during red; stationary only intermittently"},
+    {"video": "C3896.MP4", "id": 543, "verdict": "no", "why": "queue at the line, front at the paint"},
+    {"video": "C3896.MP4", "id": 582, "verdict": "no", "why": "queue at the line"},
+    {"video": "C3896.MP4", "id": 3416, "verdict": "no", "why": "stopped at the line during red"},
+    {"video": "C3897.MP4", "id": 2, "verdict": "no", "why": "front at the line"},
+    {"video": "C3897.MP4", "id": 361, "verdict": "no", "why": "queue at the line"},
+    {"video": "C3897.MP4", "id": 509, "verdict": "no", "why": "queue at the line"},
+    {"video": "C3897.MP4", "id": 852, "verdict": "no", "why": "queue at the line"},
+    {"video": "C3897.MP4", "id": 1987, "verdict": "no", "why": "queue at the line"},
+    {"video": "C3902.MP4", "id": 889, "verdict": "no", "why": "queue at the line"},
+    {"video": "C3902.MP4", "id": 1746, "verdict": "no", "why": "motorcycle waits at the line"},
+    {"video": "C3902.MP4", "id": 1787, "verdict": "no", "why": "motorcycle waits at the line"},
+    {"video": "C3902.MP4", "id": 1929, "verdict": "no", "why": "motorcycle waits at the line"},
+    {"video": "C3902.MP4", "id": 5893, "verdict": "no", "why": "at the line"},
+    {"video": "C3905.MP4", "id": 1129, "verdict": "no", "why": "van waits at the line in the right-turn lane"},
+    {"video": "C3905.MP4", "id": 1416, "verdict": "no", "why": "at the line"},
+    {"video": "C3905.MP4", "id": 1500, "verdict": "no", "why": "at the line"}
+  ],
+  "illegal_turn": [
+    {"video": "C3896.MP4", "start": 107.0, "end": 111.1, "id": 922, "verdict": "yes", "why": "white car from lane 2 cuts in front of the kerb-lane queue across the stop line into the slip lane"},
+    {"video": "C3897.MP4", "start": 173.8, "end": 177.5, "id": 2011, "verdict": "yes", "why": "dark SUV from lane 2 swings across the kerb lane at the stop line into the slip lane"},
+    {"video": "C3897.MP4", "start": 175.4, "end": 180.5, "id": 2175, "verdict": "no", "why": "continues straight through zebra A; misread as a turn by a track hand-off"},
+    {"video": "C3896.MP4", "id": 139, "verdict": "no", "why": "goes straight, then left toward the far side; not a side-road right turn"},
+    {"video": "C3896.MP4", "id": 3890, "verdict": "no", "why": "goes straight through the junction; not a side-road right turn"},
+    {"video": "C3902.MP4", "id": 4731, "verdict": "no", "why": "turns right from the kerb lane: legal"}
+  ],
+  "illegal_u_turn": [
+    {"video": "C3896.MP4", "start": 47.0, "end": 60.5, "id": 503, "verdict": "yes", "why": "white taxi reverses direction around the median nose across zebra A/B"}
+  ]
+}
