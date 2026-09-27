@@ -76,11 +76,14 @@ The limit is 3 × the video length for Part A and Part B together. On sample C39
 | Apple M5 | 97 s | 25% |
 | RTX 4060 with an Intel i5-12400 | 135 s | 35% |
 | The same PC limited to 2 CPU cores | 235 s | 61% |
+| Tesla T4 with 2 slow CPU cores (Google Colab) | 412 s | over the limit |
 
 Decoding the 4K video, not the GPU, sets the speed. Part A decodes on a background thread while it
 analyses. If a slow machine would still run over the limit, Part B stops early
 ([vision/budget.py](vision/budget.py)), so the video keeps its events and loses only its risk curve.
-Not tested on a T4.
+Part A has no such guard: on Colab's 2 CPU cores it alone took 412 s, so that video scored empty.
+The organizers' machine has 8 cores. The same Colab T4 ran a 20-second clip within its limit, with
+the same events as on the Mac.
 
 ## Reproducibility
 

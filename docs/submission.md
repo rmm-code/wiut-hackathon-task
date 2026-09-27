@@ -23,7 +23,7 @@ Every requirement in the task PDF, [research/WIUT Hackathon _ CV Track Eliminati
 
 | Limit | Status | Evidence |
 | --- | --- | --- |
-| T4-class GPU, 8 CPU cores, 32 GB | Partial | Not run on a T4. C3905 used 35% of its time budget on an RTX 4060, and 61% with the process pinned to two CPU cores |
+| T4-class GPU, 8 CPU cores, 32 GB | Partial | On a Tesla T4 (Google Colab, Linux) it installs and gives the same events as on the Mac; with only 2 CPU cores there, C3905 took 412 s, over its 383 s limit. C3905 used 35% of its limit on an RTX 4060, and 61% on 2 cores of the same PC. Not measured on 8 cores |
 | No internet during evaluation | Done | Nothing is downloaded at inference; a missing checkpoint raises an error |
 | At most 3 × the video duration | Done | 25–29% of the budget on an Apple M5; Part B stops early rather than let a video run over |
 | Python 3.10 or newer | Done | Installs on 3.10–3.13 |
@@ -90,7 +90,8 @@ Every requirement in the task PDF, [research/WIUT Hackathon _ CV Track Eliminati
 
 ## Known gaps
 
-- **Runtime on a T4.** Not measured. The organizers' CPU sets the pace, because 4K decoding dominates.
+- **Runtime on the organizers' machine.** The CPU sets the pace, because 4K decoding dominates. A T4 with 2 CPU
+  cores was too slow for C3905 (412 s of 383 s); the organizers' machine has 8 cores. Part A has no time guard.
 - **Dev labels.** They are model-assisted AI reviews, not independent human annotation, and the rules
   were tuned on the same videos.
 - **Unmeasured classes.** Accident, fire and smoke, road obstacle, congestion, wrong way and illegal
