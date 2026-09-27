@@ -40,9 +40,7 @@ export function RiskChart({
         icon="chart"
         title="Risk over time"
         subtitle="Accident risk over the next 5 seconds"
-        action={
-          <span className="subtle-badge">Risk score</span>
-        }
+        action={<span className="subtle-badge">Risk score</span>}
       />
       {risk.length ? (
         <>
@@ -69,7 +67,7 @@ export function RiskChart({
             >
               <AreaChart
                 data={data}
-                margin={{ top: 12, right: 15, bottom: 0, left: -25 }}
+                margin={{ top: 12, right: 15, bottom: 0, left: 0 }}
               >
                 <CartesianGrid
                   stroke="#eff0f3"
@@ -81,15 +79,16 @@ export function RiskChart({
                   type="number"
                   domain={["dataMin", "dataMax"]}
                   tickFormatter={time}
-                  tick={{ fontSize: 12, fill: "#8b8c95" }}
+                  tick={{ fontSize: 12, fill: "#737373" }}
                   axisLine={false}
                   tickLine={false}
                   minTickGap={40}
                 />
                 <YAxis
+                  width={40}
                   domain={[0, 100]}
                   ticks={[0, 50, 100]}
-                  tick={{ fontSize: 12, fill: "#8b8c95" }}
+                  tick={{ fontSize: 12, fill: "#737373" }}
                   tickFormatter={(v) => `${v}%`}
                   axisLine={false}
                   tickLine={false}
@@ -167,74 +166,78 @@ export function TrafficChart({
           icon="car"
         />
       ) : (
-      <>
-      <div
-        className="traffic-chart"
-        role="img"
-        aria-label="Measured tracker counts by first appearance"
-      >
-        <ResponsiveContainer
-          width="100%"
-          height="100%"
-          initialDimension={{ width: 320, height: 180 }}
-        >
-          <BarChart
-            data={activity}
-            barGap={4}
-            margin={{ left: -25, right: 15, top: 15 }}
+        <>
+          <div
+            className="traffic-chart"
+            role="img"
+            aria-label="Measured tracker counts by first appearance"
           >
-            <CartesianGrid vertical={false} stroke="#eff0f3" />
-            <XAxis
-              dataKey="time"
-              axisLine={false}
-              tickLine={false}
-              tick={{ fontSize: 12, fill: "#81828b" }}
-            />
-            <YAxis
-              axisLine={false}
-              tickLine={false}
-              tick={{ fontSize: 12, fill: "#81828b" }}
-            />
-            <Tooltip contentStyle={tooltipStyle} cursor={{ fill: "#f7f7fa" }} />
-            <Bar
-              dataKey="cars"
-              name="Cars"
-              fill="#71a9ed"
-              radius={[3, 3, 0, 0]}
-              maxBarSize={18}
-            />
-            <Bar
-              dataKey="buses"
-              name="Large vehicles"
-              fill="#efb366"
-              radius={[3, 3, 0, 0]}
-              maxBarSize={18}
-            />
-            <Bar
-              dataKey="people"
-              name="Pedestrians"
-              fill="#73c6a4"
-              radius={[3, 3, 0, 0]}
-              maxBarSize={18}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-      <div className="risk-caption chart-legend">
-        <span>
-          <i className="dot bg-blue" />
-          Cars
-        </span>
-        <span>
-          <i className="dot bg-amber" />
-          Large vehicles
-        </span>
-        <span>
-          <i className="dot bg-green" />
-          Pedestrians
-        </span>
-      </div>
-      </>
+            <ResponsiveContainer
+              width="100%"
+              height="100%"
+              initialDimension={{ width: 320, height: 180 }}
+            >
+              <BarChart
+                data={activity}
+                barGap={4}
+                margin={{ left: 0, right: 15, top: 15 }}
+              >
+                <CartesianGrid vertical={false} stroke="#eff0f3" />
+                <XAxis
+                  dataKey="time"
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fontSize: 12, fill: "#737373" }}
+                />
+                <YAxis
+                  width={40}
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fontSize: 12, fill: "#737373" }}
+                />
+                <Tooltip
+                  contentStyle={tooltipStyle}
+                  cursor={{ fill: "#f7f7fa" }}
+                />
+                <Bar
+                  dataKey="cars"
+                  name="Cars"
+                  fill="#71a9ed"
+                  radius={[3, 3, 0, 0]}
+                  maxBarSize={18}
+                />
+                <Bar
+                  dataKey="buses"
+                  name="Large vehicles"
+                  fill="#efb366"
+                  radius={[3, 3, 0, 0]}
+                  maxBarSize={18}
+                />
+                <Bar
+                  dataKey="people"
+                  name="Pedestrians"
+                  fill="#73c6a4"
+                  radius={[3, 3, 0, 0]}
+                  maxBarSize={18}
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="risk-caption chart-legend">
+            <span>
+              <i className="dot bg-blue" />
+              Cars
+            </span>
+            <span>
+              <i className="dot bg-amber" />
+              Large vehicles
+            </span>
+            <span>
+              <i className="dot bg-green" />
+              Pedestrians
+            </span>
+          </div>
+        </>
       )}
     </section>
   );

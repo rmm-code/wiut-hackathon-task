@@ -5,16 +5,12 @@
 .timeline-card .card-head {
   border-bottom: 1px solid #eeeeee;
 }
-.timeline-scroll {
-  overflow-x: auto;
-}
 .timeline-grid {
-  min-width: 650px;
   padding: 0 18px 9px;
 }
 .timeline-ruler {
   display: grid;
-  grid-template-columns: 139px 1fr;
+  grid-template-columns: 170px 1fr;
   height: 36px;
   align-items: center;
 }
@@ -32,7 +28,7 @@
   position: absolute;
   top: 11px;
   font-size: 11px;
-  color: #747474;
+  color: #737373;
   border: 0;
   background: none;
   padding: 0;
@@ -47,20 +43,24 @@
 }
 .timeline-row {
   display: grid;
-  grid-template-columns: 139px 1fr;
-  min-height: 39px;
+  grid-template-columns: 170px 1fr;
 }
 .timeline-label {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   font-size: 12px;
-  color: #737373;
+  color: #292929;
   border-top: 1px solid #f4f4f4;
-  padding-right: 7px;
+  padding-right: 16px;
 }
-.timeline-label svg {
-  color: #747474;
+.timeline-label b {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.timeline-row.is-empty .timeline-label {
+  color: #737373;
 }
 .timeline-tracks {
   background-size: 20% 100%;
@@ -76,66 +76,38 @@
 }
 .timeline-lane {
   position: relative;
-  height: 39px;
+  height: 28px;
 }
+/* One row per class, so segments carry no text; colour is the severity. */
 .event-segment {
   position: absolute;
-  min-width: 8px;
-  height: 25px;
+  min-width: 6px;
+  height: 14px;
   top: 7px;
-  overflow: hidden;
-  padding: 0 6px;
-  text-align: left;
-  white-space: nowrap;
-  border-radius: 4px;
-  border: 1px solid;
-  border-left-width: 3px;
-  font-size: 11px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
   transition: box-shadow 0.15s;
-}
-.event-segment span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
 }
 .event-segment:hover,
 .event-segment.selected {
-  box-shadow: 0 0 0 2px #a5a5a55c;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 3px #292929;
   z-index: 3;
 }
-.segment-blue {
-  background: #eef4fc;
-  color: #4d76a4;
-  border-color: #dae6f6;
-  border-left-color: #89b0e7;
-}
-.segment-green {
-  background: #eaf6f0;
-  color: #457f65;
-  border-color: #d1ebdf;
-  border-left-color: #76b896;
+.segment-red {
+  background: var(--red);
 }
 .segment-amber {
-  background: #fcf6eb;
-  color: #906e38;
-  border-color: #f3e9d3;
-  border-left-color: #dfb970;
+  background: var(--amber);
 }
-.segment-slate {
-  background: #efefef;
-  color: #727272;
-  border-color: #e2e2e2;
-  border-left-color: #a6a6a6;
-}
-.segment-red {
-  background: #fbefee;
-  color: #9c6660;
-  border-color: #f0dcda;
-  border-left-color: #d9988f;
+.segment-green {
+  background: var(--green);
 }
 .timeline-cursor-track {
   position: absolute;
-  left: 139px;
+  left: 170px;
   right: 21px;
   top: 0;
   bottom: 0;
@@ -163,14 +135,53 @@
   justify-content: space-between;
   align-items: center;
   font-size: 11px;
-  color: #747474;
+  color: #737373;
   padding: 10px 17px;
   gap: 15px;
 }
-.timeline-footer > span:first-child {
+.timeline-legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.timeline-legend > span {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+@media (max-width: 600px) {
+  /* Phones: each class name sits above its own full-width track. */
+  .timeline-grid {
+    padding: 0 14px 9px;
+  }
+  .timeline-ruler,
+  .timeline-row {
+    grid-template-columns: 1fr;
+  }
+  .timeline-ruler > span {
+    display: none;
+  }
+  .timeline-label {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    padding: 7px 21px 0 0;
+  }
+  .timeline-tracks {
+    border-top: 0;
+  }
+  .timeline-lane {
+    height: 22px;
+  }
+  .timeline-row.is-empty .timeline-lane {
+    height: 10px;
+  }
+  .event-segment {
+    top: 4px;
+  }
+  .timeline-cursor-track {
+    left: 0;
+  }
 }
 .events-card {
   scroll-margin: 20px;
@@ -204,13 +215,13 @@
 }
 .table-tabs span {
   background: #f4f4f4;
-  color: #737373;
+  color: #666;
   border-radius: 4px;
   font-size: 11px;
   padding: 3px 5px;
 }
 .table-tabs button.active span {
-  color: #737373;
+  color: #666;
   background: #ebebeb;
 }
 .table-filters {
@@ -273,7 +284,7 @@ table {
 }
 thead {
   background: #f9f9f9;
-  color: #747474;
+  color: #666;
   border-block: 1px solid #efefef;
 }
 th {
@@ -355,13 +366,13 @@ tr.selected-row {
   display: inline;
   margin-left: 9px;
   font-size: 13px;
-  color: #737373;
+  color: #666;
   line-height: 1.8;
 }
 .event-detail td > span:last-child {
   display: block;
   font-size: 12px;
-  color: #737373;
+  color: #666;
   margin-top: 6px;
 }
 .table-footer {
@@ -433,5 +444,43 @@ tr.selected-row {
   }
   .events-card .card-heading p {
     font-size: 12px;
+  }
+  /* Phones: each event is a two-column row with the location underneath. */
+  .events-card thead,
+  .events-card .confidence-cell,
+  .events-card .details-cell {
+    display: none;
+  }
+  .events-card table,
+  .events-card tbody,
+  .events-card .event-detail,
+  .events-card .event-detail td {
+    display: block;
+  }
+  .events-card tbody tr:not(.event-detail) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 12px;
+    padding: 10px 16px;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  .events-card tbody tr:last-child {
+    border-bottom: 0;
+  }
+  .events-card tbody tr:not(.event-detail) td {
+    padding: 0;
+    border: 0;
+  }
+  .events-card .time-cell {
+    text-align: right;
+  }
+  .events-card .location-cell {
+    grid-column: 1 / -1;
+    padding: 4px 0 0 39px !important;
+    font-size: 12px;
+    white-space: normal;
+  }
+  .events-card .event-detail td {
+    padding: 12px 16px;
   }
 }

@@ -2,7 +2,7 @@ import { Fragment, useEffect, useMemo, useState } from "react";
 import { CardHead, Empty } from "./Card";
 import { Icon } from "./Icon";
 import { classes } from "../data/classes";
-import { time } from "../lib/format";
+import { plural, time } from "../lib/format";
 import type { Analysis, TrafficEvent } from "../types";
 
 export function Events({
@@ -152,7 +152,7 @@ export function Events({
               {visible.map((event) => (
                 <Fragment key={event.id}>
                   <tr className={selected === event.id ? "selected-row" : ""}>
-                    <td>
+                    <td className="event-cell">
                       <button
                         className="event-name"
                         onClick={() => onSelect(event)}
@@ -181,7 +181,7 @@ export function Events({
                         </span>
                       </button>
                     </td>
-                    <td>
+                    <td className="time-cell">
                       <span className="time-code">
                         {time(event.start)} — {time(event.end)}
                       </span>
@@ -189,8 +189,8 @@ export function Events({
                         {(event.end - event.start).toFixed(1)} seconds
                       </small>
                     </td>
-                    <td>{event.lane ?? "—"}</td>
-                    <td>
+                    <td className="location-cell">{event.lane ?? "—"}</td>
+                    <td className="confidence-cell">
                       {event.confidence === undefined ? (
                         <span className="muted">—</span>
                       ) : (
@@ -206,7 +206,7 @@ export function Events({
                         </div>
                       )}
                     </td>
-                    <td>
+                    <td className="details-cell">
                       <button
                         className="icon-button"
                         onClick={() => onSelect(event)}
@@ -238,7 +238,7 @@ export function Events({
       <div className="table-footer">
         <span>
           {filtered.length
-            ? `${current * 5 + 1}–${Math.min((current + 1) * 5, filtered.length)} of ${filtered.length} events`
+            ? `${current * 5 + 1}–${Math.min((current + 1) * 5, filtered.length)} of ${plural(filtered.length, "event")}`
             : "0 events"}
         </span>
         <div>

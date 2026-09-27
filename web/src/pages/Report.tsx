@@ -158,7 +158,11 @@ export function Report() {
           ))}
         </div>
       </section>
-      {error && <p role="alert">{error}</p>}
+      {error && (
+        <p className="card page-status" role="alert">
+          {error}
+        </p>
+      )}
       {data && <ReportEvidence data={data} />}
       <section className="card limitations">
         <CardHead icon="info" title="Built around honest evidence" />

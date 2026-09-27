@@ -254,7 +254,7 @@ def create_app(storage=None, start_worker=True):
             raise HTTPException(409, "Results are not ready.")
         analysis = json.loads((store.root / identity / "analysis.json").read_text())
         return {
-            "team": "wiut",
+            "team": "pitstop",
             "videos": {
                 job["filename"]: {
                     "events": analysis["events"],

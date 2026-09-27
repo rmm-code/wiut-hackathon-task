@@ -18,7 +18,7 @@
 }
 .job-status p {
   font-size: 12px;
-  color: #777;
+  color: #666;
   line-height: 1.6;
   margin-top: 4px;
 }
@@ -62,7 +62,7 @@
 }
 .analysis-info summary > span:nth-of-type(2) {
   margin-left: auto;
-  color: #777;
+  color: #737373;
 }
 .analysis-body {
   padding: 2px 15px 15px;

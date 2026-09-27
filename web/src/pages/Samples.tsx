@@ -37,6 +37,7 @@ export function Samples({
   const [archived, setArchived] = useState<string[]>([]);
   const [states, setStates] = useState<Record<string, string | null>>({});
   const [available, setAvailable] = useState<string[]>([]);
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     api
       .samples()
@@ -51,7 +52,8 @@ export function Samples({
           Object.fromEntries(items.map((item) => [item.id, item.state])),
         );
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setLoaded(true));
   }, []);
   return (
     <>
@@ -88,41 +90,47 @@ export function Samples({
         {samples.map((sample, i) => (
           <article className="card sample-card" key={sample.id}>
             <div className="sample-image">
-              <img
-                src={
-                  archived.includes(sample.id)
-                    ? `/api/samples/${sample.id}/eda/poster`
-                    : "/images/camera.webp"
-                }
-                alt={
-                  archived.includes(sample.id)
-                    ? `Annotated first frame of ${sample.name}`
-                    : "Shared reference view of the supplied intersection"
-                }
-              />
+              {loaded && (
+                <img
+                  src={
+                    archived.includes(sample.id)
+                      ? `/api/samples/${sample.id}/eda/poster`
+                      : "/images/camera.webp"
+                  }
+                  alt={
+                    archived.includes(sample.id)
+                      ? `Annotated first frame of ${sample.name}`
+                      : "Shared reference view of the supplied intersection"
+                  }
+                />
+              )}
               <span className="sample-number">0{i + 1}</span>
               <span className="sample-length">{time(sample.duration)}</span>
-              <span className="sample-image-label">
-                {archived.includes(sample.id)
-                  ? "Saved analysis"
-                  : "Shared camera reference"}
-              </span>
+              {loaded && (
+                <span className="sample-image-label">
+                  {archived.includes(sample.id)
+                    ? "Saved analysis"
+                    : "Shared camera reference"}
+                </span>
+              )}
             </div>
             <div className="sample-card-body">
               <div>
                 <h3>{sample.name}</h3>
-                <span
-                  className={`badge ${available.includes(sample.id) ? "badge-green" : "badge-neutral"}`}
-                >
-                  {available.includes(sample.id)
-                    ? states[sample.id] === "complete"
-                      ? "Analysis complete"
-                      : states[sample.id] === "running" ||
-                          states[sample.id] === "queued"
-                        ? "Analysis in progress"
-                        : "Ready to analyze"
-                    : "Original link"}
-                </span>
+                {loaded && (
+                  <span
+                    className={`badge ${available.includes(sample.id) ? "badge-green" : "badge-neutral"}`}
+                  >
+                    {available.includes(sample.id)
+                      ? states[sample.id] === "complete"
+                        ? "Analysis complete"
+                        : states[sample.id] === "running" ||
+                            states[sample.id] === "queued"
+                          ? "Analysis in progress"
+                          : "Ready to analyze"
+                      : "Original link"}
+                  </span>
+                )}
               </div>
               <p>
                 <Icon
@@ -134,9 +142,7 @@ export function Samples({
               </p>
               <div className="sample-actions">
                 <button className="button" onClick={() => onSample(sample)}>
-                  {available.includes(sample.id)
-                    ? "Open analysis"
-                    : "Open workspace"}{" "}
+                  Open on dashboard
                   <Icon name="arrow" size={15} />
                 </button>
                 <a
@@ -269,9 +275,10 @@ export function Samples({
           />
           <ul>
             <li>
-              <strong>South-east approach (orange).</strong> Five lanes run to the
-              stop line (red); 479 of 480 tracked stop-line crossings in the four
-              samples move this way. White lines are the solid lane markings.
+              <strong>South-east approach (orange).</strong> Five lanes run to
+              the stop line (red); 479 of 480 tracked stop-line crossings in the
+              four samples move this way. White lines are the solid lane
+              markings.
             </li>
             <li>
               <strong>North-west carriageway (green).</strong> Above the raised

@@ -13,8 +13,16 @@ export function Team() {
           camera.
         </p>
       </section>
-      {error && <p role="alert">{error}</p>}
-      {!data && !error && <p role="status">Loading team details…</p>}
+      {error && (
+        <p className="card page-status" role="alert">
+          {error}
+        </p>
+      )}
+      {!data && !error && (
+        <p className="card page-status" role="status">
+          Loading team details…
+        </p>
+      )}
       <div className="team-grid">
         {data?.team.map((member) => (
           <section className="card role-card" key={member.name}>

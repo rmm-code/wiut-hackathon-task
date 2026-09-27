@@ -372,10 +372,13 @@
 .activity-card .card-footer {
   margin-top: auto;
 }
+.activity-legend {
+  padding: 2px 10px 12px;
+}
 .activity-empty {
   flex: 1;
   padding: 20px 16px;
-  color: #777;
+  color: #737373;
   font-size: 12px;
 }
 .review-panel {
@@ -404,7 +407,7 @@
 }
 .review-panel summary p {
   font-size: 12px;
-  color: #777;
+  color: #737373;
   margin-top: 3px;
 }
 .review-panel[open] > summary > svg {
@@ -482,5 +485,11 @@
 @media (max-width: 800px) {
   .operator-grid {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  /* The badges would cover the top of a phone-sized video. */
+  .camera-top {
+    display: none;
   }
 }

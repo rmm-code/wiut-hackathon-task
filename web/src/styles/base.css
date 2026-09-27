@@ -163,27 +163,27 @@ img {
 }
 .badge-neutral {
   background: #f3f3f3;
-  color: #747474;
+  color: #6d6d6d;
 }
 .badge-green {
   background: #edf8f2;
-  color: #3c805e;
+  color: #3a7b5a;
 }
 .badge-amber {
   background: #fcf4e8;
-  color: #966b30;
+  color: #90672e;
 }
 .badge-blue {
   background: #edf4fd;
-  color: #4976aa;
+  color: #4570a2;
 }
 .badge-slate {
   background: #efefef;
-  color: #727272;
+  color: #6b6b6b;
 }
 .badge-red {
   background: #fbeeed;
-  color: #ae5c5e;
+  color: #a25657;
 }
 .dot {
   display: inline-block;
@@ -209,23 +209,23 @@ img {
 }
 .tone-blue {
   background: #eaf2fc;
-  color: #3f75b7;
+  color: #3b6eac;
 }
 .tone-green {
   background: #eaf6ef;
-  color: #348161;
+  color: #31795b;
 }
 .tone-amber {
   background: #fdf3e4;
-  color: #986b23;
+  color: #906621;
 }
 .tone-slate {
   background: #ededed;
-  color: #717171;
+  color: #6a6a6a;
 }
 .tone-red {
   background: #fbecec;
-  color: #b05b5b;
+  color: #a25454;
 }
 .card {
   min-width: 0;
@@ -297,7 +297,7 @@ button.card-footer:hover {
 }
 .tinted-green {
   background: #eef8f3;
-  color: #418061;
+  color: #3e7b5d;
   border-top-color: #e3f1e9;
 }
 .tinted-amber {

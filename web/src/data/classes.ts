@@ -28,7 +28,7 @@ export const classes: Record<
   wrong_way: {
     name: "Wrong-way driving",
     level: "critical",
-    color: "slate",
+    color: "red",
     description: "A vehicle moves against the permitted direction of its lane.",
   },
   illegal_u_turn: {
@@ -40,14 +40,14 @@ export const classes: Record<
   stopped_vehicle: {
     name: "Stopped vehicle",
     level: "notice",
-    color: "blue",
+    color: "green",
     description:
       "Stationary on the carriageway for at least 10 seconds, outside a signal queue.",
   },
   jaywalking: {
     name: "Pedestrian on road",
     level: "warning",
-    color: "slate",
+    color: "amber",
     description:
       "A pedestrian enters the carriageway outside a marked crossing.",
   },
@@ -61,19 +61,19 @@ export const classes: Record<
   illegal_turn: {
     name: "Illegal turn",
     level: "warning",
-    color: "slate",
+    color: "amber",
     description: "A turn from the wrong lane or in a prohibited direction.",
   },
   solid_line_crossing: {
     name: "Solid-line crossing",
     level: "warning",
-    color: "blue",
+    color: "amber",
     description: "A vehicle manoeuvres across a solid road marking.",
   },
   stop_line: {
     name: "Stop-line violation",
     level: "notice",
-    color: "blue",
+    color: "green",
     description:
       "A vehicle stops beyond the stop line on red without entering the intersection.",
   },

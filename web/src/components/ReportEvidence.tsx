@@ -1,7 +1,13 @@
 import { CardHead } from "./Card";
 import { classes } from "../data/classes";
 import { time } from "../lib/format";
-import type { AblationReport, ConfusionReport, DevsetReport, Label, ProjectInfo } from "../types";
+import type {
+  AblationReport,
+  ConfusionReport,
+  DevsetReport,
+  Label,
+  ProjectInfo,
+} from "../types";
 
 const failures = [
   {
@@ -130,7 +136,10 @@ function Confusion({ report }: { report: ConfusionReport }) {
                   <td>
                     {others.length
                       ? others
-                          .map(([name, count]) => `${classes[name as Label].name} ×${count}`)
+                          .map(
+                            ([name, count]) =>
+                              `${classes[name as Label].name} ×${count}`,
+                          )
                           .join(", ")
                       : 0}
                   </td>
@@ -166,7 +175,7 @@ function Ablation({ report }: { report: AblationReport }) {
         title="Ablations"
         subtitle="One change at a time · Score A on our sample labels"
       />
-      <div className="report-table">
+      <div className="report-table ablation-table">
         <table>
           <thead>
             <tr>

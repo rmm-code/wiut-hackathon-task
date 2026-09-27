@@ -14,6 +14,10 @@ The public site at https://wiut.mardonjon.me: React + Vite in `src/`, served by 
   bar shows only the page title.
 - Dashboard order: summary cards (event overview, traffic activity), then the Video & risk panel,
   open, then the timeline, the event log, the operator summary and the analysis details.
+- The event timeline has one row for each of the 14 official classes, in the task's order, with its
+  count; classes with no events stay as grey rows. On phones each class name sits above its track.
+- Event colour means severity everywhere: red critical, amber warning, green notice, as in the
+  event overview. Every chart with more than one colour has a legend.
 - The live demo has its own tab. It holds the drop area and the three steps in one card, stacked
   on phones. An upload shows its progress and then its results on that page.
 - Only real results are shown: no illustrative or example data, no import of results files, no
@@ -25,5 +29,7 @@ The public site at https://wiut.mardonjon.me: React + Vite in `src/`, served by 
 ## Working rules
 
 - English throughout; short comments; source files at most 700 lines.
+- Text keeps at least 4.5:1 contrast on its own background: #737373 is the lightest grey on white;
+  use #666 on tinted surfaces.
 - Run the dev server and check changes in the browser before deploying.
 - Record lasting design decisions from the user in this file.

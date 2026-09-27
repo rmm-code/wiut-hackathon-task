@@ -2,32 +2,8 @@ import { CardHead, Empty } from "./Card";
 import { Icon } from "./Icon";
 import { time } from "../lib/format";
 import { classes } from "../data/classes";
-import type { Label, TrafficEvent } from "../types";
-import type { IconName } from "./Icon";
-
-const groups: { name: string; icon: IconName; labels: Label[] }[] = [
-  {
-    name: "Safety",
-    icon: "shield",
-    labels: ["accident", "near_miss", "fire_smoke"],
-  },
-  {
-    name: "Violations",
-    icon: "signal",
-    labels: ["red_light", "wrong_way", "illegal_turn", "illegal_u_turn"],
-  },
-  {
-    name: "Pedestrians",
-    icon: "person",
-    labels: ["jaywalking", "failure_to_yield"],
-  },
-  { name: "Stopped vehicles", icon: "car", labels: ["stopped_vehicle"] },
-  {
-    name: "Road activity",
-    icon: "road",
-    labels: ["congestion", "road_obstacle", "solid_line_crossing", "stop_line"],
-  },
-];
+import { labels } from "../types";
+import type { TrafficEvent } from "../types";
 
 function lanes(events: TrafficEvent[]): TrafficEvent[][] {
   const result: TrafficEvent[][] = [];
@@ -60,7 +36,7 @@ export function Timeline({
       <CardHead
         icon="clock"
         title="Event timeline"
-        subtitle="Events by type and time. Click one to jump the video to it."
+        subtitle="One row for each of the 14 event classes. Click an event to jump the video to it."
         action={
           <span className="subtle-badge">
             <Icon name="film" size={14} />
@@ -75,33 +51,35 @@ export function Timeline({
           icon="clock"
         />
       ) : (
-        <div className="timeline-scroll">
-          <div className="timeline-grid">
-            <div className="timeline-ruler">
-              <span>EVENT GROUP</span>
-              <div>
-                {ticks.map((tick, i) => (
-                  <button
-                    key={i}
-                    style={{ left: `${i * 20}%` }}
-                    onClick={() => onSeek(tick)}
-                  >
-                    {time(tick)}
-                  </button>
-                ))}
-              </div>
+        <div className="timeline-grid">
+          <div className="timeline-ruler">
+            <span>EVENT CLASS</span>
+            <div>
+              {ticks.map((tick, i) => (
+                <button
+                  key={i}
+                  style={{ left: `${i * 20}%` }}
+                  onClick={() => onSeek(tick)}
+                >
+                  {time(tick)}
+                </button>
+              ))}
             </div>
-            <div className="timeline-rows">
-              {groups.map((group) => (
-                <div className="timeline-row" key={group.name}>
+          </div>
+          <div className="timeline-rows">
+            {labels.map((label) => {
+              const found = events.filter((e) => e.label === label);
+              return (
+                <div
+                  className={`timeline-row ${found.length ? "" : "is-empty"}`}
+                  key={label}
+                >
                   <div className="timeline-label">
-                    <Icon name={group.icon} size={17} />
-                    <span>{group.name}</span>
+                    <span>{classes[label].name}</span>
+                    <b>{found.length}</b>
                   </div>
                   <div className="timeline-tracks">
-                    {lanes(
-                      events.filter((e) => group.labels.includes(e.label)),
-                    ).map((lane, i) => (
+                    {lanes(found).map((lane, i) => (
                       <div className="timeline-lane" key={i}>
                         {lane.map((event) => (
                           <button
@@ -114,29 +92,37 @@ export function Timeline({
                             onClick={() => onSelect(event)}
                             title={`${classes[event.label].name} · ${time(event.start)}–${time(event.end)}`}
                             aria-label={`${classes[event.label].name}, ${time(event.start)} to ${time(event.end)}`}
-                          >
-                            <span>{classes[event.label].name}</span>
-                          </button>
+                          />
                         ))}
                       </div>
                     ))}
                   </div>
                 </div>
-              ))}
-              <div className="timeline-cursor-track">
-                <span
-                  className="timeline-cursor"
-                  style={{ left: `${(position / duration) * 100}%` }}
-                />
-              </div>
+              );
+            })}
+            <div className="timeline-cursor-track">
+              <span
+                className="timeline-cursor"
+                style={{ left: `${(position / duration) * 100}%` }}
+              />
             </div>
           </div>
         </div>
       )}
       <div className="timeline-footer">
-        <span>
-          <Icon name="info" size={14} />
-          Different event types can overlap.
+        <span className="timeline-legend">
+          <span>
+            <i className="dot bg-red" />
+            Critical
+          </span>
+          <span>
+            <i className="dot bg-amber" />
+            Warning
+          </span>
+          <span>
+            <i className="dot bg-green" />
+            Notice
+          </span>
         </span>
         <span>Video time · mm:ss</span>
       </div>

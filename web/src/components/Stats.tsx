@@ -64,7 +64,8 @@ export function Stats({
                 {name}
               </span>
               <span>
-                <b>{available ? count : "—"}</b> events
+                <b>{available ? count : "—"}</b>{" "}
+                {available && count === 1 ? "event" : "events"}
               </span>
             </div>
           ))}
