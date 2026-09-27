@@ -1,7 +1,7 @@
 # Development labels
 
 - `labels.json`: our event labels for the four organizer sample videos, in the official
-  `ground_truth.json` format. 77 segments in six classes.
+  `ground_truth.json` format. 78 segments in six classes.
 - `notes.json`: one record per reviewed candidate, accepted, rejected or uncertain, with time, track
   identities, source and a short reason (127 accepted records, 248 rejected, 28 uncertain).
 - `report.json`: the official Part A metric of `predictions_samples.json` against these labels, as shown
@@ -67,7 +67,7 @@ annotation**.
 | illegal_turn | Right turn into the side road from lanes 2–5 (clause 56: turns start from the extreme lane) | Stop-line crossing → turn completed |
 | solid_line_crossing | Lane change across one of the four solid lane lines before the stop line | Wheel on the line → fully in the new lane |
 | stopped_vehicle | None accepted. Every candidate was a signal queue, a vehicle waiting in the junction box to U-turn or turn, far-kerb parking or a bus stop, or a vehicle waiting at the north-east driveway | — |
-| illegal_u_turn | None. All 11 tracked U-turns start from the median lane, and no sign or marking prohibits them | — |
+| illegal_u_turn | None. 10 of 11 tracked U-turns start in the median lane and the eleventh on the line beside it; no sign or marking prohibits them | — |
 | near_miss, wrong_way, congestion, accident, fire_smoke, road_obstacle | None occurred | — |
 
 ## Limits

@@ -28,18 +28,18 @@ There are no official labels, so we labelled the four sample videos ourselves; t
 3. Signal, turn and lane-line cases were re-checked at high zoom with measured geometry: front overshoot
    past the stop line, the lane at the stop line, and the lane coordinate between the painted lines.
 
-This gave 77 labelled segments in six classes, 248 rejected candidates and 28 left uncertain.
+This gave 78 labelled segments in six classes, 248 rejected candidates and 28 left uncertain.
 
 | Class | Labelled | Predicted | Precision | Recall | F1 @ tIoU 0.3 / 0.5 / 0.7 |
 | --- | ---: | ---: | ---: | ---: | --- |
 | stop_line | 10 | 10 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
 | red_light | 3 | 3 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
-| illegal_turn | 4 | 4 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
+| illegal_turn | 5 | 4 | 1.00 | 0.80 | 0.89 / 0.89 / 0.67 |
 | solid_line_crossing | 2 | 3 | 0.67 | 1.00 | 0.80 / 0.80 / 0.40 |
 | failure_to_yield | 22 | 33 | 0.52 | 0.77 | 0.62 / 0.62 / 0.58 |
 | jaywalking | 36 | 36 | 0.61 | 0.61 | 0.72 / 0.61 / 0.39 |
 
-Precision and recall are at tIoU 0.5. **Score A on these labels is 0.808**; no other class is
+Precision and recall are at tIoU 0.5. **Score A on these labels is 0.777**; no other class is
 labelled or predicted. The predictions this work replaced (353 events in 10 classes) scored **0.085**
 on the same labels. Most of the gap comes from false events in classes the samples do not contain:
 125 of them, in near_miss, congestion, wrong_way and stopped_vehicle.
@@ -60,9 +60,9 @@ measurement, not a test-set estimate.
   the lamp must have been red for a second, and must still be red 1.5 s after the crossing. That
   excludes amber clearance and starts in the last second of red.
 - **Reasoning from the traffic rules, not from rarity.** Clause 56 (turn from the extreme lane)
-  identified five right turns from the wrong lane; the rule finds all of them. Clause 56 also shows
-  that the eleven U-turns around the median nose, all from the median lane, are legal, so the U-turn
-  rule flags only U-turns started from other lanes.
+  identified five right turns from the wrong lane; the rule finds four. Clause 56 also means the
+  U-turns around the median nose are legal: 10 of 11 start in the median lane and the eleventh on the
+  line beside it. The U-turn rule therefore flags only U-turns started from lanes 1–3.
 - **Negative evidence.** Review found no near miss, wrong-way drive, congestion episode, accident,
   fire or obstacle in the samples. Near-miss detection was switched off because every detection was a
   false alarm. The wrong-way rule was rewritten after 38 of 38 candidates proved to be U-turns through

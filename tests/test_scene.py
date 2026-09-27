@@ -34,10 +34,12 @@ def test_class_coverage_follows_verified_scene_facts():
     assert not result["fire_smoke"]["enabled"]
 
 
-def test_c3902_uses_native_scale_without_weakening_camera_gate():
+def test_c3902_aligns_without_weakening_camera_gate():
     scene = Scene(Settings.load().camera())
     frame = cv2.imread("tests/fixtures/c3902.png")
-    assert scene._alignment(frame, (960, 540))[0] is None
+    # This dim frame sits on the inlier-fraction gate at 960x540: the first scale fails on
+    # macOS and passes on Linux. Either way alignment must succeed, via the native-scale retry
+    # if needed, and land on the same view.
     assert scene.align(frame)
     # The same fixed camera should map landmarks close to their original positions.
     assert np.allclose(scene.point((0.5, 0.5)), (0.5, 0.5), atol=0.035)

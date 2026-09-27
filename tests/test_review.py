@@ -3,7 +3,7 @@ import pytest
 from fastapi.testclient import TestClient
 from api.main import create_app
 from api.review import validate_labels
-from test_api import clip
+from test_api import clip, uploads
 
 
 def test_labels_reject_invalid_or_overlapping_intervals():
@@ -21,6 +21,7 @@ def test_labels_reject_invalid_or_overlapping_intervals():
     ]
 
 
+@uploads
 def test_draft_cannot_be_exported_and_review_is_owned(tmp_path):
     app = create_app(tmp_path / "jobs", start_worker=False)
     with TestClient(app) as client:

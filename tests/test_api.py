@@ -1,7 +1,17 @@
+import shutil
 import cv2
 import numpy as np
+import pytest
 from fastapi.testclient import TestClient
 from api.main import create_app
+from vision.settings import Settings
+
+# The website's upload endpoint needs ffmpeg/ffprobe and the downloaded weights; the
+# offline submission needs neither ffmpeg nor this endpoint.
+uploads = pytest.mark.skipif(
+    not (shutil.which("ffmpeg") and shutil.which("ffprobe") and Settings.load().weights.is_file()),
+    reason="upload endpoint needs ffmpeg, ffprobe and downloaded weights",
+)
 
 
 def clip(tmp_path):
@@ -13,6 +23,7 @@ def clip(tmp_path):
     return path.read_bytes()
 
 
+@uploads
 def test_upload_is_queued_owned_and_cancellable(tmp_path):
     app = create_app(tmp_path / "jobs", start_worker=False)
     with TestClient(app) as client:
@@ -28,6 +39,7 @@ def test_upload_is_queued_owned_and_cancellable(tmp_path):
         assert client.delete(f"/api/jobs/{identity}").json()["state"] == "cancelled"
 
 
+@uploads
 def test_invalid_files_and_cross_origin_posts_are_rejected(tmp_path):
     with TestClient(create_app(tmp_path / "jobs", start_worker=False)) as client:
         assert (

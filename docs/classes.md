@@ -18,7 +18,7 @@ detection on that background and land on the paint in all four videos.
 
 | Fact | Evidence |
 | --- | --- |
-| South-east approach signal = median vehicle head | Across C3896 and C3897, 97% of south-east-bound stop-line crossings happen while it is green, and the queue discharges exactly when it turns green |
+| South-east approach signal = median vehicle head | Across the four samples, 471 of 479 south-east-bound stop-line crossings (98%) happen while it is green, and the queue discharges exactly when it turns green |
 | No visible head governs the north-west approach | North-west-bound traffic crosses zebra B in both lamp states, so no red-light rule is applied there |
 | Five lanes, four solid lane lines before the stop line | Painted-line detection plus five clean clusters of stop-line crossing positions |
 | Lane arrows and turn signs | None visible on the approach (the gantry carries only a priority-road sign and signal heads) |
@@ -27,16 +27,21 @@ detection on that background and land on the paint in all four videos.
 ## Turn classes
 
 **illegal_turn: active.** A right turn into the side road must start from the kerb lane (clause 56). In
-the samples, 12 of 17 right turns do so. The other five (C3896 at 106.6 s and 274.4 s, C3897 at 172.3 s and
-175.4 s, C3902 at 280.5 s) cut across the kerb lane from lanes 2–3. The rule flags a vehicle first seen
-moving in lanes 2–5 over the solid-line section that then travels into the side road. The event runs
-from the stop-line crossing to the completed turn.
+the four samples, 20 of 25 right turns into the side road cross the stop line in the kerb lane. The other
+five (C3896 at 33.2 s, 106.6 s and 274.4 s, C3897 at 175.4 s, C3902 at 280.5 s) cross it in lanes 2–3.
+The rule flags a vehicle first seen moving in lanes 2–5 over the solid-line section that then travels
+into the side road. The event runs from the stop-line crossing to the completed turn.
+
+The rule finds four of the five. It misses C3896 #139, which creeps through a congested junction for
+20 s. It also flags C3897 #2011: that car moved into the kerb lane across solid lines before the stop
+line, so its turn is legal, but the rule only checks where a vehicle was, not its lane at the line.
+That detection merged with #2175's event into one segment.
 
 **illegal_u_turn: active, narrow.** U-turns around the median nose are frequent: 11 were tracked end to end
-in the samples, all from the median lane. No sign or marking prohibits them. The reversal happens in the
-junction rather than on a zebra, so they are treated as legal. Only a U-turn started from lanes 1–3
-violates clause 56, and none occurred in the samples, so the rule is correct-by-construction here but
-unmeasured. An earlier draft treated every nose U-turn as a clause 62 violation. That was rejected
+in the samples: 10 start in the median lane and one on the line between lanes 4 and 5. No sign or marking prohibits them. The reversal happens in the
+junction rather than on a zebra, so they are treated as legal. Clause 56 is broken by any U-turn not started from the median lane. The rule flags lanes 1–3
+only, because vehicles on the line between lanes 4 and 5 are ambiguous. None occurred in the samples, so the rule is untested
+here. An earlier draft treated every nose U-turn as a clause 62 violation. That was rejected
 because it would label a routine, permitted movement.
 
 If the organisers treat nose U-turns as illegal, add a rule with `from` = the median lane. The observed
@@ -48,7 +53,7 @@ examples are listed in the development notes.
 | --- | --- | --- |
 | red_light | Front crosses the stop line after the lamp has been red for 1 s, enters the junction, and the lamp is still red 1.5 s later. This excludes amber clearance and starts on red+amber | Active; 3 of 3 sample events found, no false alarms |
 | stop_line | Stationary with the front at least 0.35 box heights past the stop line during red; ends at the green onset. Several cars in one red phase form one segment | Active; 10 of 10 red phases found |
-| illegal_turn | Clause 56 right turn from lanes 2–5 (above) | Active; 4 of 4 segments found |
+| illegal_turn | Clause 56 right turn from lanes 2–5 (above) | Active; 4 of 5 found, no false alarms |
 | solid_line_crossing | The footprint straddles and then clears one of the four solid lane lines. Crossings less than 3 s apart form one event | Active; 2 of 2 found, 1 false alarm |
 | failure_to_yield | Vehicle moving across a crossing within one vehicle height of a pedestrian walking on it, away from the crossing's kerb ends (12% of its length) | Active; tuned on the labels |
 | jaywalking | Pedestrian foot point on the carriageway at least 0.06 pedestrian heights inside the kerb and 0.12 away from any crossing or island, for at least 3 s. Riders and pedestrians whose feet are hidden behind a vehicle are excluded | Active; tuned on the labels |

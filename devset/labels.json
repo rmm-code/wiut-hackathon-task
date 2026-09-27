@@ -9,6 +9,11 @@
     "jaywalking"
    ],
    [
+    33.2,
+    55.8,
+    "illegal_turn"
+   ],
+   [
     53.92,
     54.99,
     "failure_to_yield"
@@ -165,7 +170,7 @@
     "failure_to_yield"
    ],
    [
-    172.3,
+    175.4,
     183.5,
     "illegal_turn"
    ],

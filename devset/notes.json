@@ -4052,18 +4052,6 @@
   "video": "C3897.MP4",
   "label": "illegal_turn",
   "status": "accepted",
-  "start": 172.3,
-  "end": 178.7,
-  "ids": [
-   2011
-  ],
-  "source": "manual:zoom",
-  "why": "right turn from lane 2 swinging across the kerb lane at the stop line (clause 56)"
- },
- {
-  "video": "C3897.MP4",
-  "label": "illegal_turn",
-  "status": "accepted",
   "start": 175.4,
   "end": 183.5,
   "ids": [
@@ -4083,6 +4071,18 @@
   ],
   "source": "manual:zoom",
   "why": "right turn via the slip lane from lane 2 (clause 56)"
+ },
+ {
+  "video": "C3896.MP4",
+  "label": "illegal_turn",
+  "status": "accepted",
+  "start": 33.2,
+  "end": 55.8,
+  "ids": [
+   139
+  ],
+  "source": "manual:zoom",
+  "why": "crosses the stop line in lane 2, creeps through the congested junction box and turns right into the side road (clause 56); full track checked by eye"
  },
  {
   "video": "C3896.MP4",

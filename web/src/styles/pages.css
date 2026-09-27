@@ -591,3 +591,10 @@
 .coverage-report strong { display: block; margin-bottom: 7px; font-size: 13px; }
 .coverage-report a { text-decoration: underline; font-size: 12px; }
 @media (max-width: 750px) { .failure-grid, .coverage-report { grid-template-columns: 1fr; } }
+.example-list { display: grid; gap: 18px; padding: 16px; }
+.example-list figure { margin: 0; }
+.example-list img { display: block; width: 100%; height: auto; border-radius: 6px; background: #f5f5f5; }
+.example-list figcaption { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin-top: 10px; align-items: baseline; }
+.example-list figcaption strong { font-size: 14px; font-weight: 500; }
+.example-list figcaption span { font-size: 12px; color: #888; }
+.example-list figcaption p { grid-column: 1 / -1; font-size: 12px; line-height: 1.7; color: #666; margin: 0; }

@@ -80,12 +80,12 @@ python evaluate.py --pred predictions_samples.json --gt devset/labels.json --per
 | --- | ---: | ---: | ---: | ---: | --- |
 | stop_line | 10 | 10 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
 | red_light | 3 | 3 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
-| illegal_turn | 4 | 4 | 1.00 | 1.00 | 1.00 / 1.00 / 1.00 |
+| illegal_turn | 5 | 4 | 1.00 | 0.80 | 0.89 / 0.89 / 0.67 |
 | solid_line_crossing | 2 | 3 | 0.67 | 1.00 | 0.80 / 0.80 / 0.40 |
 | failure_to_yield | 22 | 33 | 0.52 | 0.77 | 0.62 / 0.62 / 0.58 |
 | jaywalking | 36 | 36 | 0.61 | 0.61 | 0.72 / 0.61 / 0.39 |
 
-Precision and recall are at tIoU 0.5. **Score A on these labels is 0.808**; no other class is
+Precision and recall are at tIoU 0.5. **Score A on these labels is 0.777**; no other class is
 labelled or predicted. The predictions this work replaced (353 events in 10 classes) scored **0.085**
 on the same labels. Most of the gap comes from false events in classes the samples do not contain:
 125 of them, in near_miss, congestion, wrong_way and stopped_vehicle.

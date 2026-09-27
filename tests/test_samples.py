@@ -2,7 +2,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from fastapi.testclient import TestClient
 from api.main import create_app
-from test_api import clip
+from test_api import clip, uploads
 
 
 def setup_sample(tmp_path, monkeypatch):
@@ -55,6 +55,7 @@ def test_sample_reuses_complete_results_and_requires_explicit_rerun(
         assert client.get(f"/api/jobs/{first}").json()["state"] == "complete"
 
 
+@uploads
 def test_cache_is_owner_scoped_and_not_based_on_uploaded_filename(
     tmp_path, monkeypatch
 ):

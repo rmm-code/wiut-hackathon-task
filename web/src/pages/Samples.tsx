@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { api } from "../lib/api";
 import { samples } from "../data/samples";
+import { examples } from "../data/examples";
+import { classes } from "../data/classes";
 import { time } from "../lib/format";
 import { Icon } from "../components/Icon";
 import { CardHead } from "../components/Card";
@@ -140,36 +142,41 @@ export function Samples({
         <section className="card">
           <CardHead
             icon="eye"
-            title="What the scene tells us"
-            subtitle="Preliminary visual observations"
+            title="What the samples taught us"
+            subtitle="Measured findings that shaped the rules"
           />
           <div className="observation-list">
             {[
               [
-                "person",
-                "Crossings need context",
-                "Marked crossings and pedestrian islands must be mapped separately.",
+                "signal",
+                "One lamp, one approach",
+                "98% of the 479 south-east stop-line crossings happen on the median lamp's green. North-west traffic ignores it, so only one approach gets signal rules.",
+              ],
+              [
+                "turn",
+                "Lanes decide legality",
+                "20 of 25 right turns start in the kerb lane and 10 of 11 U-turns in the median lane. Clause 56 turns that into the illegal-turn rule.",
               ],
               [
                 "car",
-                "Queues are part of normal traffic",
-                "A car waiting at a red light is not an abandoned vehicle.",
+                "Standing still is usually normal",
+                "Every vehicle stationary for 10 s was queueing, waiting to turn in the junction box, or parked at the far kerb. Those zones are excluded.",
               ],
               [
-                "cloud",
-                "Lighting changes what we can see",
-                "Strong shadows and darker footage need separate evaluation.",
+                "person",
+                "Jaywalking is a shortcut",
+                "Pedestrians cut across the slip lane between zebras A and C and walk beside zebra B. Feet on zebra paint are not jaywalking.",
               ],
               [
-                "camera",
-                "One view, many occlusions",
-                "Buses and nearby vehicles can temporarily hide smaller road users.",
+                "moon",
+                "Dusk dims the lamp",
+                "C3905 is filmed at dusk, so the lamp reader uses lower thresholds (saturation 100, value 50) that also hold in daylight.",
               ],
             ].map(([icon, title, text]) => (
               <div key={title}>
                 <span className="observation-icon">
                   <Icon
-                    name={icon as "person" | "car" | "cloud" | "camera"}
+                    name={icon as "signal" | "turn" | "car" | "person" | "moon"}
                     size={20}
                   />
                 </span>
@@ -182,6 +189,32 @@ export function Samples({
           </div>
         </section>
       </div>
+      <section className="card">
+        <CardHead
+          icon="check"
+          title="Examples of each detected class"
+          subtitle="Verified detections from the sample videos · open a sample to play the full event"
+        />
+        <div className="example-list">
+          {examples.map((item) => (
+            <figure key={item.label}>
+              <img
+                src={`/examples/${item.label}.jpg`}
+                alt={`${classes[item.label].name} in ${item.sample}`}
+                loading="lazy"
+              />
+              <figcaption>
+                <strong>{classes[item.label].name}</strong>
+                <span>
+                  {item.sample.replace(".MP4", "")} · {time(item.start)}–
+                  {time(item.end)}
+                </span>
+                <p>{item.text}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
       <p className="page-note">
         <Icon name="info" size={16} />
         Durations are rounded from the source players.{" "}

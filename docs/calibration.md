@@ -42,8 +42,8 @@ by eye (`python -m scripts.sheets` draws the overlays).
 
 ## Signal
 
-Only one vehicle signal head is visible, on the median. It governs the south-east approach: in C3896
-and C3897, 97% of south-east-bound stop-line crossings happen while it is green, and the queue discharges
+Only one vehicle signal head is visible, on the median. It governs the south-east approach: across the four
+samples, 471 of 479 south-east-bound stop-line crossings (98%) happen while it is green, and the queue discharges
 when it turns green. North-west-bound traffic crosses zebra B in both lamp states, so no visible head
 governs that approach and no signal rule is applied to it.
 

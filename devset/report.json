@@ -1,12 +1,12 @@
 {
- "score_a": 0.8078,
+ "score_a": 0.7769,
  "videos": [
   "C3896.MP4",
   "C3897.MP4",
   "C3902.MP4",
   "C3905.MP4"
  ],
- "labelled_events": 77,
+ "labelled_events": 78,
  "classes": [
   {
    "label": "failure_to_yield",
@@ -21,14 +21,14 @@
   },
   {
    "label": "illegal_turn",
-   "labelled": 4,
+   "labelled": 5,
    "predicted": 4,
-   "f1_0.3": 1.0,
-   "f1_0.5": 1.0,
-   "f1_0.7": 1.0,
+   "f1_0.3": 0.889,
+   "f1_0.5": 0.889,
+   "f1_0.7": 0.667,
    "precision": 1.0,
-   "recall": 1.0,
-   "f1_mean": 1.0
+   "recall": 0.8,
+   "f1_mean": 0.815
   },
   {
    "label": "jaywalking",

@@ -325,7 +325,7 @@
           0.175
         ]
       ],
-      "evidence": "Five lanes approach the stop line; 97% of tracked stop-line crossings move this way.",
+      "evidence": "Five lanes approach the stop line; 479 of 480 tracked stop-line crossings in the four samples move this way.",
       "wrong_way": true
     },
     {
@@ -705,7 +705,7 @@
           0.68
         ]
       ],
-      "evidence": "Median vehicle head. Across C3896/C3897, 97% of south-east-bound stop-line crossings happen while it is green and the approach discharges exactly when it turns green, so it is treated as this approach's signal. North-west-bound traffic crosses crossing B in both of its states, so no visible head governs that approach and no red-light rule is applied there. Stop line located from the temporal-median road background and five lane clusters of stop-line crossings."
+      "evidence": "Median vehicle head. Across the four samples, 471 of 479 south-east-bound stop-line crossings (98%) happen while it is green and the approach discharges exactly when it turns green, so it is treated as this approach's signal. North-west-bound traffic crosses crossing B in both of its states, so no visible head governs that approach and no red-light rule is applied there. Stop line located from the temporal-median road background and five lane clusters of stop-line crossings."
     }
   ],
   "solid_lines": [
@@ -834,7 +834,7 @@
         0.53
       ],
       "exit_cosine": 0.75,
-      "evidence": "Uzbekistan traffic rules, clause 56: before turning right the driver must take the extreme right position (https://uzpdd.uz/pddtext.php?id=9). No lane arrows or turn signs allow other lanes (temporal-median background of C3896). `from` covers lanes 2-5 between solid lane line 1 and the median over the last part of the solid section. In the samples 12 of 17 right turns use the kerb lane; the other 5 cut across it."
+      "evidence": "Uzbekistan traffic rules, clause 56: before turning right the driver must take the extreme right position (https://uzpdd.uz/pddtext.php?id=9). No lane arrows or turn signs allow other lanes (temporal-median background of C3896). `from` covers lanes 2-5 between solid lane line 1 and the median over the last part of the solid section. In the four samples 20 of 25 right turns into the side road cross the stop line in the kerb lane; 5 cross it in lanes 2-3."
     }
   ],
   "prohibited_u_turns": [
@@ -895,7 +895,7 @@
         -0.83,
         -0.56
       ],
-      "evidence": "Uzbekistan traffic rules, clause 56: before a U-turn the driver must take the extreme left position (https://uzpdd.uz/pddtext.php?id=9); four solid lane lines fix the lanes before the stop line. U-turns around the median nose from the median lane are frequent (11 tracked in the samples, all from the median lane) and no sign or marking prohibits them, so only U-turns started from lanes 1-3 are flagged. No no-U-turn sign is visible in the view."
+      "evidence": "Uzbekistan traffic rules, clause 56: before a U-turn the driver must take the extreme left position (https://uzpdd.uz/pddtext.php?id=9); four solid lane lines fix the lanes before the stop line. U-turns around the median nose from the median lane are frequent (10 of 11 tracked in the samples start in the median lane, the eleventh on the line beside it) and no sign or marking prohibits them, so only U-turns started from lanes 1-3 are flagged. No no-U-turn sign is visible in the view."
     }
   ],
   "experimental_conflicts": false,
